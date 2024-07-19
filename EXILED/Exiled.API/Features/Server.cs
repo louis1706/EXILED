@@ -216,6 +216,14 @@ namespace Exiled.API.Features
         public static void Shutdown() => global::Shutdown.Quit();
 
         /// <summary>
+        /// Shutdowns the server, disconnects all players.
+        /// </summary>
+        /// <param name="quit">idk ???.</param>
+        /// <param name="suppressShutdownBroadcast"> supress the shutdown broadcast.</param>
+        /// <seealso cref="ShutdownRedirect(ushort)"/>
+        public static void Shutdown(bool quit, bool suppressShutdownBroadcast = false) => global::Shutdown.Quit(quit, suppressShutdownBroadcast);
+
+        /// <summary>
         /// Redirects players to a server on another port, restarts the current server.
         /// </summary>
         /// <param name="redirectPort">The port to redirect players to.</param>
