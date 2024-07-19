@@ -34,10 +34,8 @@ namespace Exiled.Events.Patches.Events.Scp3114
         {
             List<CodeInstruction> newInstructions = ListPool<CodeInstruction>.Pool.Get(instruction);
 
-            Label retLabel = generator.DefineLabel();
+            Label retLabel = newInstructions[newInstructions.Count - 2].labels[0];
             Label jumpLabel = generator.DefineLabel();
-
-            retLabel = newInstructions[newInstructions.Count - 2].labels[0];
 
             LocalBuilder ev = generator.DeclareLocal(typeof(StranglingEventArgs));
 
