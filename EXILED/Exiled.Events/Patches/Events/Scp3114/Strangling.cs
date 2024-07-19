@@ -36,8 +36,8 @@ namespace Exiled.Events.Patches.Events.Scp3114
             Label jumpLabel = generator.DefineLabel();
             LocalBuilder ev = generator.DeclareLocal(typeof(StranglingEventArgs));
 
-            const int offset = 0;
-            int index = newInstructions.FindIndex(i => i.opcode == OpCodes.Ldloc_3) + offset;
+            const int offset = -1;
+            int index = newInstructions.FindIndex(i => i.opcode == OpCodes.Ldfld && i.operand == (object)Field(typeof(ReferenceHub), nameof(ReferenceHub.playerEffectsController))) + offset;
 
             newInstructions.InsertRange(index, new CodeInstruction[]
             {
