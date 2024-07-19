@@ -67,6 +67,9 @@ namespace Exiled.Events.Patches.Events.Scp3114
                 new(OpCodes.Ldloc_S, 4),
                 new(OpCodes.Stloc_S, 4),
                 new(OpCodes.Leave, retLabel),
+
+                // jump:
+                new CodeInstruction(OpCodes.Nop).WithLabels(jumpLabel),
             });
 
             for (int z = 0; z < newInstructions.Count; z++)
