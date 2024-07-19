@@ -53,8 +53,6 @@ namespace Exiled.Events.Patches.Events.Scp3114
                 // StranglingEventArgs ev = new(ReferenceHub, ReferenceHub);
                 new(OpCodes.Newobj, GetDeclaredConstructors(typeof(StranglingEventArgs))[0]),
                 new(OpCodes.Dup),
-                new(OpCodes.Dup),
-                new(OpCodes.Stloc, ev.LocalIndex),
 
                 // Scp3114.OnStrangling(ev);
                 new(OpCodes.Call, Method(typeof(Scp3114), nameof(Scp3114.OnStrangling))),
@@ -69,12 +67,6 @@ namespace Exiled.Events.Patches.Events.Scp3114
                 new(OpCodes.Ldloc_S, 4),
                 new(OpCodes.Stloc_S, 4),
                 new(OpCodes.Leave, retLabel),
-
-                // jumpLabel:
-                // strangleTarget2 = ev.StrangleTarget;
-                new CodeInstruction(OpCodes.Ldloc, ev.LocalIndex).WithLabels(jumpLabel),
-                new(OpCodes.Callvirt, PropertyGetter(typeof(StranglingEventArgs), nameof(StranglingEventArgs.Target))),
-                new(OpCodes.Stloc_3),
             });
 
             for (int z = 0; z < newInstructions.Count; z++)
