@@ -46,6 +46,7 @@ namespace Exiled.Events.Patches.Events.Scp3114
             {
                 // this.Owner
                 new CodeInstruction(OpCodes.Ldarg_0).MoveLabelsFrom(newInstructions[index]),
+                new(OpCodes.Callvirt, PropertyGetter(typeof(Scp3114Strangle), nameof(Scp3114Strangle.Owner))),
 
                 // target
                 new(OpCodes.Ldloc_0),
