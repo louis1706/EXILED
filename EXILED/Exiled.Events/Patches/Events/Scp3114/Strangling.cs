@@ -33,23 +33,24 @@ namespace Exiled.Events.Patches.Events.Scp3114
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instruction, ILGenerator generator)
         {
             List<CodeInstruction> newInstructions = ListPool<CodeInstruction>.Pool.Get(instruction);
+
+            Label retLabel = newInstructions[newInstructions.Count - 2].labels[0];
             Label jumpLabel = generator.DefineLabel();
+
             LocalBuilder ev = generator.DeclareLocal(typeof(StranglingEventArgs));
 
             const int offset = -1;
-            int index = newInstructions.FindIndex(i => i.opcode == OpCodes.Ldfld && i.operand == (object)Field(typeof(ReferenceHub), nameof(ReferenceHub.playerEffectsController))) + offset;
+            int index = newInstructions.FindIndex(i => i.LoadsField(Field(typeof(ReferenceHub), nameof(ReferenceHub.playerEffectsController)))) + offset;
 
             newInstructions.InsertRange(index, new CodeInstruction[]
             {
-                // Player.Get(this.Owner)
+                // this.Owner
                 new CodeInstruction(OpCodes.Ldarg_0).MoveLabelsFrom(newInstructions[index]),
-                new(OpCodes.Callvirt, PropertyGetter(typeof(Scp3114Strangle), nameof(Scp3114Strangle.Owner))),
-                new(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ReferenceHub) })),
 
-                // strangleTarget2
-                new(OpCodes.Ldloc_3),
+                // target
+                new(OpCodes.Ldloc_0),
 
-                // StranglingEventArgs ev = new(ReferenceHub, Scp3114Strangle.StrangleTarget);
+                // StranglingEventArgs ev = new(ReferenceHub, ReferenceHub);
                 new(OpCodes.Newobj, GetDeclaredConstructors(typeof(StranglingEventArgs))[0]),
                 new(OpCodes.Dup),
                 new(OpCodes.Dup),
@@ -66,12 +67,13 @@ namespace Exiled.Events.Patches.Events.Scp3114
                 new(OpCodes.Ldloca_S, 4),
                 new(OpCodes.Initobj, typeof(Scp3114Strangle.StrangleTarget?)),
                 new(OpCodes.Ldloc_S, 4),
-                new(OpCodes.Ret),
+                new(OpCodes.Stloc_S, 4),
+                new(OpCodes.Leave, retLabel),
 
                 // jumpLabel:
                 // strangleTarget2 = ev.StrangleTarget;
                 new CodeInstruction(OpCodes.Ldloc, ev.LocalIndex).WithLabels(jumpLabel),
-                new(OpCodes.Callvirt, PropertyGetter(typeof(StranglingEventArgs), nameof(StranglingEventArgs.StrangleTarget))),
+                new(OpCodes.Callvirt, PropertyGetter(typeof(StranglingEventArgs), nameof(StranglingEventArgs.Target))),
                 new(OpCodes.Stloc_3),
             });
 

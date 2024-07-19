@@ -24,15 +24,14 @@ namespace Exiled.Events.EventArgs.Scp3114
         /// <param name="hub">
         ///     The <see cref="Player"/> instance which this is being instantiated from.
         /// </param>
-        /// <param name="strangleTarget">
-        ///     The <see cref="StrangleTarget"/> being targeted.
+        /// <param name="target">
+        ///     The <see cref="API.Features.Player"/> being targeted.
         /// </param>
-        public StranglingEventArgs(ReferenceHub hub, Scp3114Strangle.StrangleTarget strangleTarget)
+        public StranglingEventArgs(ReferenceHub hub, ReferenceHub target)
         {
             Player = Player.Get(hub);
             Scp3114 = Player.Role.As<Scp3114Role>();
-            StrangleTarget = strangleTarget;
-            Target = Player.Get(strangleTarget.Target);
+            Target = Player.Get(target);
         }
 
         /// <inheritdoc/>
@@ -48,11 +47,6 @@ namespace Exiled.Events.EventArgs.Scp3114
         ///     Gets the <see cref="Player"/> being strangled.
         /// </summary>
         public Player Target { get; }
-
-        /// <summary>
-        ///     Gets <see cref="Scp3114Strangle.StrangleTarget"/> information for the player who was being strangled.
-        /// </summary>
-        public Scp3114Strangle.StrangleTarget StrangleTarget { get; }
 
         /// <inheritdoc/>
         public bool IsAllowed { get; set; } = true;
