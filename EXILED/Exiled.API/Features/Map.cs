@@ -66,6 +66,7 @@ namespace Exiled.API.Features
         private static Scp939AmnesticCloudInstance amnesticCloudPrefab;
 
         private static AmbientSoundPlayer ambientSoundPlayer;
+        private static SqueakSpawner squeakSpawner;
 
         /// <summary>
         /// Gets the tantrum prefab.
@@ -104,6 +105,11 @@ namespace Exiled.API.Features
                 return amnesticCloudPrefab;
             }
         }
+
+        /// <summary>
+        /// Gets the Squeak Spawner.
+        /// </summary>
+        public static SqueakSpawner SqueakSpawner => squeakSpawner ??= Object.FindObjectOfType<SqueakSpawner>();
 
         /// <summary>
         /// Gets a value indicating whether decontamination has begun in the light containment zone.
