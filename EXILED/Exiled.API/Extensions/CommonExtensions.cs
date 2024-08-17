@@ -75,5 +75,33 @@ namespace Exiled.API.Extensions
 
             return curve;
         }
+
+        /// <summary>
+        /// Modify the curve with the amount used.
+        /// </summary>
+        /// <param name="curve">The AnimationCurve to mofify.</param>
+        /// <param name="amount">The add number.</param>
+        /// <returns>The new modfied curve.</returns>
+        public static AnimationCurve TimeAdd(this AnimationCurve curve, float amount)
+        {
+            for (int i = 0; i < curve.length; i++)
+                curve.keys[i].time += amount;
+
+            return curve;
+        }
+
+        /// <summary>
+        /// Modify the curve with the amount used.
+        /// </summary>
+        /// <param name="curve">The AnimationCurve to mofify.</param>
+        /// <param name="amount">The add number.</param>
+        /// <returns>The new modfied curve.</returns>
+        public static AnimationCurve MultiplyTime(this AnimationCurve curve, float amount)
+        {
+            for (int i = 0; i < curve.length; i++)
+                curve.keys[i].time += amount;
+
+            return curve;
+        }
     }
 }
