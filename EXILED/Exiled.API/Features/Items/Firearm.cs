@@ -68,11 +68,13 @@ namespace Exiled.API.Features.Items
         internal Firearm(ItemType type)
             : this((BaseFirearm)Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
         {
+            // TODO Not finish
+            /*
             FirearmStatusFlags firearmStatusFlags = FirearmStatusFlags.MagazineInserted;
             if (Base.HasAdvantageFlag(AttachmentDescriptiveAdvantages.Flashlight))
                 firearmStatusFlags |= FirearmStatusFlags.FlashlightEnabled;
 
-            Base.Status = new FirearmStatus(MaxAmmo, firearmStatusFlags, Base.Status.Attachments);
+            Base.Status = new FirearmStatus(MaxAmmo, firearmStatusFlags, Base.Status.Attachments);*/
         }
 
         /// <inheritdoc cref="BaseCodesValue"/>.
@@ -112,21 +114,23 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Gets or sets the amount of ammo in the firearm.
         /// </summary>
-        public byte Ammo
+        public int Ammo
         {
-            get => Base.Status.Ammo;
-            set => Base.Status = new FirearmStatus(value, Base.Status.Flags, Base.Status.Attachments);
+            get => (Base.Modules[Array.IndexOf(Base.Modules, typeof(MagazineModule))] as MagazineModule).AmmoStored;
+            set => (Base.Modules[Array.IndexOf(Base.Modules, typeof(MagazineModule))] as MagazineModule).AmmoStored = value;
         }
 
         /// <summary>
         /// Gets or sets the max ammo for this firearm.
         /// </summary>
         /// <remarks>Disruptor can't be used for MaxAmmo.</remarks>
-        public byte MaxAmmo
+        public int MaxAmmo
         {
-            get => Base.AmmoManagerModule.MaxAmmo;
+            get => (Base.Modules[Array.IndexOf(Base.Modules, typeof(MagazineModule))] as MagazineModule).AmmoMax;
             set
             {
+                // TODO Not finish
+                /*
                 switch (Base.AmmoManagerModule)
                 {
                     case TubularMagazineAmmoManager tubularMagazineAmmoManager:
@@ -141,7 +145,7 @@ namespace Exiled.API.Features.Items
                     default:
                         Log.Warn($"MaxAmmo can't be used for this Item: {Type} ({Base.AmmoManagerModule})");
                         return;
-                }
+                }*/
             }
         }
 
@@ -153,8 +157,11 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Gets the <see cref="Enums.AmmoType"/> of the firearm.
         /// </summary>
-        public AmmoType AmmoType => Base.AmmoType.GetAmmoType();
+        // TODO not finish Base.AmmoType.GetAmmoType();
+        public AmmoType AmmoType => AmmoType.None;
 
+        // TODO Not finish
+        /*
         /// <summary>
         /// Gets a value indicating whether the firearm is being aimed.
         /// </summary>
@@ -179,6 +186,7 @@ namespace Exiled.API.Features.Items
         /// Gets a value indicating whether or not the firearm is automatic.
         /// </summary>
         public bool IsAutomatic => Base is AutomaticFirearm;
+        */
 
         /// <summary>
         /// Gets the <see cref="Attachment"/>s of the firearm.
@@ -202,6 +210,8 @@ namespace Exiled.API.Features.Items
         /// </summary>
         public uint BaseCode => BaseCodesValue[FirearmType];
 
+        // TODO Not finish
+        /*
         /// <summary>
         /// Gets or sets the fire rate of the firearm, if it is an automatic weapon.
         /// </summary>
@@ -236,6 +246,7 @@ namespace Exiled.API.Features.Items
         /// Gets the firearm's <see cref="FirearmRecoilPattern"/>. Will be <see langword="null"/> for non-automatic weapons.
         /// </summary>
         public FirearmRecoilPattern RecoilPattern => Base is AutomaticFirearm auto ? auto._recoilPattern : null;
+        */
 
         /// <summary>
         /// Gets a <see cref="Dictionary{TKey, TValue}"/> of <see cref="ItemType"/> and <see cref="AttachmentIdentifier"/>[] which contains all available attachments for all firearms.
@@ -277,7 +288,9 @@ namespace Exiled.API.Features.Items
                 : identifier.Code;
 
             Base.ApplyAttachmentsCode((Base.GetCurrentAttachmentsCode() & ~toRemove) | newCode, true);
-            Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags, Base.GetCurrentAttachmentsCode());
+
+            // TODO Not finish
+            // Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags, Base.GetCurrentAttachmentsCode());
         }
 
         /// <summary>
@@ -319,10 +332,12 @@ namespace Exiled.API.Features.Items
 
             Base.ApplyAttachmentsCode(Base.GetCurrentAttachmentsCode() & ~code, true);
 
+            // TODO: Not finish
+            /*
             if (identifier.Name == AttachmentName.Flashlight)
                 Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags & ~FirearmStatusFlags.FlashlightEnabled, Base.GetCurrentAttachmentsCode());
             else
-                Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags, Base.GetCurrentAttachmentsCode());
+                Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags, Base.GetCurrentAttachmentsCode());*/
         }
 
         /// <summary>
@@ -335,10 +350,12 @@ namespace Exiled.API.Features.Items
 
             Base.ApplyAttachmentsCode(Base.GetCurrentAttachmentsCode() & ~code, true);
 
+            // TODO Not finish
+            /*
             if (attachmentName == AttachmentName.Flashlight)
                 Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags & ~FirearmStatusFlags.FlashlightEnabled, Base.GetCurrentAttachmentsCode());
             else
-                Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags, Base.GetCurrentAttachmentsCode());
+                Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags, Base.GetCurrentAttachmentsCode());*/
         }
 
         /// <summary>
@@ -356,10 +373,12 @@ namespace Exiled.API.Features.Items
 
             Base.ApplyAttachmentsCode(Base.GetCurrentAttachmentsCode() & ~code, true);
 
+            // TODO Not finish
+            /*
             if (firearmAttachment.Name == AttachmentName.Flashlight)
                 Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags & ~FirearmStatusFlags.FlashlightEnabled, Base.GetCurrentAttachmentsCode());
             else
-                Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags, Base.GetCurrentAttachmentsCode());
+                Base.Status = new FirearmStatus(Math.Min(Ammo, MaxAmmo), Base.Status.Flags, Base.GetCurrentAttachmentsCode());*/
         }
 
         /// <summary>
@@ -613,11 +632,13 @@ namespace Exiled.API.Features.Items
                 Ammo = Ammo,
             };
 
+            // TODO Not finish
+            /*
             if (cloneableItem.Base is AutomaticFirearm)
             {
                 cloneableItem.FireRate = FireRate;
                 cloneableItem.Recoil = Recoil;
-            }
+            }*/
 
             cloneableItem.AddAttachment(AttachmentIdentifiers);
 
@@ -633,13 +654,15 @@ namespace Exiled.API.Features.Items
         {
             Base.Owner = newOwner.ReferenceHub;
 
+            // TODO: NOT FINISH
+            /*
             if (Base.HitregModule is StandardHitregBase hitReg)
             {
                 hitReg.Hub = Base.Owner;
             }
 
             Base._sendStatusNextFrame = true;
-            Base._footprintValid = false;
+            Base._footprintValid = false;*/
         }
     }
 }

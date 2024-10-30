@@ -102,7 +102,7 @@ namespace Exiled.API.Features
             set
             {
                 if (!SeedSynchronizer.MapGenerated)
-                    SeedSynchronizer._singleton.Network_syncSeed = value;
+                    SeedSynchronizer.Seed = value;
             }
         }
 
@@ -121,7 +121,7 @@ namespace Exiled.API.Features
         /// <summary>
         /// Gets the <see cref="global::AmbientSoundPlayer"/>.
         /// </summary>
-        public static AmbientSoundPlayer AmbientSoundPlayer => ambientSoundPlayer ??= ReferenceHub.HostHub.GetComponent<AmbientSoundPlayer>();
+        public static AmbientSoundPlayer AmbientSoundPlayer => ambientSoundPlayer ??= ReferenceHub._hostHub.GetComponent<AmbientSoundPlayer>();
 
         /// <summary>
         /// Gets the <see cref="global::SqueakSpawner"/>.
@@ -319,7 +319,7 @@ namespace Exiled.API.Features
         /// </summary>
         /// <param name="position">The position of the blood decal.</param>
         /// <param name="direction">The direction of the blood decal.</param>
-        public static void PlaceBlood(Vector3 position, Vector3 direction) => new GunDecalMessage(position, direction, DecalPoolType.Blood).SendToAuthenticated(0);
+        public static void PlaceBlood(Vector3 position, Vector3 direction) => _ = 0; /* new GunDecalMessage(position, direction, DecalPoolType.Blood).SendToAuthenticated(0);*/ // TODO: Not finish
 
         /// <summary>
         /// Gets all the near cameras.
@@ -380,15 +380,17 @@ namespace Exiled.API.Features
         /// <param name="audioClipId">The audio clip ID to play.</param>
         public static void PlayGunSound(Vector3 position, ItemType firearmType, byte maxDistance = 45, byte audioClipId = 0)
         {
+            // TODO: Not finish
+            /*
             GunAudioMessage msg = new()
             {
                 Weapon = firearmType,
                 AudioClipId = audioClipId,
                 MaxDistance = maxDistance,
-                ShooterHub = ReferenceHub.HostHub,
+                ShooterHub = ReferenceHub._hostHub,
                 ShooterPosition = new RelativePosition(position),
             };
-            msg.SendToAuthenticated();
+            msg.SendToAuthenticated();*/
         }
 
         /// <summary>

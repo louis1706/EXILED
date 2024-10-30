@@ -44,12 +44,12 @@ namespace Exiled.API.Features
         /// <summary>
         /// Gets a value indicating whether the round is started or not.
         /// </summary>
-        public static bool IsStarted => ReferenceHub.LocalHub?.characterClassManager.RoundStarted ?? false;
+        public static bool IsStarted => ReferenceHub.TryGetHostHub(out ReferenceHub hub) && hub.characterClassManager.RoundStarted;
 
         /// <summary>
         /// Gets a value indicating whether the round in progress or not.
         /// </summary>
-        public static bool InProgress => ReferenceHub.LocalHub != null && RoundSummary.RoundInProgress();
+        public static bool InProgress => ReferenceHub._localHubSet && RoundSummary.RoundInProgress();
 
         /// <summary>
         /// Gets a value indicating whether the round is ended or not.

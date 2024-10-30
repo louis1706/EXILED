@@ -132,10 +132,10 @@ namespace Exiled.API.Features
         /// <summary>
         /// Gets or sets a value indicating whether or not this window is broken.
         /// </summary>
-        public BreakableWindow.BreakableWindowStatus SyncStatus
+        public bool SyncStatus
         {
-            get => Base.NetworksyncStatus;
-            set => Base.NetworksyncStatus = value;
+            get => Base.prevStatus;
+            set => Base.prevStatus = value;
         }
 
         /// <summary>

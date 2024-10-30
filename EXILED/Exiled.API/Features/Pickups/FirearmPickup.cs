@@ -38,8 +38,10 @@ namespace Exiled.API.Features.Pickups
             Base = (BaseFirearm)((Pickup)this).Base;
             IsDistributed = true;
 
+            // TODO not finish
+            /*
             if (type is ItemType.ParticleDisruptor && Status.Ammo == 0)
-                Status = new FirearmStatus(5, FirearmStatusFlags.MagazineInserted, 0);
+                Status = new FirearmStatus(5, FirearmStatusFlags.MagazineInserted, 0);*/
         }
 
         /// <summary>
@@ -50,12 +52,16 @@ namespace Exiled.API.Features.Pickups
         /// <summary>
         /// Gets or sets a value indicating whether the pickup is already distributed.
         /// </summary>
-        public bool IsDistributed
-        {
+        public bool IsDistributed { get; set; }
+
+        // TODO NOT FINISH
+        /*{
             get => Base.Distributed;
             set => Base.Distributed = value;
-        }
+        }*/
 
+        // TODO not finish
+/*
         /// <summary>
         /// Gets or sets the <see cref="FirearmStatus"/>.
         /// </summary>
@@ -90,12 +96,12 @@ namespace Exiled.API.Features.Pickups
         {
             get => Base.NetworkStatus.Attachments;
             set => Base.NetworkStatus = new(Base.NetworkStatus.Ammo, Base.NetworkStatus.Flags, value);
-        }
+        }*/
 
         /// <summary>
         /// Returns the FirearmPickup in a human readable format.
         /// </summary>
         /// <returns>A string containing FirearmPickup related data.</returns>
-        public override string ToString() => $"{Type} ({Serial}) [{Weight}] *{Scale}* |{IsDistributed}| -{Ammo}-";
+        public override string ToString() => $"{Type} ({Serial}) [{Weight}] *{Scale}* |{IsDistributed}| -{/*Ammo*/0}-";
     }
 }

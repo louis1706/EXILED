@@ -98,7 +98,7 @@ namespace Exiled.API.Features.Toys
             set
             {
                 AdminToyBase.transform.rotation = value;
-                AdminToyBase.NetworkRotation = new LowPrecisionQuaternion(value);
+                AdminToyBase.NetworkRotation = value;
             }
         }
 
