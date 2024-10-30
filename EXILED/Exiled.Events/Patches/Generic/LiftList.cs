@@ -7,26 +7,24 @@
 
 namespace Exiled.Events.Patches.Generic
 {
-    using System.Collections.Generic;
-
     using API.Features;
 
     using HarmonyLib;
     using Interactables.Interobjects;
 
     /// <summary>
-    /// Patches <see cref="ElevatorManager.RefreshChambers"/>.
+    /// Patches <see cref="ElevatorManager.SpawnAllChambers"/>.
     /// </summary>
-    [HarmonyPatch(typeof(ElevatorManager), nameof(ElevatorManager.RefreshChambers))]
+    [HarmonyPatch(typeof(ElevatorManager), nameof(ElevatorManager.SpawnAllChambers))]
     internal class LiftList
     {
         private static void Postfix()
         {
             Lift.ElevatorChamberToLift.Clear();
 
-            foreach (KeyValuePair<ElevatorGroup, ElevatorChamber> lift in ElevatorManager.SpawnedChambers)
+            foreach (ElevatorChamber lift in ElevatorChamber.AllChambers)
             {
-                _ = new Lift(lift.Value);
+                _ = new Lift(lift);
             }
         }
     }

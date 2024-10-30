@@ -12,7 +12,6 @@ namespace Exiled.Events.EventArgs.Scp330
     using Interfaces;
 
     using InventorySystem.Items.Usables.Scp330;
-    using YamlDotNet.Core.Tokens;
 
     /// <summary>
     /// Contains all information before a player interacts with SCP-330.
