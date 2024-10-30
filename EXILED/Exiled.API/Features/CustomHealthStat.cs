@@ -7,6 +7,7 @@
 
 namespace Exiled.API.Features
 {
+    using PlayerRoles;
     using PlayerStatsSystem;
 
     /// <summary>
@@ -17,7 +18,7 @@ namespace Exiled.API.Features
         private float customMaxValue;
 
         /// <inheritdoc/>
-        public override float MaxValue => CustomMaxValue == default ? base.MaxValue : CustomMaxValue;
+        public override float MaxValue => customMaxValue == default ? base.MaxValue : CustomMaxValue;
 
         /// <summary>
         /// Gets or sets the maximum amount of health the player will have.
@@ -27,7 +28,7 @@ namespace Exiled.API.Features
             get
             {
                 if (Hub.playerStats.TryGetModule(out MaxHealthStat maxHealthStat))
-                    return maxHealthStat.CurValue;
+                    return maxHealthStat.CurValue + HumanRole.DefaultMaxHealth;
                 return customMaxValue;
             }
 
@@ -35,7 +36,7 @@ namespace Exiled.API.Features
             {
                 customMaxValue = value;
                 if (Hub.playerStats.TryGetModule(out MaxHealthStat maxHealthStat))
-                    maxHealthStat.CurValue = value;
+                    maxHealthStat.CurValue = value - HumanRole.DefaultMaxHealth;
             }
         }
     }
