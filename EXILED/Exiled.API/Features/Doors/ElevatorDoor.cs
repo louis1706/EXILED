@@ -12,6 +12,7 @@ namespace Exiled.API.Features.Doors
 
     using Exiled.API.Enums;
     using Interactables.Interobjects;
+    using Interactables.Interobjects.DoorUtils;
 
     /// <summary>
     /// Represents an elevator door.
@@ -55,9 +56,14 @@ namespace Exiled.API.Features.Doors
         };
 
         /// <summary>
-        /// Gets the target panel for this lift.
+        /// Gets the target panel settings for this lift.
         /// </summary>
-        public ElevatorPanel Panel => Base.PanelSettings;
+        public PanelVisualSettings PanelSettings => Base.PanelSettings;
+
+        /// <summary>
+        /// Gets if the panel is permanent.
+        /// </summary>
+        public bool PermanentPanels => Base.PermanentPanels;
 
         /// <summary>
         /// Gets the <see cref="Lift"/> associated with this elevator door.
