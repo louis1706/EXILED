@@ -11,16 +11,12 @@ namespace Exiled.Events.Patches.Events.Map
     using System.Reflection.Emit;
 
     using API.Features.Pools;
-
+    using Decals;
     using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Map;
-
     using Handlers;
-
     using HarmonyLib;
-
     using InventorySystem.Items.Firearms.Modules;
-
     using UnityEngine;
 
     using static HarmonyLib.AccessTools;
@@ -28,11 +24,11 @@ namespace Exiled.Events.Patches.Events.Map
     using Player = API.Features.Player;
 
     /// <summary>
-    /// Patches <see cref="StandardHitregBase.PlaceBulletholeDecal" />.
+    /// Patches <see cref="ImpactEffectsModule.ServerSendImpactDecal(RaycastHit, Vector3, DecalPoolType)" />.
     /// Adds the <see cref="Map.PlacingBulletHole" /> event.
     /// </summary>
     [EventPatch(typeof(Map), nameof(Map.PlacingBulletHole))]
-    [HarmonyPatch(typeof(StandardHitregBase), nameof(StandardHitregBase.PlaceBulletholeDecal))]
+    [HarmonyPatch(typeof(ImpactEffectsModule), nameof(ImpactEffectsModule.ServerSendImpactDecal))]
     internal static class PlacingBulletHole
     {
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
@@ -48,15 +44,15 @@ namespace Exiled.Events.Patches.Events.Map
                 0,
                 new CodeInstruction[]
                 {
-                    // Player.Get(this.Hub)
+                    // this.Firearm
                     new(OpCodes.Ldarg_0),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(SingleBulletHitreg), nameof(SingleBulletHitreg.Hub))),
-                    new(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ReferenceHub) })),
+                    new(OpCodes.Callvirt, PropertyGetter(typeof(ImpactEffectsModule), nameof(ImpactEffectsModule.Firearm))),
+                    new(OpCodes.Call, Method(typeof(API.Features.Items.Item), nameof(API.Features.Items.Item.Get))),
 
                     // hit
                     new(OpCodes.Ldarg_2),
 
-                    // PlacingBulletHole ev = new(Player, RaycastHit)
+                    // PlacingBulletHole ev = new(Item, RaycastHit)
                     new(OpCodes.Newobj, GetDeclaredConstructors(typeof(PlacingBulletHoleEventArgs))[0]),
                     new(OpCodes.Dup),
                     new(OpCodes.Dup),

@@ -90,9 +90,7 @@ namespace Exiled.Events.Handlers.Internal
                 }
 
                 uint baseCode = 0;
-
-                attachmentsSlots
-                    .ForEach(slot => baseCode += attachmentIdentifiers
+                attachmentsSlots.ForEach(slot => baseCode += attachmentIdentifiers
                         .Where(attachment => attachment.Slot == slot)
                         .Min(slot => slot.Code));
 

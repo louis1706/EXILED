@@ -160,18 +160,20 @@ namespace Exiled.API.Features.Items
         // TODO not finish Base.AmmoType.GetAmmoType();
         public AmmoType AmmoType => AmmoType.None;
 
-        // TODO Not finish
+        // TODO: Not finish
         /*
         /// <summary>
         /// Gets a value indicating whether the firearm is being aimed.
         /// </summary>
-        public bool Aiming => Base.AdsModule.ServerAds;
+        public bool Aiming => Base.IsAiming;*/
 
         /// <summary>
         /// Gets a value indicating whether the firearm's flashlight module is enabled.
         /// </summary>
-        public bool FlashlightEnabled => Base.Status.Flags.HasFlagFast(FirearmStatusFlags.FlashlightEnabled);
+        public bool FlashlightEnabled => Base.IsEmittingLight;
 
+        // TODO NOT FINISH
+        /*
         /// <summary>
         /// Gets a value indicating whether the firearm's NightVision is being used.
         /// </summary>
@@ -185,8 +187,7 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Gets a value indicating whether or not the firearm is automatic.
         /// </summary>
-        public bool IsAutomatic => Base is AutomaticFirearm;
-        */
+        public bool IsAutomatic => Base is AutomaticFirearm;*/
 
         /// <summary>
         /// Gets the <see cref="Attachment"/>s of the firearm.
