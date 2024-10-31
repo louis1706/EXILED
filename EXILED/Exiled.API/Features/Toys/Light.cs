@@ -56,6 +56,33 @@ namespace Exiled.API.Features.Toys
         }
 
         /// <summary>
+        /// Gets or sets the angle of the light.
+        /// </summary>
+        public float SpotAngle
+        {
+            get => Base.NetworkSpotAngle;
+            set => Base.NetworkSpotAngle = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the inner angle of the light.
+        /// </summary>
+        public float InnerSpotAngle
+        {
+            get => Base.NetworkInnerSpotAngle;
+            set => Base.NetworkInnerSpotAngle = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the shadow strength of the light.
+        /// </summary>
+        public float ShadowStrength
+        {
+            get => Base.NetworkShadowStrength;
+            set => Base.NetworkShadowStrength = value;
+        }
+
+        /// <summary>
         /// Gets or sets the color of the primitive.
         /// </summary>
         public Color Color
@@ -67,10 +94,19 @@ namespace Exiled.API.Features.Toys
         /// <summary>
         /// Gets or sets a value indicating whether the light should cause shadows from other objects.
         /// </summary>
-        public bool ShadowEmission
+        public LightShape LightShape
         {
-            get => Base.NetworkLightShadows;
-            set => Base.NetworkLightShadows = value;
+            get => Base.NetworkLightShape;
+            set => Base.NetworkLightShape = value;
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the light should cause shadows from other objects.
+        /// </summary>
+        public LightType LightType
+        {
+            get => Base.NetworkLightType;
+            set => Base.NetworkLightType = value;
         }
 
         /// <summary>
