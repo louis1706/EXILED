@@ -61,7 +61,7 @@ namespace Exiled.API.Features.Doors
         public PanelVisualSettings PanelSettings => Base.PanelSettings;
 
         /// <summary>
-        /// Gets if the panel is permanent.
+        /// Gets a value indicating whether gets the panel is permanent.
         /// </summary>
         public bool PermanentPanels => Base.PermanentPanels;
 

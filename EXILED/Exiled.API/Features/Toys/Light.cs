@@ -131,11 +131,12 @@ namespace Exiled.API.Features.Toys
         /// <returns>The new <see cref="Light"/>.</returns>
         public static Light Create(Vector3? position /*= null*/, Vector3? rotation /*= null*/, Vector3? scale /*= null*/, bool spawn /*= true*/, Color? color /*= null*/)
         {
-            Light light = new(UnityEngine.Object.Instantiate(ToysHelper.LightBaseObject));
-
-            light.Position = position ?? Vector3.zero;
-            light.Rotation = Quaternion.Euler(rotation ?? Vector3.zero);
-            light.Scale = scale ?? Vector3.one;
+            Light light = new(UnityEngine.Object.Instantiate(ToysHelper.LightBaseObject))
+            {
+                Position = position ?? Vector3.zero,
+                Rotation = Quaternion.Euler(rotation ?? Vector3.zero),
+                Scale = scale ?? Vector3.one,
+            };
 
             if (spawn)
                 light.Spawn();
