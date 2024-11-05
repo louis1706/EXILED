@@ -165,7 +165,7 @@ namespace Exiled.Events.Patches.Events.Player
                 {
                     // this.Hub
                     new(OpCodes.Ldarg_0),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BuckshotHitreg), nameof(BuckshotHitreg.Hub))),
+                    new(OpCodes.Callvirt, PropertyGetter(typeof(BuckshotHitreg), nameof(BuckshotHitreg.Owner))),
 
                     // this.Firearm
                     new(OpCodes.Ldarg_0),
@@ -198,7 +198,7 @@ namespace Exiled.Events.Patches.Events.Player
                 {
                     // this.Hub
                     new(OpCodes.Ldarg_0),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BuckshotHitreg), nameof(BuckshotHitreg.Hub))),
+                    new(OpCodes.Callvirt, PropertyGetter(typeof(BuckshotHitreg), nameof(BuckshotHitreg.Owner))),
 
                     // this.Firearm
                     new(OpCodes.Ldarg_0),

@@ -626,12 +626,12 @@ namespace Exiled.API.Features
         /// Gets a value indicating whether or not the player is aiming with a weapon.
         /// </summary>
         public bool IsAimingDownWeapon => CurrentItem is Firearm firearm && firearm.Aiming;
+        */
 
         /// <summary>
         /// Gets a value indicating whether or not the player has enabled weapon's flashlight module.
         /// </summary>
         public bool HasFlashlightModuleEnabled => CurrentItem is Firearm firearm && firearm.FlashlightEnabled;
-        */
 
         /// <summary>
         /// Gets a value indicating whether or not the player is jumping.
