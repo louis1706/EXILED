@@ -344,7 +344,7 @@ namespace Exiled.API.Features
 
             attacker ??= Server.Host;
 
-            TimeGrenadeProjectile projectile = Projectile.CreateAndSpawn<TimeGrenadeProjectile>(projectileType, position, Quaternion.identity, false, attacker);
+            TimeGrenadeProjectile projectile = Projectile.CreateAndSpawn(projectileType, position, Quaternion.identity, false, attacker) as TimeGrenadeProjectile;
             projectile.Explode();
         }
 
