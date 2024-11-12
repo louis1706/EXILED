@@ -46,7 +46,6 @@ namespace Exiled.Events.Patches.Events.Map
             Label dontResetLabel = generator.DefineLabel();
 
             LocalBuilder changingIntoGrenade = generator.DeclareLocal(typeof(ChangingIntoGrenadeEventArgs));
-            LocalBuilder changedIntoGrenade = generator.DeclareLocal(typeof(ChangedIntoGrenadeEventArgs));
             LocalBuilder thrownProjectile = generator.DeclareLocal(typeof(ThrownProjectile));
 
             int offset = 1;
