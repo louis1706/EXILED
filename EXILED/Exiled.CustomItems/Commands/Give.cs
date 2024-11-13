@@ -18,6 +18,7 @@ namespace Exiled.CustomItems.Commands
     using Exiled.Permissions.Extensions;
 
     using RemoteAdmin;
+    using Utils;
 
     /// <summary>
     /// The command to give a player an item.
@@ -83,7 +84,6 @@ namespace Exiled.CustomItems.Commands
                 response = "Failed to provide a valid player, please follow the syntax.";
                 return false;
             }
-
             string identifier = string.Join(" ", arguments.Skip(1));
 
             switch (identifier)
@@ -97,22 +97,36 @@ namespace Exiled.CustomItems.Commands
                     response = $"Custom item {item?.Name} given to all players who can receive them ({eligiblePlayers.Count} players)";
                     return true;
                 default:
-                    if (Player.Get(identifier) is not { } player)
-                    {
-                        response = $"Unable to find player: {identifier}.";
-                        return false;
-                    }
-
-                    if (!CheckEligible(player))
-                    {
-                        response = "Player cannot receive custom items!";
-                        return false;
-                    }
-
-                    item?.Give(player);
-                    response = $"{item?.Name} given to {player.Nickname} ({player.UserId})";
-                    return true;
+                    break;
             }
+            string[] newargs;
+            List<ReferenceHub> list = RAUtils.ProcessPlayerIdOrNamesList(arguments, 1, out newargs);
+            if (list == null)
+            {
+                response = "Cannot find player! Try using the player ID!";
+                return false;
+            }
+            foreach (ReferenceHub hub in list)
+            {
+                Player player = Player.Get(hub);
+                if (!CheckEligible(player))
+                {
+                    list.Remove(hub);
+                }
+
+                item?.Give(player);
+            }
+            if (list.Count == 1)
+            {
+                Player player = Player.Get(list[0]);
+                response = $"{item?.Name} given to {player.Nickname} ({player.UserId})";
+            }
+            else
+            {
+                response = $"{item?.Name} given to {list.Count} players!";
+            }
+            return true;
+
         }
 
         /// <summary>
