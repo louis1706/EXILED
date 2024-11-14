@@ -84,6 +84,7 @@ namespace Exiled.CustomItems.Commands
                 response = "Failed to provide a valid player, please follow the syntax.";
                 return false;
             }
+            
             string identifier = string.Join(" ", arguments.Skip(1));
 
             switch (identifier)
@@ -99,6 +100,7 @@ namespace Exiled.CustomItems.Commands
                 default:
                     break;
             }
+            
             string[] newargs;
             List<ReferenceHub> list = RAUtils.ProcessPlayerIdOrNamesList(arguments, 1, out newargs);
             if (list == null)
@@ -106,6 +108,7 @@ namespace Exiled.CustomItems.Commands
                 response = "Cannot find player! Try using the player ID!";
                 return false;
             }
+            
             foreach (ReferenceHub hub in list)
             {
                 Player player = Player.Get(hub);
@@ -116,15 +119,18 @@ namespace Exiled.CustomItems.Commands
 
                 item?.Give(player);
             }
+            
             if (list.Count == 1)
             {
                 Player player = Player.Get(list[0]);
                 response = $"{item?.Name} given to {player.Nickname} ({player.UserId})";
             }
+
             else
             {
                 response = $"{item?.Name} given to {list.Count} players!";
             }
+            
             return true;
 
         }
