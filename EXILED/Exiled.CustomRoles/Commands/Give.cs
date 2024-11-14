@@ -19,6 +19,8 @@ namespace Exiled.CustomRoles.Commands
     using Exiled.Permissions.Extensions;
 
     using RemoteAdmin;
+    using static HarmonyLib.Code;
+    using Utils;
 
     /// <summary>
     /// The command to give a role to player(s).
@@ -96,16 +98,31 @@ namespace Exiled.CustomRoles.Commands
                         ListPool<Player>.Pool.Return(players);
                         return true;
                     default:
-                        if (Player.Get(identifier) is not Player ply)
-                        {
-                            response = $"Unable to find a player: {identifier}";
-                            return false;
-                        }
-
-                        role.AddRole(ply);
-                        response = $"{role.Name} given to {ply.Nickname}.";
-                        return true;
+                        break;
                 }
+                string[] newargs;
+                List<ReferenceHub> list = RAUtils.ProcessPlayerIdOrNamesList(arguments, 1, out newargs);
+                if (list == null)
+                {
+                    response = "Cannot find player! Try using the player ID!";
+                    return false;
+                }
+                foreach (ReferenceHub hub in list)
+                {
+                    Player player = Player.Get(hub);
+                    role.AddRole(player);
+                }
+                if (list.Count == 1)
+                {
+                    Player player = Player.Get(list[0]);
+                    role.AddRole(player);
+                    response = $"Customrole {role.Name} given to {player.Nickname} ({player.UserId})";
+                }
+                else
+                {
+                    response = $"Customrole {role.Name} given to {list.Count} players!";
+                }
+                return true;
             }
             catch (Exception e)
             {
