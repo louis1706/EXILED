@@ -19,7 +19,6 @@ namespace Exiled.CustomRoles.Commands
     using Exiled.Permissions.Extensions;
 
     using RemoteAdmin;
-    using static HarmonyLib.Code;
     using Utils;
 
     /// <summary>
@@ -100,6 +99,7 @@ namespace Exiled.CustomRoles.Commands
                     default:
                         break;
                 }
+
                 string[] newargs;
                 List<ReferenceHub> list = RAUtils.ProcessPlayerIdOrNamesList(arguments, 1, out newargs);
                 if (list == null)
@@ -107,11 +107,13 @@ namespace Exiled.CustomRoles.Commands
                     response = "Cannot find player! Try using the player ID!";
                     return false;
                 }
+
                 foreach (ReferenceHub hub in list)
                 {
                     Player player = Player.Get(hub);
                     role.AddRole(player);
                 }
+
                 if (list.Count == 1)
                 {
                     Player player = Player.Get(list[0]);
@@ -122,6 +124,7 @@ namespace Exiled.CustomRoles.Commands
                 {
                     response = $"Customrole {role.Name} given to {list.Count} players!";
                 }
+
                 return true;
             }
             catch (Exception e)
