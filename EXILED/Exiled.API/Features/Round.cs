@@ -68,12 +68,12 @@ namespace Exiled.API.Features
         public static RoundSummary.SumInfo_ClassList LastClassList { get; internal set; }
 
         /// <summary>
-        /// Gets or sets a value indicating the amount of Chaos Targets remaining.
+        /// Gets or sets a value indicating the amount of Extra Targets remaining.
         /// </summary>
-        public static int ChaosTargetCount
+        public static int ExtraTargetCount
         {
-            get => RoundSummary.singleton.Network_chaosTargetCount;
-            set => RoundSummary.singleton.Network_chaosTargetCount = value;
+            get => RoundSummary.singleton.Network_extraTargets;
+            set => RoundSummary.singleton.Network_extraTargets = value;
         }
 
         /// <summary>

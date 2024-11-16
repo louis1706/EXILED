@@ -68,9 +68,9 @@ namespace Exiled.Events.Patches.Events.Server
 
             newInstructions[index].labels.Add(jmp);
 
-            // Replace ChaosTargetCount == 0 with ChaosTargetCount <= 0
+            // Replace Network_extraTargets == 0 with Network_extraTargets <= 0 // TODO VERIFY THAN this still exist
             offset = 1;
-            index = newInstructions.FindIndex(x => x.Calls(PropertyGetter(typeof(RoundSummary), nameof(RoundSummary.ChaosTargetCount)))) + offset;
+            index = newInstructions.FindIndex(x => x.Calls(PropertyGetter(typeof(RoundSummary), nameof(RoundSummary.Network_extraTargets)))) + offset;
             Label label = (Label)newInstructions[index].operand;
             newInstructions.RemoveAt(index);
 
