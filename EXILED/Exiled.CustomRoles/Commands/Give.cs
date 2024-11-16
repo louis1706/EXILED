@@ -47,47 +47,46 @@ namespace Exiled.CustomRoles.Commands
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            try
+            if (!sender.CheckPermission("customroles.give"))
             {
-                if (!sender.CheckPermission("customroles.give"))
+                response = "Permission Denied, required: customroles.give";
+                return false;
+            }
+
+            if (arguments.Count == 0)
+            {
+                response = "give <Custom role name/Custom role ID> [Nickname/PlayerID/UserID/all/*]";
+                return false;
+            }
+
+            if (!CustomRole.TryGet(arguments.At(0), out CustomRole? role) || role is null)
+            {
+                response = $"Custom role {arguments.At(0)} not found!";
+                return false;
+            }
+
+            if (arguments.Count == 1)
+            {
+                if (sender is PlayerCommandSender playerCommandSender)
                 {
-                    response = "Permission Denied, required: customroles.give";
-                    return false;
+                    Player player = Player.Get(playerCommandSender);
+
+                    role.AddRole(player);
+                    response = $"{role.Name} given to {player.Nickname}.";
+                    return true;
                 }
 
-                if (arguments.Count == 0)
-                {
-                    response = "give <Custom role name/Custom role ID> [Nickname/PlayerID/UserID/all/*]";
-                    return false;
-                }
+                response = "Failed to provide a valid player.";
+                return false;
+            }
 
-                if (!CustomRole.TryGet(arguments.At(0), out CustomRole? role) || role is null)
-                {
-                    response = $"Custom role {arguments.At(0)} not found!";
-                    return false;
-                }
+            string identifier = string.Join(" ", arguments.Skip(1));
 
-                if (arguments.Count == 1)
-                {
-                    if (sender is PlayerCommandSender playerCommandSender)
+            switch (identifier.ToLower())
+            {
+                case "*":
+                case "all":
                     {
-                        Player player = Player.Get(playerCommandSender);
-
-                        role.AddRole(player);
-                        response = $"{role.Name} given to {player.Nickname}.";
-                        return true;
-                    }
-
-                    response = "Failed to provide a valid player.";
-                    return false;
-                }
-
-                string identifier = string.Join(" ", arguments.Skip(1));
-
-                switch (identifier)
-                {
-                    case "*":
-                    case "all":
                         List<Player> players = ListPool<Player>.Pool.Get(Player.List);
 
                         foreach (Player player in players)
@@ -96,42 +95,27 @@ namespace Exiled.CustomRoles.Commands
                         response = $"Custom role {role.Name} given to all players.";
                         ListPool<Player>.Pool.Return(players);
                         return true;
-                    default:
-                        break;
-                }
+                    }
 
-                string[] newargs;
-                List<ReferenceHub> list = RAUtils.ProcessPlayerIdOrNamesList(arguments, 1, out newargs);
-                if (list == null)
-                {
-                    response = "Cannot find player! Try using the player ID!";
-                    return false;
-                }
+                default:
+                    {
+                        List<Player> players = Player.GetProcessedData(arguments, 1, out string[] newargs).ToList();
+                        if (players == null)
+                        {
+                            response = "Cannot find player! Try using the player ID!";
+                            return false;
+                        }
 
-                foreach (ReferenceHub hub in list)
-                {
-                    Player player = Player.Get(hub);
-                    role.AddRole(player);
-                }
+                        foreach (Player player in players)
+                        {
+                            role.AddRole(player);
+                        }
 
-                if (list.Count == 1)
-                {
-                    Player player = Player.Get(list[0]);
-                    role.AddRole(player);
-                    response = $"Customrole {role.Name} given to {player.Nickname} ({player.UserId})";
-                }
-                else
-                {
-                    response = $"Customrole {role.Name} given to {list.Count} players!";
-                }
+                        response = $"{role?.Name} given to {players.Count} players!";
+                        response += string.Join("\n  -", players.Select(player => $"{player.Nickname} ({player.UserId})"));
 
-                return true;
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-                response = "Error";
-                return false;
+                        return true;
+                    }
             }
         }
     }

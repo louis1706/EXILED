@@ -87,50 +87,43 @@ namespace Exiled.CustomItems.Commands
 
             string identifier = string.Join(" ", arguments.Skip(1));
 
-            switch (identifier)
+            switch (identifier.ToLower())
             {
                 case "*":
                 case "all":
-                    List<Player> eligiblePlayers = Player.List.Where(CheckEligible).ToList();
-                    foreach (Player ply in eligiblePlayers)
-                        item?.Give(ply);
+                    {
+                        List<Player> eligiblePlayers = Player.List.Where(CheckEligible).ToList();
+                        foreach (Player ply in eligiblePlayers)
+                            item?.Give(ply);
 
-                    response = $"Custom item {item?.Name} given to all players who can receive them ({eligiblePlayers.Count} players)";
-                    return true;
+                        response = $"Custom item {item?.Name} given to all players who can receive them ({eligiblePlayers.Count} players)";
+                        return true;
+                    }
+
                 default:
-                    break;
-            }
+                    {
+                        List<Player> players = Player.GetProcessedData(arguments, 1, out string[] newargs).ToList();
+                        if (players == null)
+                        {
+                            response = "Cannot find player! Try using the player ID!";
+                            return false;
+                        }
 
-            string[] newargs;
-            List<ReferenceHub> list = RAUtils.ProcessPlayerIdOrNamesList(arguments, 1, out newargs);
-            if (list == null)
-            {
-                response = "Cannot find player! Try using the player ID!";
-                return false;
-            }
+                        foreach (Player player in players)
+                        {
+                            if (!CheckEligible(player))
+                            {
+                                players.Remove(player);
+                            }
 
-            foreach (ReferenceHub hub in list)
-            {
-                Player player = Player.Get(hub);
-                if (!CheckEligible(player))
-                {
-                    list.Remove(hub);
-                }
+                            item?.Give(player);
+                        }
 
-                item?.Give(player);
+                        response = $"{item?.Name} given to {players.Count} players!";
+                        response += string.Join("\n  -", players.Select(player => $"{player.Nickname} ({player.UserId})"));
+                        return true;
+                    }
             }
-
-            if (list.Count == 1)
-            {
-                Player player = Player.Get(list[0]);
-                response = $"{item?.Name} given to {player.Nickname} ({player.UserId})";
-            }
-            else
-            {
-                response = $"{item?.Name} given to {list.Count} players!";
-            }
-
-            return true;
         }
 
         /// <summary>
