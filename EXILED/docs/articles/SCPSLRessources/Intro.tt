@@ -25,14 +25,20 @@ try
 
     WriteLine("Enums found in the assembly:");
     WriteLine("TEST");
-    WriteLine(assembly.GetExportedTypes().ToString());
+    Type[] types = null;
+    try
+    {
+        types = assembly.GetTypes();
+    }
+    catch (ReflectionTypeLoadException e)
+    {
+        types = e.Types;
+    }
     WriteLine("TEST");
-    // Iterate through all types in the assembly
-    foreach (var type in assembly.GetExportedTypes())
+    foreach (var type in types.Where(t => t != null))
     {
         try
         {
-            WriteLine("TEST");
             // Skip types that cannot be loaded or processed
             if (type.IsEnum)
             {
@@ -55,13 +61,13 @@ try
         }
     }
 }
-catch (System.IO.FileNotFoundException _)
+catch (System.IO.FileNotFoundException ex3)
 {
-
+    WriteLine(ex3.ToString());
 }
-catch (ReflectionTypeLoadException _)
+catch (ReflectionTypeLoadException ex4)
 {
-
+    WriteLine(ex4.ToString());
 }
 #>
 

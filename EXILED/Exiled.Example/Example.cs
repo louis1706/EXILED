@@ -53,7 +53,7 @@ namespace Exiled.Example
             Log.Warn($"Loaded assembly: {assembly.FullName}");
 
             Log.Warn("Enums found in the assembly:");
-            Log.Warn(assembly.GetExportedTypes().ToString());
+            Log.Warn(assembly.GetTypes().ToString());
 
             // Iterate through all types in the assembly
             foreach (TypeInfo type in assembly.DefinedTypes)
