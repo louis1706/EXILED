@@ -19,8 +19,6 @@ try
     // Load the assembly
     var assembly = typeof(BanPlayer).Assembly;
 
-    if (assembly == null)
-     return "Error";
     WriteLine($"Loaded assembly: {assembly.FullName}");
 
     WriteLine("Enums found in the assembly:");
@@ -40,13 +38,15 @@ try
             // Skip types that cannot be loaded or processed
             if (type.IsEnum && !type.IsGenericType)
             {
-                WriteLine($"Enum: {type.FullName}");
-
+                WriteLine($"### {type.Name}\n");
+                WriteLine($"<details><summary><b>{type.FullName}</b></summary>");
+                WriteLine($"```md title=\"Latest Updated: {Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion}\"");
                 // Iterate through all the fields in the Enum
                 foreach (var value in Enum.GetValues(type))
                 {
-                    WriteLine($"  {value} = {value.GetHashCode()}");
+                    WriteLine($" [{value.GetHashCode()}] = {value}");
                 }
+                WriteLine("```\n\n</details>\n");
             }
         }
         catch (System.TypeLoadException ex)

@@ -45,32 +45,6 @@ namespace Exiled.Example
         /// <inheritdoc/>
         public override void OnEnabled()
         {
-            // Load the assembly
-            System.Reflection.Assembly assembly = typeof(BanPlayer).Assembly;
-
-            if (assembly == null)
-                return;
-            Log.Warn($"Loaded assembly: {assembly.FullName}");
-
-            Log.Warn("Enums found in the assembly:");
-            Log.Warn(assembly.GetTypes().ToString());
-
-            // Iterate through all types in the assembly
-            foreach (TypeInfo type in assembly.DefinedTypes)
-            {
-                // Skip types that cannot be loaded or processed
-                if (type.IsEnum && !type.IsGenericType)
-                {
-                    Log.Warn($"Enum: {type.FullName}");
-
-                    // Iterate through all the fields in the Enum
-                    foreach (object value in Enum.GetValues(type.AsType()))
-                    {
-                        Log.Warn($"  {value} = {value.GetHashCode()}");
-                    }
-                }
-            }
-
             RegisterEvents();
 
             Log.Warn($"I correctly read the string config, its value is: {Config.String}");

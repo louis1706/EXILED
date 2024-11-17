@@ -15,1930 +15,3610 @@
 
 Loaded assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Enums found in the assembly:
-Enum: ReproProjectAssetType
-  Wildcard = 0
-  Scene = 1
-  Prefab = 2
-  Asset = 3
-Enum: AlphaWarheadNukesitePanel+DiodeType
-  InProgress = 0
-  BlastDoor = 1
-  OutsideDoor = 2
-Enum: FalloffType
-  Linear = 0
-  Exponential = 1
-  Footstep = 2
-Enum: StatusBar+AutoHideType
-  WhenFull = 0
-  WhenEmpty = 1
-  AlwaysVisible = 2
-Enum: DebugLevel
-  Muted = 0
-  Narrow = 1
-  Normal = 2
-  Elevated = 3
-  Full = 4
-Enum: MessageImportance
-  MostImportant = 1
-  Normal = 2
-  LessImportant = 3
-  LeastImportant = 4
-Enum: ActionName
-  Shoot = 0
-  Zoom = 1
-  Jump = 2
-  Interact = 3
-  Inventory = 4
-  Reload = 5
-  Run = 6
-  VoiceChat = 7
-  Sneak = 8
-  MoveForward = 9
-  MoveBackward = 10
-  MoveLeft = 11
-  MoveRight = 12
-  PlayerList = 13
-  CharacterInfo = 14
-  RemoteAdmin = 15
-  ToggleFlashlight = 16
-  AltVoiceChat = 17
-  Noclip = 18
-  GameConsole = 19
-  InspectItem = 21
-  RevolverCockHammer = 22
-  ThrowItem = 23
-  HideGUI = 27
-  NoClipFogToggle = 28
-  PauseMenu = 30
-  DebugLogMenu = 31
-  Scp079FreeLook = 32
-  Scp079LockDoor = 33
-  Scp079UnlockAll = 34
-  Scp079Blackout = 35
-  Scp079Lockdown = 36
-  Scp079PingLocation = 37
-  Scp079BreachScanner = 38
-Enum: ActionCategory
-  Gameplay = 0
-  Weapons = 1
-  Movement = 2
-  Communication = 4
-  System = 5
-  Unbindable = 6
-  Scp079 = 7
-Enum: ServerConfigSynchronizer+MainBoolsSettings
-  FriendlyFire = 1
-Enum: NonFacilityCompatibility+SceneDescription+VoiceChatSupportMode
-  Unsupported = 0
-  WithoutIntercom = 1
-  FullySupported = 2
-Enum: LegacyInterfaces
-  GiveOrders = 0
-  FollowOrders = 1
-  SameRank = 2
-  ClassDEscaped = 3
-  ScientistsSurvived = 4
-  KilledByScps = 5
-  TerminatedScps = 6
-  AlphaWarhead = 7
-  WarheadDetonated = 8
-  WarheadUnused = 9
-  RoundRestartTimer = 10
-  SpecialAbility = 11
-  CreateSinkhole = 12
-  UseSinkhole = 13
-  YouDied = 14
-  YouWereKilledByNicknameLabel = 15
-  YouWereKilledByRoleLabel = 16
-  PassiveAbility = 17
-  Hidden = 18
-Enum: BanHandler+BanType
-  UserId = 0
-  IP = 1
-  NULL = -1
-Enum: Broadcast+BroadcastFlags
-  Normal = 0
-  Truncated = 1
-  AdminChat = 2
-Enum: Escape+EscapeScenarioType
-  None = 0
-  ClassD = 1
-  CuffedClassD = 2
-  Scientist = 3
-  CuffedScientist = 4
-Enum: FriendlyFireAction
-  Noop = 0
-  Kill = 1
-  Kick = 2
-  Ban = 3
-Enum: HitboxType
-  Body = 0
-  Limb = 1
-  Headshot = 2
-Enum: ItemType
-  KeycardJanitor = 0
-  KeycardScientist = 1
-  KeycardResearchCoordinator = 2
-  KeycardZoneManager = 3
-  KeycardGuard = 4
-  KeycardMTFPrivate = 5
-  KeycardContainmentEngineer = 6
-  KeycardMTFOperative = 7
-  KeycardMTFCaptain = 8
-  KeycardFacilityManager = 9
-  KeycardChaosInsurgency = 10
-  KeycardO5 = 11
-  Radio = 12
-  GunCOM15 = 13
-  Medkit = 14
-  Flashlight = 15
-  MicroHID = 16
-  SCP500 = 17
-  SCP207 = 18
-  Ammo12gauge = 19
-  GunE11SR = 20
-  GunCrossvec = 21
-  Ammo556x45 = 22
-  GunFSP9 = 23
-  GunLogicer = 24
-  GrenadeHE = 25
-  GrenadeFlash = 26
-  Ammo44cal = 27
-  Ammo762x39 = 28
-  Ammo9x19 = 29
-  GunCOM18 = 30
-  SCP018 = 31
-  SCP268 = 32
-  Adrenaline = 33
-  Painkillers = 34
-  Coin = 35
-  ArmorLight = 36
-  ArmorCombat = 37
-  ArmorHeavy = 38
-  GunRevolver = 39
-  GunAK = 40
-  GunShotgun = 41
-  SCP330 = 42
-  SCP2176 = 43
-  SCP244a = 44
-  SCP244b = 45
-  SCP1853 = 46
-  ParticleDisruptor = 47
-  GunCom45 = 48
-  SCP1576 = 49
-  Jailbird = 50
-  AntiSCP207 = 51
-  GunFRMG0 = 52
-  GunA7 = 53
-  Lantern = 54
-  None = -1
-Enum: ItemCategory
-  None = 0
-  Keycard = 1
-  Medical = 2
-  Radio = 3
-  Firearm = 4
-  Grenade = 5
-  SCPItem = 6
-  MicroHID = 7
-  Ammo = 8
-  Armor = 9
-Enum: ItemTierFlags
-  Common = 0
-  MilitaryGrade = 1
-  Rare = 2
-  ExtraRare = 4
-Enum: PlayerInfoArea
-  Nickname = 1
-  Badge = 2
-  CustomInfo = 4
-  Role = 8
-  UnitName = 16
-  PowerStatus = 32
-Enum: PlayerInteract+AlphaPanelOperations
-  Cancel = 0
-  Lever = 1
-Enum: PlayerInteract+Generator079Operations
-  Door = 0
-  Tablet = 1
-  Cancel = 2
-Enum: PlayerPermissions
-  KickingAndShortTermBanning = 1
-  BanningUpToDay = 2
-  LongTermBanning = 4
-  ForceclassSelf = 8
-  ForceclassToSpectator = 16
-  ForceclassWithoutRestrictions = 32
-  GivingItems = 64
-  WarheadEvents = 128
-  RespawnEvents = 256
-  RoundEvents = 512
-  SetGroup = 1024
-  GameplayData = 2048
-  Overwatch = 4096
-  FacilityManagement = 8192
-  PlayersManagement = 16384
-  PermissionsManagement = 32768
-  ServerConsoleCommands = 65536
-  ViewHiddenBadges = 131072
-  ServerConfigs = 262144
-  Broadcasting = 524288
-  PlayerSensitiveDataAccess = 1048576
-  Noclip = 2097152
-  AFKImmunity = 4194304
-  AdminChat = 8388608
-  ViewHiddenGlobalBadges = 16777216
-  Announcer = 33554432
-  Effects = 67108864
-  FriendlyFireDetectorImmunity = 134217728
-  FriendlyFireDetectorTempDisable = 268435456
-Enum: PocketDimensionTeleport+PDTeleportType
-  Killer = 0
-  Exit = 1
-Enum: RoundSummary+LeadingTeam
-  FacilityForces = 0
-  ChaosInsurgency = 1
-  Anomalies = 2
-  Draw = 3
-Enum: ServerRoles+BadgePreferences
-  NoPreference = 0
-  PreferGlobal = 1
-  PreferLocal = 2
-Enum: ServerRoles+BadgeVisibilityPreferences
-  NoPreference = 0
-  Visible = 1
-  Hidden = 2
-Enum: CentralAuthPreauthFlags
-  None = 0
-  ReservedSlot = 1
-  IgnoreBans = 2
-  IgnoreWhitelist = 4
-  IgnoreGeoblock = 8
-  GloballyBanned = 16
-  NorthwoodStaff = 32
-  AuthRejected = 64
-Enum: RejectionReason
-  NotSpecified = 0
-  ServerFull = 1
-  InvalidToken = 2
-  VersionMismatch = 3
-  Error = 4
-  AuthenticationRequired = 5
-  Banned = 6
-  NotWhitelisted = 7
-  GloballyBanned = 8
-  Geoblocked = 9
-  Custom = 10
-  ExpiredAuth = 11
-  RateLimit = 12
-  Challenge = 13
-  InvalidChallengeKey = 14
-  InvalidChallenge = 15
-  Redirect = 16
-  Delay = 17
-  VerificationAccepted = 18
-  VerificationRejected = 19
-  CentralServerAuthRejected = 20
-Enum: GeoblockingMode
-  None = 0
-  Whitelist = 1
-  Blacklist = 2
-Enum: ChallengeType
-  Reply = 0
-  MD5 = 1
-  SHA1 = 2
-Enum: ChallengeState
-  None = 0
-  Processing = 1
-  Done = 2
-  DoneRejoin = 3
-Enum: CustomLiteNetLib4MirrorTransport+ClientType
-  GameClient = 0
-  VerificationService = 1
-Enum: EncryptedChannelManager+EncryptedChannel
-  RemoteAdmin = 0
-  GameConsole = 1
-  AdminChat = 2
-Enum: EncryptedChannelManager+SecurityLevel
-  Unsecured = 0
-  EncryptedAndAuthenticated = 1
-Enum: ServerShutdown+ServerShutdownState
-  NotInitiated = 0
-  BroadcastingShutdown = 1
-  ShuttingDown = 2
-  Complete = 3
-Enum: Holidays
-  NoHoliday = 0
-  Halloween = 1
-  Christmas = 2
-  AprilFools = 3
-  October = 4
-  December = 5
-  FirstHalfOfApril = 6
-  OctoberOrDecember = 7
-  Always = -1
-Enum: ServerLogs+ServerLogType
-  ConnectionUpdate = 0
-  RemoteAdminActivity_GameChanging = 1
-  RemoteAdminActivity_Misc = 2
-  KillLog = 3
-  GameEvent = 4
-  InternalMessage = 5
-  RateLimit = 6
-  Teamkill = 7
-  Suicide = 8
-  AdminChat = 9
-Enum: ServerLogs+Modules
-  Warhead = 0
-  Networking = 1
-  ClassChange = 2
-  Permissions = 3
-  Administrative = 4
-  Logger = 5
-  DataAccess = 6
-  Detector = 7
-Enum: ServerLogs+LoggingState
-  Off = 0
-  Standby = 1
-  Write = 2
-  Terminate = 3
-  Restart = 4
-Enum: ServerStatic+NextRoundAction
-  DoNothing = 0
-  Restart = 1
-  Shutdown = 2
-Enum: HttpQueryMode
-  HttpClient = 0
-  HttpProxy = 1
-  UnityWebRequest = 2
-  UnityWebRequestDispatcher = 3
-Enum: MainThreadDispatcher+DispatchTime
-  Update = 0
-  LateUpdate = 1
-  FixedUpdate = 2
-Enum: Misc+IPAddressType
-  Unknown = 0
-  IPV4 = 1
-  IPV6 = 2
-  Localhost = 3
-  Hostname = 4
-Enum: Misc+PlayerInfoColorTypes
-  Pink = 0
-  Red = 1
-  Brown = 2
-  Silver = 3
-  LightGreen = 4
-  Crimson = 5
-  Cyan = 6
-  Aqua = 7
-  DeepPink = 8
-  Tomato = 9
-  Yellow = 10
-  Magenta = 11
-  BlueGreen = 12
-  Orange = 13
-  Lime = 14
-  Green = 15
-  Emerald = 16
-  Carmine = 17
-  Nickel = 18
-  Mint = 19
-  ArmyGreen = 20
-  Pumpkin = 21
-  Black = 22
-  White = 23
-Enum: Misc+CommandOperationMode
-  Disable = 0
-  Enable = 1
-  Toggle = 2
-Enum: PlayerPrefsSl+DataType
-  Bool = 0
-  Byte = 1
-  Sbyte = 2
-  Char = 3
-  Decimal = 4
-  Double = 5
-  Float = 6
-  Int = 7
-  Uint = 8
-  Long = 9
-  Ulong = 10
-  Short = 11
-  Ushort = 12
-  String = 13
-  BoolArray = 14
-  ByteArray = 15
-  SbyteArray = 16
-  CharArray = 17
-  DecimalArray = 18
-  DoubleArray = 19
-  FloatArray = 20
-  IntArray = 21
-  UintArray = 22
-  LongArray = 23
-  UlongArray = 24
-  ShortArray = 25
-  UshortArray = 26
-  StringArray = 27
-Enum: UserSettings.ToggleOrHoldInput+InputActivationMode
-  Toggle = 0
-  Hold = 1
-Enum: UserSettings.VideoSettings.DisplayVideoSetting
-  Resolution = 0
-  AspectRatio = 1
-  FullscreenMode = 2
-  VSyncCount = 3
-  FpsLimiter = 4
-  GraphicsAPI = 5
-Enum: UserSettings.VideoSettings.LightingVideoSetting
-  RenderShadows = 0
-  ShadowResolution = 1
-  RenderLights = 2
-Enum: UserSettings.VideoSettings.MiscVideoSetting
-  Brightness = 0
-  ExplosionShake = 1
-  HeadBobbing = 2
-  FlashbangDarkMode = 3
-Enum: UserSettings.VideoSettings.PerformanceVideoSetting
-  TextureResolution = 0
-  AntiAliasingType = 1
-  AntiAliasingQuality = 2
-  RagdollFreeze = 3
-  BloomQuality = 4
-  AOQuality = 5
-  BloodDecalsEnabled = 6
-  BulletDecalsEnabled = 7
-Enum: UserSettings.UserInterfaceSettings.UISetting
-  Language = 0
-  EnableSubtitles = 1
-  HealthbarMode = 2
-  FastRoleIntroMode = 3
-  HideIP = 4
-  FlashTaskbar = 5
-  PhotosensitivityDoNotShow = 6
-Enum: UserSettings.OtherSettings.MiscPrivacySetting
-  DoNotTrack = 0
-  SteamLobbyPrivacy = 1
-  RichPresence = 2
-  HideSteamProfile = 3
-  BadgePreferences = 4
-  GlobalBadgeVisibility = 5
-  LocalBadgeVisibility = 6
-Enum: UserSettings.GUIElements.UserSettingDependency+Dependency+Condition
-  EqualsTo = 0
-  LessThan = 1
-  GreaterThan = 2
-Enum: UserSettings.GUIElements.UserSettingDependency+Dependency+SettingType
-  Slider = 0
-  Toggle = 1
-  Dropdown = 2
-Enum: UserSettings.ControlsSettings.MiscControlsSetting
-  AdsToggle = 0
-  SprintToggle = 1
-  SearchToggle = 2
-  Scp079MouseLookToggle = 3
-  SneakToggle = 4
-  RightClickToDrop = 5
-  InventoryToggle = 6
-  Scp079KeybindZoneSwitching = 7
-Enum: UserSettings.ControlsSettings.SensitivitySetting
-  SensMultiplier = 0
-  AdsReductionMultiplier = 1
-  Invert = 2
-Enum: UserSettings.AudioSettings.MixerAudioSettings+VolumeSliderSetting
-  Master = 0
-  VoiceChat = 1
-  SoundEffects = 2
-  MenuMusic = 3
-  MenuUI = 4
-Enum: UserSettings.AudioSettings.VcAudioSetting
-  NoiseReduction = 0
-Enum: ServerOutput.OutputCodes
-  RoundRestart = 16
-  IdleEnter = 17
-  IdleExit = 18
-  ExitActionReset = 19
-  ExitActionShutdown = 20
-  ExitActionSilentShutdown = 21
-  ExitActionRestart = 22
-  Heartbeat = 23
-Enum: Security.ServerRateLimit
-  playerInteract = 0
-  commands = 1
-Enum: RemoteAdmin.Communication.RaClipboard+RaClipBoardType
-  Ip = 0
-  UserId = 1
-  PlayerId = 2
-Enum: RemoteAdmin.Communication.RaPlayerList+PlayerSorting
-  Ids = 0
-  Alphabetical = 1
-  Class = 2
-  Team = 3
-Enum: VoiceChat.VoiceChatChannel
-  None = 0
-  Proximity = 1
-  Radio = 2
-  ScpChat = 3
-  Spectator = 4
-  RoundSummary = 5
-  Intercom = 6
-  Mimicry = 7
-  Scp1576 = 8
-  PreGameLobby = 9
-Enum: VoiceChat.VcMuteFlags
-  None = 0
-  LocalRegular = 1
-  LocalIntercom = 2
-  GlobalRegular = 4
-  GlobalIntercom = 8
-Enum: VoiceChat.VcPrivacyFlags
-  None = 0
-  SettingsSelected = 1
-  AllowMicCapture = 2
-  AllowRecording = 4
-Enum: VoiceChat.Playbacks.GlobalChatIconType
-  None = 0
-  Avatar = 1
-  Radio = 2
-  Intercom = 3
-Enum: VoiceChat.Codec.Enums.OpusApplicationType
-  Voip = 2048
-  Audio = 2049
-  RestrictedLowDelay = 2051
-Enum: VoiceChat.Codec.Enums.OpusCtlGetRequest
-  Application = 4001
-  Bitrate = 4003
-  MaxBandwidth = 4005
-  VBR = 4007
-  Bandwidth = 4009
-  Complexity = 4011
-  InbandFec = 4013
-  PacketLossPercentage = 4015
-  Dtx = 4017
-  VBRConstraint = 4021
-  ForceChannels = 4023
-  Signal = 4025
-  LookAhead = 4027
-  SampleRate = 4029
-  FinalRange = 4031
-  Pitch = 4033
-  Gain = 4035
-  LsbDepth = 4037
-Enum: VoiceChat.Codec.Enums.OpusCtlSetRequest
-  Application = 4000
-  Bitrate = 4002
-  MaxBandwidth = 4004
-  VBR = 4006
-  Bandwidth = 4008
-  Complexity = 4010
-  InbandFec = 4012
-  PacketLossPercentage = 4014
-  Dtx = 4016
-  VBRConstraint = 4020
-  ForceChannels = 4022
-  Signal = 4024
-  Gain = 4034
-  LsbDepth = 4036
-Enum: VoiceChat.Codec.Enums.OpusStatusCode
-  OK = 0
-  AllocFail = -7
-  InvalidState = -6
-  Unimplemented = -5
-  InvalidPacket = -4
-  InternalError = -3
-  BufferTooSmall = -2
-  BadArguments = -1
-Enum: Subtitles.SubtitleType
-  NTFEntrance = 0
-  AwaitContainPlural = 1
-  AwaitContainSingle = 2
-  ThreatRemains = 3
-  TerminationCauseUnspecified = 4
-  TerminatedBySCP = 5
-  TerminatedBySecuritySystem = 6
-  TerminatedByWarhead = 7
-  ContainedByScientist = 8
-  ContainedByClassD = 9
-  ContainedByChaos = 10
-  SCP = 11
-  ContainUnitUnknown = 12
-  ContainUnit = 13
-  LostInDecontamination = 14
-  GeneratorsActivated = 15
-  AllGeneratorsEngaged = 16
-  OverchargeIn = 17
-  OperationalMode = 18
-  DecontaminationStart = 19
-  DecontaminationMinutes = 20
-  Decontamination1Minute = 21
-  DecontaminationCountdown = 22
-  DecontaminationLockdown = 23
-  AlphaWarheadEngage = 24
-  AlphaWarheadCancelled = 25
-  AlphaWarheadResumed = 26
-  TerminatedByMarshmallowMan = 27
-  Custom = 254
-  None = 255
-Enum: Subtitles.CassieAnnouncementType
-  None = 0
-  Normal = 1
-  Decontamination = 2
-  Detonation = 3
-Enum: RoundRestarting.RoundRestartType
-  FullRestart = 0
-  FastRestart = 1
-  RedirectRestart = 2
-Enum: PlayerStatsSystem.AdminFlags
-  None = 0
-  Noclip = 1
-  GodMode = 2
-  BypassMode = 4
-Enum: PlayerStatsSystem.DamageHandlerBase+HandlerOutput
-  Nothing = 0
-  Damaged = 1
-  Death = 2
-Enum: PlayerStatsSystem.Scp049DamageHandler+AttackType
-  Instakill = 0
-  CardiacArrest = 1
-  Scp0492 = 2
-Enum: PlayerStatsSystem.Scp096DamageHandler+AttackType
-  GateKill = 0
-  SlapLeft = 1
-  SlapRight = 2
-  Charge = 3
-Enum: PlayerStatsSystem.StatSlider+DisplayExactMode
-  PreferenceBased = 0
-  AlwaysExact = 1
-  AlwaysPercent = 2
-  ValueHidden = 3
-Enum: PlayerStatsSystem.SyncedStatBase+SyncMode
-  Private = 0
-  PrivateAndSpectators = 1
-  Public = 2
-Enum: PlayerRoles.RoleTypeId
-  Scp173 = 0
-  ClassD = 257
-  Spectator = 514
-  Scp106 = 771
-  NtfSpecialist = 1028
-  Scp049 = 1285
-  Scientist = 1542
-  Scp079 = 1799
-  ChaosConscript = 2056
-  Scp096 = 2313
-  Scp0492 = 2570
-  NtfSergeant = 2827
-  NtfCaptain = 3084
-  NtfPrivate = 3341
-  Tutorial = 3598
-  FacilityGuard = 3855
-  Scp939 = 4112
-  CustomRole = 4369
-  ChaosRifleman = 4626
-  ChaosMarauder = 4883
-  ChaosRepressor = 5140
-  Overwatch = 5397
-  Filmmaker = 5654
-  Scp3114 = 5911
-  None = 255
-Enum: PlayerRoles.Team
-  SCPs = 0
-  FoundationForces = 1
-  ChaosInsurgency = 2
-  Scientists = 3
-  ClassD = 4
-  Dead = 5
-  OtherAlive = 6
-Enum: PlayerRoles.Faction
-  SCP = 0
-  FoundationStaff = 1
-  FoundationEnemy = 2
-  Unclassified = 3
-Enum: PlayerRoles.RoleChangeReason
-  None = 0
-  RoundStart = 1
-  LateJoin = 2
-  Respawn = 3
-  Died = 4
-  Escaped = 5
-  Revived = 6
-  RemoteAdmin = 7
-  Destroyed = 8
-Enum: PlayerRoles.RoleSpawnFlags
-  None = 0
-  AssignInventory = 1
-  UseSpawnpoint = 2
-  All = -1
-Enum: PlayerRoles.Visibility.InvisibilityFlags
-  None = 0
-  OutOfRange = 1
-  Scp268 = 2
-  Scp106Sinkhole = 4
-Enum: PlayerRoles.Voice.GroupMuteFlags
-  None = 0
-  Spectators = 1
-  Alive = 2
-  Lobby = 4
-  Summary = 8
-Enum: PlayerRoles.Voice.IntercomState
-  Ready = 0
-  Starting = 1
-  InUse = 2
-  Cooldown = 3
-  NotFound = 4
-Enum: PlayerRoles.Voice.IntercomDisplay+IcomText
-  Ready = 0
-  Transmitting = 1
-  TrasmittingBypass = 2
-  Restarting = 3
-  AdminUsing = 4
-  Muted = 5
-  Unknown = 6
-  Wait = 7
-Enum: PlayerRoles.Spectating.SpectatableListElementType
-  Standard = 0
-  Scp079 = 1
-  Scp3114 = 2
-Enum: PlayerRoles.Spectating.SpectatorSpawnReason
-  None = 0
-  KilledByPlayer = 1
-  Other = 2
-Enum: PlayerRoles.PlayableScps.VisionInformation+FailReason
-  NotOnSameFloor = 0
-  NotInDistance = 1
-  NotInView = 2
-  NotInLineOfSight = 3
-  InDarkRoom = 4
-  IsLooking = 5
-  UnkownReason = 6
-Enum: PlayerRoles.PlayableScps.Subroutines.AttackResult
-  None = 0
-  AttackedObject = 1
-  AttackedPlayer = 2
-  KilledPlayer = 6
-Enum: PlayerRoles.PlayableScps.Scp939.Scp939AmnesticCloudInstance+CloudState
-  Spawning = 0
-  Created = 1
-  Destroyed = 2
-Enum: PlayerRoles.PlayableScps.Scp939.Scp939DamageType
-  None = 0
-  Claw = 14
-  LungeTarget = 15
-  LungeSecondary = 16
-Enum: PlayerRoles.PlayableScps.Scp939.Scp939HudTranslation
-  PressKeyToLunge = 0
-  HintPreviewVoice = 1
-  LocalPreviewHeader = 2
-  HintRemoveVoice = 3
-  HintTransmitVoice = 4
-  PrivacyHeader = 5
-  MimicryPrivacySubtitle = 6
-  MimicryPrivacyRememberChoice = 7
-  MimicryPrivacyDeleteButton = 8
-  MimicryPrivacyAcceptButton = 9
-  MimicryPrivacyMoreInfoButton = 10
-  MimicryPrivacyDescription = 11
-  CloudFailedPositionInvalid = 12
-  CloudFailedSizeInsufficient = 13
-  HelpMenuDescription = 14
-  HelpMenuClaw = 15
-  HelpMenuFocus = 16
-  HelpMenuCloud = 17
-  HelpMenuWithManyVoices = 18
-  HelpMenuUltrasensitive = 19
-  ReturnButton = 20
-  MimicPointPlaceButton = 21
-  MimicPointPlaceDescription = 22
-  MimicPointRemoveButton = 23
-  MimicPointRemoveDescription = 24
-  MimicPointPlaceConfirmation = 25
-  MimicPointRemoveConfirmation = 26
-  MimicPointDestroyedDistance = 27
-  StolenVoicesHeader = 28
-  StolenVoicesDescription = 29
-  EnvMimicryHeader = 30
-  EnvMimicryDescription = 31
-  EnvMimicryCooldown = 32
-  MimicFootsteps = 33
-  MimicRoles = 34
-  MimicShooting = 35
-  MimicOther = 36
-  PrevMenu = 37
-  NextMenu = 38
-  Roles = 39
-  HintAssignedHotkey = 40
-  HintPlayEnvMimicry = 41
-  HintStopPlayback = 42
-  HintTrimRecording = 43
-  HintToggleFavorite = 44
-  HintReorganizeRecordings = 45
-  YouGotAVoicelinePopup = 46
-Enum: PlayerRoles.PlayableScps.Scp939.Scp939LungeState
-  None = 0
-  Triggered = 1
-  LandHit = 2
-  LandRegular = 3
-  LandHarsh = 4
-Enum: PlayerRoles.PlayableScps.Scp939.Mimicry.MimicPointController+RpcStateMsg
-  None = 0
-  PlacedByUser = 25
-  RemovedByUser = 26
-  DestroyedByDistance = 27
-Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114DamageHandler+HandlerType
-  Slap = 0
-  Strangulation = 1
-  SkinSteal = 2
-Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114FakeModelManager+VariantType
-  Original = 0
-  Disguise = 1
-  Reveal = 2
-Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114HudTranslation
-  IdentityStolenWarning = 0
-  UnableToAttackWarning = 1
-  EquipItemWarning = 2
-  ProximityVoiceHint = 3
-  RagdollErrorPreviouslyUsed = 4
-  RagdollErrorAlreadyDisguised = 5
-  RagdollErrorNotHuman = 6
-  InspectRagdollOverride = 7
-  StartingRagdollHint = 8
-  ValidRagdollIndicator = 9
-  StrangulationCooldown = 10
-  HelpMenuSkeletonsInYourCLoset = 11
-  HelpMenuCatchTheseHands = 12
-  HelpMenuStrangulation = 13
-  HelpMenuUnderTheirSkin = 14
-  RevealKeyHoldLongerWarning = 15
-Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114Identity+DisguiseStatus
-  None = 0
-  Equipping = 1
-  Active = 2
-Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114Strangle+RpcType
-  TargetResync = 0
-  TargetKilled = 1
-  AttackInterrupted = 2
-  OutOfRange = 3
-Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114StrangleAudio+RpcType
-  ChokeSync = 0
-  Kill = 1
-Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114VoiceLines+VoiceLinesName
-  KillSlap = 0
-  KillStrangle = 1
-  Slap = 2
-  RandomIdle = 3
-  Reveal = 4
-  EquipStart = 5
-  StartStrangle = 6
-Enum: PlayerRoles.PlayableScps.Scp173.Scp173AudioPlayer+Scp173SoundId
-  Hit = 0
-  Teleport = 1
-  Snap = 2
-Enum: PlayerRoles.PlayableScps.Scp173.Scp173TeleportAbility+CmdTeleportData
-  Aiming = 1
-  WantsToTeleport = 2
-Enum: PlayerRoles.PlayableScps.Scp096.Scp096HitResult
-  None = 0
-  Window = 1
-  Door = 2
-  Human = 4
-  Lethal = 12
-Enum: PlayerRoles.PlayableScps.Scp096.Scp096HudTranslation
-  HelpMenuDescription = 0
-  HelpMenuTryNotToCry = 1
-  HelpMenuMeeleAttack = 2
-  HelpMenuCharge = 3
-  HelpMenuRageOnly = 4
-  HelpMenuDocileOnly = 5
-  EnterRageKeyInfo = 6
-  ExitRageKeyInfo = 7
-Enum: PlayerRoles.PlayableScps.Scp096.Scp096RageState
-  Docile = 0
-  Distressed = 1
-  Enraged = 2
-  Calming = 3
-Enum: PlayerRoles.PlayableScps.Scp096.Scp096AbilityState
-  None = 0
-  TryingNotToCry = 1
-  Attacking = 2
-  Charging = 3
-  PryingGate = 4
-Enum: PlayerRoles.PlayableScps.Scp079.Scp079BlackoutRoomAbility+ValidationError
-  None = 0
-  NotEnoughAux = 1
-  NoController = 26
-  MaxCapacityReached = 27
-  RoomOnCooldown = 28
-  AlreadyBlackedOut = 60
-Enum: PlayerRoles.PlayableScps.Scp079.Scp079BlackoutZoneAbility+ValidationError
-  None = 0
-  NotEnoughAux = 1
-  Cooldown = 59
-  Unavailable = 61
-Enum: PlayerRoles.PlayableScps.Scp079.Scp079HudTranslation
-  Zoom = 0
-  AccessTier = 1
-  Experience = 2
-  MaxTierReached = 3
-  NoCamera = 4
-  GoToCamera = 5
-  NotEnoughAux = 6
-  EtaTimer = 7
-  HigherTierRequired = 8
-  InvalidCamera = 9
-  DoorAccessDenied = 10
-  OpenDoor = 11
-  CloseDoor = 12
-  LockDoor = 13
-  UnlockDoor = 14
-  DoorLockCooldown = 15
-  AuxPower = 16
-  YouAreBeingAttacked = 17
-  ReleaseDoorLock = 18
-  OpenMap = 19
-  CloseMap = 20
-  LightContZone = 21
-  HeavyContZone = 22
-  EntranceZone = 23
-  SurfaceZone = 24
-  ActivateRoomBlackout = 25
-  BlackoutRoomUnavailable = 26
-  BlackoutRoomLimit = 27
-  BlackoutRoomCooldown = 28
-  SendElevator = 29
-  Lockdown = 30
-  LockdownCooldown = 31
-  LockdownNoDoorsError = 32
-  PingLocation = 33
-  PingRateLimited = 34
-  CameraSwitchFailed = 35
-  SignalLost = 36
-  ReconnectingEta = 37
-  FireTeslaGate = 38
-  TeslaGateCooldown = 39
-  AccessTierUnlocked = 40
-  AuxPowerLimitIncreased = 41
-  BlackoutRoomAvailable = 42
-  BlackoutCapacityIncreased = 43
-  LockdownAvailable = 44
-  ExpGainAdminCommand = 45
-  ExpGainTerminationAssist = 46
-  ExpGainTerminationDirect = 47
-  ExpGainTerminationWitness = 48
-  ExpGainBlockingHuman = 49
-  ExpGainTeammateProtection = 50
-  ExpGainHidStopped = 51
-  DoorLockAlreadyActive = 52
-  ActivateZoneBlackout = 53
-  ZoneBlackoutAvailable = 54
-  ZoneBlackoutCooldown = 55
-  BlackoutAlreadyActive = 56
-  ZoneBlackoutUnavailable = 57
-  CounterTotalLifeforms = 58
-  CounterTargets = 59
-  CounterScps = 60
-  CounterCivils = 61
-  CounterMilitary = 62
-  UseSpeaker = 63
-  ElevatorAccessDenied = 64
-  HelpMenuOverview = 65
-  HelpMenuVirtuallyIndestructible = 66
-  HelpMenuUnlimitedAccess = 67
-  HelpMenuDeepLearning = 68
-  HelpMenuOverwatch = 69
-  BreachScannerAvailable = 70
-  AuxRegenSuspended = 71
-  AuxRegenReduced = 72
-  DoorLockAuxPause = 73
-  SpeakerAuxPause = 74
-  LockdownAuxPause = 75
-  OpenBreachScanner = 76
-  CloseBreachScanner = 77
-  ScannerAuxPause = 78
-  ScannerSelectedZoneCntLabel = 79
-  ScannerNoZoneSelectedLabel = 80
-  ScanResultNoneFound = 81
-  ScanResultRetryingMessage = 82
-  ScanResultPlayerDetected = 83
-  ScanStatusWaiting = 84
-  ScanStatusScanning = 85
-  ScanStatusDisabled = 86
-  ScannerFilters = 87
-  ScannerDescription = 88
-  ScannerNoFiltersError = 89
-  DoorLockAbilityAvailable = 90
-Enum: PlayerRoles.PlayableScps.Scp079.Scp079KeyAbilityBase+Category
-  Movement = 0
-  SpecialAbility = 1
-  OverconInteraction = 2
-Enum: PlayerRoles.PlayableScps.Scp079.Scp079LockdownRoomAbility+ValidationError
-  None = 0
-  Unknown = 1
-  NotEnoughAux = 6
-  TierTooLow = 8
-  Cooldown = 31
-  NoDoors = 32
-Enum: PlayerRoles.PlayableScps.Scp079.Scp079ScannerSequence+ScanSequenceStep
-  Init = 0
-  CountingDown = 1
-  ScanningFindNewTarget = 2
-  ScanningFailedCooldown = 3
-  ScanningUpdateTarget = 4
-Enum: PlayerRoles.PlayableScps.Scp079.Scp079ScannerSequence+TrackerMessage
-  None = 0
-  ScannerDisabled = 1
-  ScanTimeSync = 2
-  ScanNoResults = 3
-  ScanSuccessful = 4
-Enum: PlayerRoles.PlayableScps.Scp079.Map.Scp079TeammateIndicators+IndicatorType
-  Low = 0
-  Medium = 1
-  High = 2
-Enum: PlayerRoles.PlayableScps.Scp079.GUI.NotificationSound
-  Standard = 0
-  None = -1
-Enum: PlayerRoles.PlayableScps.Scp079.Cameras.Scp079CurrentCameraSync+ClientSwitchState
-  None = 0
-  SwitchingRoom = 1
-  SwitchingZone = 2
-Enum: PlayerRoles.PlayableScps.Scp049.Scp049ResurrectAbility+ResurrectError
-  None = 0
-  TargetNull = 1
-  Expired = 2
-  MaxReached = 3
-  Refused = 4
-  TargetInvalid = 5
-Enum: PlayerRoles.PlayableScps.Scp049.Zombies.ZombieAudioPlayer+Scp0492SoundId
-  Growl = 0
-  AngryGrowl = 1
-  Attack = 2
-Enum: PlayerRoles.PlayableScps.Scp049.Zombies.ZombieConsumeAbility+ConsumeError
-  None = 0
-  CannotCancel = 1
-  AlreadyConsumed = 2
-  TargetNotValid = 3
-  FullHealth = 8
-  BeingConsumed = 9
-Enum: PlayerRoles.FirstPersonControl.PlayerMovementState
-  Crouching = 0
-  Sneaking = 1
-  Walking = 2
-  Sprinting = 3
-Enum: PlayerRoles.FirstPersonControl.FpcMotor+FpcViewMode
-  LocalPlayer = 0
-  Server = 1
-  Thirdperson = 2
-Enum: PlayerRoles.FirstPersonControl.Thirdperson.AnimatedCharacterModel+FootstepLoudness
-  Civilian = 8
-  FoundationForces = 12
-  Chaos = 30
-  Scp = 35
-Enum: PlayerRoles.Filmmaker.FilmmakerBlendPreset
-  Linear = 0
-  Smooth = 1
-  FetchNext = 2
-  Hold = 3
-Enum: Utils.CustomParser+ParseResult
-  FullSuccess = 0
-  PartialSuccess = 1
-  Failed = 2
-Enum: Utils.Networking.HintEffectReaderWriter+HintEffectType
-  Alpha = 0
-  AlphaCurve = 1
-  Outline = 2
-Enum: Utils.Networking.HintParameterReaderWriter+HintParameterType
-  Text = 0
-  Timespan = 1
-  Ammo = 2
-  Item = 3
-  ItemCategory = 4
-  Byte = 5
-  SByte = 6
-  Short = 7
-  UShort = 8
-  Int = 9
-  UInt = 10
-  Long = 11
-  ULong = 12
-  Float = 13
-  Double = 14
-  PackedLong = 15
-  PackedULong = 16
-  Scp330Hint = 17
-Enum: Utils.Networking.HintReaderWriter+HintType
-  Translation = 0
-  Text = 1
-Enum: Utils.Networking.NullableBoolReaderWriter+NullableBoolValue
-  Null = 0
-  True = 1
-  False = 2
-Enum: LightContainmentZoneDecontamination.DecontaminationController+DecontaminationStatus
-  None = 0
-  Disabled = 1
-  Forced = 2
-Enum: LightContainmentZoneDecontamination.DecontaminationController+DecontaminationPhase+PhaseFunction
-  None = 0
-  GloballyAudible = 1
-  OpenCheckpoints = 2
-  Final = 3
-Enum: MapGeneration.ImageGenerator+RoomType
-  Straight = 0
-  Curve = 1
-  RoomT = 2
-  Cross = 3
-  Endoff = 4
-  Prison = 5
-Enum: MapGeneration.RoomShape
-  Undefined = 0
-  Endroom = 1
-  Straight = 2
-  Curve = 3
-  TShape = 4
-  XShape = 5
-Enum: MapGeneration.FacilityZone
-  None = 0
-  LightContainment = 1
-  HeavyContainment = 2
-  Entrance = 3
-  Surface = 4
-  Other = 5
-Enum: MapGeneration.RoomName
-  Unnamed = 0
-  LczClassDSpawn = 1
-  LczComputerRoom = 2
-  LczCheckpointA = 3
-  LczCheckpointB = 4
-  LczToilets = 5
-  LczArmory = 6
-  Lcz173 = 7
-  LczGlassroom = 8
-  Lcz330 = 9
-  Lcz914 = 10
-  LczGreenhouse = 11
-  LczAirlock = 12
-  HczCheckpointToEntranceZone = 13
-  HczCheckpointA = 14
-  HczCheckpointB = 15
-  HczWarhead = 16
-  Hcz049 = 17
-  Hcz079 = 18
-  Hcz096 = 19
-  Hcz106 = 20
-  Hcz939 = 21
-  HczMicroHID = 22
-  HczArmory = 23
-  HczServers = 24
-  HczTesla = 25
-  EzCollapsedTunnel = 26
-  EzGateA = 27
-  EzGateB = 28
-  EzRedroom = 29
-  EzEvacShelter = 30
-  EzIntercom = 31
-  EzOfficeStoried = 32
-  EzOfficeLarge = 33
-  EzOfficeSmall = 34
-  Outside = 35
-  Pocket = 36
-  HczTestroom = 37
-Enum: MapGeneration.Distributors.Scp079Generator+GeneratorFlags
-  None = 1
-  Unlocked = 2
-  Open = 4
-  Activating = 8
-  Engaged = 16
-Enum: MapGeneration.Distributors.Scp079Generator+GeneratorColliderId
-  Door = 0
-  Switch = 1
-  CancelButton = 2
-Enum: MapGeneration.Distributors.StructureType
-  StandardLocker = 0
-  LargeGunLocker = 1
-  ScpPedestal = 2
-  Scp079Generator = 3
-  SmallWallCabinet = 4
-  Workstation = 5
-Enum: Hints.HintTranslations
-  WarheadDetonateCoverDenied = 0
-  MaxAmmoReached = 1
-  MaxAmmoAlreadyReached = 2
-  MaxItemCategoryReached = 3
-  MaxItemCategoryAlreadyReached = 4
-  MaxItemsAlreadyReached = 5
-Enum: Hints.HintMessageParameterFunctions+HintMessageTypes
-  Unknown = 0
-  TextHint = 1
-  TranslationHint = 2
-Enum: GameCore.ConfigShareTypes
-  Bans = 0
-  Mutes = 1
-  Whitelist = 2
-  ReservedSlots = 3
-  Groups = 4
-  GroupsMembers = 5
-  GameplayDatabase = 6
-Enum: GameCore.ConfigSharing+ConfigShare
-  Bans = 0
-  Mutes = 1
-  Whitelist = 2
-  ReservedSlots = 3
-  Groups = 4
-  GroupsMembers = 5
-  GameplayDatabase = 6
-Enum: GameCore.Console+ConsoleLogType
-  DoNotLog = 0
-  Log = 1
-  Warning = 2
-  Error = 3
-Enum: GameCore.DistributionPlatform
-  Dedicated = 0
-  Steam = 1
-  Discord = 2
-Enum: GameCore.Version+VersionType
-  Release = 0
-  PublicRC = 1
-  PublicBeta = 2
-  PrivateRC = 3
-  PrivateRCStreamingForbidden = 4
-  PrivateBeta = 5
-  PrivateBetaStreamingForbidden = 6
-  Development = 7
-  Nightly = 8
-Enum: InventorySystem.Searching.SearchSessionPipe+Activity
-  Idle = 0
-  Requested = 1
-  Promised = 2
-Enum: InventorySystem.Hotkeys.HotkeysTranslation
-  SettingsHeader = 0
-  CreateNewLabel = 1
-  SettingsHeaderHint = 2
-  KeycardPredefinedName = 3
-  PrimaryWeaponPredefinedName = 4
-  SecondaryWeaponPredefinedName = 5
-  MedicalPredefinedName = 6
-  GrenadePredefinedName = 7
-  NameLabel = 8
-  KeyLabel = 9
-  ApperanceLabel = 10
-  SortLabel = 11
-  OverrideLabel = 12
-  OverrideHint = 13
-  ApperanceHidden = 14
-  ApperanceNormal = 15
-  ApperanceSmall = 16
-  SortItemQueue = 17
-  SortItemQueueHint = 18
-  SortInventoryOrder = 19
-  SortInventoryOrderHint = 20
-  OverrideNone = 21
-  OverrideBestMedical = 22
-  OverrideBestMedicalHint = 23
-  OverrideRememberPrev = 24
-  OverrideRememberPrevHint = 25
-  OverrideNearbyDoor = 26
-  OverrideNearbyDoorHint = 27
-  OverrideSkipEmpty = 28
-  OverrideSkipEmptyHint = 29
-  PoolItemsLabel = 30
-  PoolOrderLabel = 31
-  PoolOrderHint = 32
-  RestoreDefaultLabel = 33
-  RestoreDefaultButton = 34
-  TitlePrefix = 35
-  NewHotkeyNamePlaceholder = 36
-  GroupFirearms = 37
-  GroupKeycards = 38
-  GroupThrowable = 39
-  GroupScpItems = 40
-Enum: InventorySystem.Items.BlockedInteraction
-  GeneralInteractions = 1
-  OpenInventory = 2
-  BeDisarmed = 4
-  GrabItems = 8
-  ItemPrimaryAction = 16
-  ItemUsage = 48
-  All = 255
-Enum: InventorySystem.Items.ItemDescriptionType
-  Default = 0
-  Keycard = 1
-  Firearm = 2
-  Armor = 3
-  None = 4
-  Scp330Bag = 5
-Enum: InventorySystem.Items.Thirdperson.ThirdpersonItemAnimationName
-  Override0 = 0
-  Override1 = 1
-  Override2 = 2
-  IdlePoseAdditive = 3
-  SprintLeftAdditive = 4
-  SprintRightAdditive = 5
-  SprintStraightAdditive = 6
-  SprintBackAdditive = 7
-  WalkLeftAdditive = 8
-  WalkRightAdditive = 9
-  WalkStraightAdditive = 10
-  WalkBackAdditive = 11
-  PrimaryAdditive = 12
-  SecAdditive0 = 13
-  SecAdditive1 = 14
-  SecAdditive2 = 15
-Enum: InventorySystem.Items.Pickups.PickupStandardPhysics+FreezingMode
-  Default = 0
-  FreezeWhenSleeping = 1
-  NeverFreeze = 2
-Enum: InventorySystem.Items.Pickups.PickupSyncInfo+PickupFlags
-  Locked = 1
-  InUse = 2
-Enum: InventorySystem.Items.Usables.StatusMessage+StatusType
-  Start = 0
-  Cancel = 1
-Enum: InventorySystem.Items.Usables.Scp330.CandyKindID
-  None = 0
-  Rainbow = 1
-  Yellow = 2
-  Purple = 3
-  Red = 4
-  Green = 5
-  Blue = 6
-  Pink = 7
-Enum: InventorySystem.Items.Usables.Scp330.Scp330Translations+Entry
-  Candies = 0
-Enum: InventorySystem.Items.Usables.Scp244.Scp244State
-  Idle = 0
-  Active = 1
-  Destroyed = 2
-  PickedUp = 3
-Enum: InventorySystem.Items.ThrowableProjectiles.ThrowableNetworkHandler+RequestType
-  BeginThrow = 0
-  ConfirmThrowWeak = 1
-  ConfirmThrowFullForce = 2
-  CancelThrow = 3
-Enum: InventorySystem.Items.Radio.RadioMessages+RadioCommand
-  Enable = 0
-  Disable = 1
-  ChangeRange = 2
-Enum: InventorySystem.Items.Radio.RadioMessages+RadioRangeLevel
-  LowRange = 0
-  MediumRange = 257
-  HighRange = 514
-  UltraRange = 771
-  RadioDisabled = 255
-Enum: InventorySystem.Items.MarshmallowMan.MarshmallowItem+RpcType
-  AttackStart = 0
-  Hit = 1
-  Holster = 2
-Enum: InventorySystem.Items.Jailbird.JailbirdWearState
-  Healthy = 0
-  LowWear = 1
-  MediumWear = 2
-  HighWear = 3
-  AlmostBroken = 4
-  Broken = 5
-Enum: InventorySystem.Items.Jailbird.JailbirdMessageType
-  UpdateState = 0
-  Broken = 1
-  Holstered = 2
-  AttackTriggered = 3
-  AttackPerformed = 4
-  ChargeLoadTriggered = 5
-  ChargeFailed = 6
-  ChargeStarted = 7
-  Inspect = 8
-Enum: InventorySystem.Items.Firearms.FirearmAudioFlags
-  None = 0
-  ScaleDistance = 2
-  IsGunshot = 4
-  SendToPlayers = 8
-  UseDedicatedAudioChannel = 16
-Enum: InventorySystem.Items.Firearms.FirearmStatusFlags
-  None = 0
-  Cocked = 2
-  MagazineInserted = 4
-  FlashlightEnabled = 8
-  Chambered = 16
-Enum: InventorySystem.Items.Firearms.Modules.DoubleAction+TriggerState
-  Released = 0
-  Pulling = 1
-  SearLock = 2
-Enum: InventorySystem.Items.Firearms.Modules.ActionModuleResponse
-  Idle = 0
-  Shoot = 1
-  Dry = 2
-Enum: InventorySystem.Items.Firearms.Modules.TubularMagazineAmmoManager+CurrentAction
-  Idle = 0
-  Reloading = 1
-  Unloading = 2
-Enum: InventorySystem.Items.Firearms.BasicMessages.RequestType
-  Unload = 0
-  Reload = 1
-  AdsIn = 2
-  AdsOut = 3
-  Dryfire = 4
-  ToggleFlashlight = 5
-  ReloadStop = 6
-  RequestStatuses = 7
-  Inspect = 8
-Enum: InventorySystem.Items.Firearms.Attachments.AttachmentEditorsTranslation
-  Custom = 0
-  PresetId = 1
-  SaveAttachments = 2
-  ClearAttachments = 3
-  DefaultAttachments = 4
-  Presets = 5
-  WorkstationOffline = 6
-  WorkstationStandby = 7
-  WorkstationWelcome = 8
-  WorkstationBooting = 9
-  WorkstationReady = 10
-  WorkstationEquipGun = 11
-  WorkstationShuttingDownHeader = 12
-  WorkstationShuttingDownDescription = 13
-  ShowStatsSummary = 14
-  CloseStatsSummary = 15
-  AttachmentCustomization = 16
-  SpectatorEditorTip = 17
-Enum: InventorySystem.Items.Firearms.Attachments.AttachmentSlot
-  Sight = 0
-  Barrel = 1
-  SideRail = 2
-  BottomRail = 3
-  Ammunition = 4
-  Stock = 5
-  Stability = 6
-  Body = 7
-  Unassigned = 255
-Enum: InventorySystem.Items.Firearms.Attachments.AttachmentName
-  None = 0
-  IronSights = 1
-  DotSight = 2
-  HoloSight = 3
-  NightVisionSight = 4
-  AmmoSight = 5
-  ScopeSight = 6
-  StandardStock = 7
-  ExtendedStock = 8
-  RetractedStock = 9
-  LightweightStock = 10
-  HeavyStock = 11
-  RecoilReducingStock = 12
-  Foregrip = 13
-  Laser = 14
-  Flashlight = 15
-  AmmoCounter = 16
-  StandardBarrel = 17
-  ExtendedBarrel = 18
-  SoundSuppressor = 19
-  FlashHider = 20
-  MuzzleBrake = 21
-  MuzzleBooster = 22
-  StandardMagFMJ = 23
-  StandardMagAP = 24
-  StandardMagJHP = 25
-  ExtendedMagFMJ = 26
-  ExtendedMagAP = 27
-  ExtendedMagJHP = 28
-  DrumMagFMJ = 29
-  DrumMagAP = 30
-  DrumMagJHP = 31
-  LowcapMagFMJ = 32
-  LowcapMagAP = 33
-  LowcapMagJHP = 34
-  CylinderMag4 = 35
-  CylinderMag6 = 36
-  CylinderMag8 = 37
-  CarbineBody = 38
-  RifleBody = 39
-  ShortBarrel = 40
-  ShotgunChoke = 41
-  ShotgunExtendedBarrel = 42
-  NoRifleStock = 43
-  ShotgunSingleShot = 44
-  ShotgunDoubleShot = 45
-Enum: InventorySystem.Items.Firearms.Attachments.AttachmentDescriptiveAdvantages
-  None = 0
-  Flashlight = 2
-  AmmoCounter = 4
-  FlashSuppression = 8
-  NightVision = 16
-Enum: InventorySystem.Items.Firearms.Attachments.AttachmentDescriptiveDownsides
-  None = 0
-  Laser = 2
-Enum: InventorySystem.Items.Firearms.Attachments.AttachmentParam
-  AdsZoomMultiplier = 0
-  AdsMouseSensitivityMultiplier = 1
-  DamageMultiplier = 2
-  PenetrationMultiplier = 3
-  FireRateMultiplier = 4
-  OverallRecoilMultiplier = 5
-  AdsRecoilMultiplier = 6
-  BulletInaccuracyMultiplier = 7
-  HipInaccuracyMultiplier = 8
-  AdsInaccuracyMultiplier = 9
-  DrawSpeedMultiplier = 10
-  GunshotLoudnessMultiplier = 11
-  MagazineCapacityModifier = 12
-  DrawTimeModifier = 13
-  ReloadTimeModifier = 14
-  ShotClipIdOverride = 15
-  AdsSpeedMultiplier = 16
-  SpreadMultiplier = 17
-  SpreadPredictability = 18
-  AmmoConsumptionMultiplier = 19
-  ReloadSpeedMultiplier = 20
-  PreventReload = 21
-Enum: InventorySystem.Items.Firearms.Attachments.ParameterMixingMode
-  Override = 0
-  Additive = 1
-  Percent = 2
-Enum: InventorySystem.Items.Firearms.Attachments.WorkstationController+WorkstationStatus
-  Offline = 0
-  PoweringUp = 1
-  PoweringDown = 2
-  Online = 3
-Enum: InventorySystem.Items.Autosync.AutosyncRpc+Mode
-  Local = 0
-  AllClients = 1
-  Conditional = 2
-Enum: InventorySystem.Items.MicroHID.HidUserInput
-  None = 0
-  Prime = 1
-  Fire = 2
-Enum: InventorySystem.Items.MicroHID.HidState
-  Idle = 0
-  PoweringUp = 1
-  PoweringDown = 2
-  Primed = 3
-  Firing = 4
-  StopSound = 5
-Enum: InventorySystem.Items.MicroHID.HidStatusMessageType
-  UserInput = 0
-  State = 1
-  EnergySync = 2
-Enum: CustomPlayerEffects.StatusEffectBase+EffectClassification
-  Negative = 0
-  Mixed = 1
-  Positive = 2
-Enum: Respawning.RespawnEffectsController+EffectType
-  Selection = 0
-  UponRespawn = 1
-Enum: Respawning.RespawnManager+RespawnSequencePhase
-  RespawnCooldown = 0
-  SelectingTeam = 1
-  PlayingEntryAnimations = 2
-  SpawningSelectedTeam = 3
-Enum: Respawning.SpawnableTeamType
-  None = 0
-  ChaosInsurgency = 1
-  NineTailedFox = 2
-Enum: AudioPooling.AudioMixerChannelType
-  DefaultSfx = 0
-  Interface = 1
-  Weapons = 2
-  VoiceChat = 3
-  NoDucking = 4
-Enum: CursorManagement.CursorOverrideMode
-  NoOverride = 0
-  Centered = 1
-  Confined = 2
-  Free = 3
-Enum: _Scripts.Utils.StartExternalProcess+ProcessCreationFlags
-  NONE = 0
-  DEBUG_PROCESS = 1
-  DEBUG_ONLY_THIS_PROCESS = 2
-  CREATE_SUSPENDED = 4
-  DETACHED_PROCESS = 8
-  CREATE_NEW_CONSOLE = 16
-  CREATE_NEW_PROCESS_GROUP = 512
-  CREATE_UNICODE_ENVIRONMENT = 1024
-  CREATE_SEPARATE_WOW_VDM = 2048
-  CREATE_SHARED_WOW_VDM = 4096
-  INHERIT_PARENT_AFFINITY = 65536
-  CREATE_PROTECTED_PROCESS = 262144
-  EXTENDED_STARTUPINFO_PRESENT = 524288
-  CREATE_SECURE_PROCESS = 4194304
-  CREATE_BREAKAWAY_FROM_JOB = 16777216
-  CREATE_PRESERVE_CODE_AUTHZ_LEVEL = 33554432
-  CREATE_DEFAULT_ERROR_MODE = 67108864
-  CREATE_NO_WINDOW = 134217728
-Enum: CentralAuth.AuthenticationResponseFunctions+AuthenticationResponseFlags
-  AuthToken = 1
-  BadgeToken = 2
-  DoNotTrack = 4
-  HideBadge = 8
-Enum: CentralAuth.ClientInstanceMode
-  Unverified = 0
-  ReadyClient = 1
-  Host = 2
-  DedicatedServer = 3
-Enum: AdminToys.PrimitiveFlags
-  None = 0
-  Collidable = 1
-  Visible = 2
-Enum: AdminToys.ShootingTarget+TargetButton
-  IncreaseHP = 0
-  DecreaseHP = 1
-  IncreaseResetTime = 2
-  DecreaseResetTime = 3
-  ManualReset = 4
-  Remove = 5
-  GlobalResults = 6
-Enum: Achievements.AchievementName
-  TurnThemAll = 0
-  Pacified = 1
-  MelancholyOfDecay = 2
-  DontBlink = 3
-  LightsOut = 4
-  ItsAlwaysLeft = 5
-  AccessGranted = 6
-  DeltaCommand = 7
-  ProceedWithCaution = 8
-  Friendship = 9
-  ForScience = 10
-  IsThisThingOn = 11
-  FireInTheHole = 12
-  HeWillBeBack = 13
-  BePoliteBeEfficient = 14
-  ExecutiveAccess = 15
-  SecureContainProtect = 16
-  TMinus = 17
-  ChangeInCommand = 18
-  ThatCanBeUseful = 19
-  JustResources = 20
-  ThatWasClose = 21
-  SomethingDoneRight = 22
-  WalkItOff = 23
-  AnomalouslyEfficient = 24
-  MicrowaveMeal = 25
-  EscapeArtist = 26
-  Escape207 = 27
-  CrisisAverted = 28
-  DidntEvenFeelThat = 29
-  IllPassThanks = 30
-  Overcurrent = 31
-  PropertyOfChaos = 32
-Enum: Scp914.Scp914Mode
-  Dropped = 1
-  Inventory = 2
-  DroppedAndInventory = 3
-  DroppedAndPlayerTeleport = 5
-  Held = 6
-  DroppedAndHeld = 7
-Enum: Scp914.Scp914KnobSetting
-  Rough = 0
-  Coarse = 1
-  OneToOne = 2
-  Fine = 3
-  VeryFine = 4
-Enum: Scp914.Scp914InteractCode
-  ChangeMode = 0
-  Activate = 1
-Enum: Scp914.Scp914Sound
-  KnobChange = 0
-  Upgrading = 1
-Enum: Interactables.Interobjects.CheckpointDoor+CheckpointSequenceStage
-  Idle = 0
-  Granted = 1
-  Open = 2
-  Closing = 3
-Enum: Interactables.Interobjects.CheckpointDoor+CheckpointErrorType
-  Denied = 0
-  LockedDown = 1
-  Destroyed = 2
-Enum: Interactables.Interobjects.ElevatorChamber+ElevatorSequence
-  DoorClosing = 0
-  MovingAway = 1
-  Arriving = 2
-  DoorOpening = 3
-  Ready = 4
-Enum: Interactables.Interobjects.ElevatorManager+ElevatorGroup
-  GateA = 0
-  GateB = 1
-  LczA01 = 2
-  LczA02 = 3
-  LczB01 = 4
-  LczB02 = 5
-  Nuke = 6
-  Scp049 = 7
-Enum: Interactables.Interobjects.DoorUtils.DoorDamageType
-  None = 1
-  ServerCommand = 2
-  Grenade = 4
-  Weapon = 8
-  Scp096 = 16
-Enum: Interactables.Interobjects.DoorUtils.DoorEventOpenerExtension+OpenerEventType
-  WarheadStart = 0
-  WarheadCancel = 1
-  DeconEvac = 2
-  DeconFinish = 3
-  DeconReset = 4
-Enum: Interactables.Interobjects.DoorUtils.DoorAction
-  Opened = 0
-  Closed = 1
-  AccessDenied = 2
-  Locked = 3
-  Unlocked = 4
-  Destroyed = 5
-Enum: Interactables.Interobjects.DoorUtils.DoorLockReason
-  None = 0
-  Regular079 = 1
-  Lockdown079 = 2
-  Warhead = 4
-  AdminCommand = 8
-  DecontLockdown = 16
-  DecontEvacuate = 32
-  SpecialDoorFeature = 64
-  NoPower = 128
-  Isolation = 256
-  Lockdown2176 = 512
-Enum: Interactables.Interobjects.DoorUtils.DoorLockMode
-  FullLock = 0
-  CanOpen = 1
-  CanClose = 2
-  ScpOverride = 4
-Enum: Interactables.Interobjects.DoorUtils.KeycardPermissions
-  None = 0
-  Checkpoints = 1
-  ExitGates = 2
-  Intercom = 4
-  AlphaWarhead = 8
-  ContainmentLevelOne = 16
-  ContainmentLevelTwo = 32
-  ContainmentLevelThree = 64
-  ArmoryLevelOne = 128
-  ArmoryLevelTwo = 256
-  ArmoryLevelThree = 512
-  ScpOverride = 1024
-Enum: Interactables.Interobjects.DoorUtils.DoorVariant+CollisionsDisablingReasons
-  DoorClosing = 1
-  Scp106 = 2
-Enum: Utf8Json.CollectionDeserializeToBehaviour
-  Add = 0
-  OverwriteReplace = 1
-Enum: Utf8Json.JsonToken
-  None = 0
-  BeginObject = 1
-  EndObject = 2
-  BeginArray = 3
-  EndArray = 4
-  Number = 5
-  String = 6
-  True = 7
-  False = 8
-  Null = 9
-  ValueSeparator = 10
-  NameSeparator = 11
-Enum: Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+FastDtoaMode
-  FAST_DTOA_SHORTEST = 0
-  FAST_DTOA_SHORTEST_SINGLE = 1
-Enum: Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+DtoaMode
-  SHORTEST = 0
-  SHORTEST_SINGLE = 1
-Enum: Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+Flags
-  NO_FLAGS = 0
-  EMIT_POSITIVE_EXPONENT_SIGN = 1
-  EMIT_TRAILING_DECIMAL_POINT = 2
-  EMIT_TRAILING_ZERO_AFTER_POINT = 4
-  UNIQUE_ZERO = 8
-Enum: Utf8Json.Internal.DoubleConversion.StringToDoubleConverter+Flags
-  NO_FLAGS = 0
-  ALLOW_HEX = 1
-  ALLOW_OCTALS = 2
-  ALLOW_TRAILING_JUNK = 4
-  ALLOW_LEADING_SPACES = 8
-  ALLOW_TRAILING_SPACES = 16
-  ALLOW_SPACES_AFTER_SIGN = 32
-  ALLOW_CASE_INSENSIBILITY = 64
-Enum: CustomRendering.FogType
-  None = 0
-  Inside = 1
-  Outside = 2
-  Decontamination = 3
-  Amnesia = 4
-  Nuke = 5
-  Scp244 = 6
-Enum: Decals.DecalPoolType
-  None = 0
-  Bullet = 1
-  Blood = 2
-  Buckshot = 3
-Enum: Mirror.LiteNetLib4Mirror.LiteNetLib4MirrorCore+States
-  NonInitialized = 0
-  Idle = 1
-  Discovery = 2
-  ClientConnecting = 3
-  ClientConnected = 4
-  Server = 5
-Enum: LiteNetLib4Mirror.Open.Nat.NetworkProtocolType
-  Tcp = 0
-  Udp = 1
-Enum: LiteNetLib4Mirror.Open.Nat.MappingLifetime
-  Permanent = 0
-  Session = 1
-  Manual = 2
-  ForcedSession = 3
-Enum: LiteNetLib4Mirror.Open.Nat.PortMapper
-  Pmp = 1
-  Upnp = 2
-Enum: LiteNetLib.ConnectionRequestResult
-  None = 0
-  Accept = 1
-  Reject = 2
-  RejectForce = 3
-Enum: LiteNetLib.UnconnectedMessageType
-  BasicMessage = 0
-  Broadcast = 1
-Enum: LiteNetLib.DisconnectReason
-  ConnectionFailed = 0
-  Timeout = 1
-  HostUnreachable = 2
-  NetworkUnreachable = 3
-  RemoteConnectionClose = 4
-  DisconnectPeerCalled = 5
-  ConnectionRejected = 6
-  InvalidProtocol = 7
-  UnknownHost = 8
-  Reconnect = 9
-  PeerToPeerConnection = 10
-  PeerNotFound = 11
-Enum: LiteNetLib.NatAddressType
-  Internal = 0
-  External = 1
-Enum: LiteNetLib.DeliveryMethod
-  ReliableUnordered = 0
-  Sequenced = 1
-  ReliableOrdered = 2
-  ReliableSequenced = 3
-  Unreliable = 4
-Enum: LiteNetLib.NetLogLevel
-  Warning = 0
-  Error = 1
-  Trace = 2
-  Info = 3
-Enum: LiteNetLib.NetEvent+EType
-  Connect = 0
-  Disconnect = 1
-  Receive = 2
-  ReceiveUnconnected = 3
-  Error = 4
-  ConnectionLatencyUpdated = 5
-  Broadcast = 6
-  ConnectionRequest = 7
-  MessageDelivered = 8
-  PeerAddressChanged = 9
-Enum: LiteNetLib.PacketProperty
-  Unreliable = 0
-  Channeled = 1
-  Ack = 2
-  Ping = 3
-  Pong = 4
-  ConnectRequest = 5
-  ConnectAccept = 6
-  Disconnect = 7
-  UnconnectedMessage = 8
-  MtuCheck = 9
-  MtuOk = 10
-  Broadcast = 11
-  Merged = 12
-  ShutdownOk = 13
-  PeerNotFound = 14
-  InvalidProtocol = 15
-  NatMessage = 16
-  Empty = 17
-Enum: LiteNetLib.ConnectionState
-  Outgoing = 2
-  Connected = 4
-  ShutdownRequested = 8
-  Disconnected = 16
-  EndPointChange = 32
-  Any = 46
-Enum: LiteNetLib.ConnectRequestResult
-  None = 0
-  P2PLose = 1
-  Reconnection = 2
-  NewConnection = 3
-Enum: LiteNetLib.DisconnectResult
-  None = 0
-  Reject = 1
-  Disconnect = 2
-Enum: LiteNetLib.ShutdownResult
-  None = 0
-  Success = 1
-  WasConnected = 2
-Enum: LiteNetLib.LocalAddrType
-  IPv4 = 1
-  IPv6 = 2
-  All = 3
-Enum: LiteNetLib.Utils.NetSerializer+CallType
-  Basic = 0
-  Array = 1
-  List = 2
-Enum: LiteNetLib.Utils.NtpLeapIndicator
-  NoWarning = 0
-  LastMinuteHas61Seconds = 1
-  LastMinuteHas59Seconds = 2
-  AlarmCondition = 3
-Enum: LiteNetLib.Utils.NtpMode
-  Client = 3
-  Server = 4
+### ReproProjectAssetType
+
+<details><summary><b>ReproProjectAssetType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Wildcard
+ [1] = Scene
+ [2] = Prefab
+ [3] = Asset
+```
+
+</details>
+
+### DiodeType
+
+<details><summary><b>AlphaWarheadNukesitePanel+DiodeType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = InProgress
+ [1] = BlastDoor
+ [2] = OutsideDoor
+```
+
+</details>
+
+### FalloffType
+
+<details><summary><b>FalloffType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Linear
+ [1] = Exponential
+ [2] = Footstep
+```
+
+</details>
+
+### AutoHideType
+
+<details><summary><b>StatusBar+AutoHideType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = WhenFull
+ [1] = WhenEmpty
+ [2] = AlwaysVisible
+```
+
+</details>
+
+### DebugLevel
+
+<details><summary><b>DebugLevel</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Muted
+ [1] = Narrow
+ [2] = Normal
+ [3] = Elevated
+ [4] = Full
+```
+
+</details>
+
+### MessageImportance
+
+<details><summary><b>MessageImportance</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = MostImportant
+ [2] = Normal
+ [3] = LessImportant
+ [4] = LeastImportant
+```
+
+</details>
+
+### ActionName
+
+<details><summary><b>ActionName</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Shoot
+ [1] = Zoom
+ [2] = Jump
+ [3] = Interact
+ [4] = Inventory
+ [5] = Reload
+ [6] = Run
+ [7] = VoiceChat
+ [8] = Sneak
+ [9] = MoveForward
+ [10] = MoveBackward
+ [11] = MoveLeft
+ [12] = MoveRight
+ [13] = PlayerList
+ [14] = CharacterInfo
+ [15] = RemoteAdmin
+ [16] = ToggleFlashlight
+ [17] = AltVoiceChat
+ [18] = Noclip
+ [19] = GameConsole
+ [21] = InspectItem
+ [22] = RevolverCockHammer
+ [23] = ThrowItem
+ [27] = HideGUI
+ [28] = NoClipFogToggle
+ [30] = PauseMenu
+ [31] = DebugLogMenu
+ [32] = Scp079FreeLook
+ [33] = Scp079LockDoor
+ [34] = Scp079UnlockAll
+ [35] = Scp079Blackout
+ [36] = Scp079Lockdown
+ [37] = Scp079PingLocation
+ [38] = Scp079BreachScanner
+```
+
+</details>
+
+### ActionCategory
+
+<details><summary><b>ActionCategory</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Gameplay
+ [1] = Weapons
+ [2] = Movement
+ [4] = Communication
+ [5] = System
+ [6] = Unbindable
+ [7] = Scp079
+```
+
+</details>
+
+### MainBoolsSettings
+
+<details><summary><b>ServerConfigSynchronizer+MainBoolsSettings</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = FriendlyFire
+```
+
+</details>
+
+### VoiceChatSupportMode
+
+<details><summary><b>NonFacilityCompatibility+SceneDescription+VoiceChatSupportMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Unsupported
+ [1] = WithoutIntercom
+ [2] = FullySupported
+```
+
+</details>
+
+### LegacyInterfaces
+
+<details><summary><b>LegacyInterfaces</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = GiveOrders
+ [1] = FollowOrders
+ [2] = SameRank
+ [3] = ClassDEscaped
+ [4] = ScientistsSurvived
+ [5] = KilledByScps
+ [6] = TerminatedScps
+ [7] = AlphaWarhead
+ [8] = WarheadDetonated
+ [9] = WarheadUnused
+ [10] = RoundRestartTimer
+ [11] = SpecialAbility
+ [12] = CreateSinkhole
+ [13] = UseSinkhole
+ [14] = YouDied
+ [15] = YouWereKilledByNicknameLabel
+ [16] = YouWereKilledByRoleLabel
+ [17] = PassiveAbility
+ [18] = Hidden
+```
+
+</details>
+
+### BanType
+
+<details><summary><b>BanHandler+BanType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = UserId
+ [1] = IP
+ [-1] = NULL
+```
+
+</details>
+
+### BroadcastFlags
+
+<details><summary><b>Broadcast+BroadcastFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Normal
+ [1] = Truncated
+ [2] = AdminChat
+```
+
+</details>
+
+### EscapeScenarioType
+
+<details><summary><b>Escape+EscapeScenarioType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = ClassD
+ [2] = CuffedClassD
+ [3] = Scientist
+ [4] = CuffedScientist
+```
+
+</details>
+
+### FriendlyFireAction
+
+<details><summary><b>FriendlyFireAction</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Noop
+ [1] = Kill
+ [2] = Kick
+ [3] = Ban
+```
+
+</details>
+
+### HitboxType
+
+<details><summary><b>HitboxType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Body
+ [1] = Limb
+ [2] = Headshot
+```
+
+</details>
+
+### ItemType
+
+<details><summary><b>ItemType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = KeycardJanitor
+ [1] = KeycardScientist
+ [2] = KeycardResearchCoordinator
+ [3] = KeycardZoneManager
+ [4] = KeycardGuard
+ [5] = KeycardMTFPrivate
+ [6] = KeycardContainmentEngineer
+ [7] = KeycardMTFOperative
+ [8] = KeycardMTFCaptain
+ [9] = KeycardFacilityManager
+ [10] = KeycardChaosInsurgency
+ [11] = KeycardO5
+ [12] = Radio
+ [13] = GunCOM15
+ [14] = Medkit
+ [15] = Flashlight
+ [16] = MicroHID
+ [17] = SCP500
+ [18] = SCP207
+ [19] = Ammo12gauge
+ [20] = GunE11SR
+ [21] = GunCrossvec
+ [22] = Ammo556x45
+ [23] = GunFSP9
+ [24] = GunLogicer
+ [25] = GrenadeHE
+ [26] = GrenadeFlash
+ [27] = Ammo44cal
+ [28] = Ammo762x39
+ [29] = Ammo9x19
+ [30] = GunCOM18
+ [31] = SCP018
+ [32] = SCP268
+ [33] = Adrenaline
+ [34] = Painkillers
+ [35] = Coin
+ [36] = ArmorLight
+ [37] = ArmorCombat
+ [38] = ArmorHeavy
+ [39] = GunRevolver
+ [40] = GunAK
+ [41] = GunShotgun
+ [42] = SCP330
+ [43] = SCP2176
+ [44] = SCP244a
+ [45] = SCP244b
+ [46] = SCP1853
+ [47] = ParticleDisruptor
+ [48] = GunCom45
+ [49] = SCP1576
+ [50] = Jailbird
+ [51] = AntiSCP207
+ [52] = GunFRMG0
+ [53] = GunA7
+ [54] = Lantern
+ [-1] = None
+```
+
+</details>
+
+### ItemCategory
+
+<details><summary><b>ItemCategory</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Keycard
+ [2] = Medical
+ [3] = Radio
+ [4] = Firearm
+ [5] = Grenade
+ [6] = SCPItem
+ [7] = MicroHID
+ [8] = Ammo
+ [9] = Armor
+```
+
+</details>
+
+### ItemTierFlags
+
+<details><summary><b>ItemTierFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Common
+ [1] = MilitaryGrade
+ [2] = Rare
+ [4] = ExtraRare
+```
+
+</details>
+
+### PlayerInfoArea
+
+<details><summary><b>PlayerInfoArea</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = Nickname
+ [2] = Badge
+ [4] = CustomInfo
+ [8] = Role
+ [16] = UnitName
+ [32] = PowerStatus
+```
+
+</details>
+
+### AlphaPanelOperations
+
+<details><summary><b>PlayerInteract+AlphaPanelOperations</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Cancel
+ [1] = Lever
+```
+
+</details>
+
+### Generator079Operations
+
+<details><summary><b>PlayerInteract+Generator079Operations</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Door
+ [1] = Tablet
+ [2] = Cancel
+```
+
+</details>
+
+### PlayerPermissions
+
+<details><summary><b>PlayerPermissions</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = KickingAndShortTermBanning
+ [2] = BanningUpToDay
+ [4] = LongTermBanning
+ [8] = ForceclassSelf
+ [16] = ForceclassToSpectator
+ [32] = ForceclassWithoutRestrictions
+ [64] = GivingItems
+ [128] = WarheadEvents
+ [256] = RespawnEvents
+ [512] = RoundEvents
+ [1024] = SetGroup
+ [2048] = GameplayData
+ [4096] = Overwatch
+ [8192] = FacilityManagement
+ [16384] = PlayersManagement
+ [32768] = PermissionsManagement
+ [65536] = ServerConsoleCommands
+ [131072] = ViewHiddenBadges
+ [262144] = ServerConfigs
+ [524288] = Broadcasting
+ [1048576] = PlayerSensitiveDataAccess
+ [2097152] = Noclip
+ [4194304] = AFKImmunity
+ [8388608] = AdminChat
+ [16777216] = ViewHiddenGlobalBadges
+ [33554432] = Announcer
+ [67108864] = Effects
+ [134217728] = FriendlyFireDetectorImmunity
+ [268435456] = FriendlyFireDetectorTempDisable
+```
+
+</details>
+
+### PDTeleportType
+
+<details><summary><b>PocketDimensionTeleport+PDTeleportType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Killer
+ [1] = Exit
+```
+
+</details>
+
+### LeadingTeam
+
+<details><summary><b>RoundSummary+LeadingTeam</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = FacilityForces
+ [1] = ChaosInsurgency
+ [2] = Anomalies
+ [3] = Draw
+```
+
+</details>
+
+### BadgePreferences
+
+<details><summary><b>ServerRoles+BadgePreferences</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NoPreference
+ [1] = PreferGlobal
+ [2] = PreferLocal
+```
+
+</details>
+
+### BadgeVisibilityPreferences
+
+<details><summary><b>ServerRoles+BadgeVisibilityPreferences</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NoPreference
+ [1] = Visible
+ [2] = Hidden
+```
+
+</details>
+
+### CentralAuthPreauthFlags
+
+<details><summary><b>CentralAuthPreauthFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = ReservedSlot
+ [2] = IgnoreBans
+ [4] = IgnoreWhitelist
+ [8] = IgnoreGeoblock
+ [16] = GloballyBanned
+ [32] = NorthwoodStaff
+ [64] = AuthRejected
+```
+
+</details>
+
+### RejectionReason
+
+<details><summary><b>RejectionReason</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NotSpecified
+ [1] = ServerFull
+ [2] = InvalidToken
+ [3] = VersionMismatch
+ [4] = Error
+ [5] = AuthenticationRequired
+ [6] = Banned
+ [7] = NotWhitelisted
+ [8] = GloballyBanned
+ [9] = Geoblocked
+ [10] = Custom
+ [11] = ExpiredAuth
+ [12] = RateLimit
+ [13] = Challenge
+ [14] = InvalidChallengeKey
+ [15] = InvalidChallenge
+ [16] = Redirect
+ [17] = Delay
+ [18] = VerificationAccepted
+ [19] = VerificationRejected
+ [20] = CentralServerAuthRejected
+```
+
+</details>
+
+### GeoblockingMode
+
+<details><summary><b>GeoblockingMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Whitelist
+ [2] = Blacklist
+```
+
+</details>
+
+### ChallengeType
+
+<details><summary><b>ChallengeType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Reply
+ [1] = MD5
+ [2] = SHA1
+```
+
+</details>
+
+### ChallengeState
+
+<details><summary><b>ChallengeState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Processing
+ [2] = Done
+ [3] = DoneRejoin
+```
+
+</details>
+
+### ClientType
+
+<details><summary><b>CustomLiteNetLib4MirrorTransport+ClientType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = GameClient
+ [1] = VerificationService
+```
+
+</details>
+
+### EncryptedChannel
+
+<details><summary><b>EncryptedChannelManager+EncryptedChannel</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = RemoteAdmin
+ [1] = GameConsole
+ [2] = AdminChat
+```
+
+</details>
+
+### SecurityLevel
+
+<details><summary><b>EncryptedChannelManager+SecurityLevel</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Unsecured
+ [1] = EncryptedAndAuthenticated
+```
+
+</details>
+
+### ServerShutdownState
+
+<details><summary><b>ServerShutdown+ServerShutdownState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NotInitiated
+ [1] = BroadcastingShutdown
+ [2] = ShuttingDown
+ [3] = Complete
+```
+
+</details>
+
+### Holidays
+
+<details><summary><b>Holidays</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NoHoliday
+ [1] = Halloween
+ [2] = Christmas
+ [3] = AprilFools
+ [4] = October
+ [5] = December
+ [6] = FirstHalfOfApril
+ [7] = OctoberOrDecember
+ [-1] = Always
+```
+
+</details>
+
+### ServerLogType
+
+<details><summary><b>ServerLogs+ServerLogType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = ConnectionUpdate
+ [1] = RemoteAdminActivity_GameChanging
+ [2] = RemoteAdminActivity_Misc
+ [3] = KillLog
+ [4] = GameEvent
+ [5] = InternalMessage
+ [6] = RateLimit
+ [7] = Teamkill
+ [8] = Suicide
+ [9] = AdminChat
+```
+
+</details>
+
+### Modules
+
+<details><summary><b>ServerLogs+Modules</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Warhead
+ [1] = Networking
+ [2] = ClassChange
+ [3] = Permissions
+ [4] = Administrative
+ [5] = Logger
+ [6] = DataAccess
+ [7] = Detector
+```
+
+</details>
+
+### LoggingState
+
+<details><summary><b>ServerLogs+LoggingState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Off
+ [1] = Standby
+ [2] = Write
+ [3] = Terminate
+ [4] = Restart
+```
+
+</details>
+
+### NextRoundAction
+
+<details><summary><b>ServerStatic+NextRoundAction</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = DoNothing
+ [1] = Restart
+ [2] = Shutdown
+```
+
+</details>
+
+### HttpQueryMode
+
+<details><summary><b>HttpQueryMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = HttpClient
+ [1] = HttpProxy
+ [2] = UnityWebRequest
+ [3] = UnityWebRequestDispatcher
+```
+
+</details>
+
+### DispatchTime
+
+<details><summary><b>MainThreadDispatcher+DispatchTime</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Update
+ [1] = LateUpdate
+ [2] = FixedUpdate
+```
+
+</details>
+
+### IPAddressType
+
+<details><summary><b>Misc+IPAddressType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Unknown
+ [1] = IPV4
+ [2] = IPV6
+ [3] = Localhost
+ [4] = Hostname
+```
+
+</details>
+
+### PlayerInfoColorTypes
+
+<details><summary><b>Misc+PlayerInfoColorTypes</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Pink
+ [1] = Red
+ [2] = Brown
+ [3] = Silver
+ [4] = LightGreen
+ [5] = Crimson
+ [6] = Cyan
+ [7] = Aqua
+ [8] = DeepPink
+ [9] = Tomato
+ [10] = Yellow
+ [11] = Magenta
+ [12] = BlueGreen
+ [13] = Orange
+ [14] = Lime
+ [15] = Green
+ [16] = Emerald
+ [17] = Carmine
+ [18] = Nickel
+ [19] = Mint
+ [20] = ArmyGreen
+ [21] = Pumpkin
+ [22] = Black
+ [23] = White
+```
+
+</details>
+
+### CommandOperationMode
+
+<details><summary><b>Misc+CommandOperationMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Disable
+ [1] = Enable
+ [2] = Toggle
+```
+
+</details>
+
+### DataType
+
+<details><summary><b>PlayerPrefsSl+DataType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Bool
+ [1] = Byte
+ [2] = Sbyte
+ [3] = Char
+ [4] = Decimal
+ [5] = Double
+ [6] = Float
+ [7] = Int
+ [8] = Uint
+ [9] = Long
+ [10] = Ulong
+ [11] = Short
+ [12] = Ushort
+ [13] = String
+ [14] = BoolArray
+ [15] = ByteArray
+ [16] = SbyteArray
+ [17] = CharArray
+ [18] = DecimalArray
+ [19] = DoubleArray
+ [20] = FloatArray
+ [21] = IntArray
+ [22] = UintArray
+ [23] = LongArray
+ [24] = UlongArray
+ [25] = ShortArray
+ [26] = UshortArray
+ [27] = StringArray
+```
+
+</details>
+
+### InputActivationMode
+
+<details><summary><b>UserSettings.ToggleOrHoldInput+InputActivationMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Toggle
+ [1] = Hold
+```
+
+</details>
+
+### DisplayVideoSetting
+
+<details><summary><b>UserSettings.VideoSettings.DisplayVideoSetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Resolution
+ [1] = AspectRatio
+ [2] = FullscreenMode
+ [3] = VSyncCount
+ [4] = FpsLimiter
+ [5] = GraphicsAPI
+```
+
+</details>
+
+### LightingVideoSetting
+
+<details><summary><b>UserSettings.VideoSettings.LightingVideoSetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = RenderShadows
+ [1] = ShadowResolution
+ [2] = RenderLights
+```
+
+</details>
+
+### MiscVideoSetting
+
+<details><summary><b>UserSettings.VideoSettings.MiscVideoSetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Brightness
+ [1] = ExplosionShake
+ [2] = HeadBobbing
+ [3] = FlashbangDarkMode
+```
+
+</details>
+
+### PerformanceVideoSetting
+
+<details><summary><b>UserSettings.VideoSettings.PerformanceVideoSetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = TextureResolution
+ [1] = AntiAliasingType
+ [2] = AntiAliasingQuality
+ [3] = RagdollFreeze
+ [4] = BloomQuality
+ [5] = AOQuality
+ [6] = BloodDecalsEnabled
+ [7] = BulletDecalsEnabled
+```
+
+</details>
+
+### UISetting
+
+<details><summary><b>UserSettings.UserInterfaceSettings.UISetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Language
+ [1] = EnableSubtitles
+ [2] = HealthbarMode
+ [3] = FastRoleIntroMode
+ [4] = HideIP
+ [5] = FlashTaskbar
+ [6] = PhotosensitivityDoNotShow
+```
+
+</details>
+
+### MiscPrivacySetting
+
+<details><summary><b>UserSettings.OtherSettings.MiscPrivacySetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = DoNotTrack
+ [1] = SteamLobbyPrivacy
+ [2] = RichPresence
+ [3] = HideSteamProfile
+ [4] = BadgePreferences
+ [5] = GlobalBadgeVisibility
+ [6] = LocalBadgeVisibility
+```
+
+</details>
+
+### Condition
+
+<details><summary><b>UserSettings.GUIElements.UserSettingDependency+Dependency+Condition</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = EqualsTo
+ [1] = LessThan
+ [2] = GreaterThan
+```
+
+</details>
+
+### SettingType
+
+<details><summary><b>UserSettings.GUIElements.UserSettingDependency+Dependency+SettingType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Slider
+ [1] = Toggle
+ [2] = Dropdown
+```
+
+</details>
+
+### MiscControlsSetting
+
+<details><summary><b>UserSettings.ControlsSettings.MiscControlsSetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = AdsToggle
+ [1] = SprintToggle
+ [2] = SearchToggle
+ [3] = Scp079MouseLookToggle
+ [4] = SneakToggle
+ [5] = RightClickToDrop
+ [6] = InventoryToggle
+ [7] = Scp079KeybindZoneSwitching
+```
+
+</details>
+
+### SensitivitySetting
+
+<details><summary><b>UserSettings.ControlsSettings.SensitivitySetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = SensMultiplier
+ [1] = AdsReductionMultiplier
+ [2] = Invert
+```
+
+</details>
+
+### VolumeSliderSetting
+
+<details><summary><b>UserSettings.AudioSettings.MixerAudioSettings+VolumeSliderSetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Master
+ [1] = VoiceChat
+ [2] = SoundEffects
+ [3] = MenuMusic
+ [4] = MenuUI
+```
+
+</details>
+
+### VcAudioSetting
+
+<details><summary><b>UserSettings.AudioSettings.VcAudioSetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NoiseReduction
+```
+
+</details>
+
+### OutputCodes
+
+<details><summary><b>ServerOutput.OutputCodes</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [16] = RoundRestart
+ [17] = IdleEnter
+ [18] = IdleExit
+ [19] = ExitActionReset
+ [20] = ExitActionShutdown
+ [21] = ExitActionSilentShutdown
+ [22] = ExitActionRestart
+ [23] = Heartbeat
+```
+
+</details>
+
+### ServerRateLimit
+
+<details><summary><b>Security.ServerRateLimit</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = playerInteract
+ [1] = commands
+```
+
+</details>
+
+### RaClipBoardType
+
+<details><summary><b>RemoteAdmin.Communication.RaClipboard+RaClipBoardType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Ip
+ [1] = UserId
+ [2] = PlayerId
+```
+
+</details>
+
+### PlayerSorting
+
+<details><summary><b>RemoteAdmin.Communication.RaPlayerList+PlayerSorting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Ids
+ [1] = Alphabetical
+ [2] = Class
+ [3] = Team
+```
+
+</details>
+
+### VoiceChatChannel
+
+<details><summary><b>VoiceChat.VoiceChatChannel</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Proximity
+ [2] = Radio
+ [3] = ScpChat
+ [4] = Spectator
+ [5] = RoundSummary
+ [6] = Intercom
+ [7] = Mimicry
+ [8] = Scp1576
+ [9] = PreGameLobby
+```
+
+</details>
+
+### VcMuteFlags
+
+<details><summary><b>VoiceChat.VcMuteFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = LocalRegular
+ [2] = LocalIntercom
+ [4] = GlobalRegular
+ [8] = GlobalIntercom
+```
+
+</details>
+
+### VcPrivacyFlags
+
+<details><summary><b>VoiceChat.VcPrivacyFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = SettingsSelected
+ [2] = AllowMicCapture
+ [4] = AllowRecording
+```
+
+</details>
+
+### GlobalChatIconType
+
+<details><summary><b>VoiceChat.Playbacks.GlobalChatIconType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Avatar
+ [2] = Radio
+ [3] = Intercom
+```
+
+</details>
+
+### OpusApplicationType
+
+<details><summary><b>VoiceChat.Codec.Enums.OpusApplicationType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [2048] = Voip
+ [2049] = Audio
+ [2051] = RestrictedLowDelay
+```
+
+</details>
+
+### OpusCtlGetRequest
+
+<details><summary><b>VoiceChat.Codec.Enums.OpusCtlGetRequest</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [4001] = Application
+ [4003] = Bitrate
+ [4005] = MaxBandwidth
+ [4007] = VBR
+ [4009] = Bandwidth
+ [4011] = Complexity
+ [4013] = InbandFec
+ [4015] = PacketLossPercentage
+ [4017] = Dtx
+ [4021] = VBRConstraint
+ [4023] = ForceChannels
+ [4025] = Signal
+ [4027] = LookAhead
+ [4029] = SampleRate
+ [4031] = FinalRange
+ [4033] = Pitch
+ [4035] = Gain
+ [4037] = LsbDepth
+```
+
+</details>
+
+### OpusCtlSetRequest
+
+<details><summary><b>VoiceChat.Codec.Enums.OpusCtlSetRequest</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [4000] = Application
+ [4002] = Bitrate
+ [4004] = MaxBandwidth
+ [4006] = VBR
+ [4008] = Bandwidth
+ [4010] = Complexity
+ [4012] = InbandFec
+ [4014] = PacketLossPercentage
+ [4016] = Dtx
+ [4020] = VBRConstraint
+ [4022] = ForceChannels
+ [4024] = Signal
+ [4034] = Gain
+ [4036] = LsbDepth
+```
+
+</details>
+
+### OpusStatusCode
+
+<details><summary><b>VoiceChat.Codec.Enums.OpusStatusCode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = OK
+ [-7] = AllocFail
+ [-6] = InvalidState
+ [-5] = Unimplemented
+ [-4] = InvalidPacket
+ [-3] = InternalError
+ [-2] = BufferTooSmall
+ [-1] = BadArguments
+```
+
+</details>
+
+### SubtitleType
+
+<details><summary><b>Subtitles.SubtitleType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NTFEntrance
+ [1] = AwaitContainPlural
+ [2] = AwaitContainSingle
+ [3] = ThreatRemains
+ [4] = TerminationCauseUnspecified
+ [5] = TerminatedBySCP
+ [6] = TerminatedBySecuritySystem
+ [7] = TerminatedByWarhead
+ [8] = ContainedByScientist
+ [9] = ContainedByClassD
+ [10] = ContainedByChaos
+ [11] = SCP
+ [12] = ContainUnitUnknown
+ [13] = ContainUnit
+ [14] = LostInDecontamination
+ [15] = GeneratorsActivated
+ [16] = AllGeneratorsEngaged
+ [17] = OverchargeIn
+ [18] = OperationalMode
+ [19] = DecontaminationStart
+ [20] = DecontaminationMinutes
+ [21] = Decontamination1Minute
+ [22] = DecontaminationCountdown
+ [23] = DecontaminationLockdown
+ [24] = AlphaWarheadEngage
+ [25] = AlphaWarheadCancelled
+ [26] = AlphaWarheadResumed
+ [27] = TerminatedByMarshmallowMan
+ [254] = Custom
+ [255] = None
+```
+
+</details>
+
+### CassieAnnouncementType
+
+<details><summary><b>Subtitles.CassieAnnouncementType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Normal
+ [2] = Decontamination
+ [3] = Detonation
+```
+
+</details>
+
+### RoundRestartType
+
+<details><summary><b>RoundRestarting.RoundRestartType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = FullRestart
+ [1] = FastRestart
+ [2] = RedirectRestart
+```
+
+</details>
+
+### AdminFlags
+
+<details><summary><b>PlayerStatsSystem.AdminFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Noclip
+ [2] = GodMode
+ [4] = BypassMode
+```
+
+</details>
+
+### HandlerOutput
+
+<details><summary><b>PlayerStatsSystem.DamageHandlerBase+HandlerOutput</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Nothing
+ [1] = Damaged
+ [2] = Death
+```
+
+</details>
+
+### AttackType
+
+<details><summary><b>PlayerStatsSystem.Scp049DamageHandler+AttackType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Instakill
+ [1] = CardiacArrest
+ [2] = Scp0492
+```
+
+</details>
+
+### AttackType
+
+<details><summary><b>PlayerStatsSystem.Scp096DamageHandler+AttackType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = GateKill
+ [1] = SlapLeft
+ [2] = SlapRight
+ [3] = Charge
+```
+
+</details>
+
+### DisplayExactMode
+
+<details><summary><b>PlayerStatsSystem.StatSlider+DisplayExactMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = PreferenceBased
+ [1] = AlwaysExact
+ [2] = AlwaysPercent
+ [3] = ValueHidden
+```
+
+</details>
+
+### SyncMode
+
+<details><summary><b>PlayerStatsSystem.SyncedStatBase+SyncMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Private
+ [1] = PrivateAndSpectators
+ [2] = Public
+```
+
+</details>
+
+### RoleTypeId
+
+<details><summary><b>PlayerRoles.RoleTypeId</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Scp173
+ [257] = ClassD
+ [514] = Spectator
+ [771] = Scp106
+ [1028] = NtfSpecialist
+ [1285] = Scp049
+ [1542] = Scientist
+ [1799] = Scp079
+ [2056] = ChaosConscript
+ [2313] = Scp096
+ [2570] = Scp0492
+ [2827] = NtfSergeant
+ [3084] = NtfCaptain
+ [3341] = NtfPrivate
+ [3598] = Tutorial
+ [3855] = FacilityGuard
+ [4112] = Scp939
+ [4369] = CustomRole
+ [4626] = ChaosRifleman
+ [4883] = ChaosMarauder
+ [5140] = ChaosRepressor
+ [5397] = Overwatch
+ [5654] = Filmmaker
+ [5911] = Scp3114
+ [255] = None
+```
+
+</details>
+
+### Team
+
+<details><summary><b>PlayerRoles.Team</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = SCPs
+ [1] = FoundationForces
+ [2] = ChaosInsurgency
+ [3] = Scientists
+ [4] = ClassD
+ [5] = Dead
+ [6] = OtherAlive
+```
+
+</details>
+
+### Faction
+
+<details><summary><b>PlayerRoles.Faction</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = SCP
+ [1] = FoundationStaff
+ [2] = FoundationEnemy
+ [3] = Unclassified
+```
+
+</details>
+
+### RoleChangeReason
+
+<details><summary><b>PlayerRoles.RoleChangeReason</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = RoundStart
+ [2] = LateJoin
+ [3] = Respawn
+ [4] = Died
+ [5] = Escaped
+ [6] = Revived
+ [7] = RemoteAdmin
+ [8] = Destroyed
+```
+
+</details>
+
+### RoleSpawnFlags
+
+<details><summary><b>PlayerRoles.RoleSpawnFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = AssignInventory
+ [2] = UseSpawnpoint
+ [-1] = All
+```
+
+</details>
+
+### InvisibilityFlags
+
+<details><summary><b>PlayerRoles.Visibility.InvisibilityFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = OutOfRange
+ [2] = Scp268
+ [4] = Scp106Sinkhole
+```
+
+</details>
+
+### GroupMuteFlags
+
+<details><summary><b>PlayerRoles.Voice.GroupMuteFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Spectators
+ [2] = Alive
+ [4] = Lobby
+ [8] = Summary
+```
+
+</details>
+
+### IntercomState
+
+<details><summary><b>PlayerRoles.Voice.IntercomState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Ready
+ [1] = Starting
+ [2] = InUse
+ [3] = Cooldown
+ [4] = NotFound
+```
+
+</details>
+
+### IcomText
+
+<details><summary><b>PlayerRoles.Voice.IntercomDisplay+IcomText</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Ready
+ [1] = Transmitting
+ [2] = TrasmittingBypass
+ [3] = Restarting
+ [4] = AdminUsing
+ [5] = Muted
+ [6] = Unknown
+ [7] = Wait
+```
+
+</details>
+
+### SpectatableListElementType
+
+<details><summary><b>PlayerRoles.Spectating.SpectatableListElementType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Standard
+ [1] = Scp079
+ [2] = Scp3114
+```
+
+</details>
+
+### SpectatorSpawnReason
+
+<details><summary><b>PlayerRoles.Spectating.SpectatorSpawnReason</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = KilledByPlayer
+ [2] = Other
+```
+
+</details>
+
+### FailReason
+
+<details><summary><b>PlayerRoles.PlayableScps.VisionInformation+FailReason</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NotOnSameFloor
+ [1] = NotInDistance
+ [2] = NotInView
+ [3] = NotInLineOfSight
+ [4] = InDarkRoom
+ [5] = IsLooking
+ [6] = UnkownReason
+```
+
+</details>
+
+### AttackResult
+
+<details><summary><b>PlayerRoles.PlayableScps.Subroutines.AttackResult</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = AttackedObject
+ [2] = AttackedPlayer
+ [6] = KilledPlayer
+```
+
+</details>
+
+### CloudState
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp939.Scp939AmnesticCloudInstance+CloudState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Spawning
+ [1] = Created
+ [2] = Destroyed
+```
+
+</details>
+
+### Scp939DamageType
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp939.Scp939DamageType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [14] = Claw
+ [15] = LungeTarget
+ [16] = LungeSecondary
+```
+
+</details>
+
+### Scp939HudTranslation
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp939.Scp939HudTranslation</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = PressKeyToLunge
+ [1] = HintPreviewVoice
+ [2] = LocalPreviewHeader
+ [3] = HintRemoveVoice
+ [4] = HintTransmitVoice
+ [5] = PrivacyHeader
+ [6] = MimicryPrivacySubtitle
+ [7] = MimicryPrivacyRememberChoice
+ [8] = MimicryPrivacyDeleteButton
+ [9] = MimicryPrivacyAcceptButton
+ [10] = MimicryPrivacyMoreInfoButton
+ [11] = MimicryPrivacyDescription
+ [12] = CloudFailedPositionInvalid
+ [13] = CloudFailedSizeInsufficient
+ [14] = HelpMenuDescription
+ [15] = HelpMenuClaw
+ [16] = HelpMenuFocus
+ [17] = HelpMenuCloud
+ [18] = HelpMenuWithManyVoices
+ [19] = HelpMenuUltrasensitive
+ [20] = ReturnButton
+ [21] = MimicPointPlaceButton
+ [22] = MimicPointPlaceDescription
+ [23] = MimicPointRemoveButton
+ [24] = MimicPointRemoveDescription
+ [25] = MimicPointPlaceConfirmation
+ [26] = MimicPointRemoveConfirmation
+ [27] = MimicPointDestroyedDistance
+ [28] = StolenVoicesHeader
+ [29] = StolenVoicesDescription
+ [30] = EnvMimicryHeader
+ [31] = EnvMimicryDescription
+ [32] = EnvMimicryCooldown
+ [33] = MimicFootsteps
+ [34] = MimicRoles
+ [35] = MimicShooting
+ [36] = MimicOther
+ [37] = PrevMenu
+ [38] = NextMenu
+ [39] = Roles
+ [40] = HintAssignedHotkey
+ [41] = HintPlayEnvMimicry
+ [42] = HintStopPlayback
+ [43] = HintTrimRecording
+ [44] = HintToggleFavorite
+ [45] = HintReorganizeRecordings
+ [46] = YouGotAVoicelinePopup
+```
+
+</details>
+
+### Scp939LungeState
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp939.Scp939LungeState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Triggered
+ [2] = LandHit
+ [3] = LandRegular
+ [4] = LandHarsh
+```
+
+</details>
+
+### RpcStateMsg
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp939.Mimicry.MimicPointController+RpcStateMsg</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [25] = PlacedByUser
+ [26] = RemovedByUser
+ [27] = DestroyedByDistance
+```
+
+</details>
+
+### HandlerType
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp3114.Scp3114DamageHandler+HandlerType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Slap
+ [1] = Strangulation
+ [2] = SkinSteal
+```
+
+</details>
+
+### VariantType
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp3114.Scp3114FakeModelManager+VariantType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Original
+ [1] = Disguise
+ [2] = Reveal
+```
+
+</details>
+
+### Scp3114HudTranslation
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp3114.Scp3114HudTranslation</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = IdentityStolenWarning
+ [1] = UnableToAttackWarning
+ [2] = EquipItemWarning
+ [3] = ProximityVoiceHint
+ [4] = RagdollErrorPreviouslyUsed
+ [5] = RagdollErrorAlreadyDisguised
+ [6] = RagdollErrorNotHuman
+ [7] = InspectRagdollOverride
+ [8] = StartingRagdollHint
+ [9] = ValidRagdollIndicator
+ [10] = StrangulationCooldown
+ [11] = HelpMenuSkeletonsInYourCLoset
+ [12] = HelpMenuCatchTheseHands
+ [13] = HelpMenuStrangulation
+ [14] = HelpMenuUnderTheirSkin
+ [15] = RevealKeyHoldLongerWarning
+```
+
+</details>
+
+### DisguiseStatus
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp3114.Scp3114Identity+DisguiseStatus</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Equipping
+ [2] = Active
+```
+
+</details>
+
+### RpcType
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp3114.Scp3114Strangle+RpcType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = TargetResync
+ [1] = TargetKilled
+ [2] = AttackInterrupted
+ [3] = OutOfRange
+```
+
+</details>
+
+### RpcType
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp3114.Scp3114StrangleAudio+RpcType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = ChokeSync
+ [1] = Kill
+```
+
+</details>
+
+### VoiceLinesName
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp3114.Scp3114VoiceLines+VoiceLinesName</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = KillSlap
+ [1] = KillStrangle
+ [2] = Slap
+ [3] = RandomIdle
+ [4] = Reveal
+ [5] = EquipStart
+ [6] = StartStrangle
+```
+
+</details>
+
+### Scp173SoundId
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp173.Scp173AudioPlayer+Scp173SoundId</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Hit
+ [1] = Teleport
+ [2] = Snap
+```
+
+</details>
+
+### CmdTeleportData
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp173.Scp173TeleportAbility+CmdTeleportData</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = Aiming
+ [2] = WantsToTeleport
+```
+
+</details>
+
+### Scp096HitResult
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp096.Scp096HitResult</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Window
+ [2] = Door
+ [4] = Human
+ [12] = Lethal
+```
+
+</details>
+
+### Scp096HudTranslation
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp096.Scp096HudTranslation</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = HelpMenuDescription
+ [1] = HelpMenuTryNotToCry
+ [2] = HelpMenuMeeleAttack
+ [3] = HelpMenuCharge
+ [4] = HelpMenuRageOnly
+ [5] = HelpMenuDocileOnly
+ [6] = EnterRageKeyInfo
+ [7] = ExitRageKeyInfo
+```
+
+</details>
+
+### Scp096RageState
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp096.Scp096RageState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Docile
+ [1] = Distressed
+ [2] = Enraged
+ [3] = Calming
+```
+
+</details>
+
+### Scp096AbilityState
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp096.Scp096AbilityState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = TryingNotToCry
+ [2] = Attacking
+ [3] = Charging
+ [4] = PryingGate
+```
+
+</details>
+
+### ValidationError
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.Scp079BlackoutRoomAbility+ValidationError</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = NotEnoughAux
+ [26] = NoController
+ [27] = MaxCapacityReached
+ [28] = RoomOnCooldown
+ [60] = AlreadyBlackedOut
+```
+
+</details>
+
+### ValidationError
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.Scp079BlackoutZoneAbility+ValidationError</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = NotEnoughAux
+ [59] = Cooldown
+ [61] = Unavailable
+```
+
+</details>
+
+### Scp079HudTranslation
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.Scp079HudTranslation</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Zoom
+ [1] = AccessTier
+ [2] = Experience
+ [3] = MaxTierReached
+ [4] = NoCamera
+ [5] = GoToCamera
+ [6] = NotEnoughAux
+ [7] = EtaTimer
+ [8] = HigherTierRequired
+ [9] = InvalidCamera
+ [10] = DoorAccessDenied
+ [11] = OpenDoor
+ [12] = CloseDoor
+ [13] = LockDoor
+ [14] = UnlockDoor
+ [15] = DoorLockCooldown
+ [16] = AuxPower
+ [17] = YouAreBeingAttacked
+ [18] = ReleaseDoorLock
+ [19] = OpenMap
+ [20] = CloseMap
+ [21] = LightContZone
+ [22] = HeavyContZone
+ [23] = EntranceZone
+ [24] = SurfaceZone
+ [25] = ActivateRoomBlackout
+ [26] = BlackoutRoomUnavailable
+ [27] = BlackoutRoomLimit
+ [28] = BlackoutRoomCooldown
+ [29] = SendElevator
+ [30] = Lockdown
+ [31] = LockdownCooldown
+ [32] = LockdownNoDoorsError
+ [33] = PingLocation
+ [34] = PingRateLimited
+ [35] = CameraSwitchFailed
+ [36] = SignalLost
+ [37] = ReconnectingEta
+ [38] = FireTeslaGate
+ [39] = TeslaGateCooldown
+ [40] = AccessTierUnlocked
+ [41] = AuxPowerLimitIncreased
+ [42] = BlackoutRoomAvailable
+ [43] = BlackoutCapacityIncreased
+ [44] = LockdownAvailable
+ [45] = ExpGainAdminCommand
+ [46] = ExpGainTerminationAssist
+ [47] = ExpGainTerminationDirect
+ [48] = ExpGainTerminationWitness
+ [49] = ExpGainBlockingHuman
+ [50] = ExpGainTeammateProtection
+ [51] = ExpGainHidStopped
+ [52] = DoorLockAlreadyActive
+ [53] = ActivateZoneBlackout
+ [54] = ZoneBlackoutAvailable
+ [55] = ZoneBlackoutCooldown
+ [56] = BlackoutAlreadyActive
+ [57] = ZoneBlackoutUnavailable
+ [58] = CounterTotalLifeforms
+ [59] = CounterTargets
+ [60] = CounterScps
+ [61] = CounterCivils
+ [62] = CounterMilitary
+ [63] = UseSpeaker
+ [64] = ElevatorAccessDenied
+ [65] = HelpMenuOverview
+ [66] = HelpMenuVirtuallyIndestructible
+ [67] = HelpMenuUnlimitedAccess
+ [68] = HelpMenuDeepLearning
+ [69] = HelpMenuOverwatch
+ [70] = BreachScannerAvailable
+ [71] = AuxRegenSuspended
+ [72] = AuxRegenReduced
+ [73] = DoorLockAuxPause
+ [74] = SpeakerAuxPause
+ [75] = LockdownAuxPause
+ [76] = OpenBreachScanner
+ [77] = CloseBreachScanner
+ [78] = ScannerAuxPause
+ [79] = ScannerSelectedZoneCntLabel
+ [80] = ScannerNoZoneSelectedLabel
+ [81] = ScanResultNoneFound
+ [82] = ScanResultRetryingMessage
+ [83] = ScanResultPlayerDetected
+ [84] = ScanStatusWaiting
+ [85] = ScanStatusScanning
+ [86] = ScanStatusDisabled
+ [87] = ScannerFilters
+ [88] = ScannerDescription
+ [89] = ScannerNoFiltersError
+ [90] = DoorLockAbilityAvailable
+```
+
+</details>
+
+### Category
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.Scp079KeyAbilityBase+Category</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Movement
+ [1] = SpecialAbility
+ [2] = OverconInteraction
+```
+
+</details>
+
+### ValidationError
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.Scp079LockdownRoomAbility+ValidationError</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Unknown
+ [6] = NotEnoughAux
+ [8] = TierTooLow
+ [31] = Cooldown
+ [32] = NoDoors
+```
+
+</details>
+
+### ScanSequenceStep
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.Scp079ScannerSequence+ScanSequenceStep</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Init
+ [1] = CountingDown
+ [2] = ScanningFindNewTarget
+ [3] = ScanningFailedCooldown
+ [4] = ScanningUpdateTarget
+```
+
+</details>
+
+### TrackerMessage
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.Scp079ScannerSequence+TrackerMessage</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = ScannerDisabled
+ [2] = ScanTimeSync
+ [3] = ScanNoResults
+ [4] = ScanSuccessful
+```
+
+</details>
+
+### IndicatorType
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.Map.Scp079TeammateIndicators+IndicatorType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Low
+ [1] = Medium
+ [2] = High
+```
+
+</details>
+
+### NotificationSound
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.GUI.NotificationSound</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Standard
+ [-1] = None
+```
+
+</details>
+
+### ClientSwitchState
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp079.Cameras.Scp079CurrentCameraSync+ClientSwitchState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = SwitchingRoom
+ [2] = SwitchingZone
+```
+
+</details>
+
+### ResurrectError
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp049.Scp049ResurrectAbility+ResurrectError</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = TargetNull
+ [2] = Expired
+ [3] = MaxReached
+ [4] = Refused
+ [5] = TargetInvalid
+```
+
+</details>
+
+### Scp0492SoundId
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp049.Zombies.ZombieAudioPlayer+Scp0492SoundId</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Growl
+ [1] = AngryGrowl
+ [2] = Attack
+```
+
+</details>
+
+### ConsumeError
+
+<details><summary><b>PlayerRoles.PlayableScps.Scp049.Zombies.ZombieConsumeAbility+ConsumeError</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = CannotCancel
+ [2] = AlreadyConsumed
+ [3] = TargetNotValid
+ [8] = FullHealth
+ [9] = BeingConsumed
+```
+
+</details>
+
+### PlayerMovementState
+
+<details><summary><b>PlayerRoles.FirstPersonControl.PlayerMovementState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Crouching
+ [1] = Sneaking
+ [2] = Walking
+ [3] = Sprinting
+```
+
+</details>
+
+### FpcViewMode
+
+<details><summary><b>PlayerRoles.FirstPersonControl.FpcMotor+FpcViewMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = LocalPlayer
+ [1] = Server
+ [2] = Thirdperson
+```
+
+</details>
+
+### FootstepLoudness
+
+<details><summary><b>PlayerRoles.FirstPersonControl.Thirdperson.AnimatedCharacterModel+FootstepLoudness</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [8] = Civilian
+ [12] = FoundationForces
+ [30] = Chaos
+ [35] = Scp
+```
+
+</details>
+
+### FilmmakerBlendPreset
+
+<details><summary><b>PlayerRoles.Filmmaker.FilmmakerBlendPreset</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Linear
+ [1] = Smooth
+ [2] = FetchNext
+ [3] = Hold
+```
+
+</details>
+
+### ParseResult
+
+<details><summary><b>Utils.CustomParser+ParseResult</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = FullSuccess
+ [1] = PartialSuccess
+ [2] = Failed
+```
+
+</details>
+
+### HintEffectType
+
+<details><summary><b>Utils.Networking.HintEffectReaderWriter+HintEffectType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Alpha
+ [1] = AlphaCurve
+ [2] = Outline
+```
+
+</details>
+
+### HintParameterType
+
+<details><summary><b>Utils.Networking.HintParameterReaderWriter+HintParameterType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Text
+ [1] = Timespan
+ [2] = Ammo
+ [3] = Item
+ [4] = ItemCategory
+ [5] = Byte
+ [6] = SByte
+ [7] = Short
+ [8] = UShort
+ [9] = Int
+ [10] = UInt
+ [11] = Long
+ [12] = ULong
+ [13] = Float
+ [14] = Double
+ [15] = PackedLong
+ [16] = PackedULong
+ [17] = Scp330Hint
+```
+
+</details>
+
+### HintType
+
+<details><summary><b>Utils.Networking.HintReaderWriter+HintType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Translation
+ [1] = Text
+```
+
+</details>
+
+### NullableBoolValue
+
+<details><summary><b>Utils.Networking.NullableBoolReaderWriter+NullableBoolValue</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Null
+ [1] = True
+ [2] = False
+```
+
+</details>
+
+### DecontaminationStatus
+
+<details><summary><b>LightContainmentZoneDecontamination.DecontaminationController+DecontaminationStatus</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Disabled
+ [2] = Forced
+```
+
+</details>
+
+### PhaseFunction
+
+<details><summary><b>LightContainmentZoneDecontamination.DecontaminationController+DecontaminationPhase+PhaseFunction</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = GloballyAudible
+ [2] = OpenCheckpoints
+ [3] = Final
+```
+
+</details>
+
+### RoomType
+
+<details><summary><b>MapGeneration.ImageGenerator+RoomType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Straight
+ [1] = Curve
+ [2] = RoomT
+ [3] = Cross
+ [4] = Endoff
+ [5] = Prison
+```
+
+</details>
+
+### RoomShape
+
+<details><summary><b>MapGeneration.RoomShape</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Undefined
+ [1] = Endroom
+ [2] = Straight
+ [3] = Curve
+ [4] = TShape
+ [5] = XShape
+```
+
+</details>
+
+### FacilityZone
+
+<details><summary><b>MapGeneration.FacilityZone</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = LightContainment
+ [2] = HeavyContainment
+ [3] = Entrance
+ [4] = Surface
+ [5] = Other
+```
+
+</details>
+
+### RoomName
+
+<details><summary><b>MapGeneration.RoomName</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Unnamed
+ [1] = LczClassDSpawn
+ [2] = LczComputerRoom
+ [3] = LczCheckpointA
+ [4] = LczCheckpointB
+ [5] = LczToilets
+ [6] = LczArmory
+ [7] = Lcz173
+ [8] = LczGlassroom
+ [9] = Lcz330
+ [10] = Lcz914
+ [11] = LczGreenhouse
+ [12] = LczAirlock
+ [13] = HczCheckpointToEntranceZone
+ [14] = HczCheckpointA
+ [15] = HczCheckpointB
+ [16] = HczWarhead
+ [17] = Hcz049
+ [18] = Hcz079
+ [19] = Hcz096
+ [20] = Hcz106
+ [21] = Hcz939
+ [22] = HczMicroHID
+ [23] = HczArmory
+ [24] = HczServers
+ [25] = HczTesla
+ [26] = EzCollapsedTunnel
+ [27] = EzGateA
+ [28] = EzGateB
+ [29] = EzRedroom
+ [30] = EzEvacShelter
+ [31] = EzIntercom
+ [32] = EzOfficeStoried
+ [33] = EzOfficeLarge
+ [34] = EzOfficeSmall
+ [35] = Outside
+ [36] = Pocket
+ [37] = HczTestroom
+```
+
+</details>
+
+### GeneratorFlags
+
+<details><summary><b>MapGeneration.Distributors.Scp079Generator+GeneratorFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = None
+ [2] = Unlocked
+ [4] = Open
+ [8] = Activating
+ [16] = Engaged
+```
+
+</details>
+
+### GeneratorColliderId
+
+<details><summary><b>MapGeneration.Distributors.Scp079Generator+GeneratorColliderId</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Door
+ [1] = Switch
+ [2] = CancelButton
+```
+
+</details>
+
+### StructureType
+
+<details><summary><b>MapGeneration.Distributors.StructureType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = StandardLocker
+ [1] = LargeGunLocker
+ [2] = ScpPedestal
+ [3] = Scp079Generator
+ [4] = SmallWallCabinet
+ [5] = Workstation
+```
+
+</details>
+
+### HintTranslations
+
+<details><summary><b>Hints.HintTranslations</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = WarheadDetonateCoverDenied
+ [1] = MaxAmmoReached
+ [2] = MaxAmmoAlreadyReached
+ [3] = MaxItemCategoryReached
+ [4] = MaxItemCategoryAlreadyReached
+ [5] = MaxItemsAlreadyReached
+```
+
+</details>
+
+### HintMessageTypes
+
+<details><summary><b>Hints.HintMessageParameterFunctions+HintMessageTypes</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Unknown
+ [1] = TextHint
+ [2] = TranslationHint
+```
+
+</details>
+
+### ConfigShareTypes
+
+<details><summary><b>GameCore.ConfigShareTypes</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Bans
+ [1] = Mutes
+ [2] = Whitelist
+ [3] = ReservedSlots
+ [4] = Groups
+ [5] = GroupsMembers
+ [6] = GameplayDatabase
+```
+
+</details>
+
+### ConfigShare
+
+<details><summary><b>GameCore.ConfigSharing+ConfigShare</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Bans
+ [1] = Mutes
+ [2] = Whitelist
+ [3] = ReservedSlots
+ [4] = Groups
+ [5] = GroupsMembers
+ [6] = GameplayDatabase
+```
+
+</details>
+
+### ConsoleLogType
+
+<details><summary><b>GameCore.Console+ConsoleLogType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = DoNotLog
+ [1] = Log
+ [2] = Warning
+ [3] = Error
+```
+
+</details>
+
+### DistributionPlatform
+
+<details><summary><b>GameCore.DistributionPlatform</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Dedicated
+ [1] = Steam
+ [2] = Discord
+```
+
+</details>
+
+### VersionType
+
+<details><summary><b>GameCore.Version+VersionType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Release
+ [1] = PublicRC
+ [2] = PublicBeta
+ [3] = PrivateRC
+ [4] = PrivateRCStreamingForbidden
+ [5] = PrivateBeta
+ [6] = PrivateBetaStreamingForbidden
+ [7] = Development
+ [8] = Nightly
+```
+
+</details>
+
+### Activity
+
+<details><summary><b>InventorySystem.Searching.SearchSessionPipe+Activity</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Idle
+ [1] = Requested
+ [2] = Promised
+```
+
+</details>
+
+### HotkeysTranslation
+
+<details><summary><b>InventorySystem.Hotkeys.HotkeysTranslation</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = SettingsHeader
+ [1] = CreateNewLabel
+ [2] = SettingsHeaderHint
+ [3] = KeycardPredefinedName
+ [4] = PrimaryWeaponPredefinedName
+ [5] = SecondaryWeaponPredefinedName
+ [6] = MedicalPredefinedName
+ [7] = GrenadePredefinedName
+ [8] = NameLabel
+ [9] = KeyLabel
+ [10] = ApperanceLabel
+ [11] = SortLabel
+ [12] = OverrideLabel
+ [13] = OverrideHint
+ [14] = ApperanceHidden
+ [15] = ApperanceNormal
+ [16] = ApperanceSmall
+ [17] = SortItemQueue
+ [18] = SortItemQueueHint
+ [19] = SortInventoryOrder
+ [20] = SortInventoryOrderHint
+ [21] = OverrideNone
+ [22] = OverrideBestMedical
+ [23] = OverrideBestMedicalHint
+ [24] = OverrideRememberPrev
+ [25] = OverrideRememberPrevHint
+ [26] = OverrideNearbyDoor
+ [27] = OverrideNearbyDoorHint
+ [28] = OverrideSkipEmpty
+ [29] = OverrideSkipEmptyHint
+ [30] = PoolItemsLabel
+ [31] = PoolOrderLabel
+ [32] = PoolOrderHint
+ [33] = RestoreDefaultLabel
+ [34] = RestoreDefaultButton
+ [35] = TitlePrefix
+ [36] = NewHotkeyNamePlaceholder
+ [37] = GroupFirearms
+ [38] = GroupKeycards
+ [39] = GroupThrowable
+ [40] = GroupScpItems
+```
+
+</details>
+
+### BlockedInteraction
+
+<details><summary><b>InventorySystem.Items.BlockedInteraction</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = GeneralInteractions
+ [2] = OpenInventory
+ [4] = BeDisarmed
+ [8] = GrabItems
+ [16] = ItemPrimaryAction
+ [48] = ItemUsage
+ [255] = All
+```
+
+</details>
+
+### ItemDescriptionType
+
+<details><summary><b>InventorySystem.Items.ItemDescriptionType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Default
+ [1] = Keycard
+ [2] = Firearm
+ [3] = Armor
+ [4] = None
+ [5] = Scp330Bag
+```
+
+</details>
+
+### ThirdpersonItemAnimationName
+
+<details><summary><b>InventorySystem.Items.Thirdperson.ThirdpersonItemAnimationName</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Override0
+ [1] = Override1
+ [2] = Override2
+ [3] = IdlePoseAdditive
+ [4] = SprintLeftAdditive
+ [5] = SprintRightAdditive
+ [6] = SprintStraightAdditive
+ [7] = SprintBackAdditive
+ [8] = WalkLeftAdditive
+ [9] = WalkRightAdditive
+ [10] = WalkStraightAdditive
+ [11] = WalkBackAdditive
+ [12] = PrimaryAdditive
+ [13] = SecAdditive0
+ [14] = SecAdditive1
+ [15] = SecAdditive2
+```
+
+</details>
+
+### FreezingMode
+
+<details><summary><b>InventorySystem.Items.Pickups.PickupStandardPhysics+FreezingMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Default
+ [1] = FreezeWhenSleeping
+ [2] = NeverFreeze
+```
+
+</details>
+
+### PickupFlags
+
+<details><summary><b>InventorySystem.Items.Pickups.PickupSyncInfo+PickupFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = Locked
+ [2] = InUse
+```
+
+</details>
+
+### StatusType
+
+<details><summary><b>InventorySystem.Items.Usables.StatusMessage+StatusType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Start
+ [1] = Cancel
+```
+
+</details>
+
+### CandyKindID
+
+<details><summary><b>InventorySystem.Items.Usables.Scp330.CandyKindID</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Rainbow
+ [2] = Yellow
+ [3] = Purple
+ [4] = Red
+ [5] = Green
+ [6] = Blue
+ [7] = Pink
+```
+
+</details>
+
+### Entry
+
+<details><summary><b>InventorySystem.Items.Usables.Scp330.Scp330Translations+Entry</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Candies
+```
+
+</details>
+
+### Scp244State
+
+<details><summary><b>InventorySystem.Items.Usables.Scp244.Scp244State</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Idle
+ [1] = Active
+ [2] = Destroyed
+ [3] = PickedUp
+```
+
+</details>
+
+### RequestType
+
+<details><summary><b>InventorySystem.Items.ThrowableProjectiles.ThrowableNetworkHandler+RequestType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = BeginThrow
+ [1] = ConfirmThrowWeak
+ [2] = ConfirmThrowFullForce
+ [3] = CancelThrow
+```
+
+</details>
+
+### RadioCommand
+
+<details><summary><b>InventorySystem.Items.Radio.RadioMessages+RadioCommand</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Enable
+ [1] = Disable
+ [2] = ChangeRange
+```
+
+</details>
+
+### RadioRangeLevel
+
+<details><summary><b>InventorySystem.Items.Radio.RadioMessages+RadioRangeLevel</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = LowRange
+ [257] = MediumRange
+ [514] = HighRange
+ [771] = UltraRange
+ [255] = RadioDisabled
+```
+
+</details>
+
+### RpcType
+
+<details><summary><b>InventorySystem.Items.MarshmallowMan.MarshmallowItem+RpcType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = AttackStart
+ [1] = Hit
+ [2] = Holster
+```
+
+</details>
+
+### JailbirdWearState
+
+<details><summary><b>InventorySystem.Items.Jailbird.JailbirdWearState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Healthy
+ [1] = LowWear
+ [2] = MediumWear
+ [3] = HighWear
+ [4] = AlmostBroken
+ [5] = Broken
+```
+
+</details>
+
+### JailbirdMessageType
+
+<details><summary><b>InventorySystem.Items.Jailbird.JailbirdMessageType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = UpdateState
+ [1] = Broken
+ [2] = Holstered
+ [3] = AttackTriggered
+ [4] = AttackPerformed
+ [5] = ChargeLoadTriggered
+ [6] = ChargeFailed
+ [7] = ChargeStarted
+ [8] = Inspect
+```
+
+</details>
+
+### FirearmAudioFlags
+
+<details><summary><b>InventorySystem.Items.Firearms.FirearmAudioFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [2] = ScaleDistance
+ [4] = IsGunshot
+ [8] = SendToPlayers
+ [16] = UseDedicatedAudioChannel
+```
+
+</details>
+
+### FirearmStatusFlags
+
+<details><summary><b>InventorySystem.Items.Firearms.FirearmStatusFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [2] = Cocked
+ [4] = MagazineInserted
+ [8] = FlashlightEnabled
+ [16] = Chambered
+```
+
+</details>
+
+### TriggerState
+
+<details><summary><b>InventorySystem.Items.Firearms.Modules.DoubleAction+TriggerState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Released
+ [1] = Pulling
+ [2] = SearLock
+```
+
+</details>
+
+### ActionModuleResponse
+
+<details><summary><b>InventorySystem.Items.Firearms.Modules.ActionModuleResponse</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Idle
+ [1] = Shoot
+ [2] = Dry
+```
+
+</details>
+
+### CurrentAction
+
+<details><summary><b>InventorySystem.Items.Firearms.Modules.TubularMagazineAmmoManager+CurrentAction</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Idle
+ [1] = Reloading
+ [2] = Unloading
+```
+
+</details>
+
+### RequestType
+
+<details><summary><b>InventorySystem.Items.Firearms.BasicMessages.RequestType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Unload
+ [1] = Reload
+ [2] = AdsIn
+ [3] = AdsOut
+ [4] = Dryfire
+ [5] = ToggleFlashlight
+ [6] = ReloadStop
+ [7] = RequestStatuses
+ [8] = Inspect
+```
+
+</details>
+
+### AttachmentEditorsTranslation
+
+<details><summary><b>InventorySystem.Items.Firearms.Attachments.AttachmentEditorsTranslation</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Custom
+ [1] = PresetId
+ [2] = SaveAttachments
+ [3] = ClearAttachments
+ [4] = DefaultAttachments
+ [5] = Presets
+ [6] = WorkstationOffline
+ [7] = WorkstationStandby
+ [8] = WorkstationWelcome
+ [9] = WorkstationBooting
+ [10] = WorkstationReady
+ [11] = WorkstationEquipGun
+ [12] = WorkstationShuttingDownHeader
+ [13] = WorkstationShuttingDownDescription
+ [14] = ShowStatsSummary
+ [15] = CloseStatsSummary
+ [16] = AttachmentCustomization
+ [17] = SpectatorEditorTip
+```
+
+</details>
+
+### AttachmentSlot
+
+<details><summary><b>InventorySystem.Items.Firearms.Attachments.AttachmentSlot</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Sight
+ [1] = Barrel
+ [2] = SideRail
+ [3] = BottomRail
+ [4] = Ammunition
+ [5] = Stock
+ [6] = Stability
+ [7] = Body
+ [255] = Unassigned
+```
+
+</details>
+
+### AttachmentName
+
+<details><summary><b>InventorySystem.Items.Firearms.Attachments.AttachmentName</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = IronSights
+ [2] = DotSight
+ [3] = HoloSight
+ [4] = NightVisionSight
+ [5] = AmmoSight
+ [6] = ScopeSight
+ [7] = StandardStock
+ [8] = ExtendedStock
+ [9] = RetractedStock
+ [10] = LightweightStock
+ [11] = HeavyStock
+ [12] = RecoilReducingStock
+ [13] = Foregrip
+ [14] = Laser
+ [15] = Flashlight
+ [16] = AmmoCounter
+ [17] = StandardBarrel
+ [18] = ExtendedBarrel
+ [19] = SoundSuppressor
+ [20] = FlashHider
+ [21] = MuzzleBrake
+ [22] = MuzzleBooster
+ [23] = StandardMagFMJ
+ [24] = StandardMagAP
+ [25] = StandardMagJHP
+ [26] = ExtendedMagFMJ
+ [27] = ExtendedMagAP
+ [28] = ExtendedMagJHP
+ [29] = DrumMagFMJ
+ [30] = DrumMagAP
+ [31] = DrumMagJHP
+ [32] = LowcapMagFMJ
+ [33] = LowcapMagAP
+ [34] = LowcapMagJHP
+ [35] = CylinderMag4
+ [36] = CylinderMag6
+ [37] = CylinderMag8
+ [38] = CarbineBody
+ [39] = RifleBody
+ [40] = ShortBarrel
+ [41] = ShotgunChoke
+ [42] = ShotgunExtendedBarrel
+ [43] = NoRifleStock
+ [44] = ShotgunSingleShot
+ [45] = ShotgunDoubleShot
+```
+
+</details>
+
+### AttachmentDescriptiveAdvantages
+
+<details><summary><b>InventorySystem.Items.Firearms.Attachments.AttachmentDescriptiveAdvantages</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [2] = Flashlight
+ [4] = AmmoCounter
+ [8] = FlashSuppression
+ [16] = NightVision
+```
+
+</details>
+
+### AttachmentDescriptiveDownsides
+
+<details><summary><b>InventorySystem.Items.Firearms.Attachments.AttachmentDescriptiveDownsides</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [2] = Laser
+```
+
+</details>
+
+### AttachmentParam
+
+<details><summary><b>InventorySystem.Items.Firearms.Attachments.AttachmentParam</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = AdsZoomMultiplier
+ [1] = AdsMouseSensitivityMultiplier
+ [2] = DamageMultiplier
+ [3] = PenetrationMultiplier
+ [4] = FireRateMultiplier
+ [5] = OverallRecoilMultiplier
+ [6] = AdsRecoilMultiplier
+ [7] = BulletInaccuracyMultiplier
+ [8] = HipInaccuracyMultiplier
+ [9] = AdsInaccuracyMultiplier
+ [10] = DrawSpeedMultiplier
+ [11] = GunshotLoudnessMultiplier
+ [12] = MagazineCapacityModifier
+ [13] = DrawTimeModifier
+ [14] = ReloadTimeModifier
+ [15] = ShotClipIdOverride
+ [16] = AdsSpeedMultiplier
+ [17] = SpreadMultiplier
+ [18] = SpreadPredictability
+ [19] = AmmoConsumptionMultiplier
+ [20] = ReloadSpeedMultiplier
+ [21] = PreventReload
+```
+
+</details>
+
+### ParameterMixingMode
+
+<details><summary><b>InventorySystem.Items.Firearms.Attachments.ParameterMixingMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Override
+ [1] = Additive
+ [2] = Percent
+```
+
+</details>
+
+### WorkstationStatus
+
+<details><summary><b>InventorySystem.Items.Firearms.Attachments.WorkstationController+WorkstationStatus</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Offline
+ [1] = PoweringUp
+ [2] = PoweringDown
+ [3] = Online
+```
+
+</details>
+
+### Mode
+
+<details><summary><b>InventorySystem.Items.Autosync.AutosyncRpc+Mode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Local
+ [1] = AllClients
+ [2] = Conditional
+```
+
+</details>
+
+### HidUserInput
+
+<details><summary><b>InventorySystem.Items.MicroHID.HidUserInput</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Prime
+ [2] = Fire
+```
+
+</details>
+
+### HidState
+
+<details><summary><b>InventorySystem.Items.MicroHID.HidState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Idle
+ [1] = PoweringUp
+ [2] = PoweringDown
+ [3] = Primed
+ [4] = Firing
+ [5] = StopSound
+```
+
+</details>
+
+### HidStatusMessageType
+
+<details><summary><b>InventorySystem.Items.MicroHID.HidStatusMessageType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = UserInput
+ [1] = State
+ [2] = EnergySync
+```
+
+</details>
+
+### EffectClassification
+
+<details><summary><b>CustomPlayerEffects.StatusEffectBase+EffectClassification</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Negative
+ [1] = Mixed
+ [2] = Positive
+```
+
+</details>
+
+### EffectType
+
+<details><summary><b>Respawning.RespawnEffectsController+EffectType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Selection
+ [1] = UponRespawn
+```
+
+</details>
+
+### RespawnSequencePhase
+
+<details><summary><b>Respawning.RespawnManager+RespawnSequencePhase</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = RespawnCooldown
+ [1] = SelectingTeam
+ [2] = PlayingEntryAnimations
+ [3] = SpawningSelectedTeam
+```
+
+</details>
+
+### SpawnableTeamType
+
+<details><summary><b>Respawning.SpawnableTeamType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = ChaosInsurgency
+ [2] = NineTailedFox
+```
+
+</details>
+
+### AudioMixerChannelType
+
+<details><summary><b>AudioPooling.AudioMixerChannelType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = DefaultSfx
+ [1] = Interface
+ [2] = Weapons
+ [3] = VoiceChat
+ [4] = NoDucking
+```
+
+</details>
+
+### CursorOverrideMode
+
+<details><summary><b>CursorManagement.CursorOverrideMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NoOverride
+ [1] = Centered
+ [2] = Confined
+ [3] = Free
+```
+
+</details>
+
+### ProcessCreationFlags
+
+<details><summary><b>_Scripts.Utils.StartExternalProcess+ProcessCreationFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NONE
+ [1] = DEBUG_PROCESS
+ [2] = DEBUG_ONLY_THIS_PROCESS
+ [4] = CREATE_SUSPENDED
+ [8] = DETACHED_PROCESS
+ [16] = CREATE_NEW_CONSOLE
+ [512] = CREATE_NEW_PROCESS_GROUP
+ [1024] = CREATE_UNICODE_ENVIRONMENT
+ [2048] = CREATE_SEPARATE_WOW_VDM
+ [4096] = CREATE_SHARED_WOW_VDM
+ [65536] = INHERIT_PARENT_AFFINITY
+ [262144] = CREATE_PROTECTED_PROCESS
+ [524288] = EXTENDED_STARTUPINFO_PRESENT
+ [4194304] = CREATE_SECURE_PROCESS
+ [16777216] = CREATE_BREAKAWAY_FROM_JOB
+ [33554432] = CREATE_PRESERVE_CODE_AUTHZ_LEVEL
+ [67108864] = CREATE_DEFAULT_ERROR_MODE
+ [134217728] = CREATE_NO_WINDOW
+```
+
+</details>
+
+### AuthenticationResponseFlags
+
+<details><summary><b>CentralAuth.AuthenticationResponseFunctions+AuthenticationResponseFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = AuthToken
+ [2] = BadgeToken
+ [4] = DoNotTrack
+ [8] = HideBadge
+```
+
+</details>
+
+### ClientInstanceMode
+
+<details><summary><b>CentralAuth.ClientInstanceMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Unverified
+ [1] = ReadyClient
+ [2] = Host
+ [3] = DedicatedServer
+```
+
+</details>
+
+### PrimitiveFlags
+
+<details><summary><b>AdminToys.PrimitiveFlags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Collidable
+ [2] = Visible
+```
+
+</details>
+
+### TargetButton
+
+<details><summary><b>AdminToys.ShootingTarget+TargetButton</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = IncreaseHP
+ [1] = DecreaseHP
+ [2] = IncreaseResetTime
+ [3] = DecreaseResetTime
+ [4] = ManualReset
+ [5] = Remove
+ [6] = GlobalResults
+```
+
+</details>
+
+### AchievementName
+
+<details><summary><b>Achievements.AchievementName</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = TurnThemAll
+ [1] = Pacified
+ [2] = MelancholyOfDecay
+ [3] = DontBlink
+ [4] = LightsOut
+ [5] = ItsAlwaysLeft
+ [6] = AccessGranted
+ [7] = DeltaCommand
+ [8] = ProceedWithCaution
+ [9] = Friendship
+ [10] = ForScience
+ [11] = IsThisThingOn
+ [12] = FireInTheHole
+ [13] = HeWillBeBack
+ [14] = BePoliteBeEfficient
+ [15] = ExecutiveAccess
+ [16] = SecureContainProtect
+ [17] = TMinus
+ [18] = ChangeInCommand
+ [19] = ThatCanBeUseful
+ [20] = JustResources
+ [21] = ThatWasClose
+ [22] = SomethingDoneRight
+ [23] = WalkItOff
+ [24] = AnomalouslyEfficient
+ [25] = MicrowaveMeal
+ [26] = EscapeArtist
+ [27] = Escape207
+ [28] = CrisisAverted
+ [29] = DidntEvenFeelThat
+ [30] = IllPassThanks
+ [31] = Overcurrent
+ [32] = PropertyOfChaos
+```
+
+</details>
+
+### Scp914Mode
+
+<details><summary><b>Scp914.Scp914Mode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = Dropped
+ [2] = Inventory
+ [3] = DroppedAndInventory
+ [5] = DroppedAndPlayerTeleport
+ [6] = Held
+ [7] = DroppedAndHeld
+```
+
+</details>
+
+### Scp914KnobSetting
+
+<details><summary><b>Scp914.Scp914KnobSetting</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Rough
+ [1] = Coarse
+ [2] = OneToOne
+ [3] = Fine
+ [4] = VeryFine
+```
+
+</details>
+
+### Scp914InteractCode
+
+<details><summary><b>Scp914.Scp914InteractCode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = ChangeMode
+ [1] = Activate
+```
+
+</details>
+
+### Scp914Sound
+
+<details><summary><b>Scp914.Scp914Sound</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = KnobChange
+ [1] = Upgrading
+```
+
+</details>
+
+### CheckpointSequenceStage
+
+<details><summary><b>Interactables.Interobjects.CheckpointDoor+CheckpointSequenceStage</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Idle
+ [1] = Granted
+ [2] = Open
+ [3] = Closing
+```
+
+</details>
+
+### CheckpointErrorType
+
+<details><summary><b>Interactables.Interobjects.CheckpointDoor+CheckpointErrorType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Denied
+ [1] = LockedDown
+ [2] = Destroyed
+```
+
+</details>
+
+### ElevatorSequence
+
+<details><summary><b>Interactables.Interobjects.ElevatorChamber+ElevatorSequence</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = DoorClosing
+ [1] = MovingAway
+ [2] = Arriving
+ [3] = DoorOpening
+ [4] = Ready
+```
+
+</details>
+
+### ElevatorGroup
+
+<details><summary><b>Interactables.Interobjects.ElevatorManager+ElevatorGroup</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = GateA
+ [1] = GateB
+ [2] = LczA01
+ [3] = LczA02
+ [4] = LczB01
+ [5] = LczB02
+ [6] = Nuke
+ [7] = Scp049
+```
+
+</details>
+
+### DoorDamageType
+
+<details><summary><b>Interactables.Interobjects.DoorUtils.DoorDamageType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = None
+ [2] = ServerCommand
+ [4] = Grenade
+ [8] = Weapon
+ [16] = Scp096
+```
+
+</details>
+
+### OpenerEventType
+
+<details><summary><b>Interactables.Interobjects.DoorUtils.DoorEventOpenerExtension+OpenerEventType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = WarheadStart
+ [1] = WarheadCancel
+ [2] = DeconEvac
+ [3] = DeconFinish
+ [4] = DeconReset
+```
+
+</details>
+
+### DoorAction
+
+<details><summary><b>Interactables.Interobjects.DoorUtils.DoorAction</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Opened
+ [1] = Closed
+ [2] = AccessDenied
+ [3] = Locked
+ [4] = Unlocked
+ [5] = Destroyed
+```
+
+</details>
+
+### DoorLockReason
+
+<details><summary><b>Interactables.Interobjects.DoorUtils.DoorLockReason</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Regular079
+ [2] = Lockdown079
+ [4] = Warhead
+ [8] = AdminCommand
+ [16] = DecontLockdown
+ [32] = DecontEvacuate
+ [64] = SpecialDoorFeature
+ [128] = NoPower
+ [256] = Isolation
+ [512] = Lockdown2176
+```
+
+</details>
+
+### DoorLockMode
+
+<details><summary><b>Interactables.Interobjects.DoorUtils.DoorLockMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = FullLock
+ [1] = CanOpen
+ [2] = CanClose
+ [4] = ScpOverride
+```
+
+</details>
+
+### KeycardPermissions
+
+<details><summary><b>Interactables.Interobjects.DoorUtils.KeycardPermissions</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Checkpoints
+ [2] = ExitGates
+ [4] = Intercom
+ [8] = AlphaWarhead
+ [16] = ContainmentLevelOne
+ [32] = ContainmentLevelTwo
+ [64] = ContainmentLevelThree
+ [128] = ArmoryLevelOne
+ [256] = ArmoryLevelTwo
+ [512] = ArmoryLevelThree
+ [1024] = ScpOverride
+```
+
+</details>
+
+### CollisionsDisablingReasons
+
+<details><summary><b>Interactables.Interobjects.DoorUtils.DoorVariant+CollisionsDisablingReasons</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = DoorClosing
+ [2] = Scp106
+```
+
+</details>
+
+### CollectionDeserializeToBehaviour
+
+<details><summary><b>Utf8Json.CollectionDeserializeToBehaviour</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Add
+ [1] = OverwriteReplace
+```
+
+</details>
+
+### JsonToken
+
+<details><summary><b>Utf8Json.JsonToken</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = BeginObject
+ [2] = EndObject
+ [3] = BeginArray
+ [4] = EndArray
+ [5] = Number
+ [6] = String
+ [7] = True
+ [8] = False
+ [9] = Null
+ [10] = ValueSeparator
+ [11] = NameSeparator
+```
+
+</details>
+
+### FastDtoaMode
+
+<details><summary><b>Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+FastDtoaMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = FAST_DTOA_SHORTEST
+ [1] = FAST_DTOA_SHORTEST_SINGLE
+```
+
+</details>
+
+### DtoaMode
+
+<details><summary><b>Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+DtoaMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = SHORTEST
+ [1] = SHORTEST_SINGLE
+```
+
+</details>
+
+### Flags
+
+<details><summary><b>Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+Flags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NO_FLAGS
+ [1] = EMIT_POSITIVE_EXPONENT_SIGN
+ [2] = EMIT_TRAILING_DECIMAL_POINT
+ [4] = EMIT_TRAILING_ZERO_AFTER_POINT
+ [8] = UNIQUE_ZERO
+```
+
+</details>
+
+### Flags
+
+<details><summary><b>Utf8Json.Internal.DoubleConversion.StringToDoubleConverter+Flags</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NO_FLAGS
+ [1] = ALLOW_HEX
+ [2] = ALLOW_OCTALS
+ [4] = ALLOW_TRAILING_JUNK
+ [8] = ALLOW_LEADING_SPACES
+ [16] = ALLOW_TRAILING_SPACES
+ [32] = ALLOW_SPACES_AFTER_SIGN
+ [64] = ALLOW_CASE_INSENSIBILITY
+```
+
+</details>
+
+### FogType
+
+<details><summary><b>CustomRendering.FogType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Inside
+ [2] = Outside
+ [3] = Decontamination
+ [4] = Amnesia
+ [5] = Nuke
+ [6] = Scp244
+```
+
+</details>
+
+### DecalPoolType
+
+<details><summary><b>Decals.DecalPoolType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Bullet
+ [2] = Blood
+ [3] = Buckshot
+```
+
+</details>
+
+### States
+
+<details><summary><b>Mirror.LiteNetLib4Mirror.LiteNetLib4MirrorCore+States</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NonInitialized
+ [1] = Idle
+ [2] = Discovery
+ [3] = ClientConnecting
+ [4] = ClientConnected
+ [5] = Server
+```
+
+</details>
+
+### NetworkProtocolType
+
+<details><summary><b>LiteNetLib4Mirror.Open.Nat.NetworkProtocolType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Tcp
+ [1] = Udp
+```
+
+</details>
+
+### MappingLifetime
+
+<details><summary><b>LiteNetLib4Mirror.Open.Nat.MappingLifetime</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Permanent
+ [1] = Session
+ [2] = Manual
+ [3] = ForcedSession
+```
+
+</details>
+
+### PortMapper
+
+<details><summary><b>LiteNetLib4Mirror.Open.Nat.PortMapper</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = Pmp
+ [2] = Upnp
+```
+
+</details>
+
+### ConnectionRequestResult
+
+<details><summary><b>LiteNetLib.ConnectionRequestResult</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Accept
+ [2] = Reject
+ [3] = RejectForce
+```
+
+</details>
+
+### UnconnectedMessageType
+
+<details><summary><b>LiteNetLib.UnconnectedMessageType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = BasicMessage
+ [1] = Broadcast
+```
+
+</details>
+
+### DisconnectReason
+
+<details><summary><b>LiteNetLib.DisconnectReason</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = ConnectionFailed
+ [1] = Timeout
+ [2] = HostUnreachable
+ [3] = NetworkUnreachable
+ [4] = RemoteConnectionClose
+ [5] = DisconnectPeerCalled
+ [6] = ConnectionRejected
+ [7] = InvalidProtocol
+ [8] = UnknownHost
+ [9] = Reconnect
+ [10] = PeerToPeerConnection
+ [11] = PeerNotFound
+```
+
+</details>
+
+### NatAddressType
+
+<details><summary><b>LiteNetLib.NatAddressType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Internal
+ [1] = External
+```
+
+</details>
+
+### DeliveryMethod
+
+<details><summary><b>LiteNetLib.DeliveryMethod</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = ReliableUnordered
+ [1] = Sequenced
+ [2] = ReliableOrdered
+ [3] = ReliableSequenced
+ [4] = Unreliable
+```
+
+</details>
+
+### NetLogLevel
+
+<details><summary><b>LiteNetLib.NetLogLevel</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Warning
+ [1] = Error
+ [2] = Trace
+ [3] = Info
+```
+
+</details>
+
+### EType
+
+<details><summary><b>LiteNetLib.NetEvent+EType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Connect
+ [1] = Disconnect
+ [2] = Receive
+ [3] = ReceiveUnconnected
+ [4] = Error
+ [5] = ConnectionLatencyUpdated
+ [6] = Broadcast
+ [7] = ConnectionRequest
+ [8] = MessageDelivered
+ [9] = PeerAddressChanged
+```
+
+</details>
+
+### PacketProperty
+
+<details><summary><b>LiteNetLib.PacketProperty</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Unreliable
+ [1] = Channeled
+ [2] = Ack
+ [3] = Ping
+ [4] = Pong
+ [5] = ConnectRequest
+ [6] = ConnectAccept
+ [7] = Disconnect
+ [8] = UnconnectedMessage
+ [9] = MtuCheck
+ [10] = MtuOk
+ [11] = Broadcast
+ [12] = Merged
+ [13] = ShutdownOk
+ [14] = PeerNotFound
+ [15] = InvalidProtocol
+ [16] = NatMessage
+ [17] = Empty
+```
+
+</details>
+
+### ConnectionState
+
+<details><summary><b>LiteNetLib.ConnectionState</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [2] = Outgoing
+ [4] = Connected
+ [8] = ShutdownRequested
+ [16] = Disconnected
+ [32] = EndPointChange
+ [46] = Any
+```
+
+</details>
+
+### ConnectRequestResult
+
+<details><summary><b>LiteNetLib.ConnectRequestResult</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = P2PLose
+ [2] = Reconnection
+ [3] = NewConnection
+```
+
+</details>
+
+### DisconnectResult
+
+<details><summary><b>LiteNetLib.DisconnectResult</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Reject
+ [2] = Disconnect
+```
+
+</details>
+
+### ShutdownResult
+
+<details><summary><b>LiteNetLib.ShutdownResult</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = None
+ [1] = Success
+ [2] = WasConnected
+```
+
+</details>
+
+### LocalAddrType
+
+<details><summary><b>LiteNetLib.LocalAddrType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [1] = IPv4
+ [2] = IPv6
+ [3] = All
+```
+
+</details>
+
+### CallType
+
+<details><summary><b>LiteNetLib.Utils.NetSerializer+CallType</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = Basic
+ [1] = Array
+ [2] = List
+```
+
+</details>
+
+### NtpLeapIndicator
+
+<details><summary><b>LiteNetLib.Utils.NtpLeapIndicator</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [0] = NoWarning
+ [1] = LastMinuteHas61Seconds
+ [2] = LastMinuteHas59Seconds
+ [3] = AlarmCondition
+```
+
+</details>
+
+### NtpMode
+
+<details><summary><b>LiteNetLib.Utils.NtpMode</b></summary>
+```md title="Latest Updated: 13.5.0.1"
+ [3] = Client
+ [4] = Server
+```
+
+</details>
+
 
 
 
