@@ -24,7 +24,6 @@ try
     WriteLine($"Loaded assembly: {assembly.FullName}");
 
     WriteLine("Enums found in the assembly:");
-    WriteLine("TEST");
     Type[] types = null;
     try
     {
@@ -34,7 +33,6 @@ try
     {
         types = e.Types;
     }
-    WriteLine("TEST");
     foreach (var type in types.Where(t => t != null))
     {
         try
@@ -45,7 +43,7 @@ try
                 WriteLine($"Enum: {type.FullName}");
 
                 // Iterate through all the fields in the Enum
-                foreach (var value in Enum.GetValues(type.GetType()))
+                foreach (var value in Enum.GetValues(type))
                 {
                     WriteLine($"  {value} = {(int)value}");
                 }

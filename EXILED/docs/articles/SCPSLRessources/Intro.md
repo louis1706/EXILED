@@ -16,1210 +16,1522 @@
 Loaded assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Enums found in the assembly:
 Enum: ReproProjectAssetType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Wildcard = 0
+  Scene = 1
+  Prefab = 2
+  Asset = 3
 Enum: AlphaWarheadNukesitePanel+DiodeType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  InProgress = 0
+  BlastDoor = 1
+  OutsideDoor = 2
 Enum: FalloffType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Linear = 0
+  Exponential = 1
+  Footstep = 2
 Enum: StatusBar+AutoHideType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  WhenFull = 0
+  WhenEmpty = 1
+  AlwaysVisible = 2
 Enum: DebugLevel
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: MessageImportance
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: ActionName
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Shoot = 0
+  Zoom = 1
+  Jump = 2
+  Interact = 3
+  Inventory = 4
+  Reload = 5
+  Run = 6
+  VoiceChat = 7
+  Sneak = 8
+  MoveForward = 9
+  MoveBackward = 10
+  MoveLeft = 11
+  MoveRight = 12
+  PlayerList = 13
+  CharacterInfo = 14
+  RemoteAdmin = 15
+  ToggleFlashlight = 16
+  AltVoiceChat = 17
+  Noclip = 18
+  GameConsole = 19
+  InspectItem = 21
+  RevolverCockHammer = 22
+  ThrowItem = 23
+  HideGUI = 27
+  NoClipFogToggle = 28
+  PauseMenu = 30
+  DebugLogMenu = 31
+  Scp079FreeLook = 32
+  Scp079LockDoor = 33
+  Scp079UnlockAll = 34
+  Scp079Blackout = 35
+  Scp079Lockdown = 36
+  Scp079PingLocation = 37
+  Scp079BreachScanner = 38
 Enum: ActionCategory
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Gameplay = 0
+  Weapons = 1
+  Movement = 2
+  Communication = 4
+  System = 5
+  Unbindable = 6
+  Scp079 = 7
 Enum: ServerConfigSynchronizer+MainBoolsSettings
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: NonFacilityCompatibility+SceneDescription+VoiceChatSupportMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Unsupported = 0
+  WithoutIntercom = 1
+  FullySupported = 2
 Enum: LegacyInterfaces
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  GiveOrders = 0
+  FollowOrders = 1
+  SameRank = 2
+  ClassDEscaped = 3
+  ScientistsSurvived = 4
+  KilledByScps = 5
+  TerminatedScps = 6
+  AlphaWarhead = 7
+  WarheadDetonated = 8
+  WarheadUnused = 9
+  RoundRestartTimer = 10
+  SpecialAbility = 11
+  CreateSinkhole = 12
+  UseSinkhole = 13
+  YouDied = 14
+  YouWereKilledByNicknameLabel = 15
+  YouWereKilledByRoleLabel = 16
+  PassiveAbility = 17
+  Hidden = 18
 Enum: BanHandler+BanType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  UserId = 0
+  IP = 1
+  NULL = -1
 Enum: Broadcast+BroadcastFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Escape+EscapeScenarioType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  ClassD = 1
+  CuffedClassD = 2
+  Scientist = 3
+  CuffedScientist = 4
 Enum: FriendlyFireAction
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: HitboxType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Body = 0
+  Limb = 1
+  Headshot = 2
 Enum: ItemType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  KeycardJanitor = 0
+  KeycardScientist = 1
+  KeycardResearchCoordinator = 2
+  KeycardZoneManager = 3
+  KeycardGuard = 4
+  KeycardMTFPrivate = 5
+  KeycardContainmentEngineer = 6
+  KeycardMTFOperative = 7
+  KeycardMTFCaptain = 8
+  KeycardFacilityManager = 9
+  KeycardChaosInsurgency = 10
+  KeycardO5 = 11
+  Radio = 12
+  GunCOM15 = 13
+  Medkit = 14
+  Flashlight = 15
+  MicroHID = 16
+  SCP500 = 17
+  SCP207 = 18
+  Ammo12gauge = 19
+  GunE11SR = 20
+  GunCrossvec = 21
+  Ammo556x45 = 22
+  GunFSP9 = 23
+  GunLogicer = 24
+  GrenadeHE = 25
+  GrenadeFlash = 26
+  Ammo44cal = 27
+  Ammo762x39 = 28
+  Ammo9x19 = 29
+  GunCOM18 = 30
+  SCP018 = 31
+  SCP268 = 32
+  Adrenaline = 33
+  Painkillers = 34
+  Coin = 35
+  ArmorLight = 36
+  ArmorCombat = 37
+  ArmorHeavy = 38
+  GunRevolver = 39
+  GunAK = 40
+  GunShotgun = 41
+  SCP330 = 42
+  SCP2176 = 43
+  SCP244a = 44
+  SCP244b = 45
+  SCP1853 = 46
+  ParticleDisruptor = 47
+  GunCom45 = 48
+  SCP1576 = 49
+  Jailbird = 50
+  AntiSCP207 = 51
+  GunFRMG0 = 52
+  GunA7 = 53
+  Lantern = 54
+  None = -1
 Enum: ItemCategory
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: ItemTierFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerInfoArea
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Nickname = 1
+  Badge = 2
+  CustomInfo = 4
+  Role = 8
+  UnitName = 16
+  PowerStatus = 32
 Enum: PlayerInteract+AlphaPanelOperations
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerInteract+Generator079Operations
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerPermissions
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PocketDimensionTeleport+PDTeleportType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Killer = 0
+  Exit = 1
 Enum: RoundSummary+LeadingTeam
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: ServerRoles+BadgePreferences
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  NoPreference = 0
+  PreferGlobal = 1
+  PreferLocal = 2
 Enum: ServerRoles+BadgeVisibilityPreferences
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  NoPreference = 0
+  Visible = 1
+  Hidden = 2
 Enum: CentralAuthPreauthFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: RejectionReason
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: GeoblockingMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: ChallengeType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: ChallengeState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: CustomLiteNetLib4MirrorTransport+ClientType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: EncryptedChannelManager+EncryptedChannel
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: EncryptedChannelManager+SecurityLevel
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: ServerShutdown+ServerShutdownState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Holidays
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  NoHoliday = 0
+  Halloween = 1
+  Christmas = 2
+  AprilFools = 3
+  October = 4
+  December = 5
+  FirstHalfOfApril = 6
+  OctoberOrDecember = 7
+  Always = -1
 Enum: ServerLogs+ServerLogType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: ServerLogs+Modules
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: ServerLogs+LoggingState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: ServerStatic+NextRoundAction
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: HttpQueryMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: MainThreadDispatcher+DispatchTime
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Update = 0
+  LateUpdate = 1
+  FixedUpdate = 2
 Enum: Misc+IPAddressType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Unknown = 0
+  IPV4 = 1
+  IPV6 = 2
+  Localhost = 3
+  Hostname = 4
 Enum: Misc+PlayerInfoColorTypes
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Pink = 0
+  Red = 1
+  Brown = 2
+  Silver = 3
+  LightGreen = 4
+  Crimson = 5
+  Cyan = 6
+  Aqua = 7
+  DeepPink = 8
+  Tomato = 9
+  Yellow = 10
+  Magenta = 11
+  BlueGreen = 12
+  Orange = 13
+  Lime = 14
+  Green = 15
+  Emerald = 16
+  Carmine = 17
+  Nickel = 18
+  Mint = 19
+  ArmyGreen = 20
+  Pumpkin = 21
+  Black = 22
+  White = 23
 Enum: Misc+CommandOperationMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Disable = 0
+  Enable = 1
+  Toggle = 2
 Enum: PlayerPrefsSl+DataType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: UserSettings.ToggleOrHoldInput+InputActivationMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Toggle = 0
+  Hold = 1
 Enum: UserSettings.VideoSettings.DisplayVideoSetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Resolution = 0
+  AspectRatio = 1
+  FullscreenMode = 2
+  VSyncCount = 3
+  FpsLimiter = 4
+  GraphicsAPI = 5
 Enum: UserSettings.VideoSettings.LightingVideoSetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  RenderShadows = 0
+  ShadowResolution = 1
+  RenderLights = 2
 Enum: UserSettings.VideoSettings.MiscVideoSetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Brightness = 0
+  ExplosionShake = 1
+  HeadBobbing = 2
+  FlashbangDarkMode = 3
 Enum: UserSettings.VideoSettings.PerformanceVideoSetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  TextureResolution = 0
+  AntiAliasingType = 1
+  AntiAliasingQuality = 2
+  RagdollFreeze = 3
+  BloomQuality = 4
+  AOQuality = 5
+  BloodDecalsEnabled = 6
+  BulletDecalsEnabled = 7
 Enum: UserSettings.UserInterfaceSettings.UISetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Language = 0
+  EnableSubtitles = 1
+  HealthbarMode = 2
+  FastRoleIntroMode = 3
+  HideIP = 4
+  FlashTaskbar = 5
+  PhotosensitivityDoNotShow = 6
 Enum: UserSettings.OtherSettings.MiscPrivacySetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  DoNotTrack = 0
+  SteamLobbyPrivacy = 1
+  RichPresence = 2
+  HideSteamProfile = 3
+  BadgePreferences = 4
+  GlobalBadgeVisibility = 5
+  LocalBadgeVisibility = 6
 Enum: UserSettings.GUIElements.UserSettingDependency+Dependency+Condition
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  EqualsTo = 0
+  LessThan = 1
+  GreaterThan = 2
 Enum: UserSettings.GUIElements.UserSettingDependency+Dependency+SettingType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Slider = 0
+  Toggle = 1
+  Dropdown = 2
 Enum: UserSettings.ControlsSettings.MiscControlsSetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  AdsToggle = 0
+  SprintToggle = 1
+  SearchToggle = 2
+  Scp079MouseLookToggle = 3
+  SneakToggle = 4
+  RightClickToDrop = 5
+  InventoryToggle = 6
+  Scp079KeybindZoneSwitching = 7
 Enum: UserSettings.ControlsSettings.SensitivitySetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  SensMultiplier = 0
+  AdsReductionMultiplier = 1
+  Invert = 2
 Enum: UserSettings.AudioSettings.MixerAudioSettings+VolumeSliderSetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Master = 0
+  VoiceChat = 1
+  SoundEffects = 2
+  MenuMusic = 3
+  MenuUI = 4
 Enum: UserSettings.AudioSettings.VcAudioSetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  NoiseReduction = 0
 Enum: ServerOutput.OutputCodes
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Security.ServerRateLimit
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: RemoteAdmin.Communication.RaClipboard+RaClipBoardType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Ip = 0
+  UserId = 1
+  PlayerId = 2
 Enum: RemoteAdmin.Communication.RaPlayerList+PlayerSorting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Ids = 0
+  Alphabetical = 1
+  Class = 2
+  Team = 3
 Enum: VoiceChat.VoiceChatChannel
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Proximity = 1
+  Radio = 2
+  ScpChat = 3
+  Spectator = 4
+  RoundSummary = 5
+  Intercom = 6
+  Mimicry = 7
+  Scp1576 = 8
+  PreGameLobby = 9
 Enum: VoiceChat.VcMuteFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: VoiceChat.VcPrivacyFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: VoiceChat.Playbacks.GlobalChatIconType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Avatar = 1
+  Radio = 2
+  Intercom = 3
 Enum: VoiceChat.Codec.Enums.OpusApplicationType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Voip = 2048
+  Audio = 2049
+  RestrictedLowDelay = 2051
 Enum: VoiceChat.Codec.Enums.OpusCtlGetRequest
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Application = 4001
+  Bitrate = 4003
+  MaxBandwidth = 4005
+  VBR = 4007
+  Bandwidth = 4009
+  Complexity = 4011
+  InbandFec = 4013
+  PacketLossPercentage = 4015
+  Dtx = 4017
+  VBRConstraint = 4021
+  ForceChannels = 4023
+  Signal = 4025
+  LookAhead = 4027
+  SampleRate = 4029
+  FinalRange = 4031
+  Pitch = 4033
+  Gain = 4035
+  LsbDepth = 4037
 Enum: VoiceChat.Codec.Enums.OpusCtlSetRequest
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Application = 4000
+  Bitrate = 4002
+  MaxBandwidth = 4004
+  VBR = 4006
+  Bandwidth = 4008
+  Complexity = 4010
+  InbandFec = 4012
+  PacketLossPercentage = 4014
+  Dtx = 4016
+  VBRConstraint = 4020
+  ForceChannels = 4022
+  Signal = 4024
+  Gain = 4034
+  LsbDepth = 4036
 Enum: VoiceChat.Codec.Enums.OpusStatusCode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  OK = 0
+  AllocFail = -7
+  InvalidState = -6
+  Unimplemented = -5
+  InvalidPacket = -4
+  InternalError = -3
+  BufferTooSmall = -2
+  BadArguments = -1
 Enum: Subtitles.SubtitleType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Subtitles.CassieAnnouncementType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: RoundRestarting.RoundRestartType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerStatsSystem.AdminFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Noclip = 1
+  GodMode = 2
+  BypassMode = 4
 Enum: PlayerStatsSystem.DamageHandlerBase+HandlerOutput
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerStatsSystem.Scp049DamageHandler+AttackType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerStatsSystem.Scp096DamageHandler+AttackType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  GateKill = 0
+  SlapLeft = 1
+  SlapRight = 2
+  Charge = 3
 Enum: PlayerStatsSystem.StatSlider+DisplayExactMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  PreferenceBased = 0
+  AlwaysExact = 1
+  AlwaysPercent = 2
+  ValueHidden = 3
 Enum: PlayerStatsSystem.SyncedStatBase+SyncMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Private = 0
+  PrivateAndSpectators = 1
+  Public = 2
 Enum: PlayerRoles.RoleTypeId
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.Team
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.Faction
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.RoleChangeReason
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.RoleSpawnFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  AssignInventory = 1
+  UseSpawnpoint = 2
+  All = -1
 Enum: PlayerRoles.Visibility.InvisibilityFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.Voice.GroupMuteFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Spectators = 1
+  Alive = 2
+  Lobby = 4
+  Summary = 8
 Enum: PlayerRoles.Voice.IntercomState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Ready = 0
+  Starting = 1
+  InUse = 2
+  Cooldown = 3
+  NotFound = 4
 Enum: PlayerRoles.Voice.IntercomDisplay+IcomText
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Ready = 0
+  Transmitting = 1
+  TrasmittingBypass = 2
+  Restarting = 3
+  AdminUsing = 4
+  Muted = 5
+  Unknown = 6
+  Wait = 7
 Enum: PlayerRoles.Spectating.SpectatableListElementType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Standard = 0
+  Scp079 = 1
+  Scp3114 = 2
 Enum: PlayerRoles.Spectating.SpectatorSpawnReason
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.PlayableScps.VisionInformation+FailReason
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  NotOnSameFloor = 0
+  NotInDistance = 1
+  NotInView = 2
+  NotInLineOfSight = 3
+  InDarkRoom = 4
+  IsLooking = 5
+  UnkownReason = 6
 Enum: PlayerRoles.PlayableScps.Subroutines.AttackResult
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  AttackedObject = 1
+  AttackedPlayer = 2
+  KilledPlayer = 6
 Enum: PlayerRoles.PlayableScps.Scp939.Scp939AmnesticCloudInstance+CloudState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Spawning = 0
+  Created = 1
+  Destroyed = 2
 Enum: PlayerRoles.PlayableScps.Scp939.Scp939DamageType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.PlayableScps.Scp939.Scp939HudTranslation
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  PressKeyToLunge = 0
+  HintPreviewVoice = 1
+  LocalPreviewHeader = 2
+  HintRemoveVoice = 3
+  HintTransmitVoice = 4
+  PrivacyHeader = 5
+  MimicryPrivacySubtitle = 6
+  MimicryPrivacyRememberChoice = 7
+  MimicryPrivacyDeleteButton = 8
+  MimicryPrivacyAcceptButton = 9
+  MimicryPrivacyMoreInfoButton = 10
+  MimicryPrivacyDescription = 11
+  CloudFailedPositionInvalid = 12
+  CloudFailedSizeInsufficient = 13
+  HelpMenuDescription = 14
+  HelpMenuClaw = 15
+  HelpMenuFocus = 16
+  HelpMenuCloud = 17
+  HelpMenuWithManyVoices = 18
+  HelpMenuUltrasensitive = 19
+  ReturnButton = 20
+  MimicPointPlaceButton = 21
+  MimicPointPlaceDescription = 22
+  MimicPointRemoveButton = 23
+  MimicPointRemoveDescription = 24
+  MimicPointPlaceConfirmation = 25
+  MimicPointRemoveConfirmation = 26
+  MimicPointDestroyedDistance = 27
+  StolenVoicesHeader = 28
+  StolenVoicesDescription = 29
+  EnvMimicryHeader = 30
+  EnvMimicryDescription = 31
+  EnvMimicryCooldown = 32
+  MimicFootsteps = 33
+  MimicRoles = 34
+  MimicShooting = 35
+  MimicOther = 36
+  PrevMenu = 37
+  NextMenu = 38
+  Roles = 39
+  HintAssignedHotkey = 40
+  HintPlayEnvMimicry = 41
+  HintStopPlayback = 42
+  HintTrimRecording = 43
+  HintToggleFavorite = 44
+  HintReorganizeRecordings = 45
+  YouGotAVoicelinePopup = 46
 Enum: PlayerRoles.PlayableScps.Scp939.Scp939LungeState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.PlayableScps.Scp939.Mimicry.MimicPointController+RpcStateMsg
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  PlacedByUser = 25
+  RemovedByUser = 26
+  DestroyedByDistance = 27
 Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114DamageHandler+HandlerType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114FakeModelManager+VariantType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Original = 0
+  Disguise = 1
+  Reveal = 2
 Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114HudTranslation
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  IdentityStolenWarning = 0
+  UnableToAttackWarning = 1
+  EquipItemWarning = 2
+  ProximityVoiceHint = 3
+  RagdollErrorPreviouslyUsed = 4
+  RagdollErrorAlreadyDisguised = 5
+  RagdollErrorNotHuman = 6
+  InspectRagdollOverride = 7
+  StartingRagdollHint = 8
+  ValidRagdollIndicator = 9
+  StrangulationCooldown = 10
+  HelpMenuSkeletonsInYourCLoset = 11
+  HelpMenuCatchTheseHands = 12
+  HelpMenuStrangulation = 13
+  HelpMenuUnderTheirSkin = 14
+  RevealKeyHoldLongerWarning = 15
 Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114Identity+DisguiseStatus
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Equipping = 1
+  Active = 2
 Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114Strangle+RpcType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  TargetResync = 0
+  TargetKilled = 1
+  AttackInterrupted = 2
+  OutOfRange = 3
 Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114StrangleAudio+RpcType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  ChokeSync = 0
+  Kill = 1
 Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114VoiceLines+VoiceLinesName
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  KillSlap = 0
+  KillStrangle = 1
+  Slap = 2
+  RandomIdle = 3
+  Reveal = 4
+  EquipStart = 5
+  StartStrangle = 6
 Enum: PlayerRoles.PlayableScps.Scp173.Scp173AudioPlayer+Scp173SoundId
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.PlayableScps.Scp173.Scp173TeleportAbility+CmdTeleportData
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Aiming = 1
+  WantsToTeleport = 2
 Enum: PlayerRoles.PlayableScps.Scp096.Scp096HitResult
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.PlayableScps.Scp096.Scp096HudTranslation
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  HelpMenuDescription = 0
+  HelpMenuTryNotToCry = 1
+  HelpMenuMeeleAttack = 2
+  HelpMenuCharge = 3
+  HelpMenuRageOnly = 4
+  HelpMenuDocileOnly = 5
+  EnterRageKeyInfo = 6
+  ExitRageKeyInfo = 7
 Enum: PlayerRoles.PlayableScps.Scp096.Scp096RageState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.PlayableScps.Scp096.Scp096AbilityState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.PlayableScps.Scp079.Scp079BlackoutRoomAbility+ValidationError
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  NotEnoughAux = 1
+  NoController = 26
+  MaxCapacityReached = 27
+  RoomOnCooldown = 28
+  AlreadyBlackedOut = 60
 Enum: PlayerRoles.PlayableScps.Scp079.Scp079BlackoutZoneAbility+ValidationError
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  NotEnoughAux = 1
+  Cooldown = 59
+  Unavailable = 61
 Enum: PlayerRoles.PlayableScps.Scp079.Scp079HudTranslation
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Zoom = 0
+  AccessTier = 1
+  Experience = 2
+  MaxTierReached = 3
+  NoCamera = 4
+  GoToCamera = 5
+  NotEnoughAux = 6
+  EtaTimer = 7
+  HigherTierRequired = 8
+  InvalidCamera = 9
+  DoorAccessDenied = 10
+  OpenDoor = 11
+  CloseDoor = 12
+  LockDoor = 13
+  UnlockDoor = 14
+  DoorLockCooldown = 15
+  AuxPower = 16
+  YouAreBeingAttacked = 17
+  ReleaseDoorLock = 18
+  OpenMap = 19
+  CloseMap = 20
+  LightContZone = 21
+  HeavyContZone = 22
+  EntranceZone = 23
+  SurfaceZone = 24
+  ActivateRoomBlackout = 25
+  BlackoutRoomUnavailable = 26
+  BlackoutRoomLimit = 27
+  BlackoutRoomCooldown = 28
+  SendElevator = 29
+  Lockdown = 30
+  LockdownCooldown = 31
+  LockdownNoDoorsError = 32
+  PingLocation = 33
+  PingRateLimited = 34
+  CameraSwitchFailed = 35
+  SignalLost = 36
+  ReconnectingEta = 37
+  FireTeslaGate = 38
+  TeslaGateCooldown = 39
+  AccessTierUnlocked = 40
+  AuxPowerLimitIncreased = 41
+  BlackoutRoomAvailable = 42
+  BlackoutCapacityIncreased = 43
+  LockdownAvailable = 44
+  ExpGainAdminCommand = 45
+  ExpGainTerminationAssist = 46
+  ExpGainTerminationDirect = 47
+  ExpGainTerminationWitness = 48
+  ExpGainBlockingHuman = 49
+  ExpGainTeammateProtection = 50
+  ExpGainHidStopped = 51
+  DoorLockAlreadyActive = 52
+  ActivateZoneBlackout = 53
+  ZoneBlackoutAvailable = 54
+  ZoneBlackoutCooldown = 55
+  BlackoutAlreadyActive = 56
+  ZoneBlackoutUnavailable = 57
+  CounterTotalLifeforms = 58
+  CounterTargets = 59
+  CounterScps = 60
+  CounterCivils = 61
+  CounterMilitary = 62
+  UseSpeaker = 63
+  ElevatorAccessDenied = 64
+  HelpMenuOverview = 65
+  HelpMenuVirtuallyIndestructible = 66
+  HelpMenuUnlimitedAccess = 67
+  HelpMenuDeepLearning = 68
+  HelpMenuOverwatch = 69
+  BreachScannerAvailable = 70
+  AuxRegenSuspended = 71
+  AuxRegenReduced = 72
+  DoorLockAuxPause = 73
+  SpeakerAuxPause = 74
+  LockdownAuxPause = 75
+  OpenBreachScanner = 76
+  CloseBreachScanner = 77
+  ScannerAuxPause = 78
+  ScannerSelectedZoneCntLabel = 79
+  ScannerNoZoneSelectedLabel = 80
+  ScanResultNoneFound = 81
+  ScanResultRetryingMessage = 82
+  ScanResultPlayerDetected = 83
+  ScanStatusWaiting = 84
+  ScanStatusScanning = 85
+  ScanStatusDisabled = 86
+  ScannerFilters = 87
+  ScannerDescription = 88
+  ScannerNoFiltersError = 89
+  DoorLockAbilityAvailable = 90
 Enum: PlayerRoles.PlayableScps.Scp079.Scp079KeyAbilityBase+Category
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Movement = 0
+  SpecialAbility = 1
+  OverconInteraction = 2
 Enum: PlayerRoles.PlayableScps.Scp079.Scp079LockdownRoomAbility+ValidationError
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Unknown = 1
+  NotEnoughAux = 6
+  TierTooLow = 8
+  Cooldown = 31
+  NoDoors = 32
 Enum: PlayerRoles.PlayableScps.Scp079.Scp079ScannerSequence+ScanSequenceStep
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Init = 0
+  CountingDown = 1
+  ScanningFindNewTarget = 2
+  ScanningFailedCooldown = 3
+  ScanningUpdateTarget = 4
 Enum: PlayerRoles.PlayableScps.Scp079.Scp079ScannerSequence+TrackerMessage
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  ScannerDisabled = 1
+  ScanTimeSync = 2
+  ScanNoResults = 3
+  ScanSuccessful = 4
 Enum: PlayerRoles.PlayableScps.Scp079.Map.Scp079TeammateIndicators+IndicatorType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Low = 0
+  Medium = 1
+  High = 2
 Enum: PlayerRoles.PlayableScps.Scp079.GUI.NotificationSound
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Standard = 0
+  None = -1
 Enum: PlayerRoles.PlayableScps.Scp079.Cameras.Scp079CurrentCameraSync+ClientSwitchState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  SwitchingRoom = 1
+  SwitchingZone = 2
 Enum: PlayerRoles.PlayableScps.Scp049.RagdollIndicatorsBase`1+ListSyncRpcType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
+System.NotSupportedException: Impossible de créer des tableaux de type open. 
+   à System.Array.InternalCreate(Void* elementType, Int32 rank, Int32* pLengths, Int32* pLowerBounds)
+   à System.Array.CreateInstance(Type elementType, Int32 length)
+   à System.Array.UnsafeCreateInstance(Type elementType, Int32 length)
    à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
 Enum: PlayerRoles.PlayableScps.Scp049.Scp049ResurrectAbility+ResurrectError
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  TargetNull = 1
+  Expired = 2
+  MaxReached = 3
+  Refused = 4
+  TargetInvalid = 5
 Enum: PlayerRoles.PlayableScps.Scp049.Zombies.ZombieAudioPlayer+Scp0492SoundId
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.PlayableScps.Scp049.Zombies.ZombieConsumeAbility+ConsumeError
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.FirstPersonControl.PlayerMovementState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: PlayerRoles.FirstPersonControl.FpcMotor+FpcViewMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  LocalPlayer = 0
+  Server = 1
+  Thirdperson = 2
 Enum: PlayerRoles.FirstPersonControl.Thirdperson.AnimatedCharacterModel+FootstepLoudness
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Civilian = 8
+  FoundationForces = 12
+  Chaos = 30
+  Scp = 35
 Enum: PlayerRoles.Filmmaker.FilmmakerBlendPreset
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Linear = 0
+  Smooth = 1
+  FetchNext = 2
+  Hold = 3
 Enum: Utils.CustomParser+ParseResult
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Utils.Networking.HintEffectReaderWriter+HintEffectType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Utils.Networking.HintParameterReaderWriter+HintParameterType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Utils.Networking.HintReaderWriter+HintType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Utils.Networking.NullableBoolReaderWriter+NullableBoolValue
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: LightContainmentZoneDecontamination.DecontaminationController+DecontaminationStatus
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: LightContainmentZoneDecontamination.DecontaminationController+DecontaminationPhase+PhaseFunction
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: MapGeneration.ImageGenerator+RoomType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Straight = 0
+  Curve = 1
+  RoomT = 2
+  Cross = 3
+  Endoff = 4
+  Prison = 5
 Enum: MapGeneration.RoomShape
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Undefined = 0
+  Endroom = 1
+  Straight = 2
+  Curve = 3
+  TShape = 4
+  XShape = 5
 Enum: MapGeneration.FacilityZone
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  LightContainment = 1
+  HeavyContainment = 2
+  Entrance = 3
+  Surface = 4
+  Other = 5
 Enum: MapGeneration.RoomName
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Unnamed = 0
+  LczClassDSpawn = 1
+  LczComputerRoom = 2
+  LczCheckpointA = 3
+  LczCheckpointB = 4
+  LczToilets = 5
+  LczArmory = 6
+  Lcz173 = 7
+  LczGlassroom = 8
+  Lcz330 = 9
+  Lcz914 = 10
+  LczGreenhouse = 11
+  LczAirlock = 12
+  HczCheckpointToEntranceZone = 13
+  HczCheckpointA = 14
+  HczCheckpointB = 15
+  HczWarhead = 16
+  Hcz049 = 17
+  Hcz079 = 18
+  Hcz096 = 19
+  Hcz106 = 20
+  Hcz939 = 21
+  HczMicroHID = 22
+  HczArmory = 23
+  HczServers = 24
+  HczTesla = 25
+  EzCollapsedTunnel = 26
+  EzGateA = 27
+  EzGateB = 28
+  EzRedroom = 29
+  EzEvacShelter = 30
+  EzIntercom = 31
+  EzOfficeStoried = 32
+  EzOfficeLarge = 33
+  EzOfficeSmall = 34
+  Outside = 35
+  Pocket = 36
+  HczTestroom = 37
 Enum: MapGeneration.Distributors.Scp079Generator+GeneratorFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: MapGeneration.Distributors.Scp079Generator+GeneratorColliderId
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: MapGeneration.Distributors.StructureType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  StandardLocker = 0
+  LargeGunLocker = 1
+  ScpPedestal = 2
+  Scp079Generator = 3
+  SmallWallCabinet = 4
+  Workstation = 5
 Enum: Hints.HintTranslations
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Hints.HintMessageParameterFunctions+HintMessageTypes
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: GameCore.ConfigShareTypes
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: GameCore.ConfigSharing+ConfigShare
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Bans = 0
+  Mutes = 1
+  Whitelist = 2
+  ReservedSlots = 3
+  Groups = 4
+  GroupsMembers = 5
+  GameplayDatabase = 6
 Enum: GameCore.Console+ConsoleLogType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  DoNotLog = 0
+  Log = 1
+  Warning = 2
+  Error = 3
 Enum: GameCore.DistributionPlatform
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Dedicated = 0
+  Steam = 1
+  Discord = 2
 Enum: GameCore.Version+VersionType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Searching.SearchSessionPipe+Activity
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Idle = 0
+  Requested = 1
+  Promised = 2
 Enum: InventorySystem.Hotkeys.HotkeysTranslation
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  SettingsHeader = 0
+  CreateNewLabel = 1
+  SettingsHeaderHint = 2
+  KeycardPredefinedName = 3
+  PrimaryWeaponPredefinedName = 4
+  SecondaryWeaponPredefinedName = 5
+  MedicalPredefinedName = 6
+  GrenadePredefinedName = 7
+  NameLabel = 8
+  KeyLabel = 9
+  ApperanceLabel = 10
+  SortLabel = 11
+  OverrideLabel = 12
+  OverrideHint = 13
+  ApperanceHidden = 14
+  ApperanceNormal = 15
+  ApperanceSmall = 16
+  SortItemQueue = 17
+  SortItemQueueHint = 18
+  SortInventoryOrder = 19
+  SortInventoryOrderHint = 20
+  OverrideNone = 21
+  OverrideBestMedical = 22
+  OverrideBestMedicalHint = 23
+  OverrideRememberPrev = 24
+  OverrideRememberPrevHint = 25
+  OverrideNearbyDoor = 26
+  OverrideNearbyDoorHint = 27
+  OverrideSkipEmpty = 28
+  OverrideSkipEmptyHint = 29
+  PoolItemsLabel = 30
+  PoolOrderLabel = 31
+  PoolOrderHint = 32
+  RestoreDefaultLabel = 33
+  RestoreDefaultButton = 34
+  TitlePrefix = 35
+  NewHotkeyNamePlaceholder = 36
+  GroupFirearms = 37
+  GroupKeycards = 38
+  GroupThrowable = 39
+  GroupScpItems = 40
 Enum: InventorySystem.Items.BlockedInteraction
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.ItemDescriptionType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Default = 0
+  Keycard = 1
+  Firearm = 2
+  Armor = 3
+  None = 4
+  Scp330Bag = 5
 Enum: InventorySystem.Items.Thirdperson.ThirdpersonItemAnimationName
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Override0 = 0
+  Override1 = 1
+  Override2 = 2
+  IdlePoseAdditive = 3
+  SprintLeftAdditive = 4
+  SprintRightAdditive = 5
+  SprintStraightAdditive = 6
+  SprintBackAdditive = 7
+  WalkLeftAdditive = 8
+  WalkRightAdditive = 9
+  WalkStraightAdditive = 10
+  WalkBackAdditive = 11
+  PrimaryAdditive = 12
+  SecAdditive0 = 13
+  SecAdditive1 = 14
+  SecAdditive2 = 15
 Enum: InventorySystem.Items.Pickups.PickupStandardPhysics+FreezingMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Default = 0
+  FreezeWhenSleeping = 1
+  NeverFreeze = 2
 Enum: InventorySystem.Items.Pickups.PickupSyncInfo+PickupFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Usables.StatusMessage+StatusType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Usables.Scp330.CandyKindID
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Usables.Scp330.Scp330Translations+Entry
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Candies = 0
 Enum: InventorySystem.Items.Usables.Scp244.Scp244State
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.ThrowableProjectiles.ThrowableNetworkHandler+RequestType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Radio.RadioMessages+RadioCommand
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Radio.RadioMessages+RadioRangeLevel
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.MarshmallowMan.MarshmallowItem+RpcType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  AttackStart = 0
+  Hit = 1
+  Holster = 2
 Enum: InventorySystem.Items.Jailbird.JailbirdWearState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Healthy = 0
+  LowWear = 1
+  MediumWear = 2
+  HighWear = 3
+  AlmostBroken = 4
+  Broken = 5
 Enum: InventorySystem.Items.Jailbird.JailbirdMessageType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  UpdateState = 0
+  Broken = 1
+  Holstered = 2
+  AttackTriggered = 3
+  AttackPerformed = 4
+  ChargeLoadTriggered = 5
+  ChargeFailed = 6
+  ChargeStarted = 7
+  Inspect = 8
 Enum: InventorySystem.Items.Firearms.FirearmAudioFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Firearms.FirearmStatusFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Firearms.Modules.DoubleAction+TriggerState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Released = 0
+  Pulling = 1
+  SearLock = 2
 Enum: InventorySystem.Items.Firearms.Modules.ActionModuleResponse
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Idle = 0
+  Shoot = 1
+  Dry = 2
 Enum: InventorySystem.Items.Firearms.Modules.TubularMagazineAmmoManager+CurrentAction
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Idle = 0
+  Reloading = 1
+  Unloading = 2
 Enum: InventorySystem.Items.Firearms.BasicMessages.RequestType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Firearms.Attachments.AttachmentEditorsTranslation
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Custom = 0
+  PresetId = 1
+  SaveAttachments = 2
+  ClearAttachments = 3
+  DefaultAttachments = 4
+  Presets = 5
+  WorkstationOffline = 6
+  WorkstationStandby = 7
+  WorkstationWelcome = 8
+  WorkstationBooting = 9
+  WorkstationReady = 10
+  WorkstationEquipGun = 11
+  WorkstationShuttingDownHeader = 12
+  WorkstationShuttingDownDescription = 13
+  ShowStatsSummary = 14
+  CloseStatsSummary = 15
+  AttachmentCustomization = 16
+  SpectatorEditorTip = 17
 Enum: InventorySystem.Items.Firearms.Attachments.AttachmentSlot
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Firearms.Attachments.AttachmentName
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  IronSights = 1
+  DotSight = 2
+  HoloSight = 3
+  NightVisionSight = 4
+  AmmoSight = 5
+  ScopeSight = 6
+  StandardStock = 7
+  ExtendedStock = 8
+  RetractedStock = 9
+  LightweightStock = 10
+  HeavyStock = 11
+  RecoilReducingStock = 12
+  Foregrip = 13
+  Laser = 14
+  Flashlight = 15
+  AmmoCounter = 16
+  StandardBarrel = 17
+  ExtendedBarrel = 18
+  SoundSuppressor = 19
+  FlashHider = 20
+  MuzzleBrake = 21
+  MuzzleBooster = 22
+  StandardMagFMJ = 23
+  StandardMagAP = 24
+  StandardMagJHP = 25
+  ExtendedMagFMJ = 26
+  ExtendedMagAP = 27
+  ExtendedMagJHP = 28
+  DrumMagFMJ = 29
+  DrumMagAP = 30
+  DrumMagJHP = 31
+  LowcapMagFMJ = 32
+  LowcapMagAP = 33
+  LowcapMagJHP = 34
+  CylinderMag4 = 35
+  CylinderMag6 = 36
+  CylinderMag8 = 37
+  CarbineBody = 38
+  RifleBody = 39
+  ShortBarrel = 40
+  ShotgunChoke = 41
+  ShotgunExtendedBarrel = 42
+  NoRifleStock = 43
+  ShotgunSingleShot = 44
+  ShotgunDoubleShot = 45
 Enum: InventorySystem.Items.Firearms.Attachments.AttachmentDescriptiveAdvantages
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Flashlight = 2
+  AmmoCounter = 4
+  FlashSuppression = 8
+  NightVision = 16
 Enum: InventorySystem.Items.Firearms.Attachments.AttachmentDescriptiveDownsides
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Laser = 2
 Enum: InventorySystem.Items.Firearms.Attachments.AttachmentParam
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  AdsZoomMultiplier = 0
+  AdsMouseSensitivityMultiplier = 1
+  DamageMultiplier = 2
+  PenetrationMultiplier = 3
+  FireRateMultiplier = 4
+  OverallRecoilMultiplier = 5
+  AdsRecoilMultiplier = 6
+  BulletInaccuracyMultiplier = 7
+  HipInaccuracyMultiplier = 8
+  AdsInaccuracyMultiplier = 9
+  DrawSpeedMultiplier = 10
+  GunshotLoudnessMultiplier = 11
+  MagazineCapacityModifier = 12
+  DrawTimeModifier = 13
+  ReloadTimeModifier = 14
+  ShotClipIdOverride = 15
+  AdsSpeedMultiplier = 16
+  SpreadMultiplier = 17
+  SpreadPredictability = 18
+  AmmoConsumptionMultiplier = 19
+  ReloadSpeedMultiplier = 20
+  PreventReload = 21
 Enum: InventorySystem.Items.Firearms.Attachments.ParameterMixingMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Override = 0
+  Additive = 1
+  Percent = 2
 Enum: InventorySystem.Items.Firearms.Attachments.WorkstationController+WorkstationStatus
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.Autosync.AutosyncRpc+Mode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Local = 0
+  AllClients = 1
+  Conditional = 2
 Enum: InventorySystem.Items.MicroHID.HidUserInput
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.MicroHID.HidState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: InventorySystem.Items.MicroHID.HidStatusMessageType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  UserInput = 0
+  State = 1
+  EnergySync = 2
 Enum: CustomPlayerEffects.StatusEffectBase+EffectClassification
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Negative = 0
+  Mixed = 1
+  Positive = 2
 Enum: Respawning.RespawnEffectsController+EffectType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Respawning.RespawnManager+RespawnSequencePhase
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Respawning.SpawnableTeamType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: AudioPooling.AudioMixerChannelType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  DefaultSfx = 0
+  Interface = 1
+  Weapons = 2
+  VoiceChat = 3
+  NoDucking = 4
 Enum: CursorManagement.CursorOverrideMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  NoOverride = 0
+  Centered = 1
+  Confined = 2
+  Free = 3
 Enum: _Scripts.Utils.StartExternalProcess+ProcessCreationFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: CentralAuth.AuthenticationResponseFunctions+AuthenticationResponseFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: CentralAuth.ClientInstanceMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: AdminToys.PrimitiveFlags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: AdminToys.ShootingTarget+TargetButton
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  IncreaseHP = 0
+  DecreaseHP = 1
+  IncreaseResetTime = 2
+  DecreaseResetTime = 3
+  ManualReset = 4
+  Remove = 5
+  GlobalResults = 6
 Enum: Achievements.AchievementName
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  TurnThemAll = 0
+  Pacified = 1
+  MelancholyOfDecay = 2
+  DontBlink = 3
+  LightsOut = 4
+  ItsAlwaysLeft = 5
+  AccessGranted = 6
+  DeltaCommand = 7
+  ProceedWithCaution = 8
+  Friendship = 9
+  ForScience = 10
+  IsThisThingOn = 11
+  FireInTheHole = 12
+  HeWillBeBack = 13
+  BePoliteBeEfficient = 14
+  ExecutiveAccess = 15
+  SecureContainProtect = 16
+  TMinus = 17
+  ChangeInCommand = 18
+  ThatCanBeUseful = 19
+  JustResources = 20
+  ThatWasClose = 21
+  SomethingDoneRight = 22
+  WalkItOff = 23
+  AnomalouslyEfficient = 24
+  MicrowaveMeal = 25
+  EscapeArtist = 26
+  Escape207 = 27
+  CrisisAverted = 28
+  DidntEvenFeelThat = 29
+  IllPassThanks = 30
+  Overcurrent = 31
+  PropertyOfChaos = 32
 Enum: Scp914.Scp914Mode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Dropped = 1
+  Inventory = 2
+  DroppedAndInventory = 3
+  DroppedAndPlayerTeleport = 5
+  Held = 6
+  DroppedAndHeld = 7
 Enum: Scp914.Scp914KnobSetting
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Scp914.Scp914InteractCode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Scp914.Scp914Sound
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Interactables.Interobjects.CheckpointDoor+CheckpointSequenceStage
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Idle = 0
+  Granted = 1
+  Open = 2
+  Closing = 3
 Enum: Interactables.Interobjects.CheckpointDoor+CheckpointErrorType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Interactables.Interobjects.ElevatorChamber+ElevatorSequence
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  DoorClosing = 0
+  MovingAway = 1
+  Arriving = 2
+  DoorOpening = 3
+  Ready = 4
 Enum: Interactables.Interobjects.ElevatorManager+ElevatorGroup
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  GateA = 0
+  GateB = 1
+  LczA01 = 2
+  LczA02 = 3
+  LczB01 = 4
+  LczB02 = 5
+  Nuke = 6
+  Scp049 = 7
 Enum: Interactables.Interobjects.DoorUtils.DoorDamageType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Interactables.Interobjects.DoorUtils.DoorEventOpenerExtension+OpenerEventType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  WarheadStart = 0
+  WarheadCancel = 1
+  DeconEvac = 2
+  DeconFinish = 3
+  DeconReset = 4
 Enum: Interactables.Interobjects.DoorUtils.DoorAction
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Opened = 0
+  Closed = 1
+  AccessDenied = 2
+  Locked = 3
+  Unlocked = 4
+  Destroyed = 5
 Enum: Interactables.Interobjects.DoorUtils.DoorLockReason
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Interactables.Interobjects.DoorUtils.DoorLockMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Interactables.Interobjects.DoorUtils.KeycardPermissions
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Interactables.Interobjects.DoorUtils.DoorVariant+CollisionsDisablingReasons
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Utf8Json.CollectionDeserializeToBehaviour
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Add = 0
+  OverwriteReplace = 1
 Enum: Utf8Json.JsonToken
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+FastDtoaMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  FAST_DTOA_SHORTEST = 0
+  FAST_DTOA_SHORTEST_SINGLE = 1
 Enum: Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+DtoaMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  SHORTEST = 0
+  SHORTEST_SINGLE = 1
 Enum: Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+Flags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  NO_FLAGS = 0
+  EMIT_POSITIVE_EXPONENT_SIGN = 1
+  EMIT_TRAILING_DECIMAL_POINT = 2
+  EMIT_TRAILING_ZERO_AFTER_POINT = 4
+  UNIQUE_ZERO = 8
 Enum: Utf8Json.Internal.DoubleConversion.StringToDoubleConverter+Flags
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  NO_FLAGS = 0
+  ALLOW_HEX = 1
+  ALLOW_OCTALS = 2
+  ALLOW_TRAILING_JUNK = 4
+  ALLOW_LEADING_SPACES = 8
+  ALLOW_TRAILING_SPACES = 16
+  ALLOW_SPACES_AFTER_SIGN = 32
+  ALLOW_CASE_INSENSIBILITY = 64
 Enum: CustomRendering.FogType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: Decals.DecalPoolType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Bullet = 1
+  Blood = 2
+  Buckshot = 3
 Enum: Mirror.LiteNetLib4Mirror.LiteNetLib4MirrorCore+States
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: LiteNetLib4Mirror.Open.Nat.NetworkProtocolType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Tcp = 0
+  Udp = 1
 Enum: LiteNetLib4Mirror.Open.Nat.MappingLifetime
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Permanent = 0
+  Session = 1
+  Manual = 2
+  ForcedSession = 3
 Enum: LiteNetLib4Mirror.Open.Nat.PortMapper
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Pmp = 1
+  Upnp = 2
 Enum: LiteNetLib.ConnectionRequestResult
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Accept = 1
+  Reject = 2
+  RejectForce = 3
 Enum: LiteNetLib.UnconnectedMessageType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  BasicMessage = 0
+  Broadcast = 1
 Enum: LiteNetLib.DisconnectReason
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  ConnectionFailed = 0
+  Timeout = 1
+  HostUnreachable = 2
+  NetworkUnreachable = 3
+  RemoteConnectionClose = 4
+  DisconnectPeerCalled = 5
+  ConnectionRejected = 6
+  InvalidProtocol = 7
+  UnknownHost = 8
+  Reconnect = 9
+  PeerToPeerConnection = 10
+  PeerNotFound = 11
 Enum: LiteNetLib.NatAddressType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Internal = 0
+  External = 1
 Enum: LiteNetLib.DeliveryMethod
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: LiteNetLib.NetLogLevel
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Warning = 0
+  Error = 1
+  Trace = 2
+  Info = 3
 Enum: LiteNetLib.NetEvent+EType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Connect = 0
+  Disconnect = 1
+  Receive = 2
+  ReceiveUnconnected = 3
+  Error = 4
+  ConnectionLatencyUpdated = 5
+  Broadcast = 6
+  ConnectionRequest = 7
+  MessageDelivered = 8
+  PeerAddressChanged = 9
 Enum: LiteNetLib.PacketProperty
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: LiteNetLib.ConnectionState
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+System.InvalidCastException: Le cast spécifié n'est pas valide.
+   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
 Enum: LiteNetLib.ConnectRequestResult
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  P2PLose = 1
+  Reconnection = 2
+  NewConnection = 3
 Enum: LiteNetLib.DisconnectResult
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Reject = 1
+  Disconnect = 2
 Enum: LiteNetLib.ShutdownResult
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  None = 0
+  Success = 1
+  WasConnected = 2
 Enum: LiteNetLib.LocalAddrType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  IPv4 = 1
+  IPv6 = 2
+  All = 3
 Enum: LiteNetLib.Utils.NetSerializer+CallType
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Basic = 0
+  Array = 1
+  List = 2
 Enum: LiteNetLib.Utils.NtpLeapIndicator
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  NoWarning = 0
+  LastMinuteHas61Seconds = 1
+  LastMinuteHas59Seconds = 2
+  AlarmCondition = 3
 Enum: LiteNetLib.Utils.NtpMode
-System.ArgumentException: Le type fourni doit être Enum.
-Nom du paramètre : enumType
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingE4C242B458E51671E35717C5315806989E9B6ED641D34924EE94E9CD76B1757CF7FBB6C487D25996FE5DA9E80EEAAC8C22AAA395378F9E6A96C0A02184E2F884.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
+  Client = 3
+  Server = 4
 
 
 
