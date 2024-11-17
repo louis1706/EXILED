@@ -1,4 +1,18 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 title: NW Documentation
 ---
@@ -6,24 +20,7 @@ title: NW Documentation
 ### Index
 
 - [RoleType, Team, Side, LeadingTeam](#roletype-team-side-and-leadingteam)
-- [ItemType](#itemtype)
-- [AmmoType](#ammotype)
-- [DoorType](#doortype)
-- [RoomType](#roomtype)
-- [ElevatorType](#elevatortype)
-- [DamageType](#damagetype)
 - [Damage Handlers](#damagehandlers)
-- [EffectType](#effecttype)
-- [Keycard Permissions](#keycardpermissions)
-- [DoorLockType](#doorlocktype)
-- [StructureType](#structuretype)
-- [BloodType](#bloodtype)
-- [GeneratorState](#generatorstate)
-- [IntercomStates](#intercomstates)
-- [BroadcastType](#broadcasttype)
-- [Attachment Names](#attachmentnames)
-- [Spawn Reasons](#spawnreasons)
-- [Prefabs](#prefabs)
 - [AchievementName](#achievementname)
 - [ActionCategory](#actioncategory)
 - [ActionModuleResponse](#actionmoduleresponse)
@@ -3870,6 +3867,7 @@ title: NW Documentation
 </details>
 
 
+
 ### External resources
 
 - [Available Colors (en.scpslgame.com)](https://en.scpslgame.com/index.php/Docs:Permissions#Colors)
@@ -3883,40 +3881,6 @@ title: NW Documentation
 ```md title="Latest Updated: 13.5.0.1"
 | Id  | RoleTypeId     | Team             | Side             | LeadingTeam     |
 |-----|----------------|------------------|------------------|-----------------|
-| -1  | None           | Dead             | None             | Draw            |
-| 0   | Scp173         | SCPs             | Scp              | Anomalies       |
-| 1   | ClassD         | ClassD           | ChaosInsurgency  | ChaosInsurgency |
-| 2   | Spectator      | Dead             | None             | Draw            |
-| 3   | Scp106         | SCPs             | Scp              | Anomalies       |
-| 4   | NtfSpecialist  | FoundationForces | Mtf              | FacilityForces  |
-| 5   | Scp049         | SCPs             | Scp              | Anomalies       |
-| 6   | Scientist      | Scientists       | Mtf              | FacilityForces  |
-| 7   | Scp079         | SCPs             | Scp              | Anomalies       |
-| 8   | ChaosConscript | ChaosInsurgency  | ChaosInsurgency  | ChaosInsurgency |
-| 9   | Scp096         | SCPs             | Scp              | Anomalies       |
-| 10  | Scp0492        | SCPs             | Scp              | Anomalies       |
-| 11  | NtfSergeant    | FoundationForces | Mtf              | FacilityForces  |
-| 12  | NtfCaptain     | FoundationForces | Mtf              | FacilityForces  |
-| 13  | NtfPrivate     | FoundationForces | Mtf              | FacilityForces  |
-| 14  | Tutorial       | OtherAlive       | Tutorial         | Draw            |
-| 15  | FacilityGuard  | FoundationForces | Mtf              | FacilityForces  |
-| 16  | Scp939         | SCPs             | Scp              | Anomalies       |
-| 17  | CustomRole     | Dead             | None             | Draw            |
-| 18  | ChaosRifleman  | ChaosInsurgency  | ChaosInsurgency  | ChaosInsurgency |
-| 19  | ChaosMarauder  | ChaosInsurgency  | ChaosInsurgency  | ChaosInsurgency |
-| 20  | ChaosRepressor | ChaosInsurgency  | ChaosInsurgency  | ChaosInsurgency |
-| 21  | Overwatch      | Dead             | None             | Draw            |
-| 22  | Filmmaker      | Dead             | None             | Draw            |
-| 23  | Scp3114        | SCPs             | Scp              | Anomalies       |
-```
-
-</details>
-
-### ItemType
-
-<details><summary> <b>Items</b></summary>
-
-```md  title="Latest Updated: 13.5.0.1"
 [-1] None 
 [0] KeycardJanitor 
 [1] KeycardScientist 
@@ -3978,86 +3942,33 @@ title: NW Documentation
 </details>
 
 
-### AmmoType
-
-<details><summary> <b>Ammo</b></summary>
-
-```md title="Latest Updated: 8.14.0.0"
-[0] None 
-[1] Nato556 
-[2] Nato762 
-[3] Nato9 
-[4] Ammo12Gauge 
-[5] Ammo44Cal 
-```
-
-</details>
 
 ### DamageHandlers
 
 <details><summary> <b>Damage Handlers</b></summary>
 
-```md title="Latest Updated: 05/08/2022"
+```md title="Latest Updated: 13.5.0.1"
 All available DamageHandlers
 
 + Symbol ':' literally means "inherits from"
 * In C#, inheritance is a process in which one object acquires all the properties and behaviors of its parent object automatically.
 
-PlayerStatsSystem::DamageHandlerBase
-PlayerStatsSystem::StandardDamageHandler : DamageHandlerBase
-PlayerStatsSystem::AttackerDamageHandler : StandardDamageHandler
-PlayerStatsSystem::CustomReasonDamageHandler : StandardDamageHandler
-PlayerStatsSystem::UniversalDamageHandler : StandardDamageHandler
-PlayerStatsSystem::WarheadDamageHandler : StandardDamageHandler
-PlayerStatsSystem::RecontainmentDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::FirearmDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::ScpDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::Scp096DamageHandler : AttackerDamageHandler
-PlayerStatsSystem::MicroHidDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::ExplosionDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::Scp018DamageHandler : AttackerDamageHandler
+
+PlayerStatsSystem.CustomReasonDamageHandler : StandardDamageHandler
+PlayerStatsSystem.DisruptorDamageHandler : AttackerDamageHandler
+PlayerStatsSystem.ExplosionDamageHandler : AttackerDamageHandler
+PlayerStatsSystem.FirearmDamageHandler : AttackerDamageHandler
+PlayerStatsSystem.JailbirdDamageHandler : AttackerDamageHandler
+PlayerStatsSystem.MicroHidDamageHandler : AttackerDamageHandler
+PlayerStatsSystem.RecontainmentDamageHandler : AttackerDamageHandler
+PlayerStatsSystem.Scp018DamageHandler : AttackerDamageHandler
+PlayerStatsSystem.Scp049DamageHandler : ScpDamageHandler
+PlayerStatsSystem.Scp096DamageHandler : ScpDamageHandler
+PlayerStatsSystem.ScpDamageHandler : AttackerDamageHandler
+PlayerStatsSystem.UniversalDamageHandler : StandardDamageHandler
+PlayerStatsSystem.WarheadDamageHandler : StandardDamageHandler
+PlayerRoles.PlayableScps.Scp939.Scp939DamageHandler : AttackerDamageHandler
+PlayerRoles.PlayableScps.Scp3114.Scp3114DamageHandler : AttackerDamageHandler
+
 ```
-
-</details>
-
-
-### StructureType
-
-<details><summary> <b>Structures</b></summary>
-
-```md title="Latest Updated: 13.5.0.1"
-[0] StandardLocker 
-[1] LargeGunLocker 
-[2] ScpPedestal 
-[3] Scp079Generator 
-[4] SmallWallCabinet 
-[5] Workstation 
-```
-
-</details>
-
-### IntercomStates
-
-<details><summary> <b>Intercom States</b></summary>
-
-```md title="Latest Updated: 13.5.0.1"
-[0] Ready 
-[1] Starting 
-[2] InUse 
-[3] Cooldown 
-[4] NotFound 
-```
-
-</details>
-
-### BroadcastFlags
-
-<details><summary> <b>BroadcastFlags</b></summary>
-
-```md title="Latest Updated: 13.5.0.1"
-[0] Normal 
-[1] Truncated 
-[2] AdminChat 
-```
-
 </details>

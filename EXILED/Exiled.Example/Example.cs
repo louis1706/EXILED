@@ -7,6 +7,10 @@
 
 namespace Exiled.Example
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+
     using Exiled.API.Enums;
     using Exiled.API.Features;
     using Exiled.Example.Events;
@@ -41,6 +45,23 @@ namespace Exiled.Example
         /// <inheritdoc/>
         public override void OnEnabled()
         {
+            // Load the assembly
+            Assembly assembly = typeof(BanPlayer).Assembly;
+            Type[] types = null;
+            try
+            {
+                types = assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException e)
+            {
+                types = e.Types;
+            }
+
+            foreach (Type type in types.Where(t => t != null && t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(PlayerStatsSystem.DamageHandlerBase))).OrderBy(t => t.BaseType.Name))
+            {
+                Log.Warn($"{type.FullName} : {type.BaseType.Name}");
+            }
+
             RegisterEvents();
 
             Log.Warn($"I correctly read the string config, its value is: {Config.String}");

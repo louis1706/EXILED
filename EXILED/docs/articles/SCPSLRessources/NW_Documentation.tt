@@ -1,4 +1,4 @@
-<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ template debug="true" hostspecific="false" language="C#" #>
 <#@ assembly name="System" #>
 <#@ assembly name="%EXILED_REFERENCES%\System.Core.dll" #>
 <#@ assembly name="%EXILED_REFERENCES%\Mirror.dll" #>
@@ -20,29 +20,12 @@ title: NW Documentation
 ### Index
 
 - [RoleType, Team, Side, LeadingTeam](#roletype-team-side-and-leadingteam)
-- [ItemType](#itemtype)
-- [AmmoType](#ammotype)
-- [DoorType](#doortype)
-- [RoomType](#roomtype)
-- [ElevatorType](#elevatortype)
-- [DamageType](#damagetype)
 - [Damage Handlers](#damagehandlers)
-- [EffectType](#effecttype)
-- [Keycard Permissions](#keycardpermissions)
-- [DoorLockType](#doorlocktype)
-- [StructureType](#structuretype)
-- [BloodType](#bloodtype)
-- [GeneratorState](#generatorstate)
-- [IntercomStates](#intercomstates)
-- [BroadcastType](#broadcasttype)
-- [Attachment Names](#attachmentnames)
-- [Spawn Reasons](#spawnreasons)
-- [Prefabs](#prefabs)
 <#
-string response = string.Empty;
-
 try
 {
+    string response = string.Empty;
+
     // Load the assembly
     var assembly = typeof(BanPlayer).Assembly;
     Type[] types = null;
@@ -56,42 +39,26 @@ try
     }
     foreach (var type in types.Where(t => t != null).OrderBy(t => t.Name))
     {
-        try
+        if (type.IsEnum && !type.IsGenericType)
         {
-            // Skip types that cannot be loaded or processed
-            if (type.IsEnum && !type.IsGenericType)
+            WriteLine($"- [{type.Name}](#{type.Name.ToLower()})");
+            response += $"\n### {type.Name}\n\n";
+            response += $"<details><summary><b>{type.FullName}</b></summary>\n";
+            response += $"```md title=\"Latest Updated: {Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion}\"";
+
+            foreach (var value in Enum.GetValues(type))
             {
-                WriteLine($"- [{type.Name}](#{type.Name.ToLower()})");
-                response += $"\n### {type.Name}\n\n";
-                response += $"<details><summary><b>{type.FullName}</b></summary>\n";
-                response += $"```md title=\"Latest Updated: {Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion}\"";
-                // Iterate through all the fields in the Enum
-                foreach (var value in Enum.GetValues(type))
-                {
-                    response += $"\n [{value.GetHashCode()}] = {value}";
-                }
-                response += "\n```\n\n</details>\n";
+                response += $"\n [{value.GetHashCode()}] = {value.ToString()}";
             }
-        }
-        catch (System.TypeLoadException ex)
-        {
-            WriteLine(ex.ToString());
-        }
-        catch (Exception ex2)
-        {
-            WriteLine(ex2.ToString());
-        }
+                response += "\n```\n\n</details>\n";
+         }
     }
+    WriteLine(response);
 }
-catch (System.IO.FileNotFoundException ex3)
+catch(Exception ex)
 {
-    WriteLine(ex3.ToString());
+    WriteLine(ex?.ToString());
 }
-catch (ReflectionTypeLoadException ex4)
-{
-    WriteLine(ex4.ToString());
-}
-WriteLine(response);
 #>
 
 ### External resources
@@ -107,86 +74,42 @@ WriteLine(response);
 ```md title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
 | Id  | RoleTypeId     | Team             | Side             | LeadingTeam     |
 |-----|----------------|------------------|------------------|-----------------|
-<#= string.Join("\n",Enum.GetValues(typeof(RoleTypeId)).Cast<RoleTypeId>().ToList().OrderBy(x => x).Select(x => $"| {((int)x).ToString().PadRight(3)} | {x.ToString().PadRight(14)} | {RoleExtensions.GetTeam(x).ToString().PadRight(16)} | {RoleExtensions.GetSide(RoleExtensions.GetTeam(x)).ToString().PadRight(16)} | {RoleExtensions.GetLeadingTeam(RoleExtensions.GetTeam(x)).ToString().PadRight(16)}|"))#>
-```
-
-</details>
-
-### ItemType
-
-<details><summary> <b>Items</b></summary>
-
-```md  title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
 <#= string.Join("\n",Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
 ```
 
 </details>
 
 
-### AmmoType
-
-<details><summary> <b>Ammo</b></summary>
-
-```md title="Latest Updated: <#= System.Reflection.Assembly.GetAssembly(typeof(Exiled.Loader.Loader)).GetName().Version#>"
-<#= string.Join("\n",Enum.GetValues(typeof(AmmoType)).Cast<AmmoType>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
-```
-
-</details>
 
 ### DamageHandlers
 
 <details><summary> <b>Damage Handlers</b></summary>
 
-```md title="Latest Updated: 05/08/2022"
+```md title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
 All available DamageHandlers
 
 + Symbol ':' literally means "inherits from"
 * In C#, inheritance is a process in which one object acquires all the properties and behaviors of its parent object automatically.
 
-PlayerStatsSystem::DamageHandlerBase
-PlayerStatsSystem::StandardDamageHandler : DamageHandlerBase
-PlayerStatsSystem::AttackerDamageHandler : StandardDamageHandler
-PlayerStatsSystem::CustomReasonDamageHandler : StandardDamageHandler
-PlayerStatsSystem::UniversalDamageHandler : StandardDamageHandler
-PlayerStatsSystem::WarheadDamageHandler : StandardDamageHandler
-PlayerStatsSystem::RecontainmentDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::FirearmDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::ScpDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::Scp096DamageHandler : AttackerDamageHandler
-PlayerStatsSystem::MicroHidDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::ExplosionDamageHandler : AttackerDamageHandler
-PlayerStatsSystem::Scp018DamageHandler : AttackerDamageHandler
+
+<#
+    string alldamagehandler = string.Empty;
+    // Load the assembly
+    var assembly2 = typeof(BanPlayer).Assembly;
+    Type[] types2 = null;
+    try
+    {
+        types2 = assembly2.GetTypes();
+    }
+    catch (ReflectionTypeLoadException e)
+    {
+        types2 = e.Types;
+    }
+
+    foreach (Type type2 in types2.Where(t => t != null && t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(PlayerStatsSystem.DamageHandlerBase))))
+    {
+        WriteLine($"{type2.FullName} : {type2.BaseType.Name}");
+    }
+#>
 ```
-
-</details>
-
-
-### StructureType
-
-<details><summary> <b>Structures</b></summary>
-
-```md title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
-<#= string.Join("\n",Enum.GetValues(typeof(MapGeneration.Distributors.StructureType)).Cast<MapGeneration.Distributors.StructureType>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
-```
-
-</details>
-
-### IntercomStates
-
-<details><summary> <b>Intercom States</b></summary>
-
-```md title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
-<#= string.Join("\n",Enum.GetValues(typeof(PlayerRoles.Voice.IntercomState)).Cast<PlayerRoles.Voice.IntercomState>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
-```
-
-</details>
-
-### BroadcastFlags
-
-<details><summary> <b>BroadcastFlags</b></summary>
-
-```md title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
-<#= string.Join("\n",Enum.GetValues(typeof(Broadcast.BroadcastFlags)).Cast<Broadcast.BroadcastFlags>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
-```
-
 </details>
