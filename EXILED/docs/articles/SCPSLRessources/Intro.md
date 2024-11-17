@@ -33,11 +33,16 @@ Enum: StatusBar+AutoHideType
   WhenEmpty = 1
   AlwaysVisible = 2
 Enum: DebugLevel
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Muted = 0
+  Narrow = 1
+  Normal = 2
+  Elevated = 3
+  Full = 4
 Enum: MessageImportance
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  MostImportant = 1
+  Normal = 2
+  LessImportant = 3
+  LeastImportant = 4
 Enum: ActionName
   Shoot = 0
   Zoom = 1
@@ -82,8 +87,7 @@ Enum: ActionCategory
   Unbindable = 6
   Scp079 = 7
 Enum: ServerConfigSynchronizer+MainBoolsSettings
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  FriendlyFire = 1
 Enum: NonFacilityCompatibility+SceneDescription+VoiceChatSupportMode
   Unsupported = 0
   WithoutIntercom = 1
@@ -113,8 +117,9 @@ Enum: BanHandler+BanType
   IP = 1
   NULL = -1
 Enum: Broadcast+BroadcastFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Normal = 0
+  Truncated = 1
+  AdminChat = 2
 Enum: Escape+EscapeScenarioType
   None = 0
   ClassD = 1
@@ -122,8 +127,10 @@ Enum: Escape+EscapeScenarioType
   Scientist = 3
   CuffedScientist = 4
 Enum: FriendlyFireAction
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Noop = 0
+  Kill = 1
+  Kick = 2
+  Ban = 3
 Enum: HitboxType
   Body = 0
   Limb = 1
@@ -186,11 +193,21 @@ Enum: ItemType
   Lantern = 54
   None = -1
 Enum: ItemCategory
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Keycard = 1
+  Medical = 2
+  Radio = 3
+  Firearm = 4
+  Grenade = 5
+  SCPItem = 6
+  MicroHID = 7
+  Ammo = 8
+  Armor = 9
 Enum: ItemTierFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Common = 0
+  MilitaryGrade = 1
+  Rare = 2
+  ExtraRare = 4
 Enum: PlayerInfoArea
   Nickname = 1
   Badge = 2
@@ -199,20 +216,50 @@ Enum: PlayerInfoArea
   UnitName = 16
   PowerStatus = 32
 Enum: PlayerInteract+AlphaPanelOperations
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Cancel = 0
+  Lever = 1
 Enum: PlayerInteract+Generator079Operations
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Door = 0
+  Tablet = 1
+  Cancel = 2
 Enum: PlayerPermissions
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  KickingAndShortTermBanning = 1
+  BanningUpToDay = 2
+  LongTermBanning = 4
+  ForceclassSelf = 8
+  ForceclassToSpectator = 16
+  ForceclassWithoutRestrictions = 32
+  GivingItems = 64
+  WarheadEvents = 128
+  RespawnEvents = 256
+  RoundEvents = 512
+  SetGroup = 1024
+  GameplayData = 2048
+  Overwatch = 4096
+  FacilityManagement = 8192
+  PlayersManagement = 16384
+  PermissionsManagement = 32768
+  ServerConsoleCommands = 65536
+  ViewHiddenBadges = 131072
+  ServerConfigs = 262144
+  Broadcasting = 524288
+  PlayerSensitiveDataAccess = 1048576
+  Noclip = 2097152
+  AFKImmunity = 4194304
+  AdminChat = 8388608
+  ViewHiddenGlobalBadges = 16777216
+  Announcer = 33554432
+  Effects = 67108864
+  FriendlyFireDetectorImmunity = 134217728
+  FriendlyFireDetectorTempDisable = 268435456
 Enum: PocketDimensionTeleport+PDTeleportType
   Killer = 0
   Exit = 1
 Enum: RoundSummary+LeadingTeam
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  FacilityForces = 0
+  ChaosInsurgency = 1
+  Anomalies = 2
+  Draw = 3
 Enum: ServerRoles+BadgePreferences
   NoPreference = 0
   PreferGlobal = 1
@@ -222,32 +269,64 @@ Enum: ServerRoles+BadgeVisibilityPreferences
   Visible = 1
   Hidden = 2
 Enum: CentralAuthPreauthFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  ReservedSlot = 1
+  IgnoreBans = 2
+  IgnoreWhitelist = 4
+  IgnoreGeoblock = 8
+  GloballyBanned = 16
+  NorthwoodStaff = 32
+  AuthRejected = 64
 Enum: RejectionReason
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  NotSpecified = 0
+  ServerFull = 1
+  InvalidToken = 2
+  VersionMismatch = 3
+  Error = 4
+  AuthenticationRequired = 5
+  Banned = 6
+  NotWhitelisted = 7
+  GloballyBanned = 8
+  Geoblocked = 9
+  Custom = 10
+  ExpiredAuth = 11
+  RateLimit = 12
+  Challenge = 13
+  InvalidChallengeKey = 14
+  InvalidChallenge = 15
+  Redirect = 16
+  Delay = 17
+  VerificationAccepted = 18
+  VerificationRejected = 19
+  CentralServerAuthRejected = 20
 Enum: GeoblockingMode
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Whitelist = 1
+  Blacklist = 2
 Enum: ChallengeType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Reply = 0
+  MD5 = 1
+  SHA1 = 2
 Enum: ChallengeState
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Processing = 1
+  Done = 2
+  DoneRejoin = 3
 Enum: CustomLiteNetLib4MirrorTransport+ClientType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  GameClient = 0
+  VerificationService = 1
 Enum: EncryptedChannelManager+EncryptedChannel
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  RemoteAdmin = 0
+  GameConsole = 1
+  AdminChat = 2
 Enum: EncryptedChannelManager+SecurityLevel
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Unsecured = 0
+  EncryptedAndAuthenticated = 1
 Enum: ServerShutdown+ServerShutdownState
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  NotInitiated = 0
+  BroadcastingShutdown = 1
+  ShuttingDown = 2
+  Complete = 3
 Enum: Holidays
   NoHoliday = 0
   Halloween = 1
@@ -259,20 +338,40 @@ Enum: Holidays
   OctoberOrDecember = 7
   Always = -1
 Enum: ServerLogs+ServerLogType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  ConnectionUpdate = 0
+  RemoteAdminActivity_GameChanging = 1
+  RemoteAdminActivity_Misc = 2
+  KillLog = 3
+  GameEvent = 4
+  InternalMessage = 5
+  RateLimit = 6
+  Teamkill = 7
+  Suicide = 8
+  AdminChat = 9
 Enum: ServerLogs+Modules
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Warhead = 0
+  Networking = 1
+  ClassChange = 2
+  Permissions = 3
+  Administrative = 4
+  Logger = 5
+  DataAccess = 6
+  Detector = 7
 Enum: ServerLogs+LoggingState
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Off = 0
+  Standby = 1
+  Write = 2
+  Terminate = 3
+  Restart = 4
 Enum: ServerStatic+NextRoundAction
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  DoNothing = 0
+  Restart = 1
+  Shutdown = 2
 Enum: HttpQueryMode
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  HttpClient = 0
+  HttpProxy = 1
+  UnityWebRequest = 2
+  UnityWebRequestDispatcher = 3
 Enum: MainThreadDispatcher+DispatchTime
   Update = 0
   LateUpdate = 1
@@ -313,8 +412,34 @@ Enum: Misc+CommandOperationMode
   Enable = 1
   Toggle = 2
 Enum: PlayerPrefsSl+DataType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Bool = 0
+  Byte = 1
+  Sbyte = 2
+  Char = 3
+  Decimal = 4
+  Double = 5
+  Float = 6
+  Int = 7
+  Uint = 8
+  Long = 9
+  Ulong = 10
+  Short = 11
+  Ushort = 12
+  String = 13
+  BoolArray = 14
+  ByteArray = 15
+  SbyteArray = 16
+  CharArray = 17
+  DecimalArray = 18
+  DoubleArray = 19
+  FloatArray = 20
+  IntArray = 21
+  UintArray = 22
+  LongArray = 23
+  UlongArray = 24
+  ShortArray = 25
+  UshortArray = 26
+  StringArray = 27
 Enum: UserSettings.ToggleOrHoldInput+InputActivationMode
   Toggle = 0
   Hold = 1
@@ -389,11 +514,17 @@ Enum: UserSettings.AudioSettings.MixerAudioSettings+VolumeSliderSetting
 Enum: UserSettings.AudioSettings.VcAudioSetting
   NoiseReduction = 0
 Enum: ServerOutput.OutputCodes
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  RoundRestart = 16
+  IdleEnter = 17
+  IdleExit = 18
+  ExitActionReset = 19
+  ExitActionShutdown = 20
+  ExitActionSilentShutdown = 21
+  ExitActionRestart = 22
+  Heartbeat = 23
 Enum: Security.ServerRateLimit
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  playerInteract = 0
+  commands = 1
 Enum: RemoteAdmin.Communication.RaClipboard+RaClipBoardType
   Ip = 0
   UserId = 1
@@ -415,11 +546,16 @@ Enum: VoiceChat.VoiceChatChannel
   Scp1576 = 8
   PreGameLobby = 9
 Enum: VoiceChat.VcMuteFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  LocalRegular = 1
+  LocalIntercom = 2
+  GlobalRegular = 4
+  GlobalIntercom = 8
 Enum: VoiceChat.VcPrivacyFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  SettingsSelected = 1
+  AllowMicCapture = 2
+  AllowRecording = 4
 Enum: VoiceChat.Playbacks.GlobalChatIconType
   None = 0
   Avatar = 1
@@ -473,25 +609,58 @@ Enum: VoiceChat.Codec.Enums.OpusStatusCode
   BufferTooSmall = -2
   BadArguments = -1
 Enum: Subtitles.SubtitleType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  NTFEntrance = 0
+  AwaitContainPlural = 1
+  AwaitContainSingle = 2
+  ThreatRemains = 3
+  TerminationCauseUnspecified = 4
+  TerminatedBySCP = 5
+  TerminatedBySecuritySystem = 6
+  TerminatedByWarhead = 7
+  ContainedByScientist = 8
+  ContainedByClassD = 9
+  ContainedByChaos = 10
+  SCP = 11
+  ContainUnitUnknown = 12
+  ContainUnit = 13
+  LostInDecontamination = 14
+  GeneratorsActivated = 15
+  AllGeneratorsEngaged = 16
+  OverchargeIn = 17
+  OperationalMode = 18
+  DecontaminationStart = 19
+  DecontaminationMinutes = 20
+  Decontamination1Minute = 21
+  DecontaminationCountdown = 22
+  DecontaminationLockdown = 23
+  AlphaWarheadEngage = 24
+  AlphaWarheadCancelled = 25
+  AlphaWarheadResumed = 26
+  TerminatedByMarshmallowMan = 27
+  Custom = 254
+  None = 255
 Enum: Subtitles.CassieAnnouncementType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Normal = 1
+  Decontamination = 2
+  Detonation = 3
 Enum: RoundRestarting.RoundRestartType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  FullRestart = 0
+  FastRestart = 1
+  RedirectRestart = 2
 Enum: PlayerStatsSystem.AdminFlags
   None = 0
   Noclip = 1
   GodMode = 2
   BypassMode = 4
 Enum: PlayerStatsSystem.DamageHandlerBase+HandlerOutput
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Nothing = 0
+  Damaged = 1
+  Death = 2
 Enum: PlayerStatsSystem.Scp049DamageHandler+AttackType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Instakill = 0
+  CardiacArrest = 1
+  Scp0492 = 2
 Enum: PlayerStatsSystem.Scp096DamageHandler+AttackType
   GateKill = 0
   SlapLeft = 1
@@ -507,25 +676,64 @@ Enum: PlayerStatsSystem.SyncedStatBase+SyncMode
   PrivateAndSpectators = 1
   Public = 2
 Enum: PlayerRoles.RoleTypeId
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Scp173 = 0
+  ClassD = 257
+  Spectator = 514
+  Scp106 = 771
+  NtfSpecialist = 1028
+  Scp049 = 1285
+  Scientist = 1542
+  Scp079 = 1799
+  ChaosConscript = 2056
+  Scp096 = 2313
+  Scp0492 = 2570
+  NtfSergeant = 2827
+  NtfCaptain = 3084
+  NtfPrivate = 3341
+  Tutorial = 3598
+  FacilityGuard = 3855
+  Scp939 = 4112
+  CustomRole = 4369
+  ChaosRifleman = 4626
+  ChaosMarauder = 4883
+  ChaosRepressor = 5140
+  Overwatch = 5397
+  Filmmaker = 5654
+  Scp3114 = 5911
+  None = 255
 Enum: PlayerRoles.Team
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  SCPs = 0
+  FoundationForces = 1
+  ChaosInsurgency = 2
+  Scientists = 3
+  ClassD = 4
+  Dead = 5
+  OtherAlive = 6
 Enum: PlayerRoles.Faction
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  SCP = 0
+  FoundationStaff = 1
+  FoundationEnemy = 2
+  Unclassified = 3
 Enum: PlayerRoles.RoleChangeReason
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  RoundStart = 1
+  LateJoin = 2
+  Respawn = 3
+  Died = 4
+  Escaped = 5
+  Revived = 6
+  RemoteAdmin = 7
+  Destroyed = 8
 Enum: PlayerRoles.RoleSpawnFlags
   None = 0
   AssignInventory = 1
   UseSpawnpoint = 2
   All = -1
 Enum: PlayerRoles.Visibility.InvisibilityFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  OutOfRange = 1
+  Scp268 = 2
+  Scp106Sinkhole = 4
 Enum: PlayerRoles.Voice.GroupMuteFlags
   None = 0
   Spectators = 1
@@ -552,8 +760,9 @@ Enum: PlayerRoles.Spectating.SpectatableListElementType
   Scp079 = 1
   Scp3114 = 2
 Enum: PlayerRoles.Spectating.SpectatorSpawnReason
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  KilledByPlayer = 1
+  Other = 2
 Enum: PlayerRoles.PlayableScps.VisionInformation+FailReason
   NotOnSameFloor = 0
   NotInDistance = 1
@@ -572,8 +781,10 @@ Enum: PlayerRoles.PlayableScps.Scp939.Scp939AmnesticCloudInstance+CloudState
   Created = 1
   Destroyed = 2
 Enum: PlayerRoles.PlayableScps.Scp939.Scp939DamageType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Claw = 14
+  LungeTarget = 15
+  LungeSecondary = 16
 Enum: PlayerRoles.PlayableScps.Scp939.Scp939HudTranslation
   PressKeyToLunge = 0
   HintPreviewVoice = 1
@@ -623,16 +834,20 @@ Enum: PlayerRoles.PlayableScps.Scp939.Scp939HudTranslation
   HintReorganizeRecordings = 45
   YouGotAVoicelinePopup = 46
 Enum: PlayerRoles.PlayableScps.Scp939.Scp939LungeState
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Triggered = 1
+  LandHit = 2
+  LandRegular = 3
+  LandHarsh = 4
 Enum: PlayerRoles.PlayableScps.Scp939.Mimicry.MimicPointController+RpcStateMsg
   None = 0
   PlacedByUser = 25
   RemovedByUser = 26
   DestroyedByDistance = 27
 Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114DamageHandler+HandlerType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Slap = 0
+  Strangulation = 1
+  SkinSteal = 2
 Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114FakeModelManager+VariantType
   Original = 0
   Disguise = 1
@@ -675,14 +890,18 @@ Enum: PlayerRoles.PlayableScps.Scp3114.Scp3114VoiceLines+VoiceLinesName
   EquipStart = 5
   StartStrangle = 6
 Enum: PlayerRoles.PlayableScps.Scp173.Scp173AudioPlayer+Scp173SoundId
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Hit = 0
+  Teleport = 1
+  Snap = 2
 Enum: PlayerRoles.PlayableScps.Scp173.Scp173TeleportAbility+CmdTeleportData
   Aiming = 1
   WantsToTeleport = 2
 Enum: PlayerRoles.PlayableScps.Scp096.Scp096HitResult
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Window = 1
+  Door = 2
+  Human = 4
+  Lethal = 12
 Enum: PlayerRoles.PlayableScps.Scp096.Scp096HudTranslation
   HelpMenuDescription = 0
   HelpMenuTryNotToCry = 1
@@ -693,11 +912,16 @@ Enum: PlayerRoles.PlayableScps.Scp096.Scp096HudTranslation
   EnterRageKeyInfo = 6
   ExitRageKeyInfo = 7
 Enum: PlayerRoles.PlayableScps.Scp096.Scp096RageState
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Docile = 0
+  Distressed = 1
+  Enraged = 2
+  Calming = 3
 Enum: PlayerRoles.PlayableScps.Scp096.Scp096AbilityState
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  TryingNotToCry = 1
+  Attacking = 2
+  Charging = 3
+  PryingGate = 4
 Enum: PlayerRoles.PlayableScps.Scp079.Scp079BlackoutRoomAbility+ValidationError
   None = 0
   NotEnoughAux = 1
@@ -836,13 +1060,6 @@ Enum: PlayerRoles.PlayableScps.Scp079.Cameras.Scp079CurrentCameraSync+ClientSwit
   None = 0
   SwitchingRoom = 1
   SwitchingZone = 2
-Enum: PlayerRoles.PlayableScps.Scp049.RagdollIndicatorsBase`1+ListSyncRpcType
-System.NotSupportedException: Impossible de créer des tableaux de type open. 
-   à System.Array.InternalCreate(Void* elementType, Int32 rank, Int32* pLengths, Int32* pLowerBounds)
-   à System.Array.CreateInstance(Type elementType, Int32 length)
-   à System.Array.UnsafeCreateInstance(Type elementType, Int32 length)
-   à System.RuntimeType.GetEnumValues()
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 31
 Enum: PlayerRoles.PlayableScps.Scp049.Scp049ResurrectAbility+ResurrectError
   None = 0
   TargetNull = 1
@@ -851,14 +1068,21 @@ Enum: PlayerRoles.PlayableScps.Scp049.Scp049ResurrectAbility+ResurrectError
   Refused = 4
   TargetInvalid = 5
 Enum: PlayerRoles.PlayableScps.Scp049.Zombies.ZombieAudioPlayer+Scp0492SoundId
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Growl = 0
+  AngryGrowl = 1
+  Attack = 2
 Enum: PlayerRoles.PlayableScps.Scp049.Zombies.ZombieConsumeAbility+ConsumeError
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  CannotCancel = 1
+  AlreadyConsumed = 2
+  TargetNotValid = 3
+  FullHealth = 8
+  BeingConsumed = 9
 Enum: PlayerRoles.FirstPersonControl.PlayerMovementState
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Crouching = 0
+  Sneaking = 1
+  Walking = 2
+  Sprinting = 3
 Enum: PlayerRoles.FirstPersonControl.FpcMotor+FpcViewMode
   LocalPlayer = 0
   Server = 1
@@ -874,26 +1098,48 @@ Enum: PlayerRoles.Filmmaker.FilmmakerBlendPreset
   FetchNext = 2
   Hold = 3
 Enum: Utils.CustomParser+ParseResult
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  FullSuccess = 0
+  PartialSuccess = 1
+  Failed = 2
 Enum: Utils.Networking.HintEffectReaderWriter+HintEffectType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Alpha = 0
+  AlphaCurve = 1
+  Outline = 2
 Enum: Utils.Networking.HintParameterReaderWriter+HintParameterType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Text = 0
+  Timespan = 1
+  Ammo = 2
+  Item = 3
+  ItemCategory = 4
+  Byte = 5
+  SByte = 6
+  Short = 7
+  UShort = 8
+  Int = 9
+  UInt = 10
+  Long = 11
+  ULong = 12
+  Float = 13
+  Double = 14
+  PackedLong = 15
+  PackedULong = 16
+  Scp330Hint = 17
 Enum: Utils.Networking.HintReaderWriter+HintType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Translation = 0
+  Text = 1
 Enum: Utils.Networking.NullableBoolReaderWriter+NullableBoolValue
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Null = 0
+  True = 1
+  False = 2
 Enum: LightContainmentZoneDecontamination.DecontaminationController+DecontaminationStatus
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Disabled = 1
+  Forced = 2
 Enum: LightContainmentZoneDecontamination.DecontaminationController+DecontaminationPhase+PhaseFunction
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  GloballyAudible = 1
+  OpenCheckpoints = 2
+  Final = 3
 Enum: MapGeneration.ImageGenerator+RoomType
   Straight = 0
   Curve = 1
@@ -955,11 +1201,15 @@ Enum: MapGeneration.RoomName
   Pocket = 36
   HczTestroom = 37
 Enum: MapGeneration.Distributors.Scp079Generator+GeneratorFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 1
+  Unlocked = 2
+  Open = 4
+  Activating = 8
+  Engaged = 16
 Enum: MapGeneration.Distributors.Scp079Generator+GeneratorColliderId
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Door = 0
+  Switch = 1
+  CancelButton = 2
 Enum: MapGeneration.Distributors.StructureType
   StandardLocker = 0
   LargeGunLocker = 1
@@ -968,14 +1218,24 @@ Enum: MapGeneration.Distributors.StructureType
   SmallWallCabinet = 4
   Workstation = 5
 Enum: Hints.HintTranslations
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  WarheadDetonateCoverDenied = 0
+  MaxAmmoReached = 1
+  MaxAmmoAlreadyReached = 2
+  MaxItemCategoryReached = 3
+  MaxItemCategoryAlreadyReached = 4
+  MaxItemsAlreadyReached = 5
 Enum: Hints.HintMessageParameterFunctions+HintMessageTypes
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Unknown = 0
+  TextHint = 1
+  TranslationHint = 2
 Enum: GameCore.ConfigShareTypes
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Bans = 0
+  Mutes = 1
+  Whitelist = 2
+  ReservedSlots = 3
+  Groups = 4
+  GroupsMembers = 5
+  GameplayDatabase = 6
 Enum: GameCore.ConfigSharing+ConfigShare
   Bans = 0
   Mutes = 1
@@ -994,8 +1254,15 @@ Enum: GameCore.DistributionPlatform
   Steam = 1
   Discord = 2
 Enum: GameCore.Version+VersionType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Release = 0
+  PublicRC = 1
+  PublicBeta = 2
+  PrivateRC = 3
+  PrivateRCStreamingForbidden = 4
+  PrivateBeta = 5
+  PrivateBetaStreamingForbidden = 6
+  Development = 7
+  Nightly = 8
 Enum: InventorySystem.Searching.SearchSessionPipe+Activity
   Idle = 0
   Requested = 1
@@ -1043,8 +1310,13 @@ Enum: InventorySystem.Hotkeys.HotkeysTranslation
   GroupThrowable = 39
   GroupScpItems = 40
 Enum: InventorySystem.Items.BlockedInteraction
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  GeneralInteractions = 1
+  OpenInventory = 2
+  BeDisarmed = 4
+  GrabItems = 8
+  ItemPrimaryAction = 16
+  ItemUsage = 48
+  All = 255
 Enum: InventorySystem.Items.ItemDescriptionType
   Default = 0
   Keycard = 1
@@ -1074,28 +1346,42 @@ Enum: InventorySystem.Items.Pickups.PickupStandardPhysics+FreezingMode
   FreezeWhenSleeping = 1
   NeverFreeze = 2
 Enum: InventorySystem.Items.Pickups.PickupSyncInfo+PickupFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Locked = 1
+  InUse = 2
 Enum: InventorySystem.Items.Usables.StatusMessage+StatusType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Start = 0
+  Cancel = 1
 Enum: InventorySystem.Items.Usables.Scp330.CandyKindID
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Rainbow = 1
+  Yellow = 2
+  Purple = 3
+  Red = 4
+  Green = 5
+  Blue = 6
+  Pink = 7
 Enum: InventorySystem.Items.Usables.Scp330.Scp330Translations+Entry
   Candies = 0
 Enum: InventorySystem.Items.Usables.Scp244.Scp244State
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Idle = 0
+  Active = 1
+  Destroyed = 2
+  PickedUp = 3
 Enum: InventorySystem.Items.ThrowableProjectiles.ThrowableNetworkHandler+RequestType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  BeginThrow = 0
+  ConfirmThrowWeak = 1
+  ConfirmThrowFullForce = 2
+  CancelThrow = 3
 Enum: InventorySystem.Items.Radio.RadioMessages+RadioCommand
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Enable = 0
+  Disable = 1
+  ChangeRange = 2
 Enum: InventorySystem.Items.Radio.RadioMessages+RadioRangeLevel
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  LowRange = 0
+  MediumRange = 257
+  HighRange = 514
+  UltraRange = 771
+  RadioDisabled = 255
 Enum: InventorySystem.Items.MarshmallowMan.MarshmallowItem+RpcType
   AttackStart = 0
   Hit = 1
@@ -1118,11 +1404,17 @@ Enum: InventorySystem.Items.Jailbird.JailbirdMessageType
   ChargeStarted = 7
   Inspect = 8
 Enum: InventorySystem.Items.Firearms.FirearmAudioFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  ScaleDistance = 2
+  IsGunshot = 4
+  SendToPlayers = 8
+  UseDedicatedAudioChannel = 16
 Enum: InventorySystem.Items.Firearms.FirearmStatusFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Cocked = 2
+  MagazineInserted = 4
+  FlashlightEnabled = 8
+  Chambered = 16
 Enum: InventorySystem.Items.Firearms.Modules.DoubleAction+TriggerState
   Released = 0
   Pulling = 1
@@ -1136,8 +1428,15 @@ Enum: InventorySystem.Items.Firearms.Modules.TubularMagazineAmmoManager+CurrentA
   Reloading = 1
   Unloading = 2
 Enum: InventorySystem.Items.Firearms.BasicMessages.RequestType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Unload = 0
+  Reload = 1
+  AdsIn = 2
+  AdsOut = 3
+  Dryfire = 4
+  ToggleFlashlight = 5
+  ReloadStop = 6
+  RequestStatuses = 7
+  Inspect = 8
 Enum: InventorySystem.Items.Firearms.Attachments.AttachmentEditorsTranslation
   Custom = 0
   PresetId = 1
@@ -1158,8 +1457,15 @@ Enum: InventorySystem.Items.Firearms.Attachments.AttachmentEditorsTranslation
   AttachmentCustomization = 16
   SpectatorEditorTip = 17
 Enum: InventorySystem.Items.Firearms.Attachments.AttachmentSlot
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Sight = 0
+  Barrel = 1
+  SideRail = 2
+  BottomRail = 3
+  Ammunition = 4
+  Stock = 5
+  Stability = 6
+  Body = 7
+  Unassigned = 255
 Enum: InventorySystem.Items.Firearms.Attachments.AttachmentName
   None = 0
   IronSights = 1
@@ -1244,18 +1550,25 @@ Enum: InventorySystem.Items.Firearms.Attachments.ParameterMixingMode
   Additive = 1
   Percent = 2
 Enum: InventorySystem.Items.Firearms.Attachments.WorkstationController+WorkstationStatus
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Offline = 0
+  PoweringUp = 1
+  PoweringDown = 2
+  Online = 3
 Enum: InventorySystem.Items.Autosync.AutosyncRpc+Mode
   Local = 0
   AllClients = 1
   Conditional = 2
 Enum: InventorySystem.Items.MicroHID.HidUserInput
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Prime = 1
+  Fire = 2
 Enum: InventorySystem.Items.MicroHID.HidState
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Idle = 0
+  PoweringUp = 1
+  PoweringDown = 2
+  Primed = 3
+  Firing = 4
+  StopSound = 5
 Enum: InventorySystem.Items.MicroHID.HidStatusMessageType
   UserInput = 0
   State = 1
@@ -1265,14 +1578,17 @@ Enum: CustomPlayerEffects.StatusEffectBase+EffectClassification
   Mixed = 1
   Positive = 2
 Enum: Respawning.RespawnEffectsController+EffectType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Selection = 0
+  UponRespawn = 1
 Enum: Respawning.RespawnManager+RespawnSequencePhase
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  RespawnCooldown = 0
+  SelectingTeam = 1
+  PlayingEntryAnimations = 2
+  SpawningSelectedTeam = 3
 Enum: Respawning.SpawnableTeamType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  ChaosInsurgency = 1
+  NineTailedFox = 2
 Enum: AudioPooling.AudioMixerChannelType
   DefaultSfx = 0
   Interface = 1
@@ -1285,17 +1601,38 @@ Enum: CursorManagement.CursorOverrideMode
   Confined = 2
   Free = 3
 Enum: _Scripts.Utils.StartExternalProcess+ProcessCreationFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  NONE = 0
+  DEBUG_PROCESS = 1
+  DEBUG_ONLY_THIS_PROCESS = 2
+  CREATE_SUSPENDED = 4
+  DETACHED_PROCESS = 8
+  CREATE_NEW_CONSOLE = 16
+  CREATE_NEW_PROCESS_GROUP = 512
+  CREATE_UNICODE_ENVIRONMENT = 1024
+  CREATE_SEPARATE_WOW_VDM = 2048
+  CREATE_SHARED_WOW_VDM = 4096
+  INHERIT_PARENT_AFFINITY = 65536
+  CREATE_PROTECTED_PROCESS = 262144
+  EXTENDED_STARTUPINFO_PRESENT = 524288
+  CREATE_SECURE_PROCESS = 4194304
+  CREATE_BREAKAWAY_FROM_JOB = 16777216
+  CREATE_PRESERVE_CODE_AUTHZ_LEVEL = 33554432
+  CREATE_DEFAULT_ERROR_MODE = 67108864
+  CREATE_NO_WINDOW = 134217728
 Enum: CentralAuth.AuthenticationResponseFunctions+AuthenticationResponseFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  AuthToken = 1
+  BadgeToken = 2
+  DoNotTrack = 4
+  HideBadge = 8
 Enum: CentralAuth.ClientInstanceMode
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Unverified = 0
+  ReadyClient = 1
+  Host = 2
+  DedicatedServer = 3
 Enum: AdminToys.PrimitiveFlags
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Collidable = 1
+  Visible = 2
 Enum: AdminToys.ShootingTarget+TargetButton
   IncreaseHP = 0
   DecreaseHP = 1
@@ -1346,22 +1683,26 @@ Enum: Scp914.Scp914Mode
   Held = 6
   DroppedAndHeld = 7
 Enum: Scp914.Scp914KnobSetting
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Rough = 0
+  Coarse = 1
+  OneToOne = 2
+  Fine = 3
+  VeryFine = 4
 Enum: Scp914.Scp914InteractCode
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  ChangeMode = 0
+  Activate = 1
 Enum: Scp914.Scp914Sound
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  KnobChange = 0
+  Upgrading = 1
 Enum: Interactables.Interobjects.CheckpointDoor+CheckpointSequenceStage
   Idle = 0
   Granted = 1
   Open = 2
   Closing = 3
 Enum: Interactables.Interobjects.CheckpointDoor+CheckpointErrorType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Denied = 0
+  LockedDown = 1
+  Destroyed = 2
 Enum: Interactables.Interobjects.ElevatorChamber+ElevatorSequence
   DoorClosing = 0
   MovingAway = 1
@@ -1378,8 +1719,11 @@ Enum: Interactables.Interobjects.ElevatorManager+ElevatorGroup
   Nuke = 6
   Scp049 = 7
 Enum: Interactables.Interobjects.DoorUtils.DoorDamageType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 1
+  ServerCommand = 2
+  Grenade = 4
+  Weapon = 8
+  Scp096 = 16
 Enum: Interactables.Interobjects.DoorUtils.DoorEventOpenerExtension+OpenerEventType
   WarheadStart = 0
   WarheadCancel = 1
@@ -1394,23 +1738,54 @@ Enum: Interactables.Interobjects.DoorUtils.DoorAction
   Unlocked = 4
   Destroyed = 5
 Enum: Interactables.Interobjects.DoorUtils.DoorLockReason
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Regular079 = 1
+  Lockdown079 = 2
+  Warhead = 4
+  AdminCommand = 8
+  DecontLockdown = 16
+  DecontEvacuate = 32
+  SpecialDoorFeature = 64
+  NoPower = 128
+  Isolation = 256
+  Lockdown2176 = 512
 Enum: Interactables.Interobjects.DoorUtils.DoorLockMode
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  FullLock = 0
+  CanOpen = 1
+  CanClose = 2
+  ScpOverride = 4
 Enum: Interactables.Interobjects.DoorUtils.KeycardPermissions
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Checkpoints = 1
+  ExitGates = 2
+  Intercom = 4
+  AlphaWarhead = 8
+  ContainmentLevelOne = 16
+  ContainmentLevelTwo = 32
+  ContainmentLevelThree = 64
+  ArmoryLevelOne = 128
+  ArmoryLevelTwo = 256
+  ArmoryLevelThree = 512
+  ScpOverride = 1024
 Enum: Interactables.Interobjects.DoorUtils.DoorVariant+CollisionsDisablingReasons
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  DoorClosing = 1
+  Scp106 = 2
 Enum: Utf8Json.CollectionDeserializeToBehaviour
   Add = 0
   OverwriteReplace = 1
 Enum: Utf8Json.JsonToken
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  BeginObject = 1
+  EndObject = 2
+  BeginArray = 3
+  EndArray = 4
+  Number = 5
+  String = 6
+  True = 7
+  False = 8
+  Null = 9
+  ValueSeparator = 10
+  NameSeparator = 11
 Enum: Utf8Json.Internal.DoubleConversion.DoubleToStringConverter+FastDtoaMode
   FAST_DTOA_SHORTEST = 0
   FAST_DTOA_SHORTEST_SINGLE = 1
@@ -1433,16 +1808,25 @@ Enum: Utf8Json.Internal.DoubleConversion.StringToDoubleConverter+Flags
   ALLOW_SPACES_AFTER_SIGN = 32
   ALLOW_CASE_INSENSIBILITY = 64
 Enum: CustomRendering.FogType
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  None = 0
+  Inside = 1
+  Outside = 2
+  Decontamination = 3
+  Amnesia = 4
+  Nuke = 5
+  Scp244 = 6
 Enum: Decals.DecalPoolType
   None = 0
   Bullet = 1
   Blood = 2
   Buckshot = 3
 Enum: Mirror.LiteNetLib4Mirror.LiteNetLib4MirrorCore+States
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  NonInitialized = 0
+  Idle = 1
+  Discovery = 2
+  ClientConnecting = 3
+  ClientConnected = 4
+  Server = 5
 Enum: LiteNetLib4Mirror.Open.Nat.NetworkProtocolType
   Tcp = 0
   Udp = 1
@@ -1479,8 +1863,11 @@ Enum: LiteNetLib.NatAddressType
   Internal = 0
   External = 1
 Enum: LiteNetLib.DeliveryMethod
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  ReliableUnordered = 0
+  Sequenced = 1
+  ReliableOrdered = 2
+  ReliableSequenced = 3
+  Unreliable = 4
 Enum: LiteNetLib.NetLogLevel
   Warning = 0
   Error = 1
@@ -1498,11 +1885,31 @@ Enum: LiteNetLib.NetEvent+EType
   MessageDelivered = 8
   PeerAddressChanged = 9
 Enum: LiteNetLib.PacketProperty
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Unreliable = 0
+  Channeled = 1
+  Ack = 2
+  Ping = 3
+  Pong = 4
+  ConnectRequest = 5
+  ConnectAccept = 6
+  Disconnect = 7
+  UnconnectedMessage = 8
+  MtuCheck = 9
+  MtuOk = 10
+  Broadcast = 11
+  Merged = 12
+  ShutdownOk = 13
+  PeerNotFound = 14
+  InvalidProtocol = 15
+  NatMessage = 16
+  Empty = 17
 Enum: LiteNetLib.ConnectionState
-System.InvalidCastException: Le cast spécifié n'est pas valide.
-   à Microsoft.VisualStudio.TextTemplatingB4F6B5E39BC91140FC8BE9941CF0DF70B8120E20C4C51418C09ACC71063DB325D74748538DFF740F8C2066F569329496C2E310E637D010D5AED9F5A463D62A75.GeneratedTextTransformation.TransformText() dans C:\Users\louis\Documents\GitHub\EXILED\EXILED\docs\articles\SCPSLRessources\Intro.tt:ligne 33
+  Outgoing = 2
+  Connected = 4
+  ShutdownRequested = 8
+  Disconnected = 16
+  EndPointChange = 32
+  Any = 46
 Enum: LiteNetLib.ConnectRequestResult
   None = 0
   P2PLose = 1

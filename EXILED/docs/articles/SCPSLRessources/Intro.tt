@@ -38,14 +38,14 @@ try
         try
         {
             // Skip types that cannot be loaded or processed
-            if (type.IsEnum)
+            if (type.IsEnum && !type.IsGenericType)
             {
                 WriteLine($"Enum: {type.FullName}");
 
                 // Iterate through all the fields in the Enum
                 foreach (var value in Enum.GetValues(type))
                 {
-                    WriteLine($"  {value} = {(int)value}");
+                    WriteLine($"  {value} = {value.GetHashCode()}");
                 }
             }
         }
