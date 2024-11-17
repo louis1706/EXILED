@@ -17,5 +17,7 @@
       href: plugins/mec.md
     - name: Events
       href: plugins/events.md
+- name: NW Documentaiton
+  href: SCPSLRessources/NW_Documentation.md
 - name: Contributing
   href: contributing/index.md

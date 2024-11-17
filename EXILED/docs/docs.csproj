@@ -22,9 +22,9 @@
         <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" />
     </ItemGroup>
   <ItemGroup>
-    <Content Include="articles\SCPSLRessources\Intro.tt">
+    <Content Include="articles\SCPSLRessources\NW_Documentation.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Intro.md</LastGenOutput>
+      <LastGenOutput>NW_Documentation.md</LastGenOutput>
     </Content>
   </ItemGroup>
     <ItemGroup>
@@ -46,10 +46,10 @@
       <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
     </ItemGroup>
     <ItemGroup>
-      <None Update="articles\SCPSLRessources\Intro.md">
+      <None Update="articles\SCPSLRessources\NW_Documentation.md">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>Intro.tt</DependentUpon>
+        <DependentUpon>NW_Documentation.tt</DependentUpon>
       </None>
     </ItemGroup>
 
