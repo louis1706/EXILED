@@ -1,0 +1,192 @@
+<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System" #>
+<#@ assembly name="%EXILED_REFERENCES%\System.Core.dll" #>
+<#@ assembly name="%EXILED_REFERENCES%\Mirror.dll" #>
+<#@ assembly name="%EXILED_REFERENCES%\UnityEngine.CoreModule.dll" #>
+<#@ assembly name="%EXILED_REFERENCES%\Assembly-CSharp-Publicized.dll" #>
+<#@ assembly name="bin\Release\Exiled.API.dll" #>
+<#@ assembly name="bin\Release\Exiled.Loader.dll" #>
+<#@ import namespace="Exiled.API.Enums" #>
+<#@ import namespace="Exiled.API.Extensions" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="PlayerRoles" #>
+<#@ output extension=".md" #>
+
+<# 
+try
+{
+    // Load the assembly
+    var assembly = typeof(BanPlayer).Assembly;
+
+    if (assembly == null)
+     return "Error";
+    WriteLine($"Loaded assembly: {assembly.FullName}");
+
+    WriteLine("Enums found in the assembly:");
+    WriteLine("TEST");
+    WriteLine(assembly.GetExportedTypes().ToString());
+    WriteLine("TEST");
+    // Iterate through all types in the assembly
+    foreach (var type in assembly.GetExportedTypes())
+    {
+        try
+        {
+            WriteLine("TEST");
+            // Skip types that cannot be loaded or processed
+            if (type.IsEnum)
+            {
+                WriteLine($"Enum: {type.FullName}");
+
+                // Iterate through all the fields in the Enum
+                foreach (var value in Enum.GetValues(type.GetType()))
+                {
+                    WriteLine($"  {value} = {(int)value}");
+                }
+            }
+        }
+        catch (System.TypeLoadException ex)
+        {
+            WriteLine(ex.ToString());
+        }
+        catch (Exception ex2)
+        {
+            WriteLine(ex2.ToString());
+        }
+    }
+}
+catch (System.IO.FileNotFoundException _)
+{
+
+}
+catch (ReflectionTypeLoadException _)
+{
+
+}
+#>
+
+
+
+
+---
+sidebar_position: 1
+---
+
+### Index
+
+- [RoleType, Team, Side, LeadingTeam](#roletype-team-side-and-leadingteam)
+- [ItemType](#itemtype)
+- [AmmoType](#ammotype)
+- [DoorType](#doortype)
+- [RoomType](#roomtype)
+- [ElevatorType](#elevatortype)
+- [DamageType](#damagetype)
+- [Damage Handlers](#damagehandlers)
+- [EffectType](#effecttype)
+- [Keycard Permissions](#keycardpermissions)
+- [DoorLockType](#doorlocktype)
+- [StructureType](#structuretype)
+- [BloodType](#bloodtype)
+- [GeneratorState](#generatorstate)
+- [IntercomStates](#intercomstates)
+- [BroadcastType](#broadcasttype)
+- [Attachment Names](#attachmentnames)
+- [Spawn Reasons](#spawnreasons)
+- [Prefabs](#prefabs)
+
+### External resources
+
+- [Available Colors (en.scpslgame.com)](https://en.scpslgame.com/index.php/Docs:Permissions#Colors)
+
+## Resources
+
+### RoleType, Team, Side and LeadingTeam
+
+<details><summary> <b>Roles</b></summary>
+
+```md title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
+| Id  | RoleTypeId     | Team             | Side             | LeadingTeam     |
+|-----|----------------|------------------|------------------|-----------------|
+<#= string.Join("\n",Enum.GetValues(typeof(RoleTypeId)).Cast<RoleTypeId>().ToList().OrderBy(x => x).Select(x => $"| {((int)x).ToString().PadRight(3)} | {x.ToString().PadRight(14)} | {RoleExtensions.GetTeam(x).ToString().PadRight(16)} | {RoleExtensions.GetSide(RoleExtensions.GetTeam(x)).ToString().PadRight(16)} | {RoleExtensions.GetLeadingTeam(RoleExtensions.GetTeam(x)).ToString().PadRight(16)}|"))#>
+```
+
+</details>
+
+### ItemType
+
+<details><summary> <b>Items</b></summary>
+
+```md  title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
+<#= string.Join("\n",Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
+```
+
+</details>
+
+
+### AmmoType
+
+<details><summary> <b>Ammo</b></summary>
+
+```md title="Latest Updated: <#= System.Reflection.Assembly.GetAssembly(typeof(Exiled.Loader.Loader)).GetName().Version#>"
+<#= string.Join("\n",Enum.GetValues(typeof(AmmoType)).Cast<AmmoType>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
+```
+
+</details>
+
+### DamageHandlers
+
+<details><summary> <b>Damage Handlers</b></summary>
+
+```md title="Latest Updated: 05/08/2022"
+All available DamageHandlers
+
++ Symbol ':' literally means "inherits from"
+* In C#, inheritance is a process in which one object acquires all the properties and behaviors of its parent object automatically.
+
+PlayerStatsSystem::DamageHandlerBase
+PlayerStatsSystem::StandardDamageHandler : DamageHandlerBase
+PlayerStatsSystem::AttackerDamageHandler : StandardDamageHandler
+PlayerStatsSystem::CustomReasonDamageHandler : StandardDamageHandler
+PlayerStatsSystem::UniversalDamageHandler : StandardDamageHandler
+PlayerStatsSystem::WarheadDamageHandler : StandardDamageHandler
+PlayerStatsSystem::RecontainmentDamageHandler : AttackerDamageHandler
+PlayerStatsSystem::FirearmDamageHandler : AttackerDamageHandler
+PlayerStatsSystem::ScpDamageHandler : AttackerDamageHandler
+PlayerStatsSystem::Scp096DamageHandler : AttackerDamageHandler
+PlayerStatsSystem::MicroHidDamageHandler : AttackerDamageHandler
+PlayerStatsSystem::ExplosionDamageHandler : AttackerDamageHandler
+PlayerStatsSystem::Scp018DamageHandler : AttackerDamageHandler
+```
+
+</details>
+
+
+### StructureType
+
+<details><summary> <b>Structures</b></summary>
+
+```md title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
+<#= string.Join("\n",Enum.GetValues(typeof(MapGeneration.Distributors.StructureType)).Cast<MapGeneration.Distributors.StructureType>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
+```
+
+</details>
+
+### IntercomStates
+
+<details><summary> <b>Intercom States</b></summary>
+
+```md title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
+<#= string.Join("\n",Enum.GetValues(typeof(PlayerRoles.Voice.IntercomState)).Cast<PlayerRoles.Voice.IntercomState>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
+```
+
+</details>
+
+### BroadcastFlags
+
+<details><summary> <b>BroadcastFlags</b></summary>
+
+```md title="Latest Updated: <#= Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion#>"
+<#= string.Join("\n",Enum.GetValues(typeof(Broadcast.BroadcastFlags)).Cast<Broadcast.BroadcastFlags>().ToList().OrderBy(x => x).Select(x => $"[{(int)x}] {x} "))#>
+```
+
+</details>
