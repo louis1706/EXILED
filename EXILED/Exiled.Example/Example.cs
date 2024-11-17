@@ -7,10 +7,6 @@
 
 namespace Exiled.Example
 {
-    using System;
-    using System.Linq;
-    using System.Reflection;
-
     using Exiled.API.Enums;
     using Exiled.API.Features;
     using Exiled.Example.Events;
