@@ -38,7 +38,6 @@ sidebar_position: 1
 - [Attachment Names](#attachmentnames)
 - [Spawn Reasons](#spawnreasons)
 - [Prefabs](#prefabs)
-
 <#
 string response = string.Empty;
 
@@ -55,7 +54,7 @@ try
     {
         types = e.Types;
     }
-    foreach (var type in types.Where(t => t != null))
+    foreach (var type in types.Where(t => t != null).OrderBy(t => t.Name))
     {
         try
         {
