@@ -1,4 +1,4 @@
-<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ template debug="false" hostspecific="false" language="C#" #>
 <#@ assembly name="System" #>
 <#@ assembly name="%EXILED_REFERENCES%\System.Core.dll" #>
 <#@ assembly name="%EXILED_REFERENCES%\Mirror.dll" #>
@@ -12,65 +12,6 @@
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="PlayerRoles" #>
 <#@ output extension=".md" #>
-
-<# 
-try
-{
-    // Load the assembly
-    var assembly = typeof(BanPlayer).Assembly;
-
-    WriteLine($"Loaded assembly: {assembly.FullName}");
-
-    WriteLine("Enums found in the assembly:");
-    Type[] types = null;
-    try
-    {
-        types = assembly.GetTypes();
-    }
-    catch (ReflectionTypeLoadException e)
-    {
-        types = e.Types;
-    }
-    foreach (var type in types.Where(t => t != null))
-    {
-        try
-        {
-            // Skip types that cannot be loaded or processed
-            if (type.IsEnum && !type.IsGenericType)
-            {
-                WriteLine($"### {type.Name}\n");
-                WriteLine($"<details><summary><b>{type.FullName}</b></summary>");
-                WriteLine($"```md title=\"Latest Updated: {Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion}\"");
-                // Iterate through all the fields in the Enum
-                foreach (var value in Enum.GetValues(type))
-                {
-                    WriteLine($" [{value.GetHashCode()}] = {value}");
-                }
-                WriteLine("```\n\n</details>\n");
-            }
-        }
-        catch (System.TypeLoadException ex)
-        {
-            WriteLine(ex.ToString());
-        }
-        catch (Exception ex2)
-        {
-            WriteLine(ex2.ToString());
-        }
-    }
-}
-catch (System.IO.FileNotFoundException ex3)
-{
-    WriteLine(ex3.ToString());
-}
-catch (ReflectionTypeLoadException ex4)
-{
-    WriteLine(ex4.ToString());
-}
-#>
-
-
-
 
 ---
 sidebar_position: 1
@@ -97,6 +38,62 @@ sidebar_position: 1
 - [Attachment Names](#attachmentnames)
 - [Spawn Reasons](#spawnreasons)
 - [Prefabs](#prefabs)
+
+<#
+string response = string.Empty;
+
+try
+{
+    // Load the assembly
+    var assembly = typeof(BanPlayer).Assembly;
+    Type[] types = null;
+    try
+    {
+        types = assembly.GetTypes();
+    }
+    catch (ReflectionTypeLoadException e)
+    {
+        types = e.Types;
+    }
+    foreach (var type in types.Where(t => t != null))
+    {
+        try
+        {
+            // Skip types that cannot be loaded or processed
+            if (type.IsEnum && !type.IsGenericType)
+            {
+                WriteLine($"- [{type.Name}](#{type.Name.ToLower()})");
+                response += $"\n### {type.Name}\n\n";
+                response += $"<details><summary><b>{type.FullName}</b></summary>\n";
+                response += $"```md title=\"Latest Updated: {Exiled.Loader.AutoUpdateFiles.RequiredSCPSLVersion}\"";
+                // Iterate through all the fields in the Enum
+                foreach (var value in Enum.GetValues(type))
+                {
+                    response += $"\n [{value.GetHashCode()}] = {value}";
+                }
+                response += "\n```\n\n</details>\n";
+            }
+        }
+        catch (System.TypeLoadException ex)
+        {
+            WriteLine(ex.ToString());
+        }
+        catch (Exception ex2)
+        {
+            WriteLine(ex2.ToString());
+        }
+    }
+}
+catch (System.IO.FileNotFoundException ex3)
+{
+    WriteLine(ex3.ToString());
+}
+catch (ReflectionTypeLoadException ex4)
+{
+    WriteLine(ex4.ToString());
+}
+WriteLine(response);
+#>
 
 ### External resources
 
