@@ -38,7 +38,7 @@ namespace Exiled.Events.Patches.Events.Scp173
             Label continueLabel = generator.DefineLabel();
 
             const int offset = -4;
-            MethodInfo scp173ExecuteEvent = typeof(EventManager)
+            var scp173ExecuteEvent = typeof(EventManager)
                 .GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .FirstOrDefault(m => m.Name == nameof(EventManager.ExecuteEvent)
                                      && !m.IsGenericMethod);
