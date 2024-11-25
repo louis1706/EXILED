@@ -614,7 +614,7 @@ namespace Exiled.API.Features.Doors
                     },
                     "Elevator" => (Base as Interactables.Interobjects.ElevatorDoor)?.Group switch
                     {
-                        ElevatorGroup.Nuke => DoorType.ElevatorNuke,
+                        ElevatorGroup.Nuke01 or ElevatorGroup.Nuke02 => DoorType.ElevatorNuke,
                         ElevatorGroup.Scp049 => DoorType.ElevatorScp049,
                         ElevatorGroup.GateB => DoorType.ElevatorGateB,
                         ElevatorGroup.GateA => DoorType.ElevatorGateA,
