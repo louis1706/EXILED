@@ -265,7 +265,7 @@ namespace Exiled.API.Features.Roles
                 return;
 
             Attack.SendCooldown(Attack._hitCooldown);
-            Vigor += VigorCaptureReward;
+            Vigor += Scp106Attack.VigorCaptureReward;
             Attack.ReduceSinkholeCooldown();
             Hitmarker.SendHitmarkerDirectly(Attack.Owner, 1f);
 

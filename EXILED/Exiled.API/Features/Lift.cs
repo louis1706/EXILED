@@ -140,7 +140,7 @@ namespace Exiled.API.Features
             ElevatorGroup.GateB => ElevatorType.GateB,
             ElevatorGroup.LczA01 or ElevatorGroup.LczA02 => ElevatorType.LczA,
             ElevatorGroup.LczB01 or ElevatorGroup.LczB02 => ElevatorType.LczB,
-            ElevatorGroup.Nuke => ElevatorType.Nuke,
+            ElevatorGroup.Nuke01 or ElevatorGroup.Nuke02 => ElevatorType.Nuke,
             _ => ElevatorType.Unknown,
         };
 
