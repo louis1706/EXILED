@@ -150,11 +150,6 @@ namespace Exiled.API.Features.Roles
         public float SinkholeCurrentTime => SinkholeController.ElapsedToggle;
 
         /// <summary>
-        /// Gets a value indicating the normalized state of the sinkhole.
-        /// </summary>
-        public float SinkholeNormalizedState => SinkholeController.NormalizedState;
-
-        /// <summary>
         /// Gets a value indicating whether SCP-106 is currently in the middle of an animation.
         /// </summary>
         public bool IsDuringAnimation => SinkholeController.IsDuringAnimation;
@@ -169,63 +164,19 @@ namespace Exiled.API.Features.Roles
         /// </summary>
         public bool SinkholeState
         {
-            get => SinkholeController.State;
-            set => SinkholeController.State = value;
+            get => StalkAbility.StalkActive;
+            set => StalkAbility.StalkActive = value;
         }
 
         /// <summary>
         /// Gets the sinkhole target duration.
         /// </summary>
-        public float SinkholeTargetDuration => SinkholeController.TargetDuration;
+        public float SinkholeTargetDuration => SinkholeController.TargetTransitionDuration;
 
         /// <summary>
         /// Gets the speed multiplier of the sinkhole.
         /// </summary>
         public float SinkholeSpeedMultiplier => SinkholeController.SpeedMultiplier;
-
-        // TODO: ReAdd Setter but before making an propper way to overwrite NW constant only when the propperty has been used
-#pragma warning disable SA1623 // Property summary documentation should match accessors
-#pragma warning disable SA1202
-        /// <summary>
-        /// Gets or sets how mush cost the Ability Stalk will cost per tick when being stationary.
-        /// </summary>
-        internal float VigorStalkCostStationary { get; } = Scp106StalkAbility.VigorStalkCostStationary;
-
-        /// <summary>
-        /// Gets or sets how mush cost the Ability Stalk will cost per tick when moving.
-        /// </summary>
-        internal float VigorStalkCostMoving { get; } = Scp106StalkAbility.VigorStalkCostMoving;
-
-        /// <summary>
-        /// Gets or sets how mush vigor will be regenerate while moving per seconds.
-        /// </summary>
-        internal float VigorRegeneration { get; } = Scp106StalkAbility.VigorRegeneration;
-
-        /// <summary>
-        /// Gets or sets the duration of Corroding effect.
-        /// </summary>
-        internal float CorrodingTime { get; } = Scp106Attack.CorrodingTime;
-
-        /// <summary>
-        /// Gets or sets how mush vigor Scp106 will gain when being reward for having caught a player.
-        /// </summary>
-        internal float VigorCaptureReward { get; } = Scp106Attack.VigorCaptureReward;
-
-        /// <summary>
-        /// Gets or sets how mush reduction cooldown Scp106 will gain when being reward for having caught a player.
-        /// </summary>
-        internal float CooldownReductionReward { get; } = Scp106Attack.CooldownReductionReward;
-
-        /// <summary>
-        /// Gets or sets the cooldown duration of it's Sinkhole ability's.
-        /// </summary>
-        internal float SinkholeCooldownDuration { get; } = Scp106SinkholeController.CooldownDuration;
-
-        /// <summary>
-        /// Gets or sets how mush vigor it's ability Hunter Atlas will cost per meter.
-        /// </summary>
-        internal float HuntersAtlasCostPerMeter { get; } = Scp106HuntersAtlasAbility.CostPerMeter;
-#pragma warning restore SA1623 // Property summary documentation should match accessors
 
         /// <summary>
         /// Gets or sets how mush damage Scp106 will dealt when attacking a player.
