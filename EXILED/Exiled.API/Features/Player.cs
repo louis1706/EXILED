@@ -47,7 +47,6 @@ namespace Exiled.API.Features
     using MEC;
     using Mirror;
     using Mirror.LiteNetLib4Mirror;
-    using NorthwoodLib;
     using PlayerRoles;
     using PlayerRoles.FirstPersonControl;
     using PlayerRoles.RoleAssign;
