@@ -77,6 +77,7 @@ namespace Exiled.API.Extensions
             { EffectType.Scp1344, typeof(Scp1344) },
             { EffectType.SeveredEyes, typeof(SeveredEyes) },
             { EffectType.PitDeath, typeof(PitDeath) },
+            { EffectType.Blurred, typeof(Blurred) },
         });
 
         /// <summary>
