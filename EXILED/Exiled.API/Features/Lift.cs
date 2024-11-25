@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------
-// <copyright file="Lift.cs" company="Exiled Team">
-// Copyright (c) Exiled Team. All rights reserved.
+// <copyright file="Lift.cs" company="ExMod Team">
+// Copyright (c) ExMod Team. All rights reserved.
 // Licensed under the CC BY-SA 3.0 license.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -299,7 +299,7 @@ namespace Exiled.API.Features
         }
 
         /// <summary>
-        /// Returns whether or not the provided <see cref="Vector3">position</see> is inside the lift.
+        /// Returns whether the provided <see cref="Vector3">position</see> is inside the lift.
         /// </summary>
         /// <param name="point">The position.</param>
         /// <returns><see langword="true"/> if the point is inside the elevator. Otherwise, <see langword="false"/>.</returns>
