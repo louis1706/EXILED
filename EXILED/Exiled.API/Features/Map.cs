@@ -44,9 +44,9 @@ namespace Exiled.API.Features
     public static class Map
     {
         /// <summary>
-        /// A list of <see cref="PocketDimensionTeleport"/>s on the map.
+        /// Gets a list of <see cref="PocketDimensionTeleport"/>s on the map.
         /// </summary>
-        internal static readonly List<PocketDimensionTeleport> TeleportsValue = new(8);
+        internal static readonly List<PocketDimensionTeleport> TeleportsValue { get; } = new();
 
         private static AmbientSoundPlayer ambientSoundPlayer;
 
