@@ -76,6 +76,7 @@ namespace Exiled.API.Extensions
             { EffectType.Slowness, typeof(Slowness) },
             { EffectType.Scp1344, typeof(Scp1344) },
             { EffectType.SeveredEyes, typeof(SeveredEyes) },
+            { EffectType.PitDeath, typeof(PitDeath) },
         });
 
         /// <summary>
