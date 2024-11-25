@@ -43,7 +43,6 @@ namespace Exiled.API.Features
     /// </summary>
     public static class Map
     {
-
         private static AmbientSoundPlayer ambientSoundPlayer;
 
         private static SqueakSpawner squeakSpawner;
