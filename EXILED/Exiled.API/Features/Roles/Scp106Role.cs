@@ -254,10 +254,10 @@ namespace Exiled.API.Features.Roles
         /// </summary>
         public float RemainingSinkholeCooldown
         {
-            get => SinkholeController.Cooldown.Remaining;
+            get => SinkholeController._submergeCooldown.Remaining;
             set
             {
-                SinkholeController.Cooldown.Remaining = value;
+                SinkholeController._submergeCooldown.Remaining = value;
                 SinkholeController.ServerSendRpc(true);
             }
         }
@@ -267,8 +267,8 @@ namespace Exiled.API.Features.Roles
         /// </summary>
         public bool IsStalking
         {
-            get => StalkAbility.IsActive;
-            set => StalkAbility.IsActive = value;
+            get => StalkAbility.StalkActive;
+            set => StalkAbility.ServerSetStalk(value);
         }
 
         /// <summary>
@@ -294,7 +294,7 @@ namespace Exiled.API.Features.Roles
                 return false;
 
             HuntersAtlasAbility._estimatedCost = cost;
-            HuntersAtlasAbility.SetSubmerged(true);
+            HuntersAtlasAbility._syncSubmerged = true;
 
             return true;
         }

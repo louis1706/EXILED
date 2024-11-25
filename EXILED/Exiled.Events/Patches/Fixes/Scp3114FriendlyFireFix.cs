@@ -96,9 +96,6 @@ namespace Exiled.Events.Patches.Fixes
 
         public override string ServerLogsText { get; }
 
-        public override string RagdollInspectText { get; }
-
-        public override string DeathScreenText { get; }
 #pragma warning restore SA1600 // Elements should be documented
 
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
