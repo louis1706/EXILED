@@ -71,7 +71,7 @@ namespace Exiled.Events
             Handlers.Map.ChangedIntoGrenade += Handlers.Internal.ExplodingGrenade.OnChangedIntoGrenade;
 
             CharacterClassManager.OnRoundStarted += Handlers.Server.OnRoundStarted;
-            RespawnManager.ServerOnRespawned += Handlers.Server.OnRespawnedTeam;
+            WaveManager.OnWaveSpawned += Handlers.Server.OnRespawnedTeam;
             InventorySystem.InventoryExtensions.OnItemAdded += Handlers.Player.OnItemAdded;
             InventorySystem.InventoryExtensions.OnItemRemoved += Handlers.Player.OnItemRemoved;
 
@@ -106,7 +106,7 @@ namespace Exiled.Events
 
             InventorySystem.InventoryExtensions.OnItemAdded -= Handlers.Player.OnItemAdded;
             InventorySystem.InventoryExtensions.OnItemRemoved -= Handlers.Player.OnItemRemoved;
-            RespawnManager.ServerOnRespawned -= Handlers.Server.OnRespawnedTeam;
+            WaveManager.OnWaveSpawned -= Handlers.Server.OnRespawnedTeam;
             RagdollManager.OnRagdollSpawned -= Handlers.Internal.RagdollList.OnSpawnedRagdoll;
             RagdollManager.OnRagdollRemoved -= Handlers.Internal.RagdollList.OnRemovedRagdoll;
             ItemPickupBase.OnPickupAdded -= Handlers.Internal.PickupEvent.OnSpawnedPickup;

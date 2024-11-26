@@ -97,7 +97,7 @@ namespace Exiled.Events.Patches.Generic
 
             // Only check friendlyFire if the FootPrint hasn't changed (Fix for Grenade not dealing damage because it's from a dead player)
             // TODO rework FriendlyFireRule to make it compatible with Footprint
-            if (!attackerFootprint.SameLife(new Footprint(attackerFootprint.Hub)))
+            if (!attackerFootprint.Equals(new Footprint(attackerFootprint.Hub)))
                 return false;
 
             // Check if attackerFootprint.Hub or victimHub is null and log debug information

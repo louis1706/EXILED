@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using MEC;
+
 namespace Exiled.API.Features.Items
 {
     using System;
@@ -135,8 +137,7 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Gets the <see cref="Enums.AmmoType"/> of the firearm.
         /// </summary>
-        // TODO not finish Base.AmmoType.GetAmmoType(); Why not working?
-        public AmmoType AmmoType => Type.GetAmmoType();
+        public AmmoType AmmoType => (Base.Modules.OfType<MagazineModule>().FirstOrDefault()?.AmmoType ?? ItemType.None).GetAmmoType();
 
 
         /// <summary>
@@ -603,6 +604,28 @@ namespace Exiled.API.Features.Items
         }
 
         /// <summary>
+        /// Reloads current <see cref="Firearm"/>.
+        /// </summary>
+        /// <param name="emptyMagazine">Whether empty magazine should be loaded.</param>
+        public void Reload(bool emptyMagazine = false)
+        {
+            MagazineModule magazineModule = Base.Modules.OfType<MagazineModule>().FirstOrDefault();
+
+            if (magazineModule == null)
+                return;
+
+            magazineModule.ServerRemoveMagazine();
+
+            Timing.CallDelayed(0.1f, () =>
+            {
+                if (emptyMagazine)
+                    magazineModule.ServerInsertEmptyMagazine();
+                else
+                    magazineModule.ServerInsertMagazine();
+            });
+        }
+
+        /// <summary>
         /// Clones current <see cref="Firearm"/> object.
         /// </summary>
         /// <returns> New <see cref="Firearm"/> object. </returns>
@@ -644,6 +667,16 @@ namespace Exiled.API.Features.Items
 
             Base._sendStatusNextFrame = true;
             Base._footprintValid = false;*/
+        }
+
+        internal override void ReadPickupInfo(Pickup pickup)
+        {
+            base.ReadPickupInfo(pickup);
+
+            if (pickup is FirearmPickup firearmPickup)
+            {
+                MaxAmmo
+            }
         }
     }
 }

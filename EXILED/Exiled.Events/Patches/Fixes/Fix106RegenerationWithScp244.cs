@@ -12,10 +12,10 @@ namespace Exiled.Events.Patches.Fixes
 
     using API.Features.Pools;
     using CustomPlayerEffects;
+    using Exiled.API.Features;
+    using Exiled.API.Features.Roles;
     using HarmonyLib;
     using InventorySystem.Items.Usables.Scp244.Hypothermia;
-    using PlayerRoles;
-    using PlayerRoles.PlayableScps.Scp106;
 
     using static HarmonyLib.AccessTools;
 
@@ -48,8 +48,8 @@ namespace Exiled.Events.Patches.Fixes
                 // Scp106Role scp106Role = base.Hub.roleManager.CurrentRole as Scp106Role;
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Callvirt, PropertyGetter(typeof(StatusEffectBase), nameof(StatusEffectBase.Hub))),
-                new CodeInstruction(OpCodes.Ldfld, Field(typeof(ReferenceHub), nameof(ReferenceHub.roleManager))),
-                new CodeInstruction(OpCodes.Callvirt, PropertyGetter(typeof(PlayerRoleManager), nameof(PlayerRoleManager.CurrentRole))),
+                new CodeInstruction(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ReferenceHub) })),
+                new CodeInstruction(OpCodes.Callvirt, PropertyGetter(typeof(Player), nameof(Player.Role))),
                 new CodeInstruction(OpCodes.Isinst, typeof(Scp106Role)),
                 new CodeInstruction(OpCodes.Stloc_S, scp106Role.LocalIndex),
 

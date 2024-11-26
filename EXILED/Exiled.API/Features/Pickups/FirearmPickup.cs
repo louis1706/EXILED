@@ -61,7 +61,8 @@ namespace Exiled.API.Features.Pickups
         }*/
 
         // TODO not finish
-/*
+
+        /*
         /// <summary>
         /// Gets or sets the <see cref="FirearmStatus"/>.
         /// </summary>
@@ -70,16 +71,15 @@ namespace Exiled.API.Features.Pickups
             get => Base.NetworkStatus;
             set => Base.NetworkStatus = value;
         }
+        */
 
         /// <summary>
         /// Gets or sets a value indicating how many ammo have this <see cref="FirearmPickup"/>.
         /// </summary>
-        public byte Ammo
-        {
-            get => Base.NetworkStatus.Ammo;
-            set => Base.NetworkStatus = new(value, Base.NetworkStatus.Flags, Base.NetworkStatus.Attachments);
-        }
+        /// <remarks>This will be updated only when item will be picked up.</remarks>
+        public int Ammo { get; set; }
 
+        /*
         /// <summary>
         /// Gets or sets the <see cref="FirearmStatusFlags"/>.
         /// </summary>
@@ -88,15 +88,16 @@ namespace Exiled.API.Features.Pickups
             get => Base.NetworkStatus.Flags;
             set => Base.NetworkStatus = new(Base.NetworkStatus.Ammo, value, Base.NetworkStatus.Attachments);
         }
+        */
 
         /// <summary>
         /// Gets or sets a value indicating whether the attachment code have this <see cref="FirearmPickup"/>.
         /// </summary>
         public uint Attachments
         {
-            get => Base.NetworkStatus.Attachments;
-            set => Base.NetworkStatus = new(Base.NetworkStatus.Ammo, Base.NetworkStatus.Flags, value);
-        }*/
+            get => Base.Worldmodel.AttachmentCode;
+            set => Base.Worldmodel.AttachmentCode = value;
+        }
 
         /// <summary>
         /// Returns the FirearmPickup in a human readable format.

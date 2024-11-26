@@ -619,20 +619,17 @@ namespace Exiled.CustomItems.API.Features
 
                 spawned++;
 
-#pragma warning disable CS0618 // Type or member is obsolete \\ TODO: REMOVE THIS
-                if (spawnPoint is DynamicSpawnPoint dynamicSpawnPoint && dynamicSpawnPoint.Location == SpawnLocationType.InsideLocker)
+                /*if (spawnPoint is DynamicSpawnPoint dynamicSpawnPoint && dynamicSpawnPoint.Location == SpawnLocationType.InsideLocker)
                 {
                     for (int i = 0; i < 50; i++)
                     {
-                        if (Map.Lockers is null)
+                        if (Exiled.API.Features.Lockers.Locker.List is null)
                         {
                             Log.Debug($"{nameof(Spawn)}: Locker list is null.");
                             continue;
                         }
 
-                        Locker locker =
-                            Map.Lockers[
-                                Loader.Random.Next(Map.Lockers.Count)];
+                        Locker locker = Exiled.API.Features.Lockers.Locker.Random();
 
                         if (locker is null)
                         {
@@ -683,8 +680,20 @@ namespace Exiled.CustomItems.API.Features
                     }
 
                     Log.Debug($"Spawned {Name} at {spawnPoint.Position} ({spawnPoint.Name})");
+                }*/
+
+                Pickup? pickup = Spawn(spawnPoint.Position);
+
+                if (pickup == null)
+                    continue;
+
+                if (spawnPoint is LockerSpawnPoint)
+                    pickup.IsLocked = true;
+
+                if (pickup.Is(out Exiled.API.Features.Pickups.FirearmPickup firearmPickup) && this is CustomWeapon customWeapon)
+                {
+                    firearmPickup
                 }
-#pragma warning restore CS0618 // Type or member is obsolete
             }
 
             return spawned;

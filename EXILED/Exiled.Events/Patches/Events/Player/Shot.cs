@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
+
 namespace Exiled.Events.Patches.Events.Player
 {
 #pragma warning disable SA1402 // File may only contain a single type
@@ -29,11 +31,11 @@ namespace Exiled.Events.Patches.Events.Player
     using Item = API.Features.Items.Item;
 
     /// <summary>
-    /// Patches <see cref="SingleBulletHitreg.ServerProcessRaycastHit(Ray, RaycastHit)" />.
+    /// Patches <see cref="SingleBulletHitscan.Fire()" />.
     /// Adds the <see cref="Handlers.Player.Shot" /> events.
     /// </summary>
     [EventPatch(typeof(Handlers.Player), nameof(Handlers.Player.Shot))]
-    [HarmonyPatch(typeof(SingleBulletHitreg), nameof(SingleBulletHitreg.ServerProcessRaycastHit))]
+    [HarmonyPatch(typeof(HitscanHitregModuleBase), nameof(HitscanHitregModuleBase.ServerProcessTargetHit))]
     internal static class Shot
     {
         /// <summary>
@@ -47,7 +49,7 @@ namespace Exiled.Events.Patches.Events.Player
         /// <returns>If the shot is allowed.</returns>
         internal static bool ProcessShot(ReferenceHub player, Firearm firearm, RaycastHit hit, IDestructible destructible, ref float damage)
         {
-            ShotEventArgs shotEvent = new(Player.Get(player), Item.Get(firearm).Cast<API.Features.Items.Firearm>(), hit, destructible, damage);
+            ShotEventArgs shotEvent = new(Player.Get(player), Item.Get<API.Features.Items.Firearm>(firearm), hit, destructible, damage);
 
             Handlers.Player.OnShot(shotEvent);
 
@@ -64,30 +66,29 @@ namespace Exiled.Events.Patches.Events.Player
             Label returnLabel = generator.DefineLabel();
             Label jump = generator.DefineLabel();
 
-            int offset = 2;
-            int index = newInstructions.FindLastIndex(
-                instruction => instruction.Calls(Method(typeof(FirearmBaseStats), nameof(FirearmBaseStats.DamageAtDistance)))) + offset;
+            int offset = 1;
+            int index = newInstructions.FindIndex(x => x.opcode == OpCodes.Stloc_0) + offset;
 
             newInstructions.InsertRange(
                 index,
                 new CodeInstruction[]
                 {
                     // this.Hub
-                    new(OpCodes.Ldarg_0),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(StandardHitregBase), nameof(StandardHitregBase.Hub))),
+                    new(OpCodes.Ldarg_1),
+                    new(OpCodes.Callvirt, PropertyGetter(typeof(HitboxIdentity), nameof(HitboxIdentity.TargetHub))),
 
                     // this.Firearm
                     new(OpCodes.Ldarg_0),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(StandardHitregBase), nameof(StandardHitregBase.Firearm))),
+                    new(OpCodes.Callvirt, PropertyGetter(typeof(SingleBulletHitscan), nameof(SingleBulletHitscan.Firearm))),
 
                     // hit
                     new(OpCodes.Ldarg_2),
 
                     // destructible
-                    new(OpCodes.Ldloc_0),
+                    new(OpCodes.Ldloc_1),
 
                     // damage
-                    new(OpCodes.Ldloca_S, 1),
+                    new(OpCodes.Ldloca_S, 0),
 
                     new(OpCodes.Call, Method(typeof(Shot), nameof(ProcessShot), new[] { typeof(ReferenceHub), typeof(Firearm), typeof(RaycastHit), typeof(IDestructible), typeof(float).MakeByRefType(), })),
 
@@ -96,7 +97,7 @@ namespace Exiled.Events.Patches.Events.Player
                     new(OpCodes.Brfalse_S, returnLabel),
                 });
 
-            offset = -3;
+            /*offset = -3;
             index = newInstructions.FindLastIndex(
                 instruction => instruction.Calls(Method(typeof(StandardHitregBase), nameof(StandardHitregBase.PlaceBulletholeDecal)))) + offset;
 
@@ -131,7 +132,7 @@ namespace Exiled.Events.Patches.Events.Player
                     // Shot.ProcessShot
                     new(OpCodes.Call, Method(typeof(Shot), nameof(ProcessShot), new[] { typeof(ReferenceHub), typeof(Firearm), typeof(RaycastHit), typeof(IDestructible), typeof(float).MakeByRefType(), })),
                     new(OpCodes.Pop),
-                });
+                });*/
 
             newInstructions[newInstructions.Count - 1].WithLabels(returnLabel);
 
@@ -142,99 +143,13 @@ namespace Exiled.Events.Patches.Events.Player
         }
     }
 
-    /// <summary>
-    /// Patches <see cref="BuckshotHitreg.ShootPellet" />.
-    /// Adds the <see cref="Handlers.Player.Shot" /> events.
-    /// </summary>
-    [EventPatch(typeof(Handlers.Player), nameof(Handlers.Player.Shot))]
-    [HarmonyPatch(typeof(BuckshotHitreg), nameof(BuckshotHitreg.ShootPellet))]
-    internal static class ShotBuckshot
-    {
-        private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
-        {
-            List<CodeInstruction> newInstructions = ListPool<CodeInstruction>.Pool.Get(instructions);
-
-            Label returnLabel = generator.DefineLabel();
-
-            int offset = -3;
-            int index = newInstructions.FindIndex(instruction => instruction.Calls(Method(typeof(StandardHitregBase), nameof(StandardHitregBase.PlaceBulletholeDecal)))) + offset;
-
-            newInstructions.InsertRange(
-                index,
-                new CodeInstruction[]
-                {
-                    // this.Hub
-                    new(OpCodes.Ldarg_0),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BuckshotHitreg), nameof(BuckshotHitreg.Owner))),
-
-                    // this.Firearm
-                    new(OpCodes.Ldarg_0),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BuckshotHitreg), nameof(BuckshotHitreg.Firearm))),
-
-                    // hit
-                    new(OpCodes.Ldloc_2),
-
-                    // destructible
-                    new(OpCodes.Ldloc_3),
-
-                    // damage
-                    new(OpCodes.Ldc_R4, 0f),
-                    new(OpCodes.Stloc_S, 4),
-                    new(OpCodes.Ldloca_S, 4),
-
-                    new(OpCodes.Call, Method(typeof(Shot), nameof(Shot.ProcessShot), new[] { typeof(ReferenceHub), typeof(Firearm), typeof(RaycastHit), typeof(IDestructible), typeof(float).MakeByRefType(), })),
-
-                    // if (!ev.CanHurt)
-                    //    return;
-                    new(OpCodes.Brfalse_S, returnLabel),
-                });
-
-            offset = 0;
-            index = newInstructions.FindLastIndex(instruction => instruction.opcode == OpCodes.Ldsfld) + offset;
-
-            newInstructions.InsertRange(
-                index,
-                new CodeInstruction[]
-                {
-                    // this.Hub
-                    new(OpCodes.Ldarg_0),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BuckshotHitreg), nameof(BuckshotHitreg.Owner))),
-
-                    // this.Firearm
-                    new(OpCodes.Ldarg_0),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BuckshotHitreg), nameof(BuckshotHitreg.Firearm))),
-
-                    // hit
-                    new(OpCodes.Ldloc_2),
-
-                    // destructible
-                    new(OpCodes.Ldloc_3),
-
-                    // damage
-                    new(OpCodes.Ldloca_S, 4),
-
-                    new(OpCodes.Call, Method(typeof(Shot), nameof(Shot.ProcessShot), new[] { typeof(ReferenceHub), typeof(Firearm), typeof(RaycastHit), typeof(IDestructible), typeof(float).MakeByRefType(), })),
-
-                    // if (!ev.CanHurt)
-                    //    return;
-                    new(OpCodes.Brfalse_S, returnLabel),
-                });
-
-            newInstructions[newInstructions.Count - 1].WithLabels(returnLabel);
-
-            for (int z = 0; z < newInstructions.Count; z++)
-                yield return newInstructions[z];
-
-            ListPool<CodeInstruction>.Pool.Return(newInstructions);
-        }
-    }
-
+    /* TODO
     /// <summary>
     /// Patches <see cref="DisruptorHitreg.ServerPerformShot" />.
     /// Adds the <see cref="Handlers.Player.Shot" /> events.
     /// </summary>
     [EventPatch(typeof(Handlers.Player), nameof(Handlers.Player.Shot))]
-    [HarmonyPatch(typeof(DisruptorHitreg), nameof(DisruptorHitreg.ServerPerformShot))]
+    [HarmonyPatch(typeof(DisruptorHitregModule), nameof(DisruptorHitregModule.ServerProcessTargetHit))]
     internal static class ShotDisruptor
     {
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
@@ -315,4 +230,5 @@ namespace Exiled.Events.Patches.Events.Player
             ListPool<CodeInstruction>.Pool.Return(newInstructions);
         }
     }
+    */
 }
