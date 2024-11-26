@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using Footprinting;
+
 namespace Exiled.Events.Patches.Fixes
 {
     using System.Collections.Generic;
@@ -20,7 +22,7 @@ namespace Exiled.Events.Patches.Fixes
     using static HarmonyLib.AccessTools;
 
     /// <summary>
-    /// Patches the <see cref="Scp096HitHandler.CheckDoorHit(Collider)"/> delegate.
+    /// Patches the <see cref="Scp096HitHandler.CheckDoorHit(Collider,Footprint)"/> delegate.
     /// Fixes open doors getting easily broke.
     /// Bug reported to NW (https://git.scpslgame.com/northwood-qa/scpsl-bug-reporting/-/issues/198).
     /// </summary>
