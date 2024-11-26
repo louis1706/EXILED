@@ -5,19 +5,17 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Respawning.Waves.Generic;
-
 namespace Exiled.API.Features
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     using CustomPlayerEffects;
     using Enums;
     using PlayerRoles;
     using Respawning;
     using Respawning.Waves;
+    using Respawning.Waves.Generic;
     using UnityEngine;
 
     /// <summary>
