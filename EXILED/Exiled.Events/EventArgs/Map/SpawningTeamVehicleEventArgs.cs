@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using Respawning.Waves;
+
 namespace Exiled.Events.EventArgs.Map
 {
     using Exiled.Events.EventArgs.Interfaces;
@@ -24,7 +26,7 @@ namespace Exiled.Events.EventArgs.Map
         /// <param name="isAllowed">
         /// <inheritdoc cref="IsAllowed" />
         /// </param>
-        public SpawningTeamVehicleEventArgs(SpawnableTeamType team, bool isAllowed = true)
+        public SpawningTeamVehicleEventArgs(SpawnableWaveBase team, bool isAllowed = true)
         {
             Team = team;
             IsAllowed = isAllowed;
@@ -33,7 +35,7 @@ namespace Exiled.Events.EventArgs.Map
         /// <summary>
         /// Gets or sets which vehicle should spawn.
         /// </summary>
-        public SpawnableTeamType Team { get; set; }
+        public SpawnableWaveBase Team { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the vehicle can be spawned.

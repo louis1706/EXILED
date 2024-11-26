@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using Respawning.Waves;
+
 namespace Exiled.Events.Patches.Events.Map
 {
     using System.Collections.Generic;
@@ -21,11 +23,11 @@ namespace Exiled.Events.Patches.Events.Map
     using static HarmonyLib.AccessTools;
 
     /// <summary>
-    /// Patches <see cref="RespawnEffectsController.ExecuteAllEffects(RespawnEffectsController.EffectType, SpawnableTeamType)"/>.
+    /// Patches <see cref="WaveUpdateMessage.ServerSendUpdate"/>.
     /// Adds the <see cref="Handlers.Map.SpawningTeamVehicle"/> event.
     /// </summary>
     [EventPatch(typeof(Handlers.Map), nameof(Handlers.Map.SpawningTeamVehicle))]
-    [HarmonyPatch(typeof(RespawnEffectsController), nameof(RespawnEffectsController.ExecuteAllEffects))]
+    [HarmonyPatch(typeof(WaveUpdateMessage), nameof(WaveUpdateMessage.ServerSendUpdate))]
     internal static class SpawningTeamVehicle
     {
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
@@ -42,8 +44,7 @@ namespace Exiled.Events.Patches.Events.Map
                 // if (type != RespawnEffectsController.EffectType.Selection)
                 //    goto continueLabel;
                 new(OpCodes.Ldarg_0),
-                new(OpCodes.Ldc_I4_0),
-                new(OpCodes.Ceq),
+                new(OpCodes.Callvirt, PropertyGetter(typeof(WaveUpdateMessage), nameof(WaveUpdateMessage.IsTrigger))),
                 new(OpCodes.Brfalse_S, continueLabel),
 
                 // team

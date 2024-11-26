@@ -2793,8 +2793,9 @@ namespace Exiled.API.Features
         /// Adds an item to the player's inventory.
         /// </summary>
         /// <param name="pickup">The <see cref="Pickup"/> of the item to be added.</param>
+        /// <param name="addReason">The reason the item was added.</param>
         /// <returns>The <see cref="Item"/> that was added.</returns>
-        public Item AddItem(Pickup pickup) => Item.Get(Inventory.ServerAddItem(pickup.Type, ItemAddReason.Undefined, pickup.Serial, pickup.Base));
+        public Item AddItem(Pickup pickup, ItemAddReason addReason = ItemAddReason.Undefined) => Item.Get(Inventory.ServerAddItem(pickup.Type, addReason, pickup.Serial, pickup.Base));
 
         /// <summary>
         /// Adds an item to the player's inventory.
@@ -2817,12 +2818,14 @@ namespace Exiled.API.Features
         /// </summary>
         /// <param name="itemBase">The item to be added.</param>
         /// <param name="item">The <see cref="Item"/> object of the item.</param>
+        /// <param name="addReason">The reason the item was added.</param>
         /// <returns>The <see cref="Item"/> that was added.</returns>
-        public Item AddItem(ItemBase itemBase, Item item = null)
+        public Item AddItem(ItemBase itemBase, Item item = null, ItemAddReason addReason = ItemAddReason.AdminCommand)
         {
             try
             {
                 item ??= Item.Get(itemBase);
+                item.AddReason = addReason;
 
                 Inventory.UserInventory.Items[item.Serial] = itemBase;
 

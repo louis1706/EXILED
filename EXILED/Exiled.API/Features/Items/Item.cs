@@ -175,6 +175,15 @@ namespace Exiled.API.Features.Items
         public Player Owner => Player.Get(Base.Owner) ?? Server.Host;
 
         /// <summary>
+        /// Gets or sets a reason for adding this item to the inventory.
+        /// </summary>
+        public ItemAddReason AddReason
+        {
+            get => Base.ServerAddReason;
+            set => Base.ServerAddReason = value;
+        }
+
+        /// <summary>
         /// Gets an existing <see cref="Item"/> or creates a new instance of one.
         /// </summary>
         /// <param name="itemBase">The <see cref="ItemBase"/> to convert into an item.</param>

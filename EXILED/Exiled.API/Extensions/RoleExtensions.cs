@@ -17,7 +17,7 @@ namespace Exiled.API.Extensions
     using InventorySystem.Configs;
     using PlayerRoles;
     using PlayerRoles.FirstPersonControl;
-
+    using Respawning.Waves;
     using UnityEngine;
 
     using Team = PlayerRoles.Team;
@@ -210,5 +210,18 @@ namespace Exiled.API.Extensions
 
             return info.Ammo.ToDictionary(kvp => kvp.Key.GetAmmoType(), kvp => kvp.Value);
         }
+
+        /// <summary>
+        /// Gets the <see cref="SpawnableFaction"/> of a <see cref="SpawnableWaveBase"/>.
+        /// </summary>
+        /// <param name="waveBase">A <see cref="SpawnableWaveBase"/> instance.</param>
+        /// <returns><see cref="SpawnableFaction"/> associated with the wave.</returns>
+        public static SpawnableFaction GetFaction(this SpawnableWaveBase waveBase) => waveBase switch
+        {
+            NtfSpawnWave => SpawnableFaction.NtfWave,
+            NtfMiniWave => SpawnableFaction.NtfMiniWave,
+            ChaosSpawnWave => SpawnableFaction.ChaosWave,
+            _ => SpawnableFaction.ChaosMiniWave
+        };
     }
 }

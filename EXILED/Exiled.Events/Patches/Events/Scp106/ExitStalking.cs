@@ -25,7 +25,7 @@ namespace Exiled.Events.Patches.Events.Scp106
     /// To add the <see cref="Handlers.Scp106.ExitStalking"/> event.
     /// </summary>
     [EventPatch(typeof(Handlers.Scp106), nameof(Handlers.Scp106.ExitStalking))]
-    [HarmonyPatch(typeof(Scp106StalkAbility), nameof(Scp106StalkAbility.IsActive), MethodType.Setter)]
+    [HarmonyPatch(typeof(Scp106StalkAbility), nameof(Scp106StalkAbility.StalkActive), MethodType.Setter)]
     public class ExitStalking
     {
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)

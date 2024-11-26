@@ -7,6 +7,8 @@
 
 namespace Exiled.Events.Patches.Events.Scp330
 {
+    using InventorySystem.Items;
+
 #pragma warning disable SA1402
 #pragma warning disable SA1313
 
@@ -124,7 +126,7 @@ namespace Exiled.Events.Patches.Events.Scp330
             // set `notSeverLabel`
             offset = -1;
             index = newInstructions.FindLastIndex(
-                instruction => instruction.LoadsField(Field(typeof(Scp330Interobject), nameof(Scp330Interobject._takenCandies)))) + offset;
+                instruction => instruction.LoadsField(Field(typeof(Scp330Interobject), nameof(Scp330Interobject._previousUses)))) + offset;
 
             Label notSeverLabel = newInstructions[index].labels[0];
 
@@ -158,7 +160,7 @@ namespace Exiled.Events.Patches.Events.Scp330
         {
             if (!Scp330Bag.TryGetBag(player, out bag))
             {
-                player.inventory.ServerAddItem(ItemType.SCP330);
+                player.inventory.ServerAddItem(ItemType.SCP330, ItemAddReason.AdminCommand);
 
                 if (!Scp330Bag.TryGetBag(player, out bag))
                     return false;

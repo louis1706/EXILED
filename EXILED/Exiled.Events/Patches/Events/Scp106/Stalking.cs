@@ -37,7 +37,7 @@ namespace Exiled.Events.Patches.Events.Scp106
 
             Label returnLabel = generator.DefineLabel();
             int offset = 2;
-            int index = newInstructions.FindIndex(instruction => instruction.operand == (object)PropertyGetter(typeof(Scp106StalkAbility), nameof(Scp106StalkAbility.IsActive))) + offset;
+            int index = newInstructions.FindIndex(instruction => instruction.operand == (object)PropertyGetter(typeof(Scp106StalkAbility), nameof(Scp106StalkAbility.StalkActive))) + offset;
             newInstructions.InsertRange(
                 index,
                 new CodeInstruction[]
@@ -66,7 +66,7 @@ namespace Exiled.Events.Patches.Events.Scp106
                 });
 
             offset = 2;
-            index = newInstructions.FindIndex(instruction => instruction.operand == (object)PropertySetter(typeof(Scp106StalkAbility), nameof(Scp106StalkAbility.IsActive))) + offset;
+            index = newInstructions.FindIndex(instruction => instruction.operand == (object)PropertySetter(typeof(Scp106StalkAbility), nameof(Scp106StalkAbility.StalkActive))) + offset;
             newInstructions.InsertRange(
                 index,
                 new CodeInstruction[]

@@ -17,27 +17,29 @@ namespace Exiled.Events.Patches.Events.Server
     using Exiled.Events.EventArgs.Server;
     using Exiled.Events.Handlers;
     using HarmonyLib;
+    using PlayerRoles;
     using Respawning;
     using Respawning.NamingRules;
+    using Respawning.Waves;
 
     using static HarmonyLib.AccessTools;
 
     using Player = API.Features.Player;
 
     /// <summary>
-    /// Patch the <see cref="RespawnManager.Spawn" />.
+    /// Patch the <see cref="WaveSpawner.SpawnWave" />.
     /// Adds the <see cref="Server.RespawningTeam" /> event.
     /// </summary>
     [EventPatch(typeof(Server), nameof(Server.RespawningTeam))]
-    [HarmonyPatch(typeof(RespawnManager), nameof(RespawnManager.Spawn))]
+    [HarmonyPatch(typeof(WaveSpawner), nameof(WaveSpawner.SpawnWave))]
     internal static class RespawningTeam
     {
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
         {
             List<CodeInstruction> newInstructions = ListPool<CodeInstruction>.Pool.Get(instructions);
 
-            int offset = -6;
-            int index = newInstructions.FindIndex(instruction => instruction.Calls(Method(typeof(UnitNamingRule), nameof(UnitNamingRule.TryGetNamingRule)))) + offset;
+            int offset = 1;
+            int index = newInstructions.FindIndex(instruction => instruction.Calls(Method(typeof(SpawnableWaveBase), nameof(SpawnableWaveBase.PopulateQueue)))) + offset;
 
             LocalBuilder ev = generator.DeclareLocal(typeof(RespawningTeamEventArgs));
 
@@ -48,15 +50,14 @@ namespace Exiled.Events.Patches.Events.Server
                 new[]
                 {
                     // GetPlayers(list);
-                    new CodeInstruction(OpCodes.Ldloc_1).MoveLabelsFrom(newInstructions[index]),
+                    new CodeInstruction(OpCodes.Ldloc_2).MoveLabelsFrom(newInstructions[index]),
                     new(OpCodes.Call, Method(typeof(RespawningTeam), nameof(GetPlayers))),
 
                     // maxWaveSize
                     new(OpCodes.Ldloc_2),
 
                     // this.NextKnownTeam
-                    new(OpCodes.Ldarg_0),
-                    new(OpCodes.Ldfld, Field(typeof(RespawnManager), nameof(RespawnManager.NextKnownTeam))),
+                    new(OpCodes.Ldarg_1),
 
                     // true
                     new(OpCodes.Ldc_I4_1),
@@ -75,11 +76,10 @@ namespace Exiled.Events.Patches.Events.Server
                     new(OpCodes.Callvirt, PropertyGetter(typeof(RespawningTeamEventArgs), nameof(RespawningTeamEventArgs.IsAllowed))),
                     new(OpCodes.Brtrue_S, continueLabel),
 
-                    // this.NextKnownTeam = SpawnableTeam.None
+                    // this.NextKnownTeam == null
                     //    return;
-                    new(OpCodes.Ldarg_0),
-                    new(OpCodes.Ldc_I4_0),
-                    new(OpCodes.Stfld, Field(typeof(RespawnManager), nameof(RespawnManager.NextKnownTeam))),
+                    new(OpCodes.Ldnull),
+                    new(OpCodes.Stsfld, Field(typeof(WaveManager), nameof(WaveManager._nextWave))),
                     new(OpCodes.Ret),
 
                     // load "ev" four times
@@ -90,11 +90,7 @@ namespace Exiled.Events.Patches.Events.Server
 
                     // num = ev.MaximumRespawnAmount
                     new(OpCodes.Callvirt, PropertyGetter(typeof(RespawningTeamEventArgs), nameof(RespawningTeamEventArgs.MaximumRespawnAmount))),
-                    new(OpCodes.Stloc_2),
-
-                    // spawnableTeamHandler = ev.SpawnableTeam
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(RespawningTeamEventArgs), nameof(RespawningTeamEventArgs.SpawnableTeam))),
-                    new(OpCodes.Stloc_0),
+                    new(OpCodes.Stloc_S, 4),
 
                     // list = GetHubs(ev.Players)
                     new(OpCodes.Callvirt, PropertyGetter(typeof(RespawningTeamEventArgs), nameof(RespawningTeamEventArgs.Players))),
@@ -103,11 +99,12 @@ namespace Exiled.Events.Patches.Events.Server
 
                     // queueToFill = ev.SpawnQueue;
                     new CodeInstruction(OpCodes.Callvirt, PropertyGetter(typeof(RespawningTeamEventArgs), nameof(RespawningTeamEventArgs.SpawnQueue))),
-                    new(OpCodes.Stloc, 7),
-                });
+                    new(OpCodes.Call, Method(typeof(RespawningTeam), nameof(RefillQueue))),
 
-            offset = -6;
-            newInstructions.RemoveRange(newInstructions.FindIndex(i => i.opcode == OpCodes.Callvirt && (MethodInfo)i.operand == Method(typeof(SpawnableTeamHandlerBase), nameof(SpawnableTeamHandlerBase.GenerateQueue))) + offset, 7);
+                    // wave = ev.NextKnownTeam;
+                    new(OpCodes.Callvirt, PropertyGetter(typeof(RespawningTeamEventArgs), nameof(RespawningTeamEventArgs.NextKnownTeam))),
+                    new(OpCodes.Starg_S, 1),
+                });
 
             for (int z = 0; z < newInstructions.Count; z++)
                 yield return newInstructions[z];
@@ -118,5 +115,12 @@ namespace Exiled.Events.Patches.Events.Server
         private static List<Player> GetPlayers(List<ReferenceHub> hubs) => hubs.Select(Player.Get).ToList();
 
         private static List<ReferenceHub> GetHubs(List<Player> players) => players.Select(player => player.ReferenceHub).ToList();
+
+        private static void RefillQueue(Queue<RoleTypeId> newQueue)
+        {
+            WaveSpawner.SpawnQueue.Clear();
+            foreach (RoleTypeId role in newQueue)
+                WaveSpawner.SpawnQueue.Enqueue(role);
+        }
     }
 }
