@@ -5,9 +5,6 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System.Linq;
-using Respawning.Waves;
-
 namespace Exiled.Events.EventArgs.Server
 {
     using System.Collections.Generic;
@@ -50,7 +47,7 @@ namespace Exiled.Events.EventArgs.Server
 
             this.nextKnownTeam = nextKnownTeam;
             SpawnQueue = new();
-            SpawnableTeam.PopulateQueue(SpawnQueue, players.Count);
+            SpawnableTeam.GenerateQueue(SpawnQueue, players.Count);
             IsAllowed = isAllowed;
         }
 
@@ -87,24 +84,23 @@ namespace Exiled.Events.EventArgs.Server
             {
                 nextKnownTeam = value;
 
-                SpawnableWaveBase spawnableTeam = WaveManager.Waves.FirstOrDefault(wave => wave.TargetFaction == (Faction)value);
-                if (spawnableTeam == null)
+                if (!RespawnManager.SpawnableTeams.TryGetValue(value, out SpawnableTeamHandlerBase spawnableTeam))
                 {
                     MaximumRespawnAmount = 0;
                     return;
                 }
 
                 MaximumRespawnAmount = spawnableTeam.MaxWaveSize;
-                SpawnableWaveBase baseWave = WaveManager.Waves.FirstOrDefault(team => team.TargetFaction == (Faction)nextKnownTeam);
-                baseWave?.PopulateQueue(SpawnQueue, Players.Count);
+                if (RespawnManager.SpawnableTeams.TryGetValue(nextKnownTeam, out SpawnableTeamHandlerBase @base))
+                    @base.GenerateQueue(SpawnQueue, Players.Count);
             }
         }
 
         /// <summary>
         /// Gets the current spawnable team.
         /// </summary>
-        public SpawnableWaveBase SpawnableTeam
-            => WaveManager.Waves.FirstOrDefault(team => team.TargetFaction == (Faction)NextKnownTeam);
+        public SpawnableTeamHandlerBase SpawnableTeam
+            => RespawnManager.SpawnableTeams.TryGetValue(NextKnownTeam, out SpawnableTeamHandlerBase @base) ? @base : null;
 
         /// <summary>
         /// Gets or sets a value indicating whether the spawn can occur.
