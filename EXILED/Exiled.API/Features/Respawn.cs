@@ -15,6 +15,7 @@ namespace Exiled.API.Features
     using Enums;
     using PlayerRoles;
     using Respawning;
+    using Respawning.Waves;
     using UnityEngine;
 
     /// <summary>
@@ -82,9 +83,14 @@ namespace Exiled.API.Features
         public static DateTime NextTeamTime => DateTime.UtcNow.AddSeconds(TimeUntilSpawnWave.TotalSeconds);
 
         /// <summary>
+        /// Gets the current state of the <see cref="WaveManager"/>.
+        /// </summary>
+        public static WaveManager.WaveQueueState CurrentState => WaveManager.State;
+
+        /// <summary>
         /// Gets a value indicating whether a team is currently being spawned or the animations are playing for a team.
         /// </summary>
-        public static bool IsSpawning => RespawnManager.Singleton._curSequence is RespawnManager.RespawnSequencePhase.PlayingEntryAnimations or RespawnManager.RespawnSequencePhase.SpawningSelectedTeam;
+        public static bool IsSpawning => WaveManager.State == WaveManager.WaveQueueState.WaveSpawning;
 
         /// <summary>
         /// Gets or sets the amount of spawn tickets belonging to the Chaos Insurgency.
@@ -137,6 +143,28 @@ namespace Exiled.API.Features
         /// Gets a <see cref="List{T}"/> of <see cref="Team"/> that have spawn protection.
         /// </summary>
         public static List<Team> ProtectedTeams => SpawnProtected.ProtectedTeams;
+
+        // TODO: Docs (can include miniwave).
+        public static bool TryGetWaveBase<T>(out T spawnWave)
+            where T : SpawnableWaveBase => WaveManager.TryGet(out spawnWave);
+
+        // TODO: Docs (Does not include mini wave).
+        public static bool TryGetWaveBase(Faction faction, out SpawnableWaveBase spawnWave)
+            => WaveManager.TryGet(out spawnWave);
+
+        // TODO: Docs.
+        public static void AdvanceTime(Faction faction, float time) => WaveManager.AdvanceTimer(faction, time);
+
+        // TODO: Docs.
+        public static void SpawnWave(SpawnableWaveBase wave) => WaveManager.Spawn(wave);
+
+        // TODO: Docs.
+        public static void SpawnWave<T>(Faction faction, bool mini)
+            where T : SpawnableWaveBase
+        {
+            if (TryGetWaveBase(out T wave))
+                SpawnWave(wave);
+        }
 
         /// <summary>
         /// Play an effect when a certain class spawns.

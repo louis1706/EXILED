@@ -75,15 +75,6 @@ namespace Exiled.API.Features
         public static ReadOnlyCollection<PocketDimensionTeleport> PocketDimensionTeleports { get; } = TeleportsValue.AsReadOnly();
 
         /// <summary>
-        /// Gets all <see cref="MapGeneration.Distributors.Locker"/> objects in the current map.
-        /// </summary>
-        /// <remarks>
-        /// This property is obsolete. Use <see cref="Lockers.Locker.List"/> instead to retrieve a collection of all <see cref="Locker"/> instances.
-        /// </remarks>
-        [Obsolete("Use Locker.List instead.")]
-        public static ReadOnlyCollection<MapGeneration.Distributors.Locker> Lockers { get; } = Features.Lockers.Locker.BaseToExiledLockers.Keys.ToList().AsReadOnly();
-
-        /// <summary>
         /// Gets all <see cref="AdminToy"/> objects.
         /// </summary>
         public static ReadOnlyCollection<AdminToy> Toys => AdminToy.BaseToAdminToy.Values.ToList().AsReadOnly(); // TODO: Obsolete it and make people use AdminToy.List
@@ -228,16 +219,6 @@ namespace Exiled.API.Features
             foreach (RoomLightController light in RoomLightController.Instances)
                 light.NetworkOverrideColor = Color.clear;
         }
-
-        /// <summary>
-        /// Gets a random <see cref="MapGeneration.Distributors.Locker"/> object from the current map.
-        /// </summary>
-        /// <remarks>
-        /// This method is obsolete. Use <see cref="Features.Lockers.Locker.Random"/> instead to get a random <see cref="Locker"/> instance.
-        /// </remarks>
-        /// <returns>A randomly selected <see cref="MapGeneration.Distributors.Locker"/> object.</returns>
-        [Obsolete("Use Locker.Random() instead.")]
-        public static MapGeneration.Distributors.Locker GetRandomLocker() => Lockers.GetRandomValue();
 
         /// <summary>
         /// Gets a random <see cref="Pickup"/>.

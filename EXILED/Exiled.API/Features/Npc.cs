@@ -5,8 +5,6 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using GameCore;
-
 namespace Exiled.API.Features
 {
 #nullable enable
@@ -21,6 +19,7 @@ namespace Exiled.API.Features
     using Exiled.API.Features.Components;
     using Exiled.API.Features.Roles;
     using Footprinting;
+    using GameCore;
     using MEC;
     using Mirror;
     using PlayerRoles;
@@ -134,6 +133,21 @@ namespace Exiled.API.Features
         /// <returns>The NPC associated with the NetworkConnection, or <c>null</c> if not found.</returns>
         public static new Npc? Get(NetworkConnection conn) => Player.Get(conn) as Npc;
 
+        // TODO: Write docs.
+        public static Npc Create(string name, RoleTypeId role, Vector3 position)
+        {
+            // TODO: Test this.
+            Npc npc = new(DummyUtils.SpawnDummy(name))
+            {
+                IsNPC = true,
+            };
+
+            npc.Role.Set(role);
+            npc.Position = position;
+
+            return npc;
+        }
+
         /// <summary>
         /// Spawns an NPC based on the given parameters.
         /// </summary>
@@ -143,10 +157,9 @@ namespace Exiled.API.Features
         /// <param name="userId">The userID of the NPC.</param>
         /// <param name="position">The position to spawn the NPC.</param>
         /// <returns>The <see cref="Npc"/> spawned.</returns>
-        [Obsolete("This metod is marked as obsolet due to a bug that make player have the same id. Use Npc.Spawn(string) instead")]
+        [Obsolete("This method is marked as obsolete due to a bug that make player have the same id. Use Npc.Spawn(string) instead", true)]
         public static Npc Spawn(string name, RoleTypeId role, int id = 0, string userId = PlayerAuthenticationManager.DedicatedId, Vector3? position = null)
         {
-            // TODO: Use DummyUtils.SpawnDummy
             GameObject newObject = UnityEngine.Object.Instantiate(Mirror.NetworkManager.singleton.playerPrefab);
 
             Npc npc = new(newObject)

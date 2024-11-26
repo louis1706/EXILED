@@ -122,14 +122,9 @@ namespace Exiled.API.Features
         }
 
         /// <summary>
-        /// Gets or sets the number of surviving SCPs.
+        /// Gets  the number of surviving SCPs.
         /// </summary>
-        public static int SurvivingSCPs
-        {
-            get => RoundSummary.SurvivingSCPs;
-            [Obsolete("This value is rewritten by NW every time it's used", true)]
-            set => RoundSummary.SurvivingSCPs = value;
-        }
+        public static int SurvivingSCPs => RoundSummary.SurvivingSCPs;
 
         /// <summary>
         /// Gets or sets the number of kills made by SCPs.

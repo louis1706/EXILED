@@ -158,7 +158,7 @@ namespace Exiled.API.Features
         public Dictionary<string, Dictionary<RoleTypeId, float>> CustomRoleFriendlyFireMultiplier { get; set; } = DictionaryPool<string, Dictionary<RoleTypeId, float>>.Pool.Get();
 
         /// <summary>
-        /// Gets or sets a unique custom role that does not adbide to base game for this player. Used in conjunction with <see cref="CustomRoleFriendlyFireMultiplier"/>.
+        /// Gets or sets a unique custom role that does not abide to base game for this player. Used in conjunction with <see cref="CustomRoleFriendlyFireMultiplier"/>.
         /// </summary>
         public string UniqueRole { get; set; } = string.Empty;
 
@@ -259,12 +259,6 @@ namespace Exiled.API.Features
         /// Gets the player's user id.
         /// </summary>
         public string UserId => referenceHub.authManager.UserId;
-
-        /// <summary>
-        /// Gets or sets the player's custom user id.
-        /// </summary>
-        [Obsolete("Remove by NW", true)]
-        public string CustomUserId { get; set; }
 
         /// <summary>
         /// Gets the player's user id without the authentication.
@@ -2473,17 +2467,6 @@ namespace Exiled.API.Features
 
         /// <summary>
         /// Gets the maximum amount of ammo the player can hold, given the ammo <see cref="AmmoType"/>.
-        /// </summary>
-        /// <param name="type">The <see cref="AmmoType"/> of the ammo to check.</param>
-        /// <returns>The maximum amount of ammo this player can carry.</returns>
-        [Obsolete("Use Player::GetAmmoLimit(AmmoType, bool) instead.")]
-        public int GetAmmoLimit(AmmoType type)
-        {
-            return (int)InventorySystem.Configs.InventoryLimits.GetAmmoLimit(type.GetItemType(), referenceHub);
-        }
-
-        /// <summary>
-        /// Gets the maximum amount of ammo the player can hold, given the ammo <see cref="AmmoType"/>.
         /// This limit will scale with the armor the player is wearing.
         /// For armor ammo limits, see <see cref="Armor.AmmoLimits"/>.
         /// </summary>
@@ -2537,15 +2520,6 @@ namespace Exiled.API.Features
         /// <param name="ammoType">The <see cref="AmmoType"/> to check.</param>
         /// <returns>If the player has a custom limit for the specific <see cref="AmmoType"/>.</returns>
         public bool HasCustomAmmoLimit(AmmoType ammoType) => CustomAmmoLimits.ContainsKey(ammoType);
-
-        /// <summary>
-        /// Gets the maximum amount of an <see cref="ItemCategory"/> the player can hold, based on the armor the player is wearing, as well as server configuration.
-        /// </summary>
-        /// <param name="category">The <see cref="ItemCategory"/> to check.</param>
-        /// <returns>The maximum amount of items in the category that the player can hold.</returns>
-        [Obsolete("Use Player::GetCategoryLimit(ItemCategory, bool) instead.")]
-        public int GetCategoryLimit(ItemCategory category) =>
-            InventorySystem.Configs.InventoryLimits.GetCategoryLimit(category, referenceHub);
 
         /// <summary>
         /// Gets the maximum amount of an <see cref="ItemCategory"/> the player can hold, based on the armor the player is wearing, as well as server configuration.
@@ -2675,16 +2649,6 @@ namespace Exiled.API.Features
         }
 
         /// <summary>
-        /// Adds an item of the specified type with default durability(ammo/charge) and no mods to the player's inventory.
-        /// </summary>
-        /// <param name="itemType">The item to be added.</param>
-        /// <param name="identifiers">The attachments to be added to the item.</param>
-        /// <returns>The <see cref="Item"/> given to the player.</returns>
-        [Obsolete("Use AddItem(ItemType) or AddItem(FirearmType, IEnumerable<AttachmentIdentifier>)", true)]
-        public Item AddItem(ItemType itemType, IEnumerable<AttachmentIdentifier> identifiers = null)
-            => itemType.GetFirearmType() is FirearmType.None ? AddItem(itemType) : AddItem(itemType.GetFirearmType(), identifiers);
-
-        /// <summary>
         /// Adds an firearm of the specified type with default durability(ammo/charge) and no mods to the player's inventory.
         /// </summary>
         /// <param name="firearmType">The firearm to be added.</param>
@@ -2736,17 +2700,6 @@ namespace Exiled.API.Features
         }
 
         /// <summary>
-        /// Adds the amount of items of the specified type with default durability(ammo/charge) and no mods to the player's inventory.
-        /// </summary>
-        /// <param name="itemType">The item to be added.</param>
-        /// <param name="amount">The amount of items to be added.</param>
-        /// <param name="identifiers">The attachments to be added to the item.</param>
-        /// <returns>An <see cref="IEnumerable{Item}"/> containing the items given.</returns>
-        [Obsolete("Use AddItem(ItemType, int) or AddItem(FirearmType, int, IEnumerable<AttachmentIdentifier>)", true)]
-        public IEnumerable<Item> AddItem(ItemType itemType, int amount, IEnumerable<AttachmentIdentifier> identifiers)
-            => itemType.GetFirearmType() is FirearmType.None ? AddItem(itemType, amount) : AddItem(itemType.GetFirearmType(), amount, identifiers);
-
-        /// <summary>
         /// Adds the amount of firearms of the specified type with default durability(ammo/charge) and no mods to the player's inventory.
         /// </summary>
         /// <param name="firearmType">The item to be added.</param>
@@ -2782,22 +2735,6 @@ namespace Exiled.API.Features
                 returnedItems.Add(AddItem(type));
 
             ListPool<ItemType>.Pool.Return(enumeratedItems);
-            return returnedItems;
-        }
-
-        /// <summary>
-        /// Adds the list of items of the specified type with default durability(ammo/charge) and no mods to the player's inventory.
-        /// </summary>
-        /// <param name="items">The <see cref="Dictionary{TKey, TValue}"/> of <see cref="ItemType"/> and <see cref="IEnumerable{T}"/> of <see cref="AttachmentIdentifier"/> to be added.</param>
-        /// <returns>An <see cref="IEnumerable{Item}"/> containing the items given.</returns>
-        [Obsolete("Use AddItem(Dictionary<FirearmType, IEnumerable<AttachmentIdentifier>>) instead of this", true)]
-        public IEnumerable<Item> AddItem(Dictionary<ItemType, IEnumerable<AttachmentIdentifier>> items)
-        {
-            List<Item> returnedItems = new(items.Count);
-
-            foreach (KeyValuePair<ItemType, IEnumerable<AttachmentIdentifier>> item in items)
-                returnedItems.Add(AddItem(item.Key, item.Value));
-
             return returnedItems;
         }
 
@@ -2908,23 +2845,6 @@ namespace Exiled.API.Features
 
             return null;
         }
-
-        /// <summary>
-        /// Adds the <paramref name="amount"/> of items to the player's inventory.
-        /// </summary>
-        /// <param name="item">The item to be added.</param>
-        /// <param name="amount">The amount of items to be added.</param>
-        [Obsolete("Removed this method can't be functional")]
-        public void AddItem(Item item, int amount) => _ = item;
-
-        /// <summary>
-        /// Adds the <paramref name="amount"/> of items to the player's inventory.
-        /// </summary>
-        /// <param name="firearm">The firearm to be added.</param>
-        /// <param name="amount">The amount of items to be added.</param>
-        /// <param name="identifiers">The attachments to be added to the item.</param>
-        [Obsolete("Removed this method can't be functional")]
-        public void AddItem(Firearm firearm, int amount, IEnumerable<AttachmentIdentifier> identifiers) => _ = firearm;
 
         /// <summary>
         /// Adds the list of items to the player's inventory.
@@ -3367,13 +3287,6 @@ namespace Exiled.API.Features
                     EnableEffect(statusEffect, duration, addDurationIfActive);
             }
         }
-
-        /// <summary>
-        /// Enables a <see cref="IEnumerable{T}"/> of <see cref="Effect"/> on the player.
-        /// </summary>
-        /// <param name="effects">The <see cref="IEnumerable{T}"/> of <see cref="Effect"/> to enable.</param>
-        [Obsolete("Use SyncEffects(IEnumerable<Effect>) instead of this")]
-        public void EnableEffects(IEnumerable<Effect> effects) => SyncEffects(effects);
 
         /// <summary>
         /// Syncs a <see cref="IEnumerable{T}"/> of <see cref="Effect"/> on the player.
