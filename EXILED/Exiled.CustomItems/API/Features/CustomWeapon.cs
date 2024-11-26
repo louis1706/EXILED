@@ -104,7 +104,7 @@ namespace Exiled.CustomItems.API.Features
                 if (!Attachments.IsEmpty())
                     firearm.AddAttachment(Attachments);
 
-                byte ammo = firearm.Ammo;
+                int ammo = firearm.Ammo;
                 firearm.MaxAmmo = ClipSize;
                 Log.Debug($"{nameof(Name)}.{nameof(Spawn)}: Spawning weapon with {ammo} ammo.");
                 Pickup? pickup = firearm.CreatePickup(position);
@@ -214,7 +214,7 @@ namespace Exiled.CustomItems.API.Features
             Log.Debug($"{nameof(Name)}.{nameof(OnInternalReloading)}: Continuing with internal reload..");
             ev.IsAllowed = false;
 
-            byte remainingClip = ((Firearm)ev.Player.CurrentItem).Ammo;
+            int remainingClip = ((Firearm)ev.Player.CurrentItem).Ammo;
 
             if (remainingClip >= ClipSize)
                 return;

@@ -13,7 +13,6 @@ namespace Exiled.API.Features.Roles
     using PlayerRoles;
     using PlayerRoles.PlayableScps;
     using PlayerRoles.PlayableScps.HumeShield;
-    using PlayerRoles.PlayableScps.Scp049;
     using PlayerRoles.PlayableScps.Scp106;
     using PlayerRoles.Subroutines;
     using PlayerStatsSystem;
@@ -125,8 +124,12 @@ namespace Exiled.API.Features.Roles
         /// </summary>
         public bool IsSubmerged
         {
-            get => Base.IsSubmerged;
-            set => HuntersAtlasAbility.SetSubmerged(value);
+            get => HuntersAtlasAbility._syncSubmerged;
+            set
+            {
+                HuntersAtlasAbility._syncSubmerged = value;
+                HuntersAtlasAbility.ServerSendRpc(true);
+            }
         }
 
         /// <summary>

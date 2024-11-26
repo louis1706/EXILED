@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using GameCore;
+
 namespace Exiled.API.Features
 {
 #nullable enable
@@ -144,6 +146,7 @@ namespace Exiled.API.Features
         [Obsolete("This metod is marked as obsolet due to a bug that make player have the same id. Use Npc.Spawn(string) instead")]
         public static Npc Spawn(string name, RoleTypeId role, int id = 0, string userId = PlayerAuthenticationManager.DedicatedId, Vector3? position = null)
         {
+            // TODO: Use DummyUtils.SpawnDummy
             GameObject newObject = UnityEngine.Object.Instantiate(Mirror.NetworkManager.singleton.playerPrefab);
 
             Npc npc = new(newObject)

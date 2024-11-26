@@ -40,7 +40,7 @@ namespace Exiled.Events.EventArgs.Scp079
             Player = player;
             Scp079 = player.Role.As<Scp079Role>();
             Room = Room.Get(room);
-            Lift = Lift.Get(elevatorDoor.TargetPanel.AssignedChamber);
+            Lift = Lift.Get(elevatorDoor.Chamber);
             AuxiliaryPowerCost = auxiliaryPowerCost;
             IsAllowed = auxiliaryPowerCost <= Scp079.Energy;
         }
