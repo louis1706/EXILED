@@ -324,5 +324,13 @@ namespace Exiled.API.Extensions
         /// <param name="type">The <see cref="ItemType"/> to check.</param>
         /// <returns><see cref="ItemCategory"/> of the specified <see cref="ItemType"/>.</returns>
         public static ItemCategory GetCategory(this ItemType type) => GetItemBase(type).Category;
+
+        /// <summary>
+        /// Checks if the specified <see cref="Firearm"/> has the specified <see cref="AttachmentName"/>.
+        /// </summary>
+        /// <param name="firearm">Weapon to check.</param>
+        /// <param name="attachment">Attachment to check.</param>
+        /// <returns><c>true</c> if weapon has the specified attachment. Otherwise, <c>false</c>.</returns>
+        public static bool HasAttachment(this Firearm firearm, AttachmentName attachment) => firearm.Attachments.FirstOrDefault(x => x.Name == attachment)?.IsEnabled ?? false;
     }
 }

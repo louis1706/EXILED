@@ -234,6 +234,15 @@ namespace Exiled.API.Features.Items
         public static Item Get(ushort serial) => List.FirstOrDefault(x => x.Serial == serial);
 
         /// <summary>
+        /// Gets the Item belonging to the specified serial.
+        /// </summary>
+        /// <param name="serial">The Item serial.</param>
+        /// <typeparam name="T">The specified <see cref="Item"/> type.</typeparam>
+        /// <returns>Returns the Item found or <see langword="null"/> if not found.</returns>
+        public static T Get<T>(ushort serial)
+            where T : Item => Get(serial) as T;
+
+        /// <summary>
         /// Creates a new <see cref="Item"/> with the proper inherited subclass.
         /// <para>
         /// Based on the <paramref name="type"/>, the returned <see cref="Item"/> can be casted into a subclass to gain more control over the object.

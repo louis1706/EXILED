@@ -13,6 +13,7 @@ namespace Exiled.API.Features.Doors
     using Exiled.API.Enums;
     using Interactables.Interobjects;
     using Interactables.Interobjects.DoorUtils;
+    using UnityEngine;
 
     /// <summary>
     /// Represents an elevator door.
@@ -29,6 +30,8 @@ namespace Exiled.API.Features.Doors
         {
             Base = door;
             Lift = Lift.Get(x => x.Group == Group).FirstOrDefault();
+
+            Panel = Object.FindObjectsOfType<ElevatorPanel>().FirstOrDefault(x => x._door == door);
         }
 
         /// <summary>
@@ -40,6 +43,11 @@ namespace Exiled.API.Features.Doors
         /// Gets the <see cref="ElevatorGroup"/> that this door's <see cref="Lift"/> belongs to.
         /// </summary>
         public ElevatorGroup Group => Base.Group;
+
+        /// <summary>
+        /// Gets the <see cref="ElevatorPanel"/> associated with this lift.
+        /// </summary>
+        public ElevatorPanel Panel { get; }
 
         /// <summary>
         /// Gets the type according to <see cref="Group"/>.
@@ -54,16 +62,6 @@ namespace Exiled.API.Features.Doors
             ElevatorGroup.Nuke01 or ElevatorGroup.Nuke02 => ElevatorType.Nuke,
             _ => ElevatorType.Unknown,
         };
-
-        /// <summary>
-        /// Gets the target panel settings for this lift.
-        /// </summary>
-        public PanelVisualSettings PanelSettings => Base.PanelSettings;
-
-        /// <summary>
-        /// Gets a value indicating whether gets the panel is permanent.
-        /// </summary>
-        public bool PermanentPanels => Base.PermanentPanels;
 
         /// <summary>
         /// Gets the <see cref="Lift"/> associated with this elevator door.

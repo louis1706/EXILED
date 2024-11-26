@@ -68,13 +68,10 @@ namespace Exiled.API.Features.Items
         internal Firearm(ItemType type)
             : this((BaseFirearm)Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
         {
-            // TODO Not finish
-            /*
-            FirearmStatusFlags firearmStatusFlags = FirearmStatusFlags.MagazineInserted;
-            if (Base.HasAdvantageFlag(AttachmentDescriptiveAdvantages.Flashlight))
-                firearmStatusFlags |= FirearmStatusFlags.FlashlightEnabled;
+            FlashlightAttachment flashlight = Attachments.OfType<FlashlightAttachment>().FirstOrDefault();
 
-            Base.Status = new FirearmStatus(MaxAmmo, firearmStatusFlags, Base.Status.Attachments);*/
+            if (flashlight != null && flashlight.IsEnabled)
+                flashlight.ServerSendStatus(true);
         }
 
         /// <inheritdoc cref="BaseCodesValue"/>.
@@ -127,26 +124,7 @@ namespace Exiled.API.Features.Items
         public int MaxAmmo
         {
             get => (Base.Modules[Array.IndexOf(Base.Modules, typeof(MagazineModule))] as MagazineModule).AmmoMax;
-            set
-            {
-                // TODO Not finish
-                /*
-                switch (Base.AmmoManagerModule)
-                {
-                    case TubularMagazineAmmoManager tubularMagazineAmmoManager:
-                        tubularMagazineAmmoManager.MaxAmmo = (byte)(value - Base.AttachmentsValue(AttachmentParam.MagazineCapacityModifier) - (Base.Status.Flags.HasFlagFast(FirearmStatusFlags.Cocked) ? tubularMagazineAmmoManager.ChamberedRounds : 0));
-                        break;
-                    case ClipLoadedInternalMagAmmoManager clipLoadedInternalMagAmmoManager:
-                        clipLoadedInternalMagAmmoManager.MaxAmmo = (byte)(value - Base.AttachmentsValue(AttachmentParam.MagazineCapacityModifier));
-                        break;
-                    case AutomaticAmmoManager automaticAmmoManager:
-                        automaticAmmoManager.MaxAmmo = (byte)(value - Base.AttachmentsValue(AttachmentParam.MagazineCapacityModifier) - automaticAmmoManager.ChamberedAmount);
-                        break;
-                    default:
-                        Log.Warn($"MaxAmmo can't be used for this Item: {Type} ({Base.AmmoManagerModule})");
-                        return;
-                }*/
-            }
+            set => (Base.Modules[Array.IndexOf(Base.Modules, typeof(MagazineModule))] as MagazineModule)._defaultCapacity = value; // Synced?
         }
 
         /// <summary>
@@ -157,15 +135,14 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Gets the <see cref="Enums.AmmoType"/> of the firearm.
         /// </summary>
-        // TODO not finish Base.AmmoType.GetAmmoType();
-        public AmmoType AmmoType => AmmoType.None;
+        // TODO not finish Base.AmmoType.GetAmmoType(); Why not working?
+        public AmmoType AmmoType => Type.GetAmmoType();
 
-        // TODO: Not finish
-        /*
+
         /// <summary>
         /// Gets a value indicating whether the firearm is being aimed.
         /// </summary>
-        public bool Aiming => Base.IsAiming;*/
+        public bool Aiming => Base.Modules.OfType<LinearAdsModule>().FirstOrDefault()?.AdsTarget ?? false;
 
         /// <summary>
         /// Gets a value indicating whether the firearm's flashlight module is enabled.
@@ -173,7 +150,7 @@ namespace Exiled.API.Features.Items
         public bool FlashlightEnabled => Base.IsEmittingLight;
 
         // TODO NOT FINISH
-        /*
+
         /// <summary>
         /// Gets a value indicating whether the firearm's NightVision is being used.
         /// </summary>
@@ -187,7 +164,7 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Gets a value indicating whether the firearm is automatic.
         /// </summary>
-        public bool IsAutomatic => Base is AutomaticFirearm;*/
+        public bool IsAutomatic => Array.Exists(Base.Modules, x => x is AutomaticActionModule);
 
         /// <summary>
         /// Gets the <see cref="Attachment"/>s of the firearm.
@@ -211,8 +188,6 @@ namespace Exiled.API.Features.Items
         /// </summary>
         public uint BaseCode => BaseCodesValue[FirearmType];
 
-        // TODO Not finish
-        /*
         /// <summary>
         /// Gets or sets the fire rate of the firearm, if it is an automatic weapon.
         /// </summary>
@@ -220,11 +195,13 @@ namespace Exiled.API.Features.Items
         /// <seealso cref="IsAutomatic"/>
         public float FireRate
         {
-            get => Base is AutomaticFirearm auto ? auto._fireRate : 1f;
+            get => Base.Modules.OfType<AutomaticActionModule>().FirstOrDefault()?.BaseFireRate ?? 0f;
             set
             {
-                if (Base is AutomaticFirearm auto)
-                    auto._fireRate = value;
+                AutomaticActionModule module = Base.Modules.OfType<AutomaticActionModule>().FirstOrDefault();
+
+                if (module != null)
+                    module.BaseFireRate = value;
             }
         }
 
@@ -235,14 +212,17 @@ namespace Exiled.API.Features.Items
         /// <seealso cref="IsAutomatic"/>
         public RecoilSettings Recoil
         {
-            get => Base is AutomaticFirearm auto ? auto._recoil : default;
+            get => Base.Modules.OfType<RecoilPatternModule>().FirstOrDefault()?.BaseRecoil ?? default;
             set
             {
-                if (Base is AutomaticFirearm auto)
-                    auto.ActionModule = new AutomaticAction(Base, auto._semiAutomatic, auto._boltTravelTime, 1f / auto._fireRate, auto._dryfireClipId, auto._triggerClipId, auto._gunshotPitchRandomization, value, auto._recoilPattern, false, Mathf.Max(1, auto._chamberSize));
+                RecoilPatternModule module = Base.Modules.OfType<RecoilPatternModule>().FirstOrDefault();
+
+                if (module != null)
+                    module.BaseRecoil = value;
             }
         }
 
+        /*
         /// <summary>
         /// Gets the firearm's <see cref="FirearmRecoilPattern"/>. Will be <see langword="null"/> for non-automatic weapons.
         /// </summary>

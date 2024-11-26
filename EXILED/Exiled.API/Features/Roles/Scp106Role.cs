@@ -177,11 +177,6 @@ namespace Exiled.API.Features.Roles
         public float SinkholeTargetDuration => SinkholeController.TargetTransitionDuration;
 
         /// <summary>
-        /// Gets the speed multiplier of the sinkhole.
-        /// </summary>
-        public float SinkholeSpeedMultiplier => SinkholeController.SpeedMultiplier;
-
-        /// <summary>
         /// Gets or sets how mush damage Scp106 will dealt when attacking a player.
         /// </summary>
         public int AttackDamage
