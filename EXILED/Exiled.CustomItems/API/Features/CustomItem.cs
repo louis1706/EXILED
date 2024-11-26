@@ -5,6 +5,9 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using Exiled.API.Features.Lockers;
+using InventorySystem.Items.Firearms.Attachments;
+
 namespace Exiled.CustomItems.API.Features
 {
     using System;
@@ -26,17 +29,10 @@ namespace Exiled.CustomItems.API.Features
     using Exiled.Events.EventArgs.Scp914;
     using Exiled.Loader;
 
-    using InventorySystem.Items.Firearms;
     using InventorySystem.Items.Pickups;
-
-    using MapGeneration.Distributors;
-
     using MEC;
-
     using PlayerRoles;
-
     using UnityEngine;
-
     using YamlDotNet.Serialization;
 
     using static CustomItems;
@@ -44,7 +40,7 @@ namespace Exiled.CustomItems.API.Features
     using BaseFirearmPickup = InventorySystem.Items.Firearms.FirearmPickup;
     using Firearm = Exiled.API.Features.Items.Firearm;
     using Item = Exiled.API.Features.Items.Item;
-    using Map = Exiled.API.Features.Map;
+    using Locker = Exiled.API.Features.Lockers.Locker;
     using Player = Exiled.API.Features.Player;
     using UpgradingPickupEventArgs = Exiled.Events.EventArgs.Scp914.UpgradingPickupEventArgs;
 
@@ -624,15 +620,14 @@ namespace Exiled.CustomItems.API.Features
                 {
                     for (int i = 0; i < 50; i++)
                     {
-                        if (Map.Lockers is null)
+                        if (Locker.List is null)
                         {
                             Log.Debug($"{nameof(Spawn)}: Locker list is null.");
                             continue;
                         }
 
-                        Locker locker =
-                            Map.Lockers[
-                                Loader.Random.Next(Map.Lockers.Count)];
+                        List<Locker> lockerList = Locker.List.ToList();
+                        Locker locker = lockerList[Loader.Random.Next(lockerList.Count)];
 
                         if (locker is null)
                         {
@@ -640,19 +635,20 @@ namespace Exiled.CustomItems.API.Features
                             continue;
                         }
 
-                        if (locker.Loot is null)
+                        if (locker.Base.Loot is null)
                         {
                             Log.Debug($"{nameof(Spawn)}: Invalid locker location. Attempting to find a new one..");
                             continue;
                         }
 
-                        if (locker.Chambers is null)
+                        if (locker.Base.Chambers is null)
                         {
                             Log.Debug($"{nameof(Spawn)}: Locker chambers is null");
                             continue;
                         }
 
-                        LockerChamber chamber = locker.Chambers[Loader.Random.Next(Mathf.Max(0, locker.Chambers.Length - 1))];
+                        List<Chamber> chambersList = locker.Chambers.ToList();
+                        Chamber chamber = chambersList[Loader.Random.Next(Mathf.Max(0, chambersList.Count - 1))];
 
                         if (chamber is null)
                         {
@@ -660,13 +656,13 @@ namespace Exiled.CustomItems.API.Features
                             continue;
                         }
 
-                        Vector3 position = chamber._spawnpoint.transform.position;
+                        Vector3 position = chamber.Spawnpoint.transform.position;
 
                         Pickup? pickup = Spawn(position, null);
                         if (pickup?.Base is BaseFirearmPickup firearmPickup && this is CustomWeapon customWeapon)
                         {
-                            firearmPickup.Status = new FirearmStatus(customWeapon.ClipSize, firearmPickup.Status.Flags, firearmPickup.Status.Attachments);
-                            firearmPickup.NetworkStatus = firearmPickup.Status;
+                            firearmPickup.Info = new FirearmStatus(customWeapon.ClipSize, firearmPickup.Info._flags, AttachmentsServerHandler.PlayerPreferences);
+                            firearmPickup.NetworkInfo = firearmPickup.Info;
                         }
 
                         Log.Debug($"Spawned {Name} at {position} ({spawnPoint.Name})");
@@ -678,8 +674,8 @@ namespace Exiled.CustomItems.API.Features
                     Pickup? pickup = Spawn(spawnPoint.Position, null);
                     if (pickup?.Base is BaseFirearmPickup firearmPickup && this is CustomWeapon customWeapon)
                     {
-                        firearmPickup.Status = new FirearmStatus(customWeapon.ClipSize, firearmPickup.Status.Flags, firearmPickup.Status.Attachments);
-                        firearmPickup.NetworkStatus = firearmPickup.Status;
+                        firearmPickup.Info = new FirearmStatus(customWeapon.ClipSize, firearmPickup.Info._flags, AttachmentsServerHandler.PlayerPreferences);
+                        firearmPickup.NetworkInfo = firearmPickup.Info;
                     }
 
                     Log.Debug($"Spawned {Name} at {spawnPoint.Position} ({spawnPoint.Name})");
