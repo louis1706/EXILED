@@ -146,7 +146,7 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Gets the <see cref="Enums.AmmoType"/> of the firearm.
         /// </summary>
-        public AmmoType AmmoType => (Base.Modules.OfType<MagazineModule>().FirstOrDefault()?.AmmoType ?? ItemType.None).GetAmmoType();
+        public AmmoType AmmoType => ammoModule?.AmmoType.GetAmmoType() ?? AmmoType.None;
 
         /// <summary>
         /// Gets a value indicating whether the firearm is being aimed.

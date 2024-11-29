@@ -2664,6 +2664,12 @@ namespace Exiled.API.Features
                 else if (Preferences is not null && Preferences.TryGetValue(firearmType, out AttachmentIdentifier[] attachments))
                     firearm.Base.ApplyAttachmentsCode(attachments.GetAttachmentsCode(), true);
 
+                foreach (ModuleBase module in firearm.Base.Modules)
+                {
+                    if (module is IPrimaryAmmoContainerModule primaryAmmo)
+                        primaryAmmo.ServerModifyAmmo(primaryAmmo.AmmoMax);
+                }
+
                 // TODO Not finish
                 /*
                 FirearmStatusFlags flags = FirearmStatusFlags.MagazineInserted;
@@ -2835,6 +2841,8 @@ namespace Exiled.API.Features
                     acquisitionConfirmationTrigger.AcquisitionAlreadyReceived = false;
                 }
 
+                itemBase.ServerAddReason = addReason;
+                itemBase.OnAdded(null);
                 typeof(InventoryExtensions).InvokeStaticEvent(nameof(InventoryExtensions.OnItemAdded), new object[] { ReferenceHub, itemBase, null });
 
                 Inventory.SendItemsNextFrame = true;
