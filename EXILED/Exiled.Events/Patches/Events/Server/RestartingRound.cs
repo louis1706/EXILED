@@ -13,6 +13,7 @@ namespace Exiled.Events.Patches.Events.Server
 
     using API.Features.Pools;
     using Attributes;
+
     using GameCore;
 
     using HarmonyLib;
@@ -20,18 +21,21 @@ namespace Exiled.Events.Patches.Events.Server
     using RoundRestarting;
 
     using static HarmonyLib.AccessTools;
+    using static PlayerList;
 
     /// <summary>
     /// Patches <see cref="RoundRestart.InitiateRoundRestart"/>.
     /// Adds the <see cref="Handlers.Server.RestartingRound" /> event.
     /// </summary>
     [EventPatch(typeof(Handlers.Server), nameof(Handlers.Server.RestartingRound))]
-    [HarmonyPatch(typeof(RoundRestart), nameof(RoundRestart.InitiateRoundRestart))]
+    [HarmonyPatch(typeof(RoundRestart), nameof(RoundRestart.IsRoundRestarting), MethodType.Setter)]
     internal static class RestartingRound
     {
-        private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+        // TODO: Convert to transpiler and bring back old features
+        private static void Prefix(bool value)
         {
-            List<CodeInstruction> newInstructions = ListPool<CodeInstruction>.Pool.Get(instructions);
+            if (!value || value == RoundRestart.IsRoundRestarting)
+                return;
 
             int offset = 0;
             int index = 5;
