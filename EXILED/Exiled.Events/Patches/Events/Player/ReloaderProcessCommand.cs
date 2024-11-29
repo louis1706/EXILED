@@ -5,28 +5,30 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using Exiled.API.Features;
-using Exiled.API.Features.Items;
-using Exiled.API.Features.Pools;
-using Exiled.Events.EventArgs.Player;
-using HarmonyLib;
-using InventorySystem.Items.Autosync;
-using InventorySystem.Items.Firearms.Modules;
-
-using static HarmonyLib.AccessTools;
-
 namespace Exiled.Events.Patches.Events.Player
 {
-    using Exiled.Events.Attributes;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection.Emit;
+
+    using Attributes;
+    using Exiled.API.Features;
+    using Exiled.API.Features.Items;
+    using Exiled.API.Features.Pools;
+    using Exiled.Events.EventArgs.Player;
+    using HarmonyLib;
+    using InventorySystem.Items.Autosync;
+    using InventorySystem.Items.Firearms.Modules;
+
+    using static HarmonyLib.AccessTools;
 
     using Player = Exiled.Events.Handlers.Player;
 
+    /// <summary>
+    /// Patches the <see cref="AnimatorReloaderModuleBase.ServerProcessCmd"/> method to add the <see cref="Exiled.Events.Handlers.Player.OnReloadingWeapon"/> and <see cref="Exiled.Events.Handlers.Player.OnUnloadingWeapon"/> events.
+    /// </summary>
     [EventPatch(typeof(Player), nameof(Player.ReloadingWeapon))]
-    [HarmonyPatch(typeof(AnimationToggleableReloaderModule), nameof(AnimationToggleableReloaderModule.StartReloading))]
+    [HarmonyPatch(typeof(AnimatorReloaderModuleBase), nameof(AnimatorReloaderModuleBase.ServerProcessCmd))]
     internal static class ReloaderProcessCommand
     {
         private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
@@ -38,12 +40,24 @@ namespace Exiled.Events.Patches.Events.Player
 
             Label ret = generator.DefineLabel();
             Label cont = generator.DefineLabel();
+            Label unloadCheck = generator.DefineLabel();
+
+            Log.Warn("Patching Player Reloader");
+            Log.Warn("Patching Player Reloader");
+            Log.Warn("Patching Player Reloader");
+            Log.Warn("Patching Player Reloader");
+            Log.Warn("Patching Player Reloader");
+            Log.Warn("Patching Player Reloader");
+            Log.Warn("Patching Player Reloader");
+            Log.Warn("Patching Player Reloader");
+
+            int index = newInstructions.FindIndex(i => i.opcode == OpCodes.Ldloc_1);
 
             // Index is correct, player and firearm exist, skips reload and continues to no action.
-            newInstructions.InsertRange(0, new[]
+            newInstructions.InsertRange(index, new[]
             {
                 // player = Player.Get(this.Item.Owner);
-                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldarg_0).MoveLabelsFrom(newInstructions[index]),
                 new(OpCodes.Callvirt, PropertyGetter(typeof(AnimatorReloaderModuleBase), nameof(AnimatorReloaderModuleBase.Item))),
                 new(OpCodes.Callvirt, PropertyGetter(typeof(ModularAutosyncItem), nameof(ModularAutosyncItem.Owner))),
                 new(OpCodes.Call, Method(typeof(API.Features.Player), nameof(API.Features.Player.Get), new[] { typeof(ReferenceHub) })),
@@ -51,8 +65,6 @@ namespace Exiled.Events.Patches.Events.Player
                 new(OpCodes.Dup),
                 new(OpCodes.Stloc_S, player.LocalIndex),
                 new(OpCodes.Brfalse_S, cont),
-                new(OpCodes.Ldstr, "Player"),
-                new(OpCodes.Call, Method(typeof(Log), nameof(Log.Warn), new[] { typeof(string) })),
 
                 // firearm = Firearm.Get(this.ItemSerial);
                 new(OpCodes.Ldarg_0),
@@ -65,6 +77,12 @@ namespace Exiled.Events.Patches.Events.Player
                 new(OpCodes.Ldstr, "Firearm"),
                 new(OpCodes.Call, Method(typeof(Log), nameof(Log.Warn), new[] { typeof(string) })),
 
+                // if (header == Reloading) ...
+                new(OpCodes.Ldloc_2),
+                new(OpCodes.Ldc_I4_1),
+                new(OpCodes.Ceq),
+                new(OpCodes.Brfalse_S, unloadCheck),
+
                 // ReloadingWeaponEventArgs ev = new(player, firearm);
                 // Player.OnReloadingWeapon(ev);
                 // if (!ev.IsAllowed)
@@ -76,6 +94,26 @@ namespace Exiled.Events.Patches.Events.Player
                 new(OpCodes.Call, Method(typeof(Player), nameof(Player.OnReloadingWeapon))),
                 new(OpCodes.Callvirt, PropertyGetter(typeof(ReloadingWeaponEventArgs), nameof(ReloadingWeaponEventArgs.IsAllowed))),
                 new(OpCodes.Brfalse_S, ret),
+                new(OpCodes.Br_S, cont),
+
+                // else if (header == Unloading) ...
+                new CodeInstruction(OpCodes.Ldloc_2).WithLabels(unloadCheck),
+                new(OpCodes.Ldc_I4_2),
+                new(OpCodes.Ceq),
+                new(OpCodes.Brfalse_S, cont),
+
+                // UnloadingWeaponEventArgs ev = new(player, firearm);
+                // Player.OnUnloadingWeapon(ev);
+                // if (!ev.IsAllowed)
+                //    return;
+                new(OpCodes.Ldloc_S, player.LocalIndex),
+                new(OpCodes.Ldloc_S, firearm.LocalIndex),
+                new(OpCodes.Newobj, GetDeclaredConstructors(typeof(UnloadingWeaponEventArgs))[0]),
+                new(OpCodes.Dup),
+                new(OpCodes.Call, Method(typeof(Player), nameof(Player.OnUnloadingWeapon))),
+                new(OpCodes.Callvirt, PropertyGetter(typeof(UnloadingWeaponEventArgs), nameof(UnloadingWeaponEventArgs.IsAllowed))),
+                new(OpCodes.Brfalse_S, ret),
+
                 new CodeInstruction(OpCodes.Ldstr, "Continue").WithLabels(cont),
                 new(OpCodes.Call, Method(typeof(Log), nameof(Log.Warn), new[] { typeof(string) })),
             });
@@ -85,13 +123,6 @@ namespace Exiled.Events.Patches.Events.Player
                 yield return newInstructions[z];
 
             ListPool<CodeInstruction>.Pool.Return(newInstructions);
-        }
-
-        private static void thing(AnimatorReloaderModuleBase header)
-        {
-            Log.Warn(header.Firearm.Owner is null);
-            Log.Warn(header.Item.Owner is null);
-            Log.Warn(header.ItemSerial);
         }
     }
 }

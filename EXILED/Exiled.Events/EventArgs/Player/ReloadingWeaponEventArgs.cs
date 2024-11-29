@@ -26,9 +26,6 @@ namespace Exiled.Events.EventArgs.Player
         /// <param name="firearm">
         /// <inheritdoc cref="Firearm" />
         /// </param>
-        /// <param name="isAllowed">
-        /// <inheritdoc cref="IsAllowed" />
-        /// </param>
         public ReloadingWeaponEventArgs(Player player, Firearm firearm)
         {
             Firearm = firearm;
