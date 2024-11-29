@@ -68,8 +68,6 @@ namespace Exiled.Events.Patches.Events.Player
                 new(OpCodes.Callvirt, PropertyGetter(typeof(SpawningRagdollEventArgs), nameof(SpawningRagdollEventArgs.IsAllowed))),
                 new(OpCodes.Brtrue_S, cnt),
 
-                new(OpCodes.Pop),
-
                 // gameobject loads into stack before il inject
                 new(OpCodes.Ldloc_1),
                 new(OpCodes.Callvirt, PropertyGetter(typeof(BasicRagdoll), nameof(BasicRagdoll.gameObject))),

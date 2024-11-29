@@ -42,15 +42,6 @@ namespace Exiled.Events.Patches.Events.Player
             Label cont = generator.DefineLabel();
             Label unloadCheck = generator.DefineLabel();
 
-            Log.Warn("Patching Player Reloader");
-            Log.Warn("Patching Player Reloader");
-            Log.Warn("Patching Player Reloader");
-            Log.Warn("Patching Player Reloader");
-            Log.Warn("Patching Player Reloader");
-            Log.Warn("Patching Player Reloader");
-            Log.Warn("Patching Player Reloader");
-            Log.Warn("Patching Player Reloader");
-
             int index = newInstructions.FindIndex(i => i.opcode == OpCodes.Ldloc_1);
 
             // Index is correct, player and firearm exist, skips reload and continues to no action.
@@ -74,8 +65,6 @@ namespace Exiled.Events.Patches.Events.Player
                 new(OpCodes.Dup),
                 new(OpCodes.Stloc_S, firearm.LocalIndex),
                 new(OpCodes.Brfalse_S, cont),
-                new(OpCodes.Ldstr, "Firearm"),
-                new(OpCodes.Call, Method(typeof(Log), nameof(Log.Warn), new[] { typeof(string) })),
 
                 // if (header == Reloading) ...
                 new(OpCodes.Ldloc_2),
@@ -114,8 +103,7 @@ namespace Exiled.Events.Patches.Events.Player
                 new(OpCodes.Callvirt, PropertyGetter(typeof(UnloadingWeaponEventArgs), nameof(UnloadingWeaponEventArgs.IsAllowed))),
                 new(OpCodes.Brfalse_S, ret),
 
-                new CodeInstruction(OpCodes.Ldstr, "Continue").WithLabels(cont),
-                new(OpCodes.Call, Method(typeof(Log), nameof(Log.Warn), new[] { typeof(string) })),
+                new CodeInstruction(OpCodes.Nop).WithLabels(cont),
             });
 
             newInstructions[newInstructions.Count - 1].labels.Add(ret);

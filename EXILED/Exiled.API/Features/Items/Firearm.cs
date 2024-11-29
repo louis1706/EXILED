@@ -54,7 +54,6 @@ namespace Exiled.API.Features.Items
             Base = itemBase;
             foreach (ModuleBase mod in itemBase.Modules)
             {
-                Log.Warn(mod.GetType());
                 if (mod is IPrimaryAmmoContainerModule primary)
                     ammoModule = primary;
             }

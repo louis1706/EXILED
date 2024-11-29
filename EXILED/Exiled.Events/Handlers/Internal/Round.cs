@@ -10,13 +10,14 @@ namespace Exiled.Events.Handlers.Internal
     using System.Collections.Generic;
     using System.Linq;
 
+    using API.Enums;
     using API.Extensions;
+    using API.Structs;
     using CentralAuth;
     using Exiled.API.Features;
     using Exiled.API.Features.Items;
     using Exiled.API.Features.Pools;
     using Exiled.API.Features.Roles;
-    using Exiled.API.Structs;
     using Exiled.Events.EventArgs.Player;
     using Exiled.Events.EventArgs.Scp049;
     using Exiled.Loader.Features;
@@ -27,7 +28,6 @@ namespace Exiled.Events.Handlers.Internal
     using Loader;
     using PlayerRoles;
     using PlayerRoles.RoleAssign;
-
     using Utils.NonAllocLINQ;
 
     /// <summary>
@@ -76,7 +76,7 @@ namespace Exiled.Events.Handlers.Internal
         /// <inheritdoc cref="Handlers.Player.OnChangingRole(ChangingRoleEventArgs)" />
         public static void OnChangingRole(ChangingRoleEventArgs ev)
         {
-            if (!ev.Player.IsHost && ev.NewRole == RoleTypeId.Spectator && ev.Reason != API.Enums.SpawnReason.Destroyed && Events.Instance.Config.ShouldDropInventory)
+            if (!ev.Player.IsHost && ev.NewRole == RoleTypeId.Spectator && ev.Reason != SpawnReason.Destroyed && Events.Instance.Config.ShouldDropInventory)
                 ev.Player.Inventory.ServerDropEverything();
         }
 
