@@ -7,19 +7,15 @@
 
 namespace Exiled.API.Features.Items
 {
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Features.Pickups.Projectiles;
-
     using InventorySystem.Items;
     using InventorySystem.Items.Pickups;
     using InventorySystem.Items.ThrowableProjectiles;
-
+    using Pickups;
+    using Pickups.Projectiles;
     using UnityEngine;
 
     using BaseScp018Projectile = InventorySystem.Items.ThrowableProjectiles.Scp018Projectile;
-
     using Object = UnityEngine.Object;
-
     using Scp018Projectile = Pickups.Projectiles.Scp018Projectile;
 
     /// <summary>

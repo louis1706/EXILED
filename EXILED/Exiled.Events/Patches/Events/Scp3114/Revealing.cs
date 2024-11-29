@@ -11,13 +11,11 @@ namespace Exiled.Events.Patches.Events.Scp3114
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
+    using Attributes;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Scp3114;
-    using Exiled.Events.Handlers;
-
+    using Handlers;
     using HarmonyLib;
-
     using PlayerRoles.PlayableScps.Scp3114;
     using PlayerRoles.Subroutines;
 
@@ -63,7 +61,7 @@ namespace Exiled.Events.Patches.Events.Scp3114
                 new(OpCodes.Dup),
 
                 // Handlers.Scp3114.OnRevealing(ev);
-                new(OpCodes.Call, Method(typeof(Handlers.Scp3114), nameof(Handlers.Scp3114.OnRevealing))),
+                new(OpCodes.Call, Method(typeof(Scp3114), nameof(Scp3114.OnRevealing))),
 
                 // if (ev.IsAllowed)
                 //     goto continueLabel;
@@ -103,7 +101,7 @@ namespace Exiled.Events.Patches.Events.Scp3114
                 new(OpCodes.Newobj, GetDeclaredConstructors(typeof(RevealedEventArgs))[0]),
 
                 // Handlers.Scp3114.OnRevealed(ev);
-                new(OpCodes.Call, Method(typeof(Handlers.Scp3114), nameof(Handlers.Scp3114.OnRevealed))),
+                new(OpCodes.Call, Method(typeof(Scp3114), nameof(Scp3114.OnRevealed))),
             });
 
             for (int z = 0; z < newInstructions.Count; z++)
@@ -150,7 +148,7 @@ namespace Exiled.Events.Patches.Events.Scp3114
                 new(OpCodes.Dup),
 
                 // Handlers.Scp3114.OnRevealing(ev);
-                new(OpCodes.Call, Method(typeof(Handlers.Scp3114), nameof(Handlers.Scp3114.OnRevealing))),
+                new(OpCodes.Call, Method(typeof(Scp3114), nameof(Scp3114.OnRevealing))),
 
                 // if (!ev.IsAllowed)
                 //     return;
@@ -173,7 +171,7 @@ namespace Exiled.Events.Patches.Events.Scp3114
                 new(OpCodes.Newobj, GetDeclaredConstructors(typeof(RevealedEventArgs))[0]),
 
                 // Handlers.Scp3114.OnRevealed(ev);
-                new(OpCodes.Call, Method(typeof(Handlers.Scp3114), nameof(Handlers.Scp3114.OnRevealed))),
+                new(OpCodes.Call, Method(typeof(Scp3114), nameof(Scp3114.OnRevealed))),
             });
 
             newInstructions[newInstructions.Count - 1].WithLabels(retLabel);

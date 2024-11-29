@@ -9,7 +9,7 @@ namespace Exiled.Example.Events
 {
     using System.Linq;
 
-    using Exiled.API.Features;
+    using API.Features;
     using Exiled.Events.EventArgs.Map;
 
     /// <summary>

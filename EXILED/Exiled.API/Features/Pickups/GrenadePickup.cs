@@ -7,15 +7,13 @@
 
 namespace Exiled.API.Features.Pickups
 {
-    using Exiled.API.Enums;
-    using Exiled.API.Extensions;
-    using Exiled.API.Features.Pickups.Projectiles;
-    using Exiled.API.Interfaces;
-
+    using Enums;
+    using Extensions;
     using Footprinting;
-
+    using Interfaces;
     using InventorySystem.Items;
     using InventorySystem.Items.ThrowableProjectiles;
+    using Projectiles;
 
     /// <summary>
     /// A wrapper class for a high explosive grenade pickup.

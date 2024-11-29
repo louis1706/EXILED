@@ -29,17 +29,17 @@ namespace Exiled.Events.EventArgs.Player
         /// <param name="isAllowed">
         /// <inheritdoc cref="IsAllowed" />
         /// </param>
-        public ReloadingWeaponEventArgs(Player player, Firearm firearm, bool isAllowed = true)
+        public ReloadingWeaponEventArgs(Player player, Firearm firearm)
         {
             Firearm = firearm;
             Player = player;
-            IsAllowed = isAllowed;
+            Log.Debug($"Reloading Event! {IsAllowed}");
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether the weapon can be reloaded.
         /// </summary>
-        public bool IsAllowed { get; set; }
+        public bool IsAllowed { get; set; } = true;
 
         /// <summary>
         /// Gets the <see cref="API.Features.Items.Firearm" /> being reloaded.

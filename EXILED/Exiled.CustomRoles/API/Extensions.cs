@@ -13,10 +13,8 @@ namespace Exiled.CustomRoles.API
     using System.Linq;
 
     using Exiled.API.Features;
-    using Exiled.CustomRoles.API.Features;
-    using Exiled.CustomRoles.API.Features.Enums;
-
-    using Utils.NonAllocLINQ;
+    using Features;
+    using Features.Enums;
 
     /// <summary>
     /// A collection of API methods.

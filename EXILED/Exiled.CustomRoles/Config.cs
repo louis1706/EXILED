@@ -9,9 +9,9 @@ namespace Exiled.CustomRoles
 {
     using System.ComponentModel;
 
+    using API.Features;
     using Exiled.API.Features;
     using Exiled.API.Interfaces;
-    using Exiled.CustomRoles.API.Features;
 
     /// <summary>
     /// The plugin's config.

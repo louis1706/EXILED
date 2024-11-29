@@ -12,7 +12,7 @@ namespace Exiled.CustomRoles.API.Features.Parsers
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
 
-    using Exiled.CustomRoles.API.Features.Interfaces;
+    using Interfaces;
 
     using YamlDotNet.Core;
     using YamlDotNet.Core.Events;

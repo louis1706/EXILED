@@ -13,7 +13,7 @@ namespace Exiled.Events.Patches.Events.Player
     using API.Features;
     using API.Features.Pools;
 
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Player;
 
     using HarmonyLib;

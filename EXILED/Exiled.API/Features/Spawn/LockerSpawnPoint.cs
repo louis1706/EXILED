@@ -7,10 +7,9 @@
 namespace Exiled.API.Features.Spawn
 {
     using System;
-    using System.Linq;
 
-    using Exiled.API.Enums;
-    using Exiled.API.Features.Lockers;
+    using Enums;
+    using Lockers;
     using UnityEngine;
     using YamlDotNet.Serialization;
 

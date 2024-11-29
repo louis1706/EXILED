@@ -9,8 +9,8 @@ namespace Exiled.Events.EventArgs.Map
 {
     using Exiled.API.Features.Doors;
     using Exiled.API.Features.Pickups;
-    using Exiled.Events.EventArgs.Interfaces;
     using Interactables.Interobjects.DoorUtils;
+    using Interfaces;
     using InventorySystem.Items.Pickups;
 
     /// <summary>

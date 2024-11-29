@@ -12,9 +12,9 @@ namespace Exiled.Events.Patches.Events.Map
 
     using API.Features.DamageHandlers;
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Map;
-    using Exiled.Events.Handlers;
+    using Handlers;
 
     using HarmonyLib;
 

@@ -11,8 +11,8 @@ namespace Exiled.Events.Features
     using System.Collections.Generic;
     using System.Linq;
 
+    using EventArgs.Interfaces;
     using Exiled.API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
     using MEC;
 
     /// <summary>

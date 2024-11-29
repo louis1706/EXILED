@@ -12,7 +12,7 @@ namespace Exiled.API.Features
     using System.Linq;
 
     using Enums;
-    using Exiled.API.Interfaces;
+    using Interfaces;
 
     using MapGeneration.Distributors;
 

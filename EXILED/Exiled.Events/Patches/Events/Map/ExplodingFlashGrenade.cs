@@ -13,8 +13,8 @@ namespace Exiled.Events.Patches.Events.Map
     using API.Features;
     using API.Features.Pools;
     using Exiled.Events.EventArgs.Map;
-    using Exiled.Events.Patches.Generic;
     using Footprinting;
+    using Generic;
     using HarmonyLib;
     using InventorySystem.Items.ThrowableProjectiles;
     using UnityEngine;

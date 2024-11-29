@@ -12,9 +12,9 @@ namespace Exiled.API.Features.Core
     using System.Linq;
     using System.Reflection;
 
-    using Exiled.API.Features.Core.Attributes;
+    using Attributes;
 
-    using Exiled.API.Features.Pools;
+    using Pools;
 
     using UnityEngine;
 

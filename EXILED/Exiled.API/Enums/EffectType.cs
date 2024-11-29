@@ -9,7 +9,7 @@ namespace Exiled.API.Enums
 {
     using System;
 
-    using Exiled.API.Extensions;
+    using Extensions;
 
     /// <summary>
     /// Status effects as enum.

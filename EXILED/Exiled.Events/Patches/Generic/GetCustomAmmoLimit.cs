@@ -9,7 +9,7 @@ namespace Exiled.Events.Patches.Generic
 {
     using System;
 
-    using Exiled.API.Extensions;
+    using API.Extensions;
     using Exiled.API.Features;
     using HarmonyLib;
     using InventorySystem.Configs;

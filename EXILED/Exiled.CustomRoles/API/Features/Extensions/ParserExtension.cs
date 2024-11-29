@@ -9,7 +9,7 @@ namespace Exiled.CustomRoles.API.Features.Extensions
 {
     using System;
 
-    using Exiled.CustomRoles.API.Features.Parsers;
+    using Parsers;
 
     using YamlDotNet.Core;
     using YamlDotNet.Core.Events;

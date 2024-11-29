@@ -9,13 +9,12 @@ namespace Exiled.CustomRoles
 {
     using System.Collections.Generic;
 
+    using API.Features;
+    using API.Features.Parsers;
+    using Events;
     using Exiled.API.Features;
-    using Exiled.CustomRoles.API.Features;
-    using Exiled.CustomRoles.API.Features.Parsers;
-    using Exiled.CustomRoles.Events;
-    using Exiled.Loader;
-    using Exiled.Loader.Features.Configs.CustomConverters;
-
+    using Loader;
+    using Loader.Features.Configs.CustomConverters;
     using YamlDotNet.Serialization;
     using YamlDotNet.Serialization.NamingConventions;
     using YamlDotNet.Serialization.NodeDeserializers;

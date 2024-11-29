@@ -12,7 +12,7 @@ namespace Exiled.CustomItems.API
 
     using Exiled.API.Features;
     using Exiled.API.Features.Items;
-    using Exiled.CustomItems.API.Features;
+    using Features;
 
     /// <summary>
     /// A collection of API methods.

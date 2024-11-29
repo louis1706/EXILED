@@ -9,8 +9,8 @@ namespace Exiled.CustomItems.API.EventArgs
 {
     using Exiled.API.Features;
     using Exiled.API.Features.Items;
-    using Exiled.CustomItems.API.Features;
     using Exiled.Events.EventArgs.Player;
+    using Features;
 
     /// <summary>
     /// Contains all information of a <see cref="CustomItem"/> before handcuffing a <see cref="Player"/>.

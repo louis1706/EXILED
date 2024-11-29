@@ -7,7 +7,7 @@
 
 namespace Exiled.API.Extensions
 {
-    using Exiled.API.Enums;
+    using Enums;
 
     /// <summary>
     /// A set of extensions for <see cref="DoorType"/>.

@@ -12,7 +12,7 @@ namespace Exiled.Events.Patches.Events.Map
 
     using API.Features;
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Map;
 
     using Footprinting;

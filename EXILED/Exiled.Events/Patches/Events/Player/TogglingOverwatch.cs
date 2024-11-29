@@ -11,10 +11,9 @@ namespace Exiled.Events.Patches.Events.Player
     using System.Reflection.Emit;
 
     using API.Features.Pools;
+    using Attributes;
     using CommandSystem.Commands.RemoteAdmin;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Player;
-
     using HarmonyLib;
 
     using static HarmonyLib.AccessTools;

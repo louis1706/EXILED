@@ -7,7 +7,7 @@
 
 namespace Exiled.API.Features.Items
 {
-    using Exiled.API.Interfaces;
+    using Interfaces;
 
     using InventorySystem.Items.Usables;
     using InventorySystem.Items.Usables.Scp1576;

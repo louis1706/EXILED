@@ -10,13 +10,11 @@ namespace Exiled.Events.Patches.Events.Scp0492
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
+    using Attributes;
     using Exiled.API.Features;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Scp0492;
-
     using HarmonyLib;
-
     using PlayerRoles.PlayableScps.Scp049.Zombies;
 
     using static HarmonyLib.AccessTools;

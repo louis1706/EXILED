@@ -9,7 +9,7 @@ namespace Exiled.CustomRoles.API.Features.Interfaces
 {
     using System;
 
-    using Exiled.CustomRoles.API.Features.Parsers;
+    using Parsers;
 
     /// <summary>
     /// A <see cref="Type"/> discriminator.

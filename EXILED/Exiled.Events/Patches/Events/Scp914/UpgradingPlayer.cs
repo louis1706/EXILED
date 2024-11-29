@@ -12,7 +12,7 @@ namespace Exiled.Events.Patches.Events.Scp914
 
     using API.Features;
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Scp914;
     using global::Scp914;
     using HarmonyLib;

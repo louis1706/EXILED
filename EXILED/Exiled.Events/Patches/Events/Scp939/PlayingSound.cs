@@ -10,9 +10,9 @@ namespace Exiled.Events.Patches.Events.Scp939
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Scp939;
-    using Exiled.Events.Handlers;
+    using Handlers;
 
     using HarmonyLib;
     using Mirror;
@@ -105,7 +105,7 @@ namespace Exiled.Events.Patches.Events.Scp939
 
                 // ServerSendRpc(EnvironmentalMimicry);
                 new(OpCodes.Ldarg_0),
-                new(OpCodes.Call, Method(typeof(PlayingSound), nameof(PlayingSound.ServerSendRpc))),
+                new(OpCodes.Call, Method(typeof(PlayingSound), nameof(ServerSendRpc))),
 
                 // ret [IL_ret]
                 new CodeInstruction(OpCodes.Ret).WithLabels(ret),

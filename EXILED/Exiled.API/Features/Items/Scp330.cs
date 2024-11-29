@@ -9,14 +9,12 @@ namespace Exiled.API.Features.Items
 {
     using System.Collections.Generic;
 
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Interfaces;
-
+    using Interfaces;
     using InventorySystem;
     using InventorySystem.Items;
     using InventorySystem.Items.Pickups;
     using InventorySystem.Items.Usables.Scp330;
-
+    using Pickups;
     using UnityEngine;
 
     using Object = UnityEngine.Object;

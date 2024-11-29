@@ -9,7 +9,7 @@ namespace Exiled.API.Features.DynamicEvents
 {
     using System;
 
-    using Exiled.API.Features.Core;
+    using Core;
 
     /// <summary>
     /// The <see cref="DynamicDelegate"/> allows user-defined delegate routes bound to an <see cref="object"/> reference.

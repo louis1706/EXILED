@@ -9,7 +9,7 @@ namespace Exiled.API.Features.Pickups
 {
     using System.Collections.Generic;
 
-    using Exiled.API.Interfaces;
+    using Interfaces;
 
     using InventorySystem.Items.Usables.Scp330;
 

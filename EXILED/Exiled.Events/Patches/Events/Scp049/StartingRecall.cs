@@ -11,7 +11,7 @@ namespace Exiled.Events.Patches.Events.Scp049
 
     using API.Features;
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Scp049;
     using HarmonyLib;
     using PlayerRoles.PlayableScps.Scp049;
@@ -38,7 +38,7 @@ namespace Exiled.Events.Patches.Events.Scp049
                 // Player player = Player.Get(this.Owner);
                 new(OpCodes.Ldarg_0),
                 new(OpCodes.Callvirt, PropertyGetter(typeof(Scp049ResurrectAbility), nameof(Scp049ResurrectAbility.Owner))),
-                new(OpCodes.Call, Method(typeof(Exiled.API.Features.Player), nameof(Exiled.API.Features.Player.Get), new[] { typeof(ReferenceHub) })),
+                new(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ReferenceHub) })),
 
                 // Ragdoll doll = Ragdoll.Get(ragdoll);
                 new(OpCodes.Ldarg_1),

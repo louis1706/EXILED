@@ -7,14 +7,12 @@
 
 namespace Exiled.API.Features.Items
 {
-    using Exiled.API.Extensions;
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Interfaces;
-
+    using Extensions;
+    using Interfaces;
     using InventorySystem;
     using InventorySystem.Items.Pickups;
     using InventorySystem.Items.Usables.Scp244;
-
+    using Pickups;
     using UnityEngine;
 
     /// <summary>

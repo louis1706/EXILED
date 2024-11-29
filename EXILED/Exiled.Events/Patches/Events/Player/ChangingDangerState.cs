@@ -13,12 +13,12 @@ namespace Exiled.Events.Patches.Events.Player
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
+    using API.Enums;
+    using API.Extensions;
+    using Attributes;
     using CustomPlayerEffects.Danger;
-    using Exiled.API.Enums;
-    using Exiled.API.Extensions;
     using Exiled.API.Features;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Player;
     using HarmonyLib;
 

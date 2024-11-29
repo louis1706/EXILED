@@ -11,12 +11,8 @@ namespace Exiled.Events.Patches.Fixes
     using System.Reflection.Emit;
 
     using API.Features.Pools;
-    using Footprinting;
     using HarmonyLib;
     using Interactables.Interobjects.DoorUtils;
-    using InventorySystem;
-    using InventorySystem.Items.Firearms.Ammo;
-    using InventorySystem.Items.Pickups;
 
     using static HarmonyLib.AccessTools;
 

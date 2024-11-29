@@ -11,15 +11,11 @@ namespace Exiled.CustomItems.Commands
     using System.Collections.Generic;
     using System.Linq;
 
+    using API.Features;
     using CommandSystem;
-
     using Exiled.API.Features;
-    using Exiled.CustomItems.API.Features;
-    using Exiled.Permissions.Extensions;
-
+    using Permissions.Extensions;
     using RemoteAdmin;
-    using UnityStandardAssets.Effects;
-    using Utils;
 
     /// <summary>
     /// The command to give a player an item.

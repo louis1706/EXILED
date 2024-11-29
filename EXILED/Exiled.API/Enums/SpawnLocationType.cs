@@ -6,8 +6,6 @@
 // -----------------------------------------------------------------------
 namespace Exiled.API.Enums
 {
-    using System;
-
     /// <summary>
     /// All of the valid spawn location types.
     /// </summary>

@@ -10,8 +10,8 @@ namespace Exiled.API.Features.Roles
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Enums;
-    using Exiled.API.Features.Doors;
+    using Doors;
+    using Enums;
     using Interactables.Interobjects.DoorUtils;
     using MapGeneration;
     using Mirror;

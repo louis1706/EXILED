@@ -10,8 +10,8 @@ namespace Exiled.Loader.GHApi
     using System.Net.Http;
     using System.Threading.Tasks;
 
-    using Exiled.Loader.GHApi.Models;
-    using Exiled.Loader.GHApi.Settings;
+    using Models;
+    using Settings;
 
     /// <summary>
     /// A set of extensions to be used along with https clients.

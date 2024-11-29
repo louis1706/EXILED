@@ -9,7 +9,7 @@ namespace Exiled.API.Features.Doors
 {
     using System.Collections.Generic;
 
-    using Exiled.API.Interfaces;
+    using Interfaces;
 
     using Basegame = Interactables.Interobjects.BasicNonInteractableDoor;
 

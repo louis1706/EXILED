@@ -19,8 +19,6 @@ namespace Exiled.CustomItems.API.Features
 
     using InventorySystem.Items.Firearms.Attachments;
     using InventorySystem.Items.Firearms.Attachments.Components;
-    using InventorySystem.Items.Firearms.BasicMessages;
-
     using UnityEngine;
 
     using Firearm = Exiled.API.Features.Items.Firearm;

@@ -11,10 +11,10 @@ namespace Exiled.Events.Patches.Events.Server
     using System.Reflection.Emit;
 
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Player;
     using Exiled.Events.EventArgs.Server;
-    using Exiled.Events.Handlers;
+    using Handlers;
 
     using HarmonyLib;
 

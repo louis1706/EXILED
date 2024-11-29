@@ -12,9 +12,8 @@ namespace Exiled.API.Features.Core.Generic
     using System.Linq;
     using System.Reflection;
 
-    using Exiled.API.Features.Pools;
-
     using LiteNetLib.Utils;
+    using Pools;
 
     /// <summary>
     /// A class which allows <see langword="unmanaged"/> data implicit conversions.

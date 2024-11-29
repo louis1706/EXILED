@@ -12,8 +12,8 @@ namespace Exiled.API.Features
     using System.Linq;
 
     using Enums;
-    using Exiled.API.Extensions;
-    using Exiled.API.Interfaces;
+    using Extensions;
+    using Interfaces;
     using MapGeneration;
     using PlayerRoles.PlayableScps.Scp079.Cameras;
     using UnityEngine;

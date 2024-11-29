@@ -11,12 +11,11 @@ namespace Exiled.API.Features.Core
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Features.Core.Interfaces;
-    using Exiled.API.Features.DynamicEvents;
-    using Exiled.API.Features.Pools;
+    using DynamicEvents;
     using Exiled.API.Interfaces;
+    using Interfaces;
     using MEC;
-
+    using Pools;
     using UnityEngine;
 
     /// <summary>

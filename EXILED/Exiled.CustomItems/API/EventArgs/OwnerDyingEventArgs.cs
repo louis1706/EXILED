@@ -8,9 +8,9 @@
 namespace Exiled.CustomItems.API.EventArgs
 {
     using Exiled.API.Features;
-    using Exiled.CustomItems.API.Features;
     using Exiled.Events.EventArgs.Interfaces;
     using Exiled.Events.EventArgs.Player;
+    using Features;
 
     using Item = Exiled.API.Features.Items.Item;
     using Player = Exiled.API.Features.Player;

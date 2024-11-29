@@ -13,13 +13,10 @@ namespace Exiled.Events.EventArgs.Map
     using Exiled.API.Features.Pickups;
     using Exiled.API.Features.Pickups.Projectiles;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.EventArgs.Interfaces;
-    using Exiled.Events.Patches.Generic;
-
     using Footprinting;
-
+    using Interfaces;
     using InventorySystem.Items.ThrowableProjectiles;
-
+    using Patches.Generic;
     using UnityEngine;
 
     /// <summary>

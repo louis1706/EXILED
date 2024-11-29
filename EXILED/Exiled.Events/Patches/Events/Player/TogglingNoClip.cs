@@ -12,17 +12,12 @@ namespace Exiled.Events.Patches.Events.Player
 
     using API.Features;
     using API.Features.Pools;
-
+    using Attributes;
     using Exiled.API.Features.Roles;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Player;
-
     using HarmonyLib;
-
     using PlayerRoles.FirstPersonControl;
     using PlayerRoles.FirstPersonControl.NetworkMessages;
-
-    using static HarmonyLib.AccessTools;
 
     /// <summary>
     /// patches <see cref="FpcNoclip.IsActive" /> to add the
@@ -52,38 +47,38 @@ namespace Exiled.Events.Patches.Events.Player
                 {
                     // Player.Get(hub)
                     new CodeInstruction(OpCodes.Ldloc_0).WithLabels(checkLabel),
-                    new(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ReferenceHub) })),
+                    new(OpCodes.Call, AccessTools.Method(typeof(Player), nameof(Player.Get), new[] { typeof(ReferenceHub) })),
                     new(OpCodes.Dup),
 
                     // GetInvertedNoClipStatus(player)
-                    new(OpCodes.Call, Method(typeof(TogglingNoClip), nameof(GetInvertedNoClipStatus))),
+                    new(OpCodes.Call, AccessTools.Method(typeof(TogglingNoClip), nameof(GetInvertedNoClipStatus))),
 
                     // FpcNoclip.IsPermitted(hub)
                     new(OpCodes.Ldloc_0),
-                    new(OpCodes.Call, Method(typeof(FpcNoclip), nameof(FpcNoclip.IsPermitted))),
+                    new(OpCodes.Call, AccessTools.Method(typeof(FpcNoclip), nameof(FpcNoclip.IsPermitted))),
 
                     // TogglingNoClipEventArgs ev = new(player, GetInvertedNoClipStatus(player), FpcNoclip.IsPermitted(hub));
-                    new(OpCodes.Newobj, GetDeclaredConstructors(typeof(TogglingNoClipEventArgs))[0]),
+                    new(OpCodes.Newobj, AccessTools.GetDeclaredConstructors(typeof(TogglingNoClipEventArgs))[0]),
                     new(OpCodes.Dup),
                     new(OpCodes.Dup),
                     new(OpCodes.Stloc_S, ev),
 
                     // Handlers.Player.OnTogglingNoClip(ev);
-                    new(OpCodes.Call, Method(typeof(Handlers.Player), nameof(Handlers.Player.OnTogglingNoClip))),
+                    new(OpCodes.Call, AccessTools.Method(typeof(Handlers.Player), nameof(Handlers.Player.OnTogglingNoClip))),
 
                     // if (!ev.IsAllowed)
                     //    return;
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(TogglingNoClipEventArgs), nameof(TogglingNoClipEventArgs.IsAllowed))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(TogglingNoClipEventArgs), nameof(TogglingNoClipEventArgs.IsAllowed))),
                     new(OpCodes.Brfalse_S, retLabel),
 
                     // if (ev.IsEnabled == GetNoClipStatus)
                     //    return;
                     // Note: If IsEnabled = true, and the player already has noclip, or IsEnabled = false and the player already doesn't have noclip, we return, since base-game code inverts the status.
                     new(OpCodes.Ldloc_S, ev),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(TogglingNoClipEventArgs), nameof(TogglingNoClipEventArgs.IsEnabled))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(TogglingNoClipEventArgs), nameof(TogglingNoClipEventArgs.IsEnabled))),
                     new(OpCodes.Ldloc_S, ev),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(TogglingNoClipEventArgs), nameof(TogglingNoClipEventArgs.Player))),
-                    new(OpCodes.Call, Method(typeof(TogglingNoClip), nameof(GetNoClipStatus))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(TogglingNoClipEventArgs), nameof(TogglingNoClipEventArgs.Player))),
+                    new(OpCodes.Call, AccessTools.Method(typeof(TogglingNoClip), nameof(GetNoClipStatus))),
                     new(OpCodes.Beq_S, retLabel),
                 });
 

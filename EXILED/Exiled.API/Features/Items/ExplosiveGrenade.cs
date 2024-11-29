@@ -8,13 +8,11 @@
 namespace Exiled.API.Features.Items
 {
     using Enums;
-
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Features.Pickups.Projectiles;
-
     using InventorySystem.Items;
     using InventorySystem.Items.Pickups;
     using InventorySystem.Items.ThrowableProjectiles;
+    using Pickups;
+    using Pickups.Projectiles;
     using UnityEngine;
 
     using Object = UnityEngine.Object;

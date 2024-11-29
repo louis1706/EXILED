@@ -11,10 +11,10 @@ namespace Exiled.API.Features.Hazards
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Enums;
-    using Exiled.API.Features.Core;
-    using Exiled.API.Interfaces;
+    using Core;
+    using Enums;
     using global::Hazards;
+    using Interfaces;
     using PlayerRoles.PlayableScps.Scp939;
     using UnityEngine;
 

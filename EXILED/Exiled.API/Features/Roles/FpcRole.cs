@@ -10,7 +10,6 @@ namespace Exiled.API.Features.Roles
     using System.Collections.Generic;
     using System.Reflection;
 
-    using Exiled.API.Features.Pools;
     using HarmonyLib;
     using PlayerRoles;
     using PlayerRoles.FirstPersonControl;
@@ -19,6 +18,7 @@ namespace Exiled.API.Features.Roles
     using PlayerRoles.Visibility;
     using PlayerRoles.Voice;
     using PlayerStatsSystem;
+    using Pools;
     using RelativePositioning;
     using UnityEngine;
 

@@ -10,12 +10,10 @@ namespace Exiled.Events.EventArgs.Item
     using System.Collections.Generic;
     using System.Linq;
 
+    using API.Enums;
+    using API.Extensions;
     using API.Features;
     using API.Structs;
-
-    using Exiled.API.Enums;
-    using Exiled.API.Extensions;
-
     using Interfaces;
 
     /// <summary>

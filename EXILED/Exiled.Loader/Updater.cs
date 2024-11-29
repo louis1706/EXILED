@@ -18,10 +18,10 @@ namespace Exiled.Loader
     using System.Text;
 
     using Exiled.API.Features;
-    using Exiled.Loader.GHApi;
     using Exiled.Loader.GHApi.Models;
-    using Exiled.Loader.GHApi.Settings;
-    using Exiled.Loader.Models;
+    using GHApi;
+    using GHApi.Settings;
+    using Models;
     using ServerOutput;
 
 #pragma warning disable SA1310 // Field names should not contain underscore

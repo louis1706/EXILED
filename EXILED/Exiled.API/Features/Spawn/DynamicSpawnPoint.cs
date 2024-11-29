@@ -9,7 +9,7 @@ namespace Exiled.API.Features.Spawn
 {
     using System;
 
-    using Exiled.API.Enums;
+    using Enums;
 
     using Extensions;
 

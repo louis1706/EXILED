@@ -7,8 +7,8 @@
 
 namespace Exiled.Events.EventArgs.Player
 {
-    using Exiled.API.Enums;
-    using Exiled.Events.EventArgs.Interfaces;
+    using API.Enums;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information when checking if a player has a reserved slot.

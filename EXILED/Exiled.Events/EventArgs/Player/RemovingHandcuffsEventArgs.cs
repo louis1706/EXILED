@@ -9,7 +9,7 @@ namespace Exiled.Events.EventArgs.Player
 {
     using API.Enums;
     using API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before freeing a handcuffed player.

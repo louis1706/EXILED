@@ -11,15 +11,12 @@ namespace Exiled.CustomRoles.Commands
     using System.Collections.Generic;
     using System.Linq;
 
+    using API.Features;
     using CommandSystem;
-
     using Exiled.API.Features;
     using Exiled.API.Features.Pools;
-    using Exiled.CustomRoles.API.Features;
-    using Exiled.Permissions.Extensions;
-
+    using Permissions.Extensions;
     using RemoteAdmin;
-    using Utils;
 
     /// <summary>
     /// The command to give a role to player(s).

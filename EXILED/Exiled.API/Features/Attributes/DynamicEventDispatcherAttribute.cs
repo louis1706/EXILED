@@ -9,7 +9,7 @@ namespace Exiled.API.Features.Attributes
 {
     using System;
 
-    using Exiled.API.Features.DynamicEvents;
+    using DynamicEvents;
 
     /// <summary>
     /// An attribute to easily manage <see cref="DynamicEventDispatcher"/> initialization.

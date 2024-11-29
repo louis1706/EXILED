@@ -10,7 +10,7 @@ namespace Exiled.Events.Handlers
 #pragma warning disable SA1623 // Property summary documentation should match accessors
 
     using Exiled.Events.EventArgs.Scp096;
-    using Exiled.Events.Features;
+    using Features;
 
     /// <summary>
     /// SCP-096 related events.

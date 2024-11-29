@@ -9,14 +9,13 @@ namespace Exiled.Events.Handlers
 {
     using System.Collections.Generic;
 
-    using Respawning;
     using Respawning.Waves;
 
 #pragma warning disable SA1623 // Property summary documentation should match accessors
 
     using Exiled.Events.EventArgs.Player;
     using Exiled.Events.EventArgs.Server;
-    using Exiled.Events.Features;
+    using Features;
 
     /// <summary>
     /// Server related events.

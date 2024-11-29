@@ -11,7 +11,7 @@ namespace Exiled.Events.Handlers
 
     using Exiled.Events.EventArgs.Item;
 
-    using Exiled.Events.Features;
+    using Features;
 
     /// <summary>
     /// Item related events.

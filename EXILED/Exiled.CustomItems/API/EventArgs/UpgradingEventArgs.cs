@@ -7,7 +7,7 @@
 
 namespace Exiled.CustomItems.API.EventArgs
 {
-    using Exiled.CustomItems.API.Features;
+    using Features;
 
     using InventorySystem.Items.Pickups;
 

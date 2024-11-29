@@ -10,12 +10,10 @@ namespace Exiled.Events.Patches.Events.Server
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
+    using Attributes;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Server;
     using HarmonyLib;
-
-    using static HarmonyLib.AccessTools;
 
     /// <summary>
     /// Patches <see cref="BanHandler.RemoveBan"/>
@@ -46,24 +44,24 @@ namespace Exiled.Events.Patches.Events.Server
                 new(OpCodes.Ldc_I4_1),
 
                 // UnbanningEventArgs ev = new(string, BanHandler.BanType, true);
-                new(OpCodes.Newobj, GetDeclaredConstructors(typeof(UnbanningEventArgs))[0]),
+                new(OpCodes.Newobj, AccessTools.GetDeclaredConstructors(typeof(UnbanningEventArgs))[0]),
                 new(OpCodes.Dup),
                 new(OpCodes.Dup),
                 new(OpCodes.Stloc_S, ev.LocalIndex),
 
                 // Handlers.Server.OnUnbanning(ev);
-                new(OpCodes.Call, Method(typeof(Handlers.Server), nameof(Handlers.Server.OnUnbanning))),
+                new(OpCodes.Call, AccessTools.Method(typeof(Handlers.Server), nameof(Handlers.Server.OnUnbanning))),
 
                 // if (!ev.IsAllowed)
                 //    return;
-                new(OpCodes.Callvirt, PropertyGetter(typeof(UnbanningEventArgs), nameof(UnbanningEventArgs.IsAllowed))),
+                new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(UnbanningEventArgs), nameof(UnbanningEventArgs.IsAllowed))),
                 new(OpCodes.Brtrue_S, continueLabel),
 
                 new(OpCodes.Ret),
 
                 // id = ev.TargetId;
                 new CodeInstruction(OpCodes.Ldloc_S, ev.LocalIndex).WithLabels(continueLabel),
-                new(OpCodes.Callvirt, PropertyGetter(typeof(UnbanningEventArgs), nameof(UnbanningEventArgs.TargetId))),
+                new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(UnbanningEventArgs), nameof(UnbanningEventArgs.TargetId))),
                 new(OpCodes.Starg_S, 0),
             });
 
@@ -76,10 +74,10 @@ namespace Exiled.Events.Patches.Events.Server
                 new(OpCodes.Ldarg_1),
 
                 // UnbannedEventArgs ev2 = new(string, BanHandler.BanType);
-                new(OpCodes.Newobj, GetDeclaredConstructors(typeof(UnbannedEventArgs))[0]),
+                new(OpCodes.Newobj, AccessTools.GetDeclaredConstructors(typeof(UnbannedEventArgs))[0]),
 
                 // Handlers.Server.OnUnbanned(ev2);
-                new(OpCodes.Call, Method(typeof(Handlers.Server), nameof(Handlers.Server.OnUnbanned))),
+                new(OpCodes.Call, AccessTools.Method(typeof(Handlers.Server), nameof(Handlers.Server.OnUnbanned))),
             });
 
             for (int z = 0; z < newInstructions.Count; z++)

@@ -9,7 +9,7 @@ namespace Exiled.Events.EventArgs.Scp096
 {
     using API.Features;
     using Exiled.API.Features.Roles;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before SCP-096 calms down.

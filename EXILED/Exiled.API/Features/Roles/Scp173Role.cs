@@ -10,7 +10,7 @@ namespace Exiled.API.Features.Roles
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Features.Hazards;
+    using Hazards;
     using Mirror;
     using PlayerRoles;
     using PlayerRoles.PlayableScps;

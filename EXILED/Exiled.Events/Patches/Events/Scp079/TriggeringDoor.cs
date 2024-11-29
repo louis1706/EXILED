@@ -11,11 +11,10 @@ namespace Exiled.Events.Patches.Events.Scp079
     using System.Reflection.Emit;
 
     using API.Features.Pools;
+    using Attributes;
     using Exiled.API.Features.Doors;
-
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Scp079;
-    using Exiled.Events.Handlers;
+    using Handlers;
     using HarmonyLib;
     using Interactables.Interobjects.DoorUtils;
     using PlayerRoles.PlayableScps.Scp079;

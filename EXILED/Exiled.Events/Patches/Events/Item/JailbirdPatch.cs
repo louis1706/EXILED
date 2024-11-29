@@ -10,7 +10,7 @@ namespace Exiled.Events.Patches.Events.Item
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Item;
     using Handlers;
     using HarmonyLib;

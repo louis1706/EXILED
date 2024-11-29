@@ -10,13 +10,11 @@ namespace Exiled.Events.Patches.Events.Scp3114
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
+    using Attributes;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Scp3114;
-    using Exiled.Events.Handlers;
-
+    using Handlers;
     using HarmonyLib;
-
     using PlayerRoles.PlayableScps.Scp3114;
 
     using static HarmonyLib.AccessTools;
@@ -59,7 +57,7 @@ namespace Exiled.Events.Patches.Events.Scp3114
                 new(OpCodes.Stloc_S, ev.LocalIndex),
 
                 // Handlers.Scp3114.OnVoiceLines(ev);
-                new(OpCodes.Call, Method(typeof(Handlers.Scp3114), nameof(Handlers.Scp3114.OnVoiceLines))),
+                new(OpCodes.Call, Method(typeof(Scp3114), nameof(Scp3114.OnVoiceLines))),
 
                 // if(!ev.IsAllowed)
                 //     return;

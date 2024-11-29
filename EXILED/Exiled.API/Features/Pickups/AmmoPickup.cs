@@ -7,9 +7,9 @@
 
 namespace Exiled.API.Features.Pickups
 {
-    using Exiled.API.Enums;
-    using Exiled.API.Extensions;
-    using Exiled.API.Interfaces;
+    using Enums;
+    using Extensions;
+    using Interfaces;
 
     using BaseAmmo = InventorySystem.Items.Firearms.Ammo.AmmoPickup;
 

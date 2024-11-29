@@ -11,7 +11,7 @@ namespace Exiled.API.Features.DynamicEvents
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Features.Core;
+    using Core;
 
     /// <summary>
     /// The <see cref="DynamicEventDispatcher"/>'s generic version which accepts a type parameter.

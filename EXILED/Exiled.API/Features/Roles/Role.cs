@@ -9,13 +9,13 @@ namespace Exiled.API.Features.Roles
 {
     using System;
 
+    using Core;
     using Enums;
-    using Exiled.API.Features.Core;
-    using Exiled.API.Features.Spawn;
-    using Exiled.API.Interfaces;
     using Extensions;
+    using Interfaces;
     using PlayerRoles;
     using PlayerRoles.PlayableScps.Scp049.Zombies;
+    using Spawn;
     using UnityEngine;
 
     using DestroyedGameRole = PlayerRoles.DestroyedRole;

@@ -13,12 +13,6 @@ namespace Exiled.Events.EventArgs.Player
 
     using Interfaces;
 
-    using InventorySystem.Items.Firearms.BasicMessages;
-
-    using RelativePositioning;
-
-    using UnityEngine;
-
     using BaseFirearm = InventorySystem.Items.Firearms.Firearm;
 
     /// <summary>

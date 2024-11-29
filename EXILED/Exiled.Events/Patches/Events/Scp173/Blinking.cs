@@ -13,7 +13,7 @@ namespace Exiled.Events.Patches.Events.Scp173
 
     using API.Features;
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Scp173;
 
     using HarmonyLib;

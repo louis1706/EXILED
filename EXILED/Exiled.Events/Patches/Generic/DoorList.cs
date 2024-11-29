@@ -53,7 +53,7 @@ namespace Exiled.Events.Patches.Generic
                 new CodeInstruction[]
                 {
                     new(OpCodes.Ldarg_0),
-                    new(OpCodes.Call, Method(typeof(DoorList), nameof(DoorList.InitDoor))),
+                    new(OpCodes.Call, Method(typeof(DoorList), nameof(InitDoor))),
                 });
 
             newInstructions[newInstructions.Count - 1].labels.Add(ret);

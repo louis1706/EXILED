@@ -13,7 +13,7 @@ namespace Exiled.Events.Commands.Hub.HubApi
     using System.Reflection;
     using System.Threading.Tasks;
 
-    using Exiled.Events.Commands.Hub.HubApi.Models;
+    using Models;
 
     using Utf8Json;
 

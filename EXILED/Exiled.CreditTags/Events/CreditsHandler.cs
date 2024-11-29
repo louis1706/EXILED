@@ -7,8 +7,8 @@
 
 namespace Exiled.CreditTags.Events
 {
-    using Exiled.CreditTags.Features;
     using Exiled.Events.EventArgs.Player;
+    using Features;
     using MEC;
 
     using static CreditTags;

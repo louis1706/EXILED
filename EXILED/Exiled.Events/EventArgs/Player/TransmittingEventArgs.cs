@@ -10,7 +10,7 @@ namespace Exiled.Events.EventArgs.Player
     using System;
 
     using Exiled.API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     using PlayerRoles.Voice;
 

@@ -9,7 +9,7 @@ namespace Exiled.API.Features.Roles
 {
     using System.Collections.Generic;
 
-    using Exiled.API.Enums;
+    using Enums;
     using PlayerRoles;
     using PlayerRoles.PlayableScps;
     using PlayerRoles.PlayableScps.HumeShield;
@@ -168,7 +168,7 @@ namespace Exiled.API.Features.Roles
         public bool SinkholeState
         {
             get => StalkAbility.StalkActive;
-            set => StalkAbility.StalkActive = value;
+            set => StalkAbility.ServerSetStalk(value);
         }
 
         /// <summary>

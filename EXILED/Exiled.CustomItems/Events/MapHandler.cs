@@ -7,8 +7,8 @@
 
 namespace Exiled.CustomItems.Events
 {
+    using API.Features;
     using Exiled.API.Features;
-    using Exiled.CustomItems.API.Features;
     using MEC;
 
     /// <summary>

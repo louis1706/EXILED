@@ -8,13 +8,12 @@
 namespace Exiled.Events.Patches.Events.Scp173
 {
     using System.Collections.Generic;
-    using System.Linq;
     using System.Reflection.Emit;
 
     using API.Features;
     using API.Features.Pools;
 
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Scp173;
 
     using HarmonyLib;

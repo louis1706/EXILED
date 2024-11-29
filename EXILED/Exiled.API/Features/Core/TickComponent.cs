@@ -11,9 +11,8 @@ namespace Exiled.API.Features.Core
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Features.Pools;
-
     using MEC;
+    using Pools;
 
     /// <summary>
     /// The component which handles tick related features.

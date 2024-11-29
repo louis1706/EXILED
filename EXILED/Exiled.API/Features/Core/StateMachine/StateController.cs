@@ -9,9 +9,9 @@ namespace Exiled.API.Features.Core.StateMachine
 {
     using System.Collections.Generic;
 
+    using Core;
+    using DynamicEvents;
     using Exiled.API.Features.Attributes;
-    using Exiled.API.Features.Core;
-    using Exiled.API.Features.DynamicEvents;
 
     /// <summary>
     /// The base controller which handles actors using in-context states.

@@ -7,8 +7,8 @@
 
 namespace Exiled.Events.EventArgs.Map
 {
-    using Exiled.API.Enums;
-    using Exiled.Events.EventArgs.Interfaces;
+    using API.Enums;
+    using Interfaces;
 
     using static LightContainmentZoneDecontamination.DecontaminationController.DecontaminationPhase;
 

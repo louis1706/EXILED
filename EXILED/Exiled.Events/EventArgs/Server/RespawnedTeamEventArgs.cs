@@ -11,8 +11,7 @@ namespace Exiled.Events.EventArgs.Server
     using System.Linq;
 
     using Exiled.API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
-    using Respawning;
+    using Interfaces;
     using Respawning.Waves;
 
     /// <summary>

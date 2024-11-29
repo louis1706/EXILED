@@ -9,10 +9,10 @@ namespace Exiled.CreditTags
 {
     using System.Collections.Generic;
 
+    using Enums;
+    using Events;
     using Exiled.API.Features;
-    using Exiled.CreditTags.Enums;
-    using Exiled.CreditTags.Events;
-    using Exiled.CreditTags.Features;
+    using Features;
 
     using PlayerEvents = Exiled.Events.Handlers.Player;
 

@@ -7,9 +7,9 @@
 
 namespace Exiled.CustomItems.Events
 {
+    using API.Features;
     using Exiled.API.Extensions;
     using Exiled.API.Features;
-    using Exiled.CustomItems.API.Features;
     using Exiled.Events.EventArgs.Player;
 
     /// <summary>

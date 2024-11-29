@@ -15,14 +15,14 @@ namespace Exiled.API.Features
 
     using CentralAuth;
     using CommandSystem;
-    using Exiled.API.Enums;
-    using Exiled.API.Features.Components;
-    using Exiled.API.Features.Roles;
+    using Components;
+    using Enums;
     using Footprinting;
     using GameCore;
     using MEC;
     using Mirror;
     using PlayerRoles;
+    using Roles;
     using UnityEngine;
 
     using Object = UnityEngine.Object;
@@ -166,7 +166,7 @@ namespace Exiled.API.Features
         [Obsolete("This method is marked as obsolete due to a bug that make player have the same id. Use Npc.Spawn(string) instead", true)]
         public static Npc Spawn(string name, RoleTypeId role, int id = 0, string userId = PlayerAuthenticationManager.DedicatedId, Vector3? position = null)
         {
-            GameObject newObject = UnityEngine.Object.Instantiate(Mirror.NetworkManager.singleton.playerPrefab);
+            GameObject newObject = Object.Instantiate(NetworkManager.singleton.playerPrefab);
 
             Npc npc = new(newObject)
             {
@@ -241,7 +241,7 @@ namespace Exiled.API.Features
         /// <returns>The <see cref="Npc"/> spawned.</returns>
         public static Npc Spawn(string name, RoleTypeId role = RoleTypeId.None, bool ignored = false, string userId = PlayerAuthenticationManager.DedicatedId, Vector3? position = null)
         {
-            GameObject newObject = UnityEngine.Object.Instantiate(Mirror.NetworkManager.singleton.playerPrefab);
+            GameObject newObject = Object.Instantiate(NetworkManager.singleton.playerPrefab);
 
             Npc npc = new(newObject)
             {

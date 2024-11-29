@@ -11,7 +11,7 @@ namespace Exiled.Events.Patches.Events.Item
     using System.Reflection.Emit;
 
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Item;
 
     using Handlers;

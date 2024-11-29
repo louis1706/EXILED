@@ -5,6 +5,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+#nullable enable
 namespace Exiled.API.Features.Items
 {
     using System;
@@ -13,24 +14,18 @@ namespace Exiled.API.Features.Items
 
     using CameraShaking;
     using Enums;
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Interfaces;
-    using Exiled.API.Structs;
     using Extensions;
-    using InventorySystem;
-    using InventorySystem.Items;
-    using InventorySystem.Items.Firearms;
+    using Interfaces;
     using InventorySystem.Items.Firearms.Attachments;
     using InventorySystem.Items.Firearms.Attachments.Components;
-    using InventorySystem.Items.Firearms.BasicMessages;
     using InventorySystem.Items.Firearms.Modules;
-    using InventorySystem.Items.Pickups;
     using MEC;
+    using Pickups;
+    using Structs;
     using UnityEngine;
 
     using BaseFirearm = InventorySystem.Items.Firearms.Firearm;
     using FirearmPickup = Pickups.FirearmPickup;
-    using Object = UnityEngine.Object;
 
     /// <summary>
     /// A wrapper class for <see cref="InventorySystem.Items.Firearms.Firearm"/>.
@@ -47,6 +42,8 @@ namespace Exiled.API.Features.Items
         /// </summary>
         internal static readonly Dictionary<FirearmType, uint> BaseCodesValue = new();
 
+        private IPrimaryAmmoContainerModule? ammoModule;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Firearm"/> class.
         /// </summary>
@@ -55,6 +52,12 @@ namespace Exiled.API.Features.Items
             : base(itemBase)
         {
             Base = itemBase;
+            foreach (ModuleBase mod in itemBase.Modules)
+            {
+                Log.Warn(mod.GetType());
+                if (mod is IPrimaryAmmoContainerModule primary)
+                    ammoModule = primary;
+            }
         }
 
         /// <summary>
@@ -64,7 +67,7 @@ namespace Exiled.API.Features.Items
         internal Firearm(ItemType type)
             : this((BaseFirearm)Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
         {
-            FlashlightAttachment flashlight = Attachments.OfType<FlashlightAttachment>().FirstOrDefault();
+            FlashlightAttachment? flashlight = Attachments.OfType<FlashlightAttachment>().FirstOrDefault();
 
             if (flashlight != null && flashlight.IsEnabled)
                 flashlight.ServerSendStatus(true);
@@ -86,7 +89,7 @@ namespace Exiled.API.Features.Items
                 IEnumerable<KeyValuePair<Player, Dictionary<FirearmType, AttachmentIdentifier[]>>> playerPreferences =
                     AttachmentsServerHandler.PlayerPreferences.Where(
                         kvp => kvp.Key is not null).Select(
-                        (KeyValuePair<ReferenceHub, Dictionary<ItemType, uint>> keyValuePair) =>
+                        keyValuePair =>
                         {
                             return new KeyValuePair<Player, Dictionary<FirearmType, AttachmentIdentifier[]>>(
                                 Player.Get(keyValuePair.Key),
@@ -109,8 +112,8 @@ namespace Exiled.API.Features.Items
         /// </summary>
         public int Ammo
         {
-            get => (Base.Modules[Array.IndexOf(Base.Modules, typeof(MagazineModule))] as MagazineModule).AmmoStored;
-            set => (Base.Modules[Array.IndexOf(Base.Modules, typeof(MagazineModule))] as MagazineModule).AmmoStored = value;
+            get => ammoModule?.AmmoStored ?? 0;
+            set => ammoModule?.ServerModifyAmmo(value);
         }
 
         /// <summary>
@@ -119,8 +122,21 @@ namespace Exiled.API.Features.Items
         /// <remarks>Disruptor can't be used for MaxAmmo.</remarks>
         public int MaxAmmo
         {
-            get => (Base.Modules[Array.IndexOf(Base.Modules, typeof(MagazineModule))] as MagazineModule).AmmoMax;
-            set => (Base.Modules[Array.IndexOf(Base.Modules, typeof(MagazineModule))] as MagazineModule)._defaultCapacity = value; // Synced?
+            get => ammoModule?.AmmoMax ?? 0;
+            set
+            {
+                switch (ammoModule)
+                {
+                    case null:
+                        throw new InvalidOperationException("Cannot change max ammo for non-ammo weapons.");
+                    case MagazineModule mag:
+                        mag._defaultCapacity = value;
+                        break;
+                    case CylinderAmmoModule:
+                        CylinderAmmoModule.ServerPrepareNewChambers(Serial, value);
+                        break;
+                }
+            }
         }
 
         /// <summary>
@@ -192,7 +208,7 @@ namespace Exiled.API.Features.Items
             get => Base.Modules.OfType<AutomaticActionModule>().FirstOrDefault()?.BaseFireRate ?? 0f;
             set
             {
-                AutomaticActionModule module = Base.Modules.OfType<AutomaticActionModule>().FirstOrDefault();
+                AutomaticActionModule? module = Base.Modules.OfType<AutomaticActionModule>().FirstOrDefault();
 
                 if (module != null)
                     module.BaseFireRate = value;
@@ -209,7 +225,7 @@ namespace Exiled.API.Features.Items
             get => Base.Modules.OfType<RecoilPatternModule>().FirstOrDefault()?.BaseRecoil ?? default;
             set
             {
-                RecoilPatternModule module = Base.Modules.OfType<RecoilPatternModule>().FirstOrDefault();
+                RecoilPatternModule? module = Base.Modules.OfType<RecoilPatternModule>().FirstOrDefault();
 
                 if (module != null)
                     module.BaseRecoil = value;
@@ -233,7 +249,7 @@ namespace Exiled.API.Features.Items
         /// </summary>
         /// <param name="type">The type of firearm to create.</param>
         /// <returns>The newly created firearm.</returns>
-        public static Firearm Create(FirearmType type)
+        public static Firearm? Create(FirearmType type)
             => type is not FirearmType.None ? (Firearm)Create(type.GetItemType()) : null;
 
         /// <summary>
@@ -339,7 +355,7 @@ namespace Exiled.API.Features.Items
         /// <param name="attachmentSlot">The <see cref="AttachmentSlot"/> to remove.</param>
         public void RemoveAttachment(AttachmentSlot attachmentSlot)
         {
-            Attachment firearmAttachment = Attachments.FirstOrDefault(att => (att.Slot == attachmentSlot) && att.IsEnabled);
+            Attachment? firearmAttachment = Attachments.FirstOrDefault(att => (att.Slot == attachmentSlot) && att.IsEnabled);
 
             if (firearmAttachment is null)
                 return;
@@ -392,21 +408,11 @@ namespace Exiled.API.Features.Items
         public void ClearAttachments() => Base.ApplyAttachmentsCode(BaseCode, true);
 
         /// <summary>
-        /// Creates the <see cref="Pickup"/> that based on this <see cref="Item"/>.
-        /// </summary>
-        /// <param name="position">The location to spawn the item.</param>
-        /// <param name="rotation">The rotation of the item.</param>
-        /// <param name="spawn">Whether the <see cref="Pickup"/> should be initially spawned.</param>
-        /// <returns>The created <see cref="Pickup"/>.</returns>
-        public override Pickup CreatePickup(Vector3 position, Quaternion rotation = default, bool spawn = true)
-            => base.CreatePickup(position, rotation, spawn); // TODO: Deleted this overide
-
-        /// <summary>
         /// Gets a <see cref="Attachment"/> of the specified <see cref="AttachmentIdentifier"/>.
         /// </summary>
         /// <param name="identifier">The <see cref="AttachmentIdentifier"/> to check.</param>
         /// <returns>The corresponding <see cref="Attachment"/>.</returns>
-        public Attachment GetAttachment(AttachmentIdentifier identifier) => Attachments.FirstOrDefault(attachment => attachment == identifier);
+        public Attachment? GetAttachment(AttachmentIdentifier identifier) => Attachments.FirstOrDefault(attachment => attachment == identifier);
 
         /// <summary>
         /// Tries to get a <see cref="Attachment"/> of the specified <see cref="AttachmentIdentifier"/>.
@@ -414,11 +420,11 @@ namespace Exiled.API.Features.Items
         /// <param name="identifier">The <see cref="AttachmentIdentifier"/> to check.</param>
         /// <param name="firearmAttachment">The corresponding <see cref="Attachment"/>.</param>
         /// <returns>A value indicating whether the firearm has the specified <see cref="Attachment"/>.</returns>
-        public bool TryGetAttachment(AttachmentIdentifier identifier, out Attachment firearmAttachment)
+        public bool TryGetAttachment(AttachmentIdentifier identifier, out Attachment? firearmAttachment)
         {
             firearmAttachment = default;
 
-            if (!Attachments.Any(attachment => attachment.Name == identifier.Name))
+            if (Attachments.All(attachment => attachment.Name != identifier.Name))
                 return false;
 
             firearmAttachment = GetAttachment(identifier);
@@ -432,7 +438,7 @@ namespace Exiled.API.Features.Items
         /// <param name="attachmentName">The <see cref="AttachmentName"/> to check.</param>
         /// <param name="firearmAttachment">The corresponding <see cref="Attachment"/>.</param>
         /// <returns>A value indicating whether the firearm has the specified <see cref="Attachment"/>.</returns>
-        public bool TryGetAttachment(AttachmentName attachmentName, out Attachment firearmAttachment)
+        public bool TryGetAttachment(AttachmentName attachmentName, out Attachment? firearmAttachment)
         {
             firearmAttachment = default;
 
@@ -570,11 +576,10 @@ namespace Exiled.API.Features.Items
         /// <param name="player">The <see cref="Player"/> of which must be cleared.</param>
         public void ClearPreferences(Player player)
         {
-            if (AttachmentsServerHandler.PlayerPreferences.TryGetValue(player.ReferenceHub, out Dictionary<ItemType, uint> dictionary))
-            {
-                foreach (KeyValuePair<ItemType, uint> kvp in dictionary)
-                    dictionary[kvp.Key] = kvp.Key.GetFirearmType().GetBaseCode();
-            }
+            if (!AttachmentsServerHandler.PlayerPreferences.TryGetValue(player.ReferenceHub, out Dictionary<ItemType, uint> dictionary))
+                return;
+            foreach (KeyValuePair<ItemType, uint> kvp in dictionary)
+                dictionary[kvp.Key] = kvp.Key.GetFirearmType().GetBaseCode();
         }
 
         /// <summary>
@@ -602,20 +607,22 @@ namespace Exiled.API.Features.Items
         /// <param name="emptyMagazine">Whether empty magazine should be loaded.</param>
         public void Reload(bool emptyMagazine = false)
         {
-            MagazineModule magazineModule = Base.Modules.OfType<MagazineModule>().FirstOrDefault();
-
-            if (magazineModule == null)
-                return;
-
-            magazineModule.ServerRemoveMagazine();
-
-            Timing.CallDelayed(0.1f, () =>
+            if (ammoModule is MagazineModule magazineModule)
             {
-                if (emptyMagazine)
-                    magazineModule.ServerInsertEmptyMagazine();
-                else
-                    magazineModule.ServerInsertMagazine();
-            });
+                magazineModule.ServerRemoveMagazine();
+
+                Timing.CallDelayed(0.1f, () =>
+                {
+                    if (emptyMagazine)
+                        magazineModule.ServerInsertEmptyMagazine();
+                    else
+                        magazineModule.ServerInsertMagazine();
+                });
+            }
+            else if (Base.TryGetModule(out AnimatorReloaderModuleBase animatorModule))
+            {
+                animatorModule.StartReloading();
+            }
         }
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace Exiled.API.Features.Toys
     using AdminToys;
 
     using Enums;
-    using Exiled.API.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// A wrapper class for <see cref="SpeakerToy"/>.

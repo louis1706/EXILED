@@ -15,8 +15,8 @@ namespace Exiled.API.Features
 
     using Enums;
 
-    using Exiled.API.Extensions;
-    using Exiled.API.Interfaces;
+    using Extensions;
+    using Interfaces;
 
     using Mirror;
 
@@ -394,7 +394,7 @@ namespace Exiled.API.Features
         /// </summary>
         /// <param name="players">The <see cref="Player"/>s to get.</param>
         /// <returns>A <see cref="IEnumerable{T}"/> of <see cref="Ragdoll"/>.</returns>
-        public static IEnumerable<Ragdoll> Get(IEnumerable<Player> players) => players.SelectMany(pl => Ragdoll.List.Where(rd => rd.Owner == pl));
+        public static IEnumerable<Ragdoll> Get(IEnumerable<Player> players) => players.SelectMany(pl => List.Where(rd => rd.Owner == pl));
 
         /// <summary>
         /// Destroys the ragdoll.

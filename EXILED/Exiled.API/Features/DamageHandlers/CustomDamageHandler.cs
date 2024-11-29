@@ -11,7 +11,7 @@ namespace Exiled.API.Features.DamageHandlers
 
     using Enums;
 
-    using Exiled.API.Extensions;
+    using Extensions;
 
     using Items;
 

@@ -11,8 +11,8 @@ namespace Exiled.API.Features
 
     using CustomPlayerEffects;
 
-    using Exiled.API.Enums;
-    using Exiled.API.Extensions;
+    using Enums;
+    using Extensions;
 
     /// <summary>
     /// Useful class to save effect-related configs cleanly.

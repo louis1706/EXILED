@@ -9,7 +9,7 @@ namespace Exiled.Events.EventArgs.Scp0492
 {
     using Exiled.API.Features;
     using Exiled.API.Features.Roles;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before a <see cref="Scp0492Role"/> enters Bloodlust.

@@ -25,6 +25,7 @@ namespace Exiled.Events.Patches.Events.Player
 
     using static HarmonyLib.AccessTools;
 
+    using Firearm = Exiled.API.Features.Items.Firearm;
     using Player = Handlers.Player;
 
     /// <summary>
@@ -240,8 +241,12 @@ namespace Exiled.Events.Patches.Events.Player
                 foreach (KeyValuePair<ItemType, ushort> keyValuePair in ev.Ammo)
                     inventory.ServerAddAmmo(keyValuePair.Key, keyValuePair.Value);
 
-                foreach (KeyValuePair<ushort, InventorySystem.Items.ItemBase> item in inventory.UserInventory.Items)
-                    InventoryItemProvider.OnItemProvided?.Invoke(ev.Player.ReferenceHub, item.Value);
+                foreach (API.Features.Items.Item item in ev.Player.Items)
+                {
+                    InventoryItemProvider.OnItemProvided?.Invoke(ev.Player.ReferenceHub, item.Base);
+                    if (item is Firearm firearm)
+                        firearm.Ammo = firearm.MaxAmmo;
+                }
 
                 InventoryItemProvider.SpawnPreviousInventoryPickups(ev.Player.ReferenceHub);
             }

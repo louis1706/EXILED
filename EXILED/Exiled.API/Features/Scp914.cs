@@ -10,10 +10,10 @@ namespace Exiled.API.Features
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Features.Doors;
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Features.Pools;
+    using Doors;
     using global::Scp914;
+    using Pickups;
+    using Pools;
     using UnityEngine;
 
     /// <summary>

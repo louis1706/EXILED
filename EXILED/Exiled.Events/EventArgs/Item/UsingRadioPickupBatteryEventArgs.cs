@@ -8,7 +8,7 @@
 namespace Exiled.Events.EventArgs.Item
 {
     using Exiled.API.Features.Pickups;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before radio pickup battery drains.

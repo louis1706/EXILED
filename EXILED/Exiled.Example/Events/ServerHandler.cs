@@ -7,7 +7,7 @@
 
 namespace Exiled.Example.Events
 {
-    using Exiled.API.Features;
+    using API.Features;
 
     /// <summary>
     /// Handles server-related events.

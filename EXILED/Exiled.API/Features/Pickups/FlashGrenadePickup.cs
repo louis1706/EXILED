@@ -7,12 +7,11 @@
 
 namespace Exiled.API.Features.Pickups
 {
-    using Exiled.API.Enums;
-    using Exiled.API.Features.Items;
-    using Exiled.API.Features.Pickups.Projectiles;
-
+    using Enums;
     using InventorySystem.Items;
     using InventorySystem.Items.ThrowableProjectiles;
+    using Items;
+    using Projectiles;
 
     /// <summary>
     /// A wrapper class for dropped Flashbang Pickup.

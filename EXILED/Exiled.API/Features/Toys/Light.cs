@@ -7,13 +7,12 @@
 
 namespace Exiled.API.Features.Toys
 {
-    using System;
     using System.Linq;
 
     using AdminToys;
 
     using Enums;
-    using Exiled.API.Interfaces;
+    using Interfaces;
 
     using UnityEngine;
 
@@ -131,7 +130,7 @@ namespace Exiled.API.Features.Toys
         /// <returns>The new <see cref="Light"/>.</returns>
         public static Light Create(Vector3? position /*= null*/, Vector3? rotation /*= null*/, Vector3? scale /*= null*/, bool spawn /*= true*/, Color? color /*= null*/)
         {
-            Light light = new(UnityEngine.Object.Instantiate(ToysHelper.LightBaseObject))
+            Light light = new(Object.Instantiate(ToysHelper.LightBaseObject))
             {
                 Position = position ?? Vector3.zero,
                 Rotation = Quaternion.Euler(rotation ?? Vector3.zero),

@@ -95,7 +95,7 @@ namespace Exiled.Events.Patches.Events.Item
                     // override permissions check, to implement KeycardPickup::Permissions
                     new(OpCodes.Ldarg_0),
                     new(OpCodes.Ldloc_1),
-                    new CodeInstruction(OpCodes.Call, Method(typeof(KeycardInteracting), nameof(KeycardInteracting.CheckPermissions))),
+                    new CodeInstruction(OpCodes.Call, Method(typeof(KeycardInteracting), nameof(CheckPermissions))),
                     new CodeInstruction(OpCodes.Stloc_S, havePermissions.LocalIndex),
                 });
 

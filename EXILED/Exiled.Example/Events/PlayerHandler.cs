@@ -7,20 +7,15 @@
 
 namespace Exiled.Example.Events
 {
+    using API.Features;
+    using API.Features.Items;
     using CameraShaking;
-
     using CustomPlayerEffects;
-
-    using Exiled.API.Features;
-    using Exiled.API.Features.Items;
     using Exiled.Events.EventArgs.Player;
     using Exiled.Events.EventArgs.Scp106;
     using Exiled.Events.EventArgs.Scp914;
-
     using MEC;
-
     using PlayerRoles;
-
     using UnityEngine;
 
     using static Example;

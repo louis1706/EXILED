@@ -11,15 +11,13 @@ namespace Exiled.CustomRoles.API.Features
     using System.Globalization;
     using System.Text;
 
+    using Enums;
     using Exiled.API.Features;
     using Exiled.API.Features.Pools;
     using Exiled.API.Features.Roles;
-    using Exiled.CustomRoles.API.Features.Enums;
     using Exiled.Events.EventArgs.Player;
     using Exiled.Events.EventArgs.Server;
-
     using MEC;
-
     using PlayerRoles.FirstPersonControl;
 
     /// <summary>

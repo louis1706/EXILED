@@ -13,7 +13,7 @@ namespace Exiled.Example.Commands
 
     using CommandSystem;
 
-    using Exiled.Permissions.Extensions; // Use this if you want to add perms
+    using Permissions.Extensions; // Use this if you want to add perms
 
     /// <inheritdoc/>
     [CommandHandler(typeof(RemoteAdminCommandHandler))] // You can change the command handler

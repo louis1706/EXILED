@@ -8,7 +8,7 @@
 namespace Exiled.Events.EventArgs.Player
 {
     using Exiled.API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before a player's mute status is changed.

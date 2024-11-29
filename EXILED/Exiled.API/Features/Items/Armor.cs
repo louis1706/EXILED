@@ -7,18 +7,14 @@
 
 namespace Exiled.API.Features.Items
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Interfaces;
-
+    using Interfaces;
     using InventorySystem.Items.Armor;
+    using Pickups;
     using PlayerRoles;
-
     using Structs;
-    using UnityEngine;
 
     /// <summary>
     /// A wrapper class for <see cref="BodyArmor"/>.

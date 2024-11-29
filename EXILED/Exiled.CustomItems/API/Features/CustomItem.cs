@@ -13,6 +13,7 @@ namespace Exiled.CustomItems.API.Features
     using System.Linq;
     using System.Reflection;
 
+    using EventArgs;
     using Exiled.API.Enums;
     using Exiled.API.Extensions;
     using Exiled.API.Features;
@@ -21,30 +22,19 @@ namespace Exiled.CustomItems.API.Features
     using Exiled.API.Features.Pools;
     using Exiled.API.Features.Spawn;
     using Exiled.API.Interfaces;
-    using Exiled.CustomItems.API.EventArgs;
     using Exiled.Events.EventArgs.Player;
     using Exiled.Events.EventArgs.Scp914;
-    using Exiled.Loader;
-
-    using InventorySystem.Items.Firearms;
     using InventorySystem.Items.Pickups;
-
-    using MapGeneration.Distributors;
-
+    using Loader;
     using MEC;
-
     using PlayerRoles;
-
     using UnityEngine;
-
     using YamlDotNet.Serialization;
 
     using static CustomItems;
 
-    using BaseFirearmPickup = InventorySystem.Items.Firearms.FirearmPickup;
     using Firearm = Exiled.API.Features.Items.Firearm;
     using Item = Exiled.API.Features.Items.Item;
-    using Map = Exiled.API.Features.Map;
     using Player = Exiled.API.Features.Player;
     using UpgradingPickupEventArgs = Exiled.Events.EventArgs.Scp914.UpgradingPickupEventArgs;
 
@@ -690,7 +680,7 @@ namespace Exiled.CustomItems.API.Features
                 if (spawnPoint is LockerSpawnPoint)
                     pickup.IsLocked = true;
 
-                if (pickup.Is(out Exiled.API.Features.Pickups.FirearmPickup firearmPickup) && this is CustomWeapon customWeapon)
+                if (pickup.Is(out FirearmPickup firearmPickup) && this is CustomWeapon customWeapon)
                 {
                     // set MaxAmmo if synced TODO
                 }

@@ -9,10 +9,9 @@ namespace Exiled.Example.Commands
 {
     using System;
 
+    using API.Features;
+    using API.Features.Pickups;
     using CommandSystem;
-
-    using Exiled.API.Features;
-    using Exiled.API.Features.Pickups;
 
     /// <summary>
     /// This is an example of how commands should be made.

@@ -10,8 +10,8 @@ namespace Exiled.API.Features
     using System.Collections.Generic;
     using System.Linq;
 
+    using Doors;
     using Enums;
-    using Exiled.API.Features.Doors;
     using PlayerRoles.PlayableScps.Scp079;
     using UnityEngine;
 

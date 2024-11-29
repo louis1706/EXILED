@@ -9,9 +9,8 @@ namespace Exiled.CustomItems
 {
     using System;
 
+    using Events;
     using Exiled.API.Features;
-    using Exiled.CustomItems.Events;
-
     using HarmonyLib;
 
     /// <summary>

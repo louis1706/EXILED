@@ -10,11 +10,9 @@ namespace Exiled.CustomRoles.API.Features
     using System;
     using System.Collections.Generic;
 
+    using Enums;
     using Exiled.API.Features;
-    using Exiled.CustomRoles.API.Features.Enums;
-
     using MEC;
-
     using YamlDotNet.Serialization;
 
     /// <summary>

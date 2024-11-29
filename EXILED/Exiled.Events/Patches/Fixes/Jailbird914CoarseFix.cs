@@ -12,12 +12,10 @@ namespace Exiled.Events.Patches.Events.Player
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
-    using API.Features;
     using API.Features.Pools;
 
     using HarmonyLib;
     using InventorySystem.Items.Jailbird;
-    using Mirror;
 
     using static HarmonyLib.AccessTools;
 

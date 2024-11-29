@@ -8,12 +8,10 @@
 namespace Exiled.Events.Patches.Events.Map
 {
     using System.Collections.Generic;
-    using System.Linq;
     using System.Reflection.Emit;
 
-    using Exiled.API.Features.Pickups;
+    using Attributes;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Map;
     using HarmonyLib;
     using InventorySystem.Items.Pickups;

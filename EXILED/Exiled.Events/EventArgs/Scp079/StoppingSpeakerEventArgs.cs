@@ -9,7 +9,7 @@ namespace Exiled.Events.EventArgs.Scp079
 {
     using Exiled.API.Features;
     using Exiled.API.Features.Roles;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before SCP-079 finishes using a speaker.

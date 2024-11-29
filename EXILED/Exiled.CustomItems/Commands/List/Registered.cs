@@ -11,11 +11,10 @@ namespace Exiled.CustomItems.Commands.List
     using System.Linq;
     using System.Text;
 
+    using API.Features;
     using CommandSystem;
-
     using Exiled.API.Features.Pools;
-    using Exiled.CustomItems.API.Features;
-    using Exiled.Permissions.Extensions;
+    using Permissions.Extensions;
 
     /// <inheritdoc/>
     internal sealed class Registered : ICommand

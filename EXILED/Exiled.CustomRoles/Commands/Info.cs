@@ -10,11 +10,10 @@ namespace Exiled.CustomRoles.Commands
     using System;
     using System.Text;
 
+    using API.Features;
     using CommandSystem;
-
     using Exiled.API.Features.Pools;
-    using Exiled.CustomRoles.API.Features;
-    using Exiled.Permissions.Extensions;
+    using Permissions.Extensions;
 
     /// <summary>
     /// The command to view info about a specific role.

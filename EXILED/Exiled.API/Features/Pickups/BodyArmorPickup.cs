@@ -7,18 +7,14 @@
 
 namespace Exiled.API.Features.Pickups
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Features.Items;
-    using Exiled.API.Interfaces;
-    using Exiled.API.Structs;
-
+    using Interfaces;
     using InventorySystem.Items;
     using InventorySystem.Items.Armor;
-
-    using UnityEngine;
+    using Items;
+    using Structs;
 
     using BaseBodyArmor = InventorySystem.Items.Armor.BodyArmorPickup;
 

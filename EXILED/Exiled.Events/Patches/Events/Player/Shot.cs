@@ -14,14 +14,11 @@ namespace Exiled.Events.Patches.Events.Player
 
     using API.Features;
     using API.Features.Pools;
-
+    using Attributes;
     using EventArgs.Player;
-    using Exiled.Events.Attributes;
     using HarmonyLib;
-
     using InventorySystem.Items.Firearms;
     using InventorySystem.Items.Firearms.Modules;
-
     using UnityEngine;
 
     using static HarmonyLib.AccessTools;

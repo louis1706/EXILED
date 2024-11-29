@@ -8,7 +8,7 @@
 namespace Exiled.Events.EventArgs.Scp079
 {
     using Exiled.API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains information before SCP-079 gets recontained.

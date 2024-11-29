@@ -8,7 +8,7 @@
 namespace Exiled.Events.EventArgs.Player
 {
     using API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
     using MapGeneration.Distributors;
 
     /// <summary>

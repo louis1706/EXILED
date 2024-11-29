@@ -114,7 +114,7 @@ namespace Exiled.API.Features.DamageHandlers
                     Base = new MicroHidDamageHandler(microHidOwner, damage);
                     break;
                 case DamageType.Explosion:
-                    Base = new ExplosionDamageHandler(attacker.Footprint, UnityEngine.Vector3.zero, damage, 0, ExplosionType.Grenade);
+                    Base = new ExplosionDamageHandler(attacker.Footprint, Vector3.zero, damage, 0, ExplosionType.Grenade);
                     break;
                 case DamageType.Firearm:
                     GenericFirearm(player, attacker, damage, damageType, ItemType.GunAK);

@@ -10,8 +10,8 @@ namespace Exiled.Example
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    using Exiled.API.Features;
-    using Exiled.API.Interfaces;
+    using API.Features;
+    using API.Interfaces;
 
     using InventorySystem.Items.Firearms.Attachments;
 

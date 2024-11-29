@@ -8,7 +8,7 @@
 namespace Exiled.Events.EventArgs.Player
 {
     using Exiled.API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information after a <see cref="API.Features.Player"/> has healed.

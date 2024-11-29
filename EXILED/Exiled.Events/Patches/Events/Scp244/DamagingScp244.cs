@@ -12,7 +12,7 @@ namespace Exiled.Events.Patches.Events.Scp244
 
     using API.Features.DamageHandlers;
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Scp244;
 
     using Handlers;

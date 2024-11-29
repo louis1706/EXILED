@@ -7,7 +7,7 @@
 
 namespace Exiled.API.Features.Hazards
 {
-    using Exiled.API.Enums;
+    using Enums;
     using PlayerRoles.PlayableScps.Scp939;
 
     /// <summary>

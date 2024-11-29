@@ -12,11 +12,11 @@ namespace Exiled.API.Features.Lockers
     using System.Diagnostics;
     using System.Linq;
 
-    using Exiled.API.Enums;
-    using Exiled.API.Extensions;
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Interfaces;
+    using Enums;
+    using Extensions;
+    using Interfaces;
     using MapGeneration.Distributors;
+    using Pickups;
     using UnityEngine;
 
     /// <summary>

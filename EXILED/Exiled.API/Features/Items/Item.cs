@@ -10,10 +10,8 @@ namespace Exiled.API.Features.Items
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Features.Core;
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Interfaces;
-
+    using Core;
+    using Interfaces;
     using InventorySystem;
     using InventorySystem.Items;
     using InventorySystem.Items.Armor;
@@ -29,6 +27,7 @@ namespace Exiled.API.Features.Items
     using InventorySystem.Items.Usables.Scp1576;
     using InventorySystem.Items.Usables.Scp244;
     using InventorySystem.Items.Usables.Scp330;
+    using Pickups;
     using UnityEngine;
 
     using BaseConsumable = InventorySystem.Items.Usables.Consumable;

@@ -7,7 +7,7 @@
 
 namespace Exiled.Example.Events
 {
-    using Exiled.API.Features;
+    using API.Features;
     using Exiled.Events.EventArgs.Scp096;
 
     /// <summary>

@@ -7,7 +7,7 @@
 
 namespace Exiled.API.Features.Items
 {
-    using Exiled.API.Interfaces;
+    using Interfaces;
 
     using InventorySystem.Items.MicroHID;
 

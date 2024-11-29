@@ -15,12 +15,9 @@ namespace Exiled.API.Extensions
     using System.Reflection.Emit;
     using System.Text;
 
-    using Exiled.API.Enums;
+    using Enums;
     using Features;
     using Features.Pools;
-
-    using InventorySystem.Items.Firearms;
-
     using Mirror;
 
     using PlayerRoles;

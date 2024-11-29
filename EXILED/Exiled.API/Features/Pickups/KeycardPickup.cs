@@ -7,12 +7,11 @@
 
 namespace Exiled.API.Features.Pickups
 {
-    using Exiled.API.Enums;
-    using Exiled.API.Features.Items;
-    using Exiled.API.Interfaces;
-
+    using Enums;
+    using Interfaces;
     using InventorySystem.Items;
     using InventorySystem.Items.Keycards;
+    using Items;
 
     using BaseKeycard = InventorySystem.Items.Keycards.KeycardPickup;
 

@@ -12,7 +12,7 @@ namespace Exiled.Events.Patches.Events.Server
     using System.Reflection.Emit;
 
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using GameCore;
 
     using HarmonyLib;
@@ -33,6 +33,11 @@ namespace Exiled.Events.Patches.Events.Server
         {
             List<CodeInstruction> newInstructions = ListPool<CodeInstruction>.Pool.Get(instructions);
 
+            int offset = 0;
+            int index = 5;
+            newInstructions[index + 1].MoveLabelsFrom(newInstructions[index]);
+            newInstructions.RemoveAt(index);
+
             newInstructions.InsertRange(
                 0,
                 new CodeInstruction[]
@@ -45,8 +50,8 @@ namespace Exiled.Events.Patches.Events.Server
                     new(OpCodes.Call, Method(typeof(API.Features.Log), nameof(API.Features.Log.Debug), new[] { typeof(string) })),
                 });
 
-            const int offset = 1;
-            int index = newInstructions.FindIndex(instruction => instruction.opcode == OpCodes.Brfalse);
+            offset = 1;
+            index = newInstructions.FindIndex(instruction => instruction.opcode == OpCodes.Brfalse);
 
             newInstructions.InsertRange(
                 index + offset,

@@ -13,7 +13,7 @@ namespace Exiled.API.Extensions
     using System.Linq;
 
     using CustomPlayerEffects.Danger;
-    using Exiled.API.Enums;
+    using Enums;
 
     /// <summary>
     /// A set of extensions for <see cref="DangerType"/>.

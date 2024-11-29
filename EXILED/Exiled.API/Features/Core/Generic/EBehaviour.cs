@@ -7,9 +7,7 @@
 
 namespace Exiled.API.Features.Core.Generic
 {
-    using System;
-
-    using Exiled.API.Features;
+    using Features;
 
     /// <summary>
     /// <see cref="EBehaviour"/> is a versatile component designed to enhance the functionality of playable characters.

@@ -10,8 +10,8 @@ namespace Exiled.Events.EventArgs.Item
     using Exiled.API.Features;
     using Exiled.API.Features.Doors;
     using Exiled.API.Features.Pickups;
-    using Exiled.Events.EventArgs.Interfaces;
     using Interactables.Interobjects.DoorUtils;
+    using Interfaces;
 
     using BaseKeycardPickup = InventorySystem.Items.Keycards.KeycardPickup;
 

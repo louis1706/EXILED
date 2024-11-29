@@ -13,10 +13,10 @@ namespace Exiled.Events.Patches.Events.Player
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
+    using API.Extensions;
     using API.Features;
     using API.Features.Pools;
     using CentralAuth;
-    using Exiled.API.Extensions;
     using Exiled.Events.EventArgs.Player;
     using HarmonyLib;
 

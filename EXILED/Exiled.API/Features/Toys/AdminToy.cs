@@ -8,16 +8,12 @@
 namespace Exiled.API.Features.Toys
 {
     using System.Collections.Generic;
-    using System.Linq;
 
     using AdminToys;
-
     using Enums;
-    using Exiled.API.Interfaces;
     using Footprinting;
-    using InventorySystem.Items;
+    using Interfaces;
     using Mirror;
-
     using UnityEngine;
 
     /// <summary>

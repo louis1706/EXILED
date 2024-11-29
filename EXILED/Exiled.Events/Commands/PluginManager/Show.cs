@@ -17,7 +17,7 @@ namespace Exiled.Events.Commands.PluginManager
 
     using CommandSystem;
 
-    using Exiled.Permissions.Extensions;
+    using Permissions.Extensions;
 
     using RemoteAdmin;
 

@@ -9,7 +9,7 @@ namespace Exiled.Events.EventArgs.Scp173
 {
     using Exiled.API.Features;
     using Exiled.API.Features.Roles;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all the information before SCP-173 is observed.
@@ -28,7 +28,7 @@ namespace Exiled.Events.EventArgs.Scp173
         /// <param name="isAllowed">
         /// Whether the target will be counted as observing the SCP-173.
         /// </param>
-        public BeingObservedEventArgs(API.Features.Player target, API.Features.Player scp173, bool isAllowed = true)
+        public BeingObservedEventArgs(Player target, Player scp173, bool isAllowed = true)
         {
             Target = target;
             Player = scp173;

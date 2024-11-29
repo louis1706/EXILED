@@ -10,11 +10,10 @@ namespace Exiled.CustomRoles.Commands
     using System;
     using System.Linq;
 
+    using API;
+    using API.Features;
     using CommandSystem;
-
     using Exiled.API.Features;
-    using Exiled.CustomRoles.API;
-    using Exiled.CustomRoles.API.Features;
 
     /// <summary>
     /// Handles the using of custom role abilities.

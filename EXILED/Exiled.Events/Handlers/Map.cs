@@ -11,7 +11,7 @@ namespace Exiled.Events.Handlers
 
     using Exiled.API.Features.Pickups;
     using Exiled.Events.EventArgs.Map;
-    using Exiled.Events.Features;
+    using Features;
 
     using MapGeneration.Distributors;
 

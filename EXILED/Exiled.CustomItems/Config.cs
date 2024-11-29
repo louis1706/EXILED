@@ -9,9 +9,9 @@ namespace Exiled.CustomItems
 {
     using System.ComponentModel;
 
+    using API.Features;
     using Exiled.API.Features;
     using Exiled.API.Interfaces;
-    using Exiled.CustomItems.API.Features;
 
     /// <summary>
     /// The plugin's config class.

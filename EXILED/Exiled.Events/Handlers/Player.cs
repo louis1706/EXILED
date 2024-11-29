@@ -15,7 +15,7 @@ namespace Exiled.Events.Handlers
 
     using Exiled.Events.EventArgs.Player;
 
-    using Exiled.Events.Features;
+    using Features;
 
     using PluginAPI.Core.Attributes;
     using PluginAPI.Enums;

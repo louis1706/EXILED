@@ -10,8 +10,8 @@ namespace Exiled.Events.EventArgs.Scp914
     using System;
 
     using Exiled.API.Features.Pickups;
-    using Exiled.Events.EventArgs.Interfaces;
     using global::Scp914;
+    using Interfaces;
     using InventorySystem.Items.Pickups;
     using UnityEngine;
 

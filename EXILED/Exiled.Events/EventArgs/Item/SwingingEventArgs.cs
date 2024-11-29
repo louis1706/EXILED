@@ -9,7 +9,7 @@ namespace Exiled.Events.EventArgs.Item
 {
     using Exiled.API.Features;
     using Exiled.API.Features.Items;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before a player swings a <see cref="Jailbird"/>.

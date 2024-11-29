@@ -11,17 +11,16 @@ namespace Exiled.API.Features
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Enums;
-    using Exiled.API.Extensions;
-    using Exiled.API.Features.Doors;
-    using Exiled.API.Features.Pools;
-    using Exiled.API.Interfaces;
+    using Doors;
+    using Enums;
+    using Extensions;
     using Interactables.Interobjects;
     using Interactables.Interobjects.DoorUtils;
+    using Interfaces;
+    using Pools;
     using UnityEngine;
 
     using static Interactables.Interobjects.ElevatorChamber;
-    using static Interactables.Interobjects.ElevatorManager;
 
     using Elevator = Interactables.Interobjects.ElevatorDoor;
 

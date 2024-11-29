@@ -8,11 +8,10 @@
 namespace Exiled.Events.EventArgs.Player
 {
     using System;
-    using System.Runtime.CompilerServices;
 
     using Exiled.API.Features;
     using Exiled.API.Features.Roles;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
     using PlayerRoles;
     using UnityEngine;
 

@@ -7,11 +7,10 @@
 
 namespace Exiled.API.Features.Pickups
 {
-    using Exiled.API.Features.Items;
-    using Exiled.API.Interfaces;
-
+    using Interfaces;
     using InventorySystem.Items;
     using InventorySystem.Items.Jailbird;
+    using Items;
 
     using BaseJailbirdPickup = InventorySystem.Items.Jailbird.JailbirdPickup;
 

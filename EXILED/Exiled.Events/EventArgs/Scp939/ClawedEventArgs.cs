@@ -9,7 +9,7 @@ namespace Exiled.Events.EventArgs.Scp939
 {
     using API.Features;
     using Exiled.API.Features.Roles;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information after SCP-939 attacks.

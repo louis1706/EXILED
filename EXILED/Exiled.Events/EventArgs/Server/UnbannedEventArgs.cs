@@ -7,7 +7,7 @@
 
 namespace Exiled.Events.EventArgs.Server
 {
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information after a player gets unbanned.

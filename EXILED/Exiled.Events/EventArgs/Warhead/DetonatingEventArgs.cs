@@ -7,7 +7,7 @@
 
 namespace Exiled.Events.EventArgs.Warhead
 {
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before detonating the warhead.

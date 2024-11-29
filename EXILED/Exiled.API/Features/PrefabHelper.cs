@@ -13,8 +13,8 @@ namespace Exiled.API.Features
     using System.Linq;
     using System.Reflection;
 
-    using Exiled.API.Enums;
-    using Exiled.API.Features.Attributes;
+    using Attributes;
+    using Enums;
     using Mirror;
     using UnityEngine;
 

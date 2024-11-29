@@ -11,14 +11,12 @@ namespace Exiled.Events.Patches.Events.Player
     using System.Reflection.Emit;
 
     using API.Features;
+    using Attributes;
     using CommandSystem;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Player;
     using Footprinting;
     using HarmonyLib;
-
-    using static HarmonyLib.AccessTools;
 
     /// <summary>
     /// Patches <see cref="BanPlayer.BanUser(Footprint, ICommandSender, string, long)" />.
@@ -47,10 +45,10 @@ namespace Exiled.Events.Patches.Events.Player
                 new[]
                 {
                     new(OpCodes.Ldarg_0),
-                    new(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(Footprint) })),
+                    new(OpCodes.Call, AccessTools.Method(typeof(Player), nameof(Player.Get), new[] { typeof(Footprint) })),
 
                     new(OpCodes.Ldarg_1),
-                    new(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ICommandSender) })),
+                    new(OpCodes.Call, AccessTools.Method(typeof(Player), nameof(Player.Get), new[] { typeof(ICommandSender) })),
 
                     new(OpCodes.Ldarg_3),
 
@@ -58,25 +56,25 @@ namespace Exiled.Events.Patches.Events.Player
 
                     new(OpCodes.Ldstr, "You have been banned. "),
                     new(OpCodes.Ldarg_2),
-                    new(OpCodes.Call, Method(typeof(string), nameof(string.IsNullOrEmpty))),
+                    new(OpCodes.Call, AccessTools.Method(typeof(string), nameof(string.IsNullOrEmpty))),
                     new(OpCodes.Brfalse_S, notEmpty),
-                    new(OpCodes.Ldsfld, Field(typeof(string), nameof(string.Empty))),
+                    new(OpCodes.Ldsfld, AccessTools.Field(typeof(string), nameof(string.Empty))),
                     new(OpCodes.Br_S, empty),
                     new CodeInstruction(OpCodes.Ldstr, "Reason: ").WithLabels(notEmpty),
                     new(OpCodes.Ldarg_2),
-                    new(OpCodes.Call, Method(typeof(string), nameof(string.Concat), new[] { typeof(string), typeof(string) })),
-                    new CodeInstruction(OpCodes.Call, Method(typeof(string), nameof(string.Concat), new[] { typeof(string), typeof(string) })).WithLabels(empty),
+                    new(OpCodes.Call, AccessTools.Method(typeof(string), nameof(string.Concat), new[] { typeof(string), typeof(string) })),
+                    new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(string), nameof(string.Concat), new[] { typeof(string), typeof(string) })).WithLabels(empty),
 
                     new(OpCodes.Ldc_I4_1),
 
-                    new(OpCodes.Newobj, GetDeclaredConstructors(typeof(BanningEventArgs))[0]),
+                    new(OpCodes.Newobj, AccessTools.GetDeclaredConstructors(typeof(BanningEventArgs))[0]),
                     new(OpCodes.Dup),
                     new(OpCodes.Dup),
                     new(OpCodes.Stloc_S, ev.LocalIndex),
 
-                    new(OpCodes.Call, Method(typeof(Handlers.Player), nameof(Handlers.Player.OnBanning))),
+                    new(OpCodes.Call, AccessTools.Method(typeof(Handlers.Player), nameof(Handlers.Player.OnBanning))),
 
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.IsAllowed))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.IsAllowed))),
                     new(OpCodes.Brtrue_S, continueLabel),
 
                     new(OpCodes.Ret),
@@ -87,21 +85,21 @@ namespace Exiled.Events.Patches.Events.Player
                     new(OpCodes.Dup),
                     new(OpCodes.Dup),
 
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Reason))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Reason))),
                     new(OpCodes.Starg_S, 2),
 
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Duration))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Duration))),
                     new(OpCodes.Starg_S, 3),
 
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Player))),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(Player), nameof(Player.Sender))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Player))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Player), nameof(Player.Sender))),
                     new(OpCodes.Starg_S, 1),
 
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Target))),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(Player), nameof(Player.Footprint))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Target))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Player), nameof(Player.Footprint))),
                     new(OpCodes.Starg_S, 0),
 
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.FullMessage))),
+                    new(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.FullMessage))),
                     new(OpCodes.Stloc_S, msg.LocalIndex),
                 });
 

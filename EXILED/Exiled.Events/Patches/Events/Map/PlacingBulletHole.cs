@@ -9,22 +9,18 @@ namespace Exiled.Events.Patches.Events.Map
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Reflection;
     using System.Reflection.Emit;
 
     using API.Features.Pools;
+    using Attributes;
     using Decals;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Map;
     using Handlers;
     using HarmonyLib;
-    using InventorySystem.Items;
     using InventorySystem.Items.Firearms.Modules;
     using UnityEngine;
 
     using static HarmonyLib.AccessTools;
-
-    using Player = API.Features.Player;
 
     /// <summary>
     /// Patches <see cref="ImpactEffectsModule.ServerSendImpactDecal(RaycastHit, Vector3, DecalPoolType)" />.

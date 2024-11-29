@@ -11,14 +11,10 @@ namespace Exiled.API.Features
     using System.Linq;
     using System.Text;
 
-    using Exiled.API.Features.Pools;
-
     using MEC;
-
     using PlayerRoles;
-
     using PlayerStatsSystem;
-
+    using Pools;
     using Respawning;
 
     using CustomFirearmHandler = DamageHandlers.FirearmDamageHandler;

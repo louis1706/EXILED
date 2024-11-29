@@ -15,12 +15,12 @@ namespace Exiled.Events.Commands.Hub
     using CommandSystem;
 
     using Exiled.API.Features;
-    using Exiled.Events.Commands.Hub.HubApi.Models;
-    using Exiled.Loader;
-    using Exiled.Loader.GHApi;
-    using Exiled.Loader.GHApi.Models;
-    using Exiled.Loader.GHApi.Settings;
-    using Exiled.Permissions.Extensions;
+    using HubApi.Models;
+    using Loader;
+    using Loader.GHApi;
+    using Loader.GHApi.Models;
+    using Loader.GHApi.Settings;
+    using Permissions.Extensions;
 
     using RemoteAdmin;
 

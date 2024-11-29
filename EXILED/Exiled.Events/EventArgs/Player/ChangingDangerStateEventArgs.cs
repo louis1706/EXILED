@@ -7,10 +7,10 @@
 
 namespace Exiled.Events.EventArgs.Player
 {
+    using API.Enums;
     using CustomPlayerEffects.Danger;
-    using Exiled.API.Enums;
     using Exiled.API.Features;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before a player changes danger.

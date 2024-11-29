@@ -11,9 +11,9 @@ namespace Exiled.Events.Patches.Events.Scp079
     using System.Reflection.Emit;
 
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Scp079;
-    using Exiled.Events.Handlers;
+    using Handlers;
 
     using HarmonyLib;
 
@@ -21,7 +21,6 @@ namespace Exiled.Events.Patches.Events.Scp079
     using PlayerRoles.PlayableScps.Scp079;
     using PlayerRoles.PlayableScps.Scp079.Cameras;
     using PlayerRoles.Subroutines;
-    using PluginAPI.Events;
 
     using static HarmonyLib.AccessTools;
 

@@ -36,7 +36,7 @@ namespace Exiled.Events.Patches.Fixes
             newInstructions.InsertRange(index, new[]
             {
                 new CodeInstruction(OpCodes.Ldarg_0).MoveLabelsFrom(newInstructions[index]),
-                new(OpCodes.Call, Method(typeof(LockerFixes), nameof(LockerFixes.Hepler))),
+                new(OpCodes.Call, Method(typeof(LockerFixes), nameof(Hepler))),
                 new(OpCodes.Ret),
             });
 

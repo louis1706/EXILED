@@ -9,16 +9,16 @@ namespace Exiled.Events.Handlers.Internal
 {
     using System.Linq;
 
+    using API.Extensions;
     using CentralAuth;
-    using Exiled.API.Extensions;
     using Exiled.API.Features;
     using Exiled.API.Features.Roles;
     using Exiled.Events.EventArgs.Player;
     using Exiled.Events.EventArgs.Scp049;
-    using Exiled.Loader;
     using Exiled.Loader.Features;
     using InventorySystem;
     using InventorySystem.Items.Usables;
+    using Loader;
     using PlayerRoles;
     using PlayerRoles.RoleAssign;
 

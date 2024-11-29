@@ -6,6 +6,7 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <Configurations>Debug;Release;Installer</Configurations>
         <Platforms>AnyCPU</Platforms>
+        <Nullable>disable</Nullable>
     </PropertyGroup>
 
     <Import Project="../EXILED.props" />

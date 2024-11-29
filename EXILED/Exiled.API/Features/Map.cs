@@ -12,29 +12,22 @@ namespace Exiled.API.Features
     using System.Collections.ObjectModel;
     using System.Linq;
 
-    using Decals;
     using Enums;
-    using Exiled.API.Extensions;
-    using Exiled.API.Features.Hazards;
-    using Exiled.API.Features.Lockers;
-    using Exiled.API.Features.Pickups;
-    using Exiled.API.Features.Toys;
+    using Extensions;
     using global::Hazards;
+    using Hazards;
     using InventorySystem;
-    using InventorySystem.Items.Firearms;
-    using InventorySystem.Items.Firearms.BasicMessages;
     using InventorySystem.Items.Pickups;
     using InventorySystem.Items.ThrowableProjectiles;
     using Items;
     using LightContainmentZoneDecontamination;
     using MapGeneration;
-    using MapGeneration.Distributors;
+    using Pickups;
     using PlayerRoles.PlayableScps.Scp939;
     using PlayerRoles.Ragdolls;
-    using RelativePositioning;
+    using Toys;
     using UnityEngine;
     using Utils;
-    using Utils.Networking;
 
     using Object = UnityEngine.Object;
 
@@ -396,9 +389,9 @@ namespace Exiled.API.Features
 
             Ragdoll.BasicRagdollToRagdoll.Clear();
 
-            Items.Firearm.ItemTypeToFirearmInstance.Clear();
-            Items.Firearm.BaseCodesValue.Clear();
-            Items.Firearm.AvailableAttachmentsValue.Clear();
+            Firearm.ItemTypeToFirearmInstance.Clear();
+            Firearm.BaseCodesValue.Clear();
+            Firearm.AvailableAttachmentsValue.Clear();
         }
     }
 }

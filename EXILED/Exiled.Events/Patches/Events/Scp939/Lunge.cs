@@ -10,10 +10,10 @@ namespace Exiled.Events.Patches.Events.Scp939
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
+    using Attributes;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Scp939;
-    using Exiled.Events.Handlers;
+    using Handlers;
     using HarmonyLib;
     using Mirror;
     using PlayerRoles.PlayableScps.Scp939;

@@ -7,13 +7,10 @@
 
 namespace Exiled.Events.EventArgs.Player
 {
+    using API.Enums;
     using API.Features;
-
-    using Exiled.API.Enums;
     using Exiled.API.Features.Items;
-
     using Interfaces;
-
     using InventorySystem.Items.Radio;
 
     using static InventorySystem.Items.Radio.RadioMessages;

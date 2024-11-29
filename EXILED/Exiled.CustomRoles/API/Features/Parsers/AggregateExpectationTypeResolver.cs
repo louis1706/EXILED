@@ -13,10 +13,9 @@ namespace Exiled.CustomRoles.API.Features.Parsers
     using System.Reflection;
 
     using Exiled.API.Features;
-    using Exiled.CustomRoles.API.Features;
-    using Exiled.CustomRoles.API.Features.Extensions;
-    using Exiled.CustomRoles.API.Features.Interfaces;
-
+    using Extensions;
+    using Features;
+    using Interfaces;
     using YamlDotNet.Core.Events;
     using YamlDotNet.Serialization;
 

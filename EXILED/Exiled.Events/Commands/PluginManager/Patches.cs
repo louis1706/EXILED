@@ -12,12 +12,9 @@ namespace Exiled.Events.Commands.PluginManager
     using System.Text;
 
     using CommandSystem;
-
-    using Exiled.Events.Features;
-    using Exiled.Permissions.Extensions;
-
+    using Features;
     using NorthwoodLib.Pools;
-
+    using Permissions.Extensions;
     using RemoteAdmin;
 
     /// <summary>

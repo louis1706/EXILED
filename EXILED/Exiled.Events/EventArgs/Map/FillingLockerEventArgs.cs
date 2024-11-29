@@ -11,7 +11,7 @@ namespace Exiled.Events.EventArgs.Map
 
     using Exiled.API.Features.Lockers;
     using Exiled.API.Features.Pickups;
-    using Exiled.Events.EventArgs.Interfaces;
+    using Interfaces;
     using InventorySystem.Items.Pickups;
     using MapGeneration.Distributors;
 

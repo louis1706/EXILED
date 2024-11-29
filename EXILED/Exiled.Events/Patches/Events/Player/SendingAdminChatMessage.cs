@@ -12,13 +12,10 @@ namespace Exiled.Events.Patches.Events.Player
 
     using API.Features;
     using API.Features.Pools;
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Player;
 
     using HarmonyLib;
-
-    using InventorySystem.Items.Pickups;
-    using InventorySystem.Searching;
     using RemoteAdmin;
 
     using static HarmonyLib.AccessTools;
@@ -75,7 +72,7 @@ namespace Exiled.Events.Patches.Events.Player
                     // return;
                     new(OpCodes.Ldloc_S, ev.LocalIndex),
                     new(OpCodes.Call, PropertyGetter(typeof(SendingAdminChatMessageEventsArgs), nameof(SendingAdminChatMessageEventsArgs.Player))),
-                    new(OpCodes.Call, Method(typeof(SendingAdminChatMessage), nameof(SendingAdminChatMessage.IsNotAllowedMessaqe))),
+                    new(OpCodes.Call, Method(typeof(SendingAdminChatMessage), nameof(IsNotAllowedMessaqe))),
                     new(OpCodes.Ret),
 
                     // message = ev.Message;

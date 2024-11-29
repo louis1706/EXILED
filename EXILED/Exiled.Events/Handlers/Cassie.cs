@@ -8,7 +8,7 @@
 namespace Exiled.Events.Handlers
 {
     using Exiled.Events.EventArgs.Cassie;
-    using Exiled.Events.Features;
+    using Features;
 
     /// <summary>
     /// Cassie related events.

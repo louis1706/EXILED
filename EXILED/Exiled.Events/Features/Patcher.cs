@@ -12,10 +12,10 @@ namespace Exiled.Events.Features
     using System.Linq;
     using System.Reflection;
 
+    using Attributes;
+    using EventArgs.Interfaces;
     using Exiled.API.Features;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
-    using Exiled.Events.EventArgs.Interfaces;
     using HarmonyLib;
 
     /// <summary>

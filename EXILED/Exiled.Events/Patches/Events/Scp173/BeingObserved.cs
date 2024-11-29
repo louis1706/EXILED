@@ -7,14 +7,13 @@
 
 namespace Exiled.Events.Patches.Events.Scp173
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using System.Reflection.Emit;
 
+    using Attributes;
     using Exiled.API.Features.Pools;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Scp173;
     using HarmonyLib;
     using PlayerRoles.PlayableScps.Scp173;

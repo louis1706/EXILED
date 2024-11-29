@@ -7,15 +7,10 @@
 
 namespace Exiled.Events.EventArgs.Player
 {
-    using System.Collections.Generic;
-
+    using API.Enums;
     using API.Features;
-    using Exiled.API.Enums;
     using Interfaces;
-
     using PlayerRoles;
-
-    using Respawning;
 
     /// <summary>
     /// Contains all information before a player escapes.

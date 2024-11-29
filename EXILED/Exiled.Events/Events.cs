@@ -13,7 +13,7 @@ namespace Exiled.Events
     using API.Enums;
     using API.Features;
     using CentralAuth;
-    using Exiled.Events.Features;
+    using Features;
     using HarmonyLib;
     using InventorySystem.Items.Pickups;
     using InventorySystem.Items.Usables;

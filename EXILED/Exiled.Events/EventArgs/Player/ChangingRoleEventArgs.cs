@@ -10,8 +10,8 @@ namespace Exiled.Events.EventArgs.Player
     using System.Collections.Generic;
 
     using API.Enums;
+    using API.Extensions;
     using API.Features;
-    using Exiled.API.Extensions;
     using Exiled.API.Features.Pools;
     using Interfaces;
     using InventorySystem;

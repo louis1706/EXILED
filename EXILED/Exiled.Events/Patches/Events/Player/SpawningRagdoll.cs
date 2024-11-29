@@ -11,17 +11,12 @@ namespace Exiled.Events.Patches.Events.Player
     using System.Reflection.Emit;
 
     using API.Features.Pools;
-
+    using Attributes;
     using Exiled.API.Features;
-    using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Player;
-
     using HarmonyLib;
-
     using PlayerRoles.Ragdolls;
-
     using PlayerStatsSystem;
-
     using UnityEngine;
 
     using static HarmonyLib.AccessTools;
@@ -70,6 +65,8 @@ namespace Exiled.Events.Patches.Events.Player
                 // }
                 new(OpCodes.Callvirt, PropertyGetter(typeof(SpawningRagdollEventArgs), nameof(SpawningRagdollEventArgs.IsAllowed))),
                 new(OpCodes.Brtrue_S, cnt),
+
+                new(OpCodes.Pop),
 
                 // gameobject loads into stack before il inject
                 new(OpCodes.Ldloc_1),

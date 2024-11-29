@@ -7,9 +7,9 @@
 
 namespace Exiled.Example
 {
-    using Exiled.API.Enums;
-    using Exiled.API.Features;
-    using Exiled.Example.Events;
+    using API.Enums;
+    using API.Features;
+    using Events;
 
     /// <summary>
     /// The example plugin.

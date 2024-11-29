@@ -12,8 +12,8 @@ namespace Exiled.CreditTags.Features
     using System.IO;
 
     using Cryptography;
+    using Enums;
     using Exiled.API.Features;
-    using Exiled.CreditTags.Enums;
 
     public static class DatabaseHandler
     {

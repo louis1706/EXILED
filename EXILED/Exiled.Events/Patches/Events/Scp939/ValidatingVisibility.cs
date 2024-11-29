@@ -9,7 +9,7 @@ namespace Exiled.Events.Patches.Events.Scp939
 {
     #pragma warning disable SA1313
 
-    using Exiled.Events.Attributes;
+    using Attributes;
     using Exiled.Events.EventArgs.Scp939;
     using HarmonyLib;
     using PlayerRoles.PlayableScps.Scp939;

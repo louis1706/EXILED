@@ -9,8 +9,8 @@ namespace Exiled.CreditTags
 {
     using System.ComponentModel;
 
-    using Exiled.API.Interfaces;
-    using Exiled.CreditTags.Enums;
+    using API.Interfaces;
+    using Enums;
 
     /// <inheritdoc />
     public sealed class Config : IConfig

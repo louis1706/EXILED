@@ -9,8 +9,8 @@ namespace Exiled.API.Enums
 {
     using System;
 
-    using Exiled.API.Features.Doors;
     using Features;
+    using Features.Doors;
 
     /// <summary>
     /// Facility zone types.

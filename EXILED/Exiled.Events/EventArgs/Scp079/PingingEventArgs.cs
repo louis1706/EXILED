@@ -7,14 +7,11 @@
 
 namespace Exiled.Events.EventArgs.Scp079
 {
+    using API.Enums;
     using API.Features;
-
-    using Exiled.API.Enums;
     using Exiled.API.Features.Roles;
     using Interfaces;
-
     using RelativePositioning;
-
     using UnityEngine;
 
     /// <summary>

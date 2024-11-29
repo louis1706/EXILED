@@ -15,14 +15,10 @@ namespace Exiled.Installer
     using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
-
-    using Exiled.Installer.Properties;
-
     using ICSharpCode.SharpZipLib.GZip;
     using ICSharpCode.SharpZipLib.Tar;
-
     using Octokit;
-
+    using Properties;
     using Version = SemanticVersioning.Version;
 
     internal enum PathResolution

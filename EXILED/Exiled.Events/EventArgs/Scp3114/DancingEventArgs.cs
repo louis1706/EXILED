@@ -7,11 +7,10 @@
 
 namespace Exiled.Events.EventArgs.Scp3114
 {
-    using Exiled.API.Enums;
+    using API.Enums;
     using Exiled.API.Features;
     using Exiled.API.Features.Roles;
-    using Exiled.Events.EventArgs.Interfaces;
-    using Exiled.Events.Patches.Events.Scp3114;
+    using Interfaces;
 
     /// <summary>
     /// Contains all information before SCP-3114 changes its dancing status.

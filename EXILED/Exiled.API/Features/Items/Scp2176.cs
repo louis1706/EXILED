@@ -7,12 +7,10 @@
 
 namespace Exiled.API.Features.Items
 {
-    using Exiled.API.Features.Pickups;
-
     using InventorySystem.Items;
     using InventorySystem.Items.Pickups;
     using InventorySystem.Items.ThrowableProjectiles;
-
+    using Pickups;
     using UnityEngine;
 
     using Scp2176Projectile = Pickups.Projectiles.Scp2176Projectile;

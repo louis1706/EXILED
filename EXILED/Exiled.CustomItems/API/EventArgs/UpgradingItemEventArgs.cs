@@ -8,11 +8,9 @@
 namespace Exiled.CustomItems.API.EventArgs
 {
     using Exiled.API.Features;
-    using Exiled.CustomItems.API.Features;
     using Exiled.Events.EventArgs.Scp914;
-
+    using Features;
     using InventorySystem.Items;
-
     using Scp914;
 
     /// <summary>

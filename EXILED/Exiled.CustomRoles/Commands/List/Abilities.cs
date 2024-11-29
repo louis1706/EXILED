@@ -11,11 +11,10 @@ namespace Exiled.CustomRoles.Commands.List
     using System.Linq;
     using System.Text;
 
+    using API.Features;
     using CommandSystem;
-
     using Exiled.API.Features.Pools;
-    using Exiled.CustomRoles.API.Features;
-    using Exiled.Permissions.Extensions;
+    using Permissions.Extensions;
 
     /// <inheritdoc />
     internal sealed class Abilities : ICommand
