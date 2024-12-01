@@ -19,6 +19,7 @@ namespace Exiled.Events.Patches.Events.Player
     using HarmonyLib;
 
     using InventorySystem;
+    using InventorySystem.Items;
 
     using static HarmonyLib.AccessTools;
 
