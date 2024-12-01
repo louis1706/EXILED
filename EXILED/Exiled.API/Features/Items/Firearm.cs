@@ -5,7 +5,6 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-#nullable enable
 namespace Exiled.API.Features.Items
 {
     using System;
@@ -42,7 +41,7 @@ namespace Exiled.API.Features.Items
         /// </summary>
         internal static readonly Dictionary<FirearmType, uint> BaseCodesValue = new();
 
-        private IPrimaryAmmoContainerModule? ammoModule;
+        private IPrimaryAmmoContainerModule ammoModule;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Firearm"/> class.
@@ -66,7 +65,7 @@ namespace Exiled.API.Features.Items
         internal Firearm(ItemType type)
             : this((BaseFirearm)Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
         {
-            FlashlightAttachment? flashlight = Attachments.OfType<FlashlightAttachment>().FirstOrDefault();
+            FlashlightAttachment flashlight = Attachments.OfType<FlashlightAttachment>().FirstOrDefault();
 
             if (flashlight != null && flashlight.IsEnabled)
                 flashlight.ServerSendStatus(true);
@@ -207,7 +206,7 @@ namespace Exiled.API.Features.Items
             get => Base.Modules.OfType<AutomaticActionModule>().FirstOrDefault()?.BaseFireRate ?? 0f;
             set
             {
-                AutomaticActionModule? module = Base.Modules.OfType<AutomaticActionModule>().FirstOrDefault();
+                AutomaticActionModule module = Base.Modules.OfType<AutomaticActionModule>().FirstOrDefault();
 
                 if (module != null)
                     module.BaseFireRate = value;
@@ -224,7 +223,7 @@ namespace Exiled.API.Features.Items
             get => Base.Modules.OfType<RecoilPatternModule>().FirstOrDefault()?.BaseRecoil ?? default;
             set
             {
-                RecoilPatternModule? module = Base.Modules.OfType<RecoilPatternModule>().FirstOrDefault();
+                RecoilPatternModule module = Base.Modules.OfType<RecoilPatternModule>().FirstOrDefault();
 
                 if (module != null)
                     module.BaseRecoil = value;
@@ -248,7 +247,7 @@ namespace Exiled.API.Features.Items
         /// </summary>
         /// <param name="type">The type of firearm to create.</param>
         /// <returns>The newly created firearm.</returns>
-        public static Firearm? Create(FirearmType type)
+        public static Firearm Create(FirearmType type)
             => type is not FirearmType.None ? (Firearm)Create(type.GetItemType()) : null;
 
         /// <summary>
@@ -354,7 +353,7 @@ namespace Exiled.API.Features.Items
         /// <param name="attachmentSlot">The <see cref="AttachmentSlot"/> to remove.</param>
         public void RemoveAttachment(AttachmentSlot attachmentSlot)
         {
-            Attachment? firearmAttachment = Attachments.FirstOrDefault(att => (att.Slot == attachmentSlot) && att.IsEnabled);
+            Attachment firearmAttachment = Attachments.FirstOrDefault(att => (att.Slot == attachmentSlot) && att.IsEnabled);
 
             if (firearmAttachment is null)
                 return;
@@ -411,7 +410,7 @@ namespace Exiled.API.Features.Items
         /// </summary>
         /// <param name="identifier">The <see cref="AttachmentIdentifier"/> to check.</param>
         /// <returns>The corresponding <see cref="Attachment"/>.</returns>
-        public Attachment? GetAttachment(AttachmentIdentifier identifier) => Attachments.FirstOrDefault(attachment => attachment == identifier);
+        public Attachment GetAttachment(AttachmentIdentifier identifier) => Attachments.FirstOrDefault(attachment => attachment == identifier);
 
         /// <summary>
         /// Tries to get a <see cref="Attachment"/> of the specified <see cref="AttachmentIdentifier"/>.
@@ -419,7 +418,7 @@ namespace Exiled.API.Features.Items
         /// <param name="identifier">The <see cref="AttachmentIdentifier"/> to check.</param>
         /// <param name="firearmAttachment">The corresponding <see cref="Attachment"/>.</param>
         /// <returns>A value indicating whether the firearm has the specified <see cref="Attachment"/>.</returns>
-        public bool TryGetAttachment(AttachmentIdentifier identifier, out Attachment? firearmAttachment)
+        public bool TryGetAttachment(AttachmentIdentifier identifier, out Attachment firearmAttachment)
         {
             firearmAttachment = default;
 
@@ -437,7 +436,7 @@ namespace Exiled.API.Features.Items
         /// <param name="attachmentName">The <see cref="AttachmentName"/> to check.</param>
         /// <param name="firearmAttachment">The corresponding <see cref="Attachment"/>.</param>
         /// <returns>A value indicating whether the firearm has the specified <see cref="Attachment"/>.</returns>
-        public bool TryGetAttachment(AttachmentName attachmentName, out Attachment? firearmAttachment)
+        public bool TryGetAttachment(AttachmentName attachmentName, out Attachment firearmAttachment)
         {
             firearmAttachment = default;
 

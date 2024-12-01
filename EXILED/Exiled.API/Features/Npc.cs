@@ -7,7 +7,6 @@
 
 namespace Exiled.API.Features
 {
-#nullable enable
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -68,70 +67,70 @@ namespace Exiled.API.Features
         /// </summary>
         /// <param name="rHub">The ReferenceHub to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the ReferenceHub, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(ReferenceHub rHub) => Player.Get(rHub) as Npc;
+        public static new Npc Get(ReferenceHub rHub) => Player.Get(rHub) as Npc;
 
         /// <summary>
         /// Retrieves the NPC associated with the specified GameObject.
         /// </summary>
         /// <param name="gameObject">The GameObject to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the GameObject, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(GameObject gameObject) => Player.Get(gameObject) as Npc;
+        public static new Npc Get(GameObject gameObject) => Player.Get(gameObject) as Npc;
 
         /// <summary>
         /// Retrieves the NPC associated with the specified user ID.
         /// </summary>
         /// <param name="userId">The user ID to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the user ID, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(string userId) => Player.Get(userId) as Npc;
+        public static new Npc Get(string userId) => Player.Get(userId) as Npc;
 
         /// <summary>
         /// Retrieves the NPC associated with the specified ID.
         /// </summary>
         /// <param name="id">The ID to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the ID, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(int id) => Player.Get(id) as Npc;
+        public static new Npc Get(int id) => Player.Get(id) as Npc;
 
         /// <summary>
         /// Retrieves the NPC associated with the specified ICommandSender.
         /// </summary>
         /// <param name="sender">The ICommandSender to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the ICommandSender, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(ICommandSender sender) => Player.Get(sender) as Npc;
+        public static new Npc Get(ICommandSender sender) => Player.Get(sender) as Npc;
 
         /// <summary>
         /// Retrieves the NPC associated with the specified Footprint.
         /// </summary>
         /// <param name="footprint">The Footprint to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the Footprint, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(Footprint footprint) => Player.Get(footprint) as Npc;
+        public static new Npc Get(Footprint footprint) => Player.Get(footprint) as Npc;
 
         /// <summary>
         /// Retrieves the NPC associated with the specified CommandSender.
         /// </summary>
         /// <param name="sender">The CommandSender to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the CommandSender, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(CommandSender sender) => Player.Get(sender) as Npc;
+        public static new Npc Get(CommandSender sender) => Player.Get(sender) as Npc;
 
         /// <summary>
         /// Retrieves the NPC associated with the specified Collider.
         /// </summary>
         /// <param name="collider">The Collider to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the Collider, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(Collider collider) => Player.Get(collider) as Npc;
+        public static new Npc Get(Collider collider) => Player.Get(collider) as Npc;
 
         /// <summary>
         /// Retrieves the NPC associated with the specified net ID.
         /// </summary>
         /// <param name="netId">The net ID to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the net ID, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(uint netId) => Player.Get(netId) as Npc;
+        public static new Npc Get(uint netId) => Player.Get(netId) as Npc;
 
         /// <summary>
         /// Retrieves the NPC associated with the specified NetworkConnection.
         /// </summary>
         /// <param name="conn">The NetworkConnection to retrieve the NPC for.</param>
         /// <returns>The NPC associated with the NetworkConnection, or <c>null</c> if not found.</returns>
-        public static new Npc? Get(NetworkConnection conn) => Player.Get(conn) as Npc;
+        public static new Npc Get(NetworkConnection conn) => Player.Get(conn) as Npc;
 
         /// <summary>
         /// Docs.

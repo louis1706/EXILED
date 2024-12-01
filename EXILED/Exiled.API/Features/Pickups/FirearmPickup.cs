@@ -5,7 +5,6 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-#nullable enable
 namespace Exiled.API.Features.Pickups
 {
     using System;
@@ -23,7 +22,7 @@ namespace Exiled.API.Features.Pickups
     /// </summary>
     public class FirearmPickup : Pickup, IWrapper<BaseFirearm>
     {
-        private IPrimaryAmmoContainerModule? module;
+        private IPrimaryAmmoContainerModule module;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FirearmPickup"/> class.
@@ -95,7 +94,7 @@ namespace Exiled.API.Features.Pickups
         }
 
         /// <inheritdoc />
-        public override Pickup Spawn(Vector3 position, Quaternion rotation, Player? previousOwner = null)
+        public override Pickup Spawn(Vector3 position, Quaternion rotation, Player previousOwner = null)
         {
             Pickup pickup = base.Spawn(position, rotation, previousOwner);
             Base.OnDistributed();
