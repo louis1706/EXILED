@@ -443,7 +443,7 @@ namespace Exiled.API.Features
                 "HCZ_Intersection" => RoomType.HczIntersectionJunk,
                 "HCZ_096" => RoomType.Hcz096,
                 "HCZ_Curve" => RoomType.HczCurve,
-                "HCZ_Corner_Deep" => RoomType.HczCurve,
+                "HCZ_Corner_Deep" => RoomType.HczCornerDeep,
                 "HCZ_Straight_C" => RoomType.HczStraightC,
                 "HCZ_Straight" => RoomType.HczStraight,
                 "HCZ_Straight_PipeRoom"=> RoomType.HczStraightPipeRoom,
