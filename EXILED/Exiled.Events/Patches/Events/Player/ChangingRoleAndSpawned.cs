@@ -15,17 +15,21 @@ namespace Exiled.Events.Patches.Events.Player
     using API.Features;
     using API.Features.Pools;
     using API.Features.Roles;
+    using Exiled.API.Features.Items;
     using Exiled.Events.EventArgs.Player;
     using HarmonyLib;
     using InventorySystem;
+    using InventorySystem.Configs;
     using InventorySystem.Items;
     using InventorySystem.Items.Armor;
     using InventorySystem.Items.Pickups;
+    using InventorySystem.Items.Usables.Scp1344;
+    using Mirror;
     using PlayerRoles;
 
     using static HarmonyLib.AccessTools;
+    using static UnityEngine.GraphicsBuffer;
 
-    using Firearm = Exiled.API.Features.Items.Firearm;
     using Player = Handlers.Player;
 
     /// <summary>
@@ -192,7 +196,7 @@ namespace Exiled.Events.Patches.Events.Player
         {
             try
             {
-                if (ev.ShouldPreserveInventory || ev.Reason == API.Enums.SpawnReason.Destroyed)
+                if (!NetworkServer.active || ev == null || !ev.SpawnFlags.HasFlag(RoleSpawnFlags.AssignInventory))
                     return;
 
                 Inventory inventory = ev.Player.Inventory;
@@ -241,7 +245,7 @@ namespace Exiled.Events.Patches.Events.Player
                 foreach (KeyValuePair<ItemType, ushort> keyValuePair in ev.Ammo)
                     inventory.ServerAddAmmo(keyValuePair.Key, keyValuePair.Value);
 
-                foreach (API.Features.Items.Item item in ev.Player.Items)
+                foreach (Item item in ev.Player.Items)
                 {
                     InventoryItemProvider.OnItemProvided?.Invoke(ev.Player.ReferenceHub, item.Base);
                     if (item is Firearm firearm)
