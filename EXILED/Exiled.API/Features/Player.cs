@@ -2839,7 +2839,7 @@ namespace Exiled.API.Features
                     acquisitionConfirmationTrigger.AcquisitionAlreadyReceived = false;
                 }
 
-                item.ChangeOwner(item.Owner, this);
+                item.ChangeOwner(item.Owner, this, addReason);
 
                 typeof(InventoryExtensions).InvokeStaticEvent(nameof(InventoryExtensions.OnItemAdded), new object[] { ReferenceHub, itemBase, null });
 

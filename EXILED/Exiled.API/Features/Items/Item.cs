@@ -406,12 +406,22 @@ namespace Exiled.API.Features.Items
         /// </summary>
         /// <param name="oldOwner">old <see cref="Item"/> owner.</param>
         /// <param name="newOwner">new <see cref="Item"/> owner.</param>
-        internal virtual void ChangeOwner(Player oldOwner, Player newOwner)
+        internal virtual void ChangeOwner(Player oldOwner, Player newOwner) => ChangeOwner(oldOwner, newOwner, ItemAddReason.Undefined);
+
+        /// <summary>
+        /// Change the owner of the <see cref="Item"/>.
+        /// </summary>
+        /// <param name="oldOwner">old <see cref="Item"/> owner.</param>
+        /// <param name="newOwner">new <see cref="Item"/> owner.</param>
+        /// <param name="addReason"> The <see cref="ItemAddReason"/> to use for this item.</param>
+        internal virtual void ChangeOwner(Player oldOwner, Player newOwner, ItemAddReason addReason)
         {
-            Base.OnRemoved(null);
+            if (oldOwner != newOwner)
+                Base.OnRemoved(null);
 
             Base.Owner = newOwner.ReferenceHub;
 
+            Base.ServerAddReason = addReason;
             Base.OnAdded(null);
         }
 
