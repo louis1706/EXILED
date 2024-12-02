@@ -12,6 +12,7 @@ namespace Exiled.Events.Patches.Events.Player
     using System.Linq;
     using System.Reflection.Emit;
 
+    using API.Enums;
     using API.Features;
     using API.Features.Pools;
     using API.Features.Roles;
@@ -19,16 +20,13 @@ namespace Exiled.Events.Patches.Events.Player
     using Exiled.Events.EventArgs.Player;
     using HarmonyLib;
     using InventorySystem;
-    using InventorySystem.Configs;
     using InventorySystem.Items;
     using InventorySystem.Items.Armor;
     using InventorySystem.Items.Pickups;
     using InventorySystem.Items.Usables.Scp1344;
-    using Mirror;
     using PlayerRoles;
 
     using static HarmonyLib.AccessTools;
-    using static UnityEngine.GraphicsBuffer;
 
     using Player = Handlers.Player;
 
@@ -196,16 +194,22 @@ namespace Exiled.Events.Patches.Events.Player
         {
             try
             {
-                if (!NetworkServer.active || ev == null || !ev.SpawnFlags.HasFlag(RoleSpawnFlags.AssignInventory))
+                if (ev.ShouldPreserveInventory || ev.Reason == SpawnReason.Destroyed)
                     return;
 
                 Inventory inventory = ev.Player.Inventory;
 
-                if (ev.Reason == API.Enums.SpawnReason.Escaped)
+                if (ev.Reason == SpawnReason.Escaped && InventoryItemProvider.KeepItemsAfterEscaping)
                 {
-                    List<ItemPickupBase> list = new();
+                    List<ItemPickupBase> list = ListPool<ItemPickupBase>.Pool.Get();
                     if (inventory.TryGetBodyArmor(out BodyArmor bodyArmor))
                         bodyArmor.DontRemoveExcessOnDrop = true;
+
+                    foreach (Item item in ev.Player.Items)
+                    {
+                        if (item is Scp1344 scp1344)
+                            scp1344.Status = Scp1344Status.Idle;
+                    }
 
                     while (inventory.UserInventory.Items.Count > 0)
                     {

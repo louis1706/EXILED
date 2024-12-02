@@ -17,7 +17,6 @@ namespace Exiled.Events.Patches.Events.Scp914
     using global::Scp914;
     using HarmonyLib;
     using PlayerRoles.FirstPersonControl;
-    using UnityEngine;
 
     using static HarmonyLib.AccessTools;
 

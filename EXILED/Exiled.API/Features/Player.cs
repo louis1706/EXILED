@@ -2834,15 +2834,13 @@ namespace Exiled.API.Features
 
                 Inventory.UserInventory.Items[item.Serial] = itemBase;
 
-                item.ChangeOwner(item.Owner, this);
-
                 if (itemBase is IAcquisitionConfirmationTrigger acquisitionConfirmationTrigger)
                 {
                     acquisitionConfirmationTrigger.AcquisitionAlreadyReceived = false;
                 }
 
-                itemBase.ServerAddReason = addReason;
-                itemBase.OnAdded(null);
+                item.ChangeOwner(item.Owner, this);
+
                 typeof(InventoryExtensions).InvokeStaticEvent(nameof(InventoryExtensions.OnItemAdded), new object[] { ReferenceHub, itemBase, null });
 
                 Inventory.SendItemsNextFrame = true;
