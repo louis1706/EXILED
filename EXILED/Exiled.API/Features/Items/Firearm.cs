@@ -5,8 +5,6 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using InventorySystem.Items.Autosync;
-
 namespace Exiled.API.Features.Items
 {
     using System;
@@ -17,6 +15,7 @@ namespace Exiled.API.Features.Items
     using Enums;
     using Extensions;
     using Interfaces;
+    using InventorySystem.Items.Autosync;
     using InventorySystem.Items.Firearms.Attachments;
     using InventorySystem.Items.Firearms.Attachments.Components;
     using InventorySystem.Items.Firearms.Modules;
