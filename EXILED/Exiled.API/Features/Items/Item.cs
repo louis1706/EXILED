@@ -389,39 +389,14 @@ namespace Exiled.API.Features.Items
         public override string ToString() => $"{Type} ({Serial}) [{Weight}] *{Scale}* ={Owner}=";
 
         /// <summary>
-        /// Changes the owner of the <see cref="Item"/>.
-        /// </summary>
-        /// <param name="oldOwner">Old <see cref="Item"/> owner.</param>
-        /// <param name="newOwner">New <see cref="Item"/> owner.</param>
-        public void ChangeItemOwner(Player oldOwner, Player newOwner)
-        {
-            if (oldOwner != null && newOwner != null)
-            {
-                ChangeOwner(oldOwner, newOwner);
-            }
-        }
-
-        /// <summary>
         /// Change the owner of the <see cref="Item"/>.
         /// </summary>
         /// <param name="oldOwner">old <see cref="Item"/> owner.</param>
         /// <param name="newOwner">new <see cref="Item"/> owner.</param>
-        internal virtual void ChangeOwner(Player oldOwner, Player newOwner) => ChangeOwner(oldOwner, newOwner, ItemAddReason.Undefined);
-
-        /// <summary>
-        /// Change the owner of the <see cref="Item"/>.
-        /// </summary>
-        /// <param name="oldOwner">old <see cref="Item"/> owner.</param>
-        /// <param name="newOwner">new <see cref="Item"/> owner.</param>
-        /// <param name="addReason"> The <see cref="ItemAddReason"/> to use for this item.</param>
-        internal virtual void ChangeOwner(Player oldOwner, Player newOwner, ItemAddReason addReason)
+        internal virtual void ChangeOwner(Player oldOwner, Player newOwner)
         {
-            if (oldOwner != newOwner)
-                Base.OnRemoved(null);
-
+            Base.OnRemoved(null);
             Base.Owner = newOwner.ReferenceHub;
-
-            Base.ServerAddReason = addReason;
             Base.OnAdded(null);
         }
 

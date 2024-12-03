@@ -5,6 +5,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using InventorySystem.Items.Autosync;
+
 namespace Exiled.API.Features.Items
 {
     using System;
@@ -655,6 +657,8 @@ namespace Exiled.API.Features.Items
         {
             Base.Owner = newOwner.ReferenceHub;
             Base._footprintCacheSet = false;
+            foreach (SubcomponentBase component in Base.AllSubcomponents)
+                component.OnAdded();
         }
 
         /// <inheritdoc/>
