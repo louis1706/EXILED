@@ -33,6 +33,7 @@ namespace Exiled.Events.Patches.Events.Scp1344
             if (__instance._useTime == 0)
             {
                 TryingDeactivatingEventArgs ev = new(Item.Get(__instance));
+
                 Handlers.Scp1344.OnTryingDeactivating(ev);
 
                 if (!ev.IsAllowed)
@@ -44,6 +45,7 @@ namespace Exiled.Events.Patches.Events.Scp1344
             if (__instance._useTime + Time.deltaTime >= 5.1f)
             {
                 DeactivatingEventArgs deactivating = new(Item.Get(__instance));
+
                 Handlers.Scp1344.OnDeactivating(deactivating);
 
                 if (!deactivating.IsAllowed)
@@ -55,7 +57,9 @@ namespace Exiled.Events.Patches.Events.Scp1344
                 __instance.ServerDropItem(__instance);
 
                 DeactivatedEventArgs ev = new(Item.Get(__instance));
+
                 Handlers.Scp1344.OnDeactivated(ev);
+
                 return false;
             }
 
