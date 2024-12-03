@@ -667,7 +667,7 @@ namespace Exiled.API.Features.Items
 
             if (pickup is FirearmPickup firearmPickup)
             {
-                Ammo = firearmPickup.Ammo;
+                Timing.CallDelayed(0.1f, () => Ammo = firearmPickup.Ammo);
             }
         }
     }
