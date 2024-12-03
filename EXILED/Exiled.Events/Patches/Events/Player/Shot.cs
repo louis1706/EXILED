@@ -31,6 +31,7 @@ namespace Exiled.Events.Patches.Events.Player
             List<CodeInstruction> newInstructions = ListPool<CodeInstruction>.Pool.Get(instructions);
 
             Label returnLabel = generator.DefineLabel();
+            LocalBuilder ev = generator.DeclareLocal(typeof(ShotEventArgs));
 
             int offset = 3;
             int index = newInstructions.FindIndex(x => x.opcode == OpCodes.Ldarg_2) + offset;
@@ -54,10 +55,22 @@ namespace Exiled.Events.Patches.Events.Player
 
                     // ShotEventArgs ev = new(HitscanHitregModuleBase, Firearm, Ray, float)
                     new(OpCodes.Newobj, GetDeclaredConstructors(typeof(ShotEventArgs))[0]),
+                    new(OpCodes.Dup),
+                    new(OpCodes.Stloc_S, ev),
 
                     // Handlers.Player.OnShot(ev)
                     new(OpCodes.Call, Method(typeof(Handlers.Player), nameof(Handlers.Player.OnShot))),
                 });
+
+            offset = 4;
+            index = newInstructions.FindLastIndex(i => i.opcode == OpCodes.Ldloc_3) + offset;
+
+            newInstructions.RemoveRange(index, 4);
+            newInstructions.InsertRange(index, new CodeInstruction[]
+            {
+                new(OpCodes.Ldloc_S, ev),
+                new(OpCodes.Callvirt, PropertyGetter(typeof(ShotEventArgs), nameof(ShotEventArgs.DealsDamage))),
+            });
 
             newInstructions[newInstructions.Count - 1].WithLabels(returnLabel);
 

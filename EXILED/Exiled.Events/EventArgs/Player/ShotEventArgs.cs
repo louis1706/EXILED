@@ -44,7 +44,7 @@ namespace Exiled.Events.EventArgs.Player
 
             Distance = hitInfo.distance;
             Position = hitInfo.point;
-            Damage = hitInfo.collider.TryGetComponent(out IDestructible component) ? instance.DamageAtDistance(hitInfo.distance) : 0f;
+            DealsDamage = (hitInfo.collider.TryGetComponent(out IDestructible component) ? instance.DamageAtDistance(hitInfo.distance) : 0f) > 0f;
             Destructible = component;
             RaycastHit = hitInfo;
 
@@ -89,11 +89,6 @@ namespace Exiled.Events.EventArgs.Player
         public IDestructible Destructible { get; }
 
         /// <summary>
-        /// Gets the inflicted damage.
-        /// </summary>
-        public float Damage { get; }
-
-        /// <summary>
         /// Gets the raycast result.
         /// </summary>
         public RaycastHit RaycastHit { get; }
@@ -102,6 +97,11 @@ namespace Exiled.Events.EventArgs.Player
         /// Gets the target of the shot. Can be <see langword="null"/>.
         /// </summary>
         public Player Target { get; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether damage was dealt.
+        /// </summary>
+        public bool DealsDamage { get; set; }
 
         /// <summary>
         /// Gets the <see cref="HitboxIdentity"/> component of the hit collider. Can be <see langword="null"/>.
