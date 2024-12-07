@@ -34,10 +34,9 @@ namespace Exiled.Events.EventArgs.Player
             Position = hitInfo.point;
             RaycastHit = hitInfo;
             Destructible = destructible;
-            Firearm = Item.Get<Firearm>(firearm);
             if (Destructible is null)
             {
-                Distance = float.PositiveInfinity;
+                hitInfo.distance = float.PositiveInfinity;
                 return;
             }
 
