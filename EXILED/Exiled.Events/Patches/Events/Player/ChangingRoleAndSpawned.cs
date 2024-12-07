@@ -12,20 +12,22 @@ namespace Exiled.Events.Patches.Events.Player
     using System.Linq;
     using System.Reflection.Emit;
 
+    using API.Enums;
     using API.Features;
     using API.Features.Pools;
     using API.Features.Roles;
+    using Exiled.API.Features.Items;
     using Exiled.Events.EventArgs.Player;
     using HarmonyLib;
     using InventorySystem;
     using InventorySystem.Items;
     using InventorySystem.Items.Armor;
     using InventorySystem.Items.Pickups;
+    using InventorySystem.Items.Usables.Scp1344;
     using PlayerRoles;
 
     using static HarmonyLib.AccessTools;
 
-    using Firearm = Exiled.API.Features.Items.Firearm;
     using Player = Handlers.Player;
 
     /// <summary>
@@ -197,11 +199,17 @@ namespace Exiled.Events.Patches.Events.Player
 
                 Inventory inventory = ev.Player.Inventory;
 
-                if (ev.Reason == API.Enums.SpawnReason.Escaped)
+                if (ev.Reason == SpawnReason.Escaped && InventoryItemProvider.KeepItemsAfterEscaping)
                 {
-                    List<ItemPickupBase> list = new();
+                    List<ItemPickupBase> list = ListPool<ItemPickupBase>.Pool.Get();
                     if (inventory.TryGetBodyArmor(out BodyArmor bodyArmor))
                         bodyArmor.DontRemoveExcessOnDrop = true;
+
+                    foreach (Item item in ev.Player.Items)
+                    {
+                        if (item is Scp1344 scp1344)
+                            scp1344.Status = Scp1344Status.Idle;
+                    }
 
                     while (inventory.UserInventory.Items.Count > 0)
                     {
@@ -241,7 +249,7 @@ namespace Exiled.Events.Patches.Events.Player
                 foreach (KeyValuePair<ItemType, ushort> keyValuePair in ev.Ammo)
                     inventory.ServerAddAmmo(keyValuePair.Key, keyValuePair.Value);
 
-                foreach (API.Features.Items.Item item in ev.Player.Items)
+                foreach (Item item in ev.Player.Items)
                 {
                     InventoryItemProvider.OnItemProvided?.Invoke(ev.Player.ReferenceHub, item.Base);
                     if (item is Firearm firearm)

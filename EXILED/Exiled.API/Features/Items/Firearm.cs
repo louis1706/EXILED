@@ -15,13 +15,13 @@ namespace Exiled.API.Features.Items
     using Enums;
     using Extensions;
     using Interfaces;
+    using InventorySystem.Items.Autosync;
     using InventorySystem.Items.Firearms.Attachments;
     using InventorySystem.Items.Firearms.Attachments.Components;
     using InventorySystem.Items.Firearms.Modules;
     using MEC;
     using Pickups;
     using Structs;
-    using UnityEngine;
 
     using BaseFirearm = InventorySystem.Items.Firearms.Firearm;
     using FirearmPickup = Pickups.FirearmPickup;
@@ -41,7 +41,7 @@ namespace Exiled.API.Features.Items
         /// </summary>
         internal static readonly Dictionary<FirearmType, uint> BaseCodesValue = new();
 
-        private IPrimaryAmmoContainerModule ammoModule;
+        private readonly IPrimaryAmmoContainerModule ammoModule;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Firearm"/> class.
@@ -656,6 +656,8 @@ namespace Exiled.API.Features.Items
         {
             Base.Owner = newOwner.ReferenceHub;
             Base._footprintCacheSet = false;
+            foreach (SubcomponentBase component in Base.AllSubcomponents)
+                component.OnAdded();
         }
 
         /// <inheritdoc/>
@@ -665,8 +667,7 @@ namespace Exiled.API.Features.Items
 
             if (pickup is FirearmPickup firearmPickup)
             {
-                // TODO If synced
-                // MaxAmmo = firearmPickup.MaxAmmo;
+                Timing.CallDelayed(0.1f, () => Ammo = firearmPickup.Ammo);
             }
         }
     }

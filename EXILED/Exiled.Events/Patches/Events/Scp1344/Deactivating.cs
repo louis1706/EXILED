@@ -14,7 +14,6 @@ namespace Exiled.Events.Patches.Events.Scp1344
     using Exiled.Events.EventArgs.Scp1344;
     using HarmonyLib;
     using InventorySystem.Items.Usables.Scp1344;
-    using InventorySystem.Items.Usables.Scp244;
     using UnityEngine;
 
     /// <summary>
@@ -34,7 +33,8 @@ namespace Exiled.Events.Patches.Events.Scp1344
             if (__instance._useTime == 0)
             {
                 TryingDeactivatingEventArgs ev = new(Item.Get(__instance));
-                Exiled.Events.Handlers.Scp1344.OnTryingDeactivating(ev);
+
+                Handlers.Scp1344.OnTryingDeactivating(ev);
 
                 if (!ev.IsAllowed)
                 {
@@ -45,7 +45,8 @@ namespace Exiled.Events.Patches.Events.Scp1344
             if (__instance._useTime + Time.deltaTime >= 5.1f)
             {
                 DeactivatingEventArgs deactivating = new(Item.Get(__instance));
-                Exiled.Events.Handlers.Scp1344.OnDeactivating(deactivating);
+
+                Handlers.Scp1344.OnDeactivating(deactivating);
 
                 if (!deactivating.IsAllowed)
                 {
@@ -56,7 +57,9 @@ namespace Exiled.Events.Patches.Events.Scp1344
                 __instance.ServerDropItem(__instance);
 
                 DeactivatedEventArgs ev = new(Item.Get(__instance));
-                Exiled.Events.Handlers.Scp1344.OnDeactivated(ev);
+
+                Handlers.Scp1344.OnDeactivated(ev);
+
                 return false;
             }
 

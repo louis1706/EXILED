@@ -30,7 +30,6 @@ namespace Exiled.Events.EventArgs.Player
         {
             Firearm = firearm;
             Player = player;
-            Log.Debug($"Reloading Event! {IsAllowed}");
         }
 
         /// <summary>

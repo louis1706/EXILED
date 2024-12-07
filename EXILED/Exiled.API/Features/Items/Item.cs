@@ -389,19 +389,6 @@ namespace Exiled.API.Features.Items
         public override string ToString() => $"{Type} ({Serial}) [{Weight}] *{Scale}* ={Owner}=";
 
         /// <summary>
-        /// Changes the owner of the <see cref="Item"/>.
-        /// </summary>
-        /// <param name="oldOwner">Old <see cref="Item"/> owner.</param>
-        /// <param name="newOwner">New <see cref="Item"/> owner.</param>
-        public void ChangeItemOwner(Player oldOwner, Player newOwner)
-        {
-            if (oldOwner != null && newOwner != null)
-            {
-                ChangeOwner(oldOwner, newOwner);
-            }
-        }
-
-        /// <summary>
         /// Change the owner of the <see cref="Item"/>.
         /// </summary>
         /// <param name="oldOwner">old <see cref="Item"/> owner.</param>
@@ -409,9 +396,7 @@ namespace Exiled.API.Features.Items
         internal virtual void ChangeOwner(Player oldOwner, Player newOwner)
         {
             Base.OnRemoved(null);
-
             Base.Owner = newOwner.ReferenceHub;
-
             Base.OnAdded(null);
         }
 
