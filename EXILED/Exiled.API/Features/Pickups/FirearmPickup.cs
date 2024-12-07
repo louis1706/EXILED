@@ -94,7 +94,7 @@ namespace Exiled.API.Features.Pickups
         }
 
         /// <inheritdoc />
-        public override Pickup Spawn(Vector3 position, Quaternion rotation, Player previousOwner = null)
+        public override Pickup Spawn(Vector3 position, Quaternion? rotation = null, Player previousOwner = null)
         {
             Pickup pickup = base.Spawn(position, rotation, previousOwner);
             Base.OnDistributed();
