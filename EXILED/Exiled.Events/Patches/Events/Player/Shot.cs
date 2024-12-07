@@ -19,6 +19,7 @@ namespace Exiled.Events.Patches.Events.Player
     using UnityEngine;
 
     using static HarmonyLib.AccessTools;
+    using static Utf8Json.Resolvers.Internal.DynamicObjectTypeBuilder;
 
     /// <summary>
     /// Patches <see cref="HitscanHitregModuleBase.ServerPerformHitscan" />.
@@ -87,26 +88,36 @@ namespace Exiled.Events.Patches.Events.Player
                 destructibleGetIndex,
                 new[]
                 {
-                    // var ev = new ShotEventArgs(this, hitInfo, firearm, component);
-                    new(OpCodes.Ldarg_0), // this
-                    new(OpCodes.Ldloc_1), // hitInfo
-                    new(OpCodes.Ldarg_0), // this.Firearm
+                    // this
+                    new(OpCodes.Ldarg_0),
+
+                    // hitInfo
+                    new(OpCodes.Ldloc_1),
+
+                    // this.Firearm
+                    new(OpCodes.Ldarg_0),
                     new(OpCodes.Callvirt, PropertyGetter(typeof(HitscanHitregModuleBase), nameof(HitscanHitregModuleBase.Firearm))),
-                    new(OpCodes.Ldloc_2), // component
+
+                    // component
+                    new(OpCodes.Ldloc_2),
+
+                    // ShotEventArgs ev = new(HitscanHitregModuleBase, RaycastHit, InventorySystem.Items.Firearms.Firearm, IDestructible);
                     new(OpCodes.Newobj, GetDeclaredConstructors(typeof(ShotEventArgs))[0]),
-                    new(OpCodes.Dup), // Leave ShotEventArgs on the stack
+                    new(OpCodes.Dup),
+                    new(OpCodes.Dup),
+
+                    // Handlers.Player.OnShot(ev);
+                    new(OpCodes.Call, Method(typeof(Handlers.Player), nameof(Handlers.Player.OnShot))),
                     new(OpCodes.Stloc_S, ev.LocalIndex),
 
-                    new(OpCodes.Dup), // Leave ShotEventArgs on the stack
-                    new(OpCodes.Call, Method(typeof(Handlers.Player), nameof(Handlers.Player.OnShot))),
-
-                    // if (!ev.CanHurt) hitInfo.distance = maxDistance;
+                    // if (ev.CanHurt) goto continueLabel;
                     new(OpCodes.Callvirt, PropertyGetter(typeof(ShotEventArgs), nameof(ShotEventArgs.CanHurt))),
                     new(OpCodes.Brtrue, continueLabel),
 
-                    new(OpCodes.Ldloca_S, 1), // hitInfo address
-                    new(OpCodes.Ldloc_0), // maxDistance
-                    new(OpCodes.Call, PropertySetter(typeof(RaycastHit), nameof(RaycastHit.distance))), // hitInfo.distance = maxDistance
+                    // hitInfo.distance = maxDistance;
+                    new(OpCodes.Ldloca_S, 1),
+                    new(OpCodes.Ldloc_0),
+                    new(OpCodes.Call, PropertySetter(typeof(RaycastHit), nameof(RaycastHit.distance))),
 
                     new CodeInstruction(OpCodes.Nop).WithLabels(continueLabel),
                 });
@@ -133,6 +144,16 @@ namespace Exiled.Events.Patches.Events.Player
                     new(OpCodes.Callvirt, PropertyGetter(typeof(ShotEventArgs), nameof(ShotEventArgs.CanSpawnImpactEffects))),
                     new(OpCodes.Brfalse, returnLabel),
                 });
+
+            int offset = 4;
+            int index = newInstructions.FindLastIndex(i => i.opcode == OpCodes.Ldloc_3) + offset;
+
+            newInstructions.RemoveRange(index, 4);
+            newInstructions.InsertRange(index, new CodeInstruction[]
+            {
+                new(OpCodes.Ldloc_S, ev),
+                new(OpCodes.Callvirt, PropertyGetter(typeof(ShotEventArgs), nameof(ShotEventArgs.Damage))),
+            });
 
             newInstructions[newInstructions.Count - 1].WithLabels(returnLabel);
 
