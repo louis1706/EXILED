@@ -19,7 +19,6 @@ namespace Exiled.Events.Patches.Events.Player
     using UnityEngine;
 
     using static HarmonyLib.AccessTools;
-    using static Utf8Json.Resolvers.Internal.DynamicObjectTypeBuilder;
 
     /// <summary>
     /// Patches <see cref="HitscanHitregModuleBase.ServerPerformHitscan" />.
