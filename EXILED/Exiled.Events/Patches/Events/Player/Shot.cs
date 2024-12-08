@@ -144,16 +144,6 @@ namespace Exiled.Events.Patches.Events.Player
                     new(OpCodes.Brfalse, returnLabel),
                 });
 
-            int offset = 4;
-            int index = newInstructions.FindLastIndex(i => i.opcode == OpCodes.Ldloc_3) + offset;
-
-            newInstructions.RemoveRange(index, 4);
-            newInstructions.InsertRange(index, new CodeInstruction[]
-            {
-                new(OpCodes.Ldloc_S, ev),
-                new(OpCodes.Callvirt, PropertyGetter(typeof(ShotEventArgs), nameof(ShotEventArgs.Damage))),
-            });
-
             newInstructions[newInstructions.Count - 1].WithLabels(returnLabel);
 
             for (int z = 0; z < newInstructions.Count; z++)
