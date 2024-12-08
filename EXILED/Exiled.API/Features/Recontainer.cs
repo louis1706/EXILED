@@ -193,7 +193,7 @@ namespace Exiled.API.Features
         /// <summary>
         /// Begins the overcharge procedure.
         /// </summary>
-        /// <param name="endOvercharge">Make than EndOvercharge is call after the <see cref="LockdownDuration"/>.</param>
+        /// <param name="endOvercharge">Make than <see cref="EndOvercharge"/> is call after the <see cref="LockdownDuration"/>.</param>
         public static void BeginOvercharge(bool endOvercharge = true)
         {
             Base.BeginOvercharge();
