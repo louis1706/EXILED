@@ -164,7 +164,7 @@ namespace Exiled.API.Features.Toys
             {
                 LightSourceToy lightSourceToy => new Light(lightSourceToy),
                 PrimitiveObjectToy primitiveObjectToy => new Primitive(primitiveObjectToy),
-                ShootingTarget shootingTarget => new ShootingTargetToy(shootingTarget),
+                ShootingTarget shootingTarget => new ShootingTargetToy(shootingTarget, ),
                 SpeakerToy speakerToy => new Speaker(speakerToy),
                 _ => throw new System.NotImplementedException()
             };

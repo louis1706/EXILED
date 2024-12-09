@@ -138,22 +138,6 @@ namespace Exiled.API.Features.Toys
         }
 
         /// <summary>
-        /// Gets the type of the target.
-        /// </summary>
-        public ShootingTargetType Type { get; }
-
-        /// <summary>
-        /// Gets the <see cref="ShootingTargetToy"/> belonging to the <see cref="ShootingTarget"/>.
-        /// </summary>
-        /// <param name="shootingTarget">The <see cref="ShootingTarget"/> instance.</param>
-        /// <returns>The corresponding <see cref="ShootingTargetToy"/> instance.</returns>
-        public static ShootingTargetToy Get(ShootingTarget shootingTarget)
-        {
-            AdminToy adminToy = List.FirstOrDefault(x => x.AdminToyBase == shootingTarget);
-            return adminToy is not null ? adminToy as ShootingTargetToy : new(shootingTarget);
-        }
-
-        /// <summary>
         /// Clears the target and resets its health.
         /// </summary>
         public void Clear() => Base.ClearTarget();
