@@ -28,38 +28,17 @@ namespace Exiled.API.Features.Toys
     /// </summary>
     public class ShootingTargetToy : AdminToy, IWrapper<ShootingTarget>
     {
-        private static readonly Dictionary<string, ShootingTargetType> TypeLookup = new()
-        {
-            { "sportTargetPrefab", ShootingTargetType.Sport },
-            { "dboyTargetPrefab", ShootingTargetType.ClassD },
-            { "binaryTargetPrefab", ShootingTargetType.Binary },
-        };
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ShootingTargetToy"/> class.
         /// </summary>
         /// <param name="target">The base <see cref="ShootingTarget"/> class.</param>
-        internal ShootingTargetToy(ShootingTarget target)
-            : base(target, AdminToyType.ShootingTarget)
+        /// <param name="adminToyType">The base <see cref="AdminToyType"/> class.</param>
+        internal ShootingTargetToy(ShootingTarget target, AdminToyType adminToyType)
+            : base(target, adminToyType)
         {
             Base = target;
-            Type = TypeLookup.TryGetValue(Base.gameObject.name.Substring(0, Base.gameObject.name.Length - 7), out ShootingTargetType type) ? type : ShootingTargetType.Unknown;
+            Type = 0;
         }
-
-        /// <summary>
-        /// Gets the prefab for Sport Shooting Target.
-        /// </summary>
-        public static ShootingTarget SportShootingTargetPrefab => PrefabHelper.GetPrefab<ShootingTarget>(PrefabType.SportTarget);
-
-        /// <summary>
-        /// Gets the prefab for DBoy Shooting Target.
-        /// </summary>
-        public static ShootingTarget DboyShootingTargetPrefab => PrefabHelper.GetPrefab<ShootingTarget>(PrefabType.DBoyTarget);
-
-        /// <summary>
-        /// Gets the prefab for Binary Shooting Target.
-        /// </summary>
-        public static ShootingTarget BinaryShootingTargetPrefab => PrefabHelper.GetPrefab<ShootingTarget>(PrefabType.BinaryTarget);
 
         /// <summary>
         /// Gets the base-game <see cref="ShootingTarget"/> for this target.

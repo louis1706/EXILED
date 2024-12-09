@@ -30,6 +30,13 @@ namespace Exiled.API.Features.Toys
         /// </summary>
         internal static readonly Dictionary<AdminToyBase, AdminToy> BaseToAdminToy = new(new ComponentsEqualityComparer());
 
+        private static readonly Dictionary<string, AdminToyType> TypeLookup = new()
+        {
+            { "sportTargetPrefab", AdminToyType.ShootingTargetSport },
+            { "dboyTargetPrefab", AdminToyType.ShootingTargetClassD },
+            { "binaryTargetPrefab", AdminToyType.ShootingTargetBinary },
+        };
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AdminToy"/> class.
         /// </summary>
@@ -160,29 +167,16 @@ namespace Exiled.API.Features.Toys
             };
         }
 
-
         /// <summary>
         /// Create the <see cref="AdminToy"/> belonging to the <see cref="AdminToys.AdminToyBase"/>.
         /// </summary>
         /// <param name="adminToyBase">The <see cref="AdminToys.AdminToyBase"/> instance.</param>
         /// <returns>The corresponding <see cref="AdminToy"/> instance.</returns>
-        public static AdminToy Create()
+        public static AdminToy Create(AdminToyType adminToyType)
         {
-            if (adminToyBase == null)
-                return null;
-
-            if (BaseToAdminToy.TryGetValue(adminToyBase, out AdminToy adminToy))
-                return adminToy;
-
-            return adminToyBase switch
-            {
-                LightSourceToy lightSourceToy => new Light(lightSourceToy),
-                PrimitiveObjectToy primitiveObjectToy => new Primitive(primitiveObjectToy),
-                ShootingTarget shootingTarget => new ShootingTargetToy(shootingTarget),
-                SpeakerToy speakerToy => new Speaker(speakerToy),
-                _ => throw new System.NotImplementedException()
-            };
+            PrefabHelper.Spawn<AdminToy>(adminToyType)
         }
+
         /// <summary>
         /// Gets the <see cref="AdminToy"/> by <see cref="AdminToys.AdminToyBase"/>.
         /// </summary>
