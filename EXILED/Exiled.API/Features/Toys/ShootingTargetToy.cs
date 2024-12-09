@@ -37,7 +37,7 @@ namespace Exiled.API.Features.Toys
             : base(target, adminToyType)
         {
             Base = target;
-            Type = 0;
+            Type = Base.CommandNametoType;
         }
 
         /// <summary>

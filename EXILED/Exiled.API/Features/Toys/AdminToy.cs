@@ -164,7 +164,7 @@ namespace Exiled.API.Features.Toys
             {
                 LightSourceToy lightSourceToy => new Light(lightSourceToy),
                 PrimitiveObjectToy primitiveObjectToy => new Primitive(primitiveObjectToy),
-                ShootingTarget shootingTarget => new ShootingTargetToy(shootingTarget, ),
+                ShootingTarget shootingTarget => new ShootingTargetToy(shootingTarget),
                 SpeakerToy speakerToy => new Speaker(speakerToy),
                 _ => throw new System.NotImplementedException()
             };
@@ -190,6 +190,15 @@ namespace Exiled.API.Features.Toys
         /// <returns>The admintoy wrapper for the given <see cref="AdminToys.AdminToyBase"/>.</returns>
         public static T Get<T>(AdminToyBase adminToyBase)
             where T : AdminToy => Get(adminToyBase) as T;
+
+        /// <summary>
+        /// Gets the <see cref="AdminToy"/> by <see cref="AdminToys.AdminToyBase"/>.
+        /// </summary>
+        /// <param name="adminToyType">The <see cref="AdminToyType"/> to convert into an admintoy.</param>
+        /// <typeparam name="T">The specified <see cref="AdminToy"/> type.</typeparam>
+        /// <returns>The admintoy wrapper for the given <see cref="AdminToys.AdminToyBase"/>.</returns>
+        public static T Create<T>(AdminToyType adminToyType, ...)
+            where T : AdminToy => Create(adminToyType, ...) as T;
 
         /// <summary>
         /// Spawns the toy into the game. Use <see cref="UnSpawn"/> to remove it.
