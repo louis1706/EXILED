@@ -164,50 +164,6 @@ namespace Exiled.API.Features.Toys
         public ShootingTargetType Type { get; }
 
         /// <summary>
-        /// Creates a new <see cref="ShootingTargetToy"/>.
-        /// </summary>
-        /// <param name="type">The <see cref="ShootingTargetType"/> of the <see cref="ShootingTargetToy"/>.</param>
-        /// <param name="position">The position of the <see cref="ShootingTargetToy"/>.</param>
-        /// <param name="rotation">The rotation of the <see cref="ShootingTargetToy"/>.</param>
-        /// <param name="scale">The scale of the <see cref="ShootingTargetToy"/>.</param>
-        /// <param name="spawn">Whether the <see cref="ShootingTargetToy"/> should be initially spawned.</param>
-        /// <returns>The new <see cref="ShootingTargetToy"/>.</returns>
-        public static ShootingTargetToy Create(ShootingTargetType type, Vector3? position = null, Vector3? rotation = null, Vector3? scale = null, bool spawn = true)
-        {
-            ShootingTargetToy shootingTargetToy;
-
-            switch (type)
-            {
-                case ShootingTargetType.ClassD:
-                    {
-                        shootingTargetToy = new(Object.Instantiate(DboyShootingTargetPrefab));
-                        break;
-                    }
-
-                case ShootingTargetType.Binary:
-                    {
-                        shootingTargetToy = new(Object.Instantiate(BinaryShootingTargetPrefab));
-                        break;
-                    }
-
-                default:
-                    {
-                        shootingTargetToy = new(Object.Instantiate(SportShootingTargetPrefab));
-                        break;
-                    }
-            }
-
-            shootingTargetToy.Position = position ?? Vector3.zero;
-            shootingTargetToy.Rotation = Quaternion.Euler(rotation ?? Vector3.zero);
-            shootingTargetToy.Scale = scale ?? Vector3.one;
-
-            if (spawn)
-                shootingTargetToy.Spawn();
-
-            return shootingTargetToy;
-        }
-
-        /// <summary>
         /// Gets the <see cref="ShootingTargetToy"/> belonging to the <see cref="ShootingTarget"/>.
         /// </summary>
         /// <param name="shootingTarget">The <see cref="ShootingTarget"/> instance.</param>
