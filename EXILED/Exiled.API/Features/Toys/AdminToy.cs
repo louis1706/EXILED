@@ -30,11 +30,14 @@ namespace Exiled.API.Features.Toys
         /// </summary>
         internal static readonly Dictionary<AdminToyBase, AdminToy> BaseToAdminToy = new(new ComponentsEqualityComparer());
 
-        private static readonly Dictionary<string, AdminToyType> TypeLookup = new()
+        private static readonly Dictionary<AdminToyType, PrefabType> TypeLookup = new()
         {
-            { "sportTargetPrefab", AdminToyType.ShootingTargetSport },
-            { "dboyTargetPrefab", AdminToyType.ShootingTargetClassD },
-            { "binaryTargetPrefab", AdminToyType.ShootingTargetBinary },
+            { AdminToyType.ShootingTargetSport, PrefabType.SportTarget },
+            { AdminToyType.ShootingTargetClassD, PrefabType.DBoyTarget },
+            { AdminToyType.ShootingTargetBinary, PrefabType.BinaryTarget },
+            { AdminToyType.LightSource, PrefabType.LightSourceToy },
+            { AdminToyType.PrimitiveObject, PrefabType.PrimitiveObjectToy },
+            { AdminToyType.Speaker, PrefabType.SpeakerToy },
         };
 
         /// <summary>
@@ -170,11 +173,13 @@ namespace Exiled.API.Features.Toys
         /// <summary>
         /// Create the <see cref="AdminToy"/> belonging to the <see cref="AdminToys.AdminToyBase"/>.
         /// </summary>
-        /// <param name="adminToyBase">The <see cref="AdminToys.AdminToyBase"/> instance.</param>
-        /// <returns>The corresponding <see cref="AdminToy"/> instance.</returns>
-        public static AdminToy Create(AdminToyType adminToyType)
+        /// <param name="adminToyType">The <see cref="AdminToyType"/>.</param>
+        /// <returns>The corresponding <see cref="AdminToy"/>.</returns>
+        public static AdminToy Create(AdminToyType adminToyType, ....)
         {
-            PrefabHelper.Spawn<AdminToy>(adminToyType)
+            if (!TypeLookup.TryGetValue(adminToyType, out PrefabType prefabType))
+                return null;
+            return PrefabHelper.Spawn<AdminToy>(prefabType, ....);
         }
 
         /// <summary>
