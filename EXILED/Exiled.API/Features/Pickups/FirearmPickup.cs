@@ -84,7 +84,7 @@ namespace Exiled.API.Features.Pickups
         /// Returns the FirearmPickup in a human readable format.
         /// </summary>
         /// <returns>A string containing FirearmPickup related data.</returns>
-        public override string ToString() => $"{Type} ({Serial}) [{Weight}] *{Scale}* -{/*Ammo*/0}-";
+        public override string ToString() => $"{Type} ({Serial}) [{Weight}] *{Scale}* -{Ammo}-";
 
         /// <inheritdoc />
         public override void Spawn()
