@@ -7,11 +7,14 @@
 
 namespace Exiled.Events.EventArgs.Interfaces
 {
+    using System;
+
     using Exiled.API.Features.Roles;
 
     /// <summary>
     /// Event args used for all <see cref="Scp1507Role"/> related events.
     /// </summary>
+    [Obsolete("Only availaible for Christmas and AprilFools.")]
     public interface IScp1507Event : IPlayerEvent
     {
         /// <summary>

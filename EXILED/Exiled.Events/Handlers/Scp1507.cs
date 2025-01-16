@@ -7,6 +7,8 @@
 
 namespace Exiled.Events.Handlers
 {
+    using System;
+
     using Exiled.Events.EventArgs.Scp1507;
     using Exiled.Events.Features;
 
@@ -15,6 +17,7 @@ namespace Exiled.Events.Handlers
     /// <summary>
     /// SCP-1507 related events.
     /// </summary>
+    [Obsolete("Only availaible for Christmas and AprilFools.")]
     public static class Scp1507
     {
         /// <summary>

@@ -7,10 +7,11 @@
 
 namespace Exiled.Events.Patches.Generic
 {
+#pragma warning disable SA1313
+#pragma warning disable CS0618
+
     using Exiled.API.Features;
     using HarmonyLib;
-
-#pragma warning disable SA1313
 
     /// <summary>
     /// Patches <see cref="Scp559Cake.Start"/>

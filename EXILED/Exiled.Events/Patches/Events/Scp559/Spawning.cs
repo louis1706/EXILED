@@ -7,6 +7,7 @@
 
 namespace Exiled.Events.Patches.Events.Scp559
 {
+#pragma warning disable CS0618
     using System.Collections.Generic;
     using System.Reflection.Emit;
 

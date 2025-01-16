@@ -7,6 +7,8 @@
 
 namespace Exiled.Events.EventArgs.Scp559
 {
+    using System;
+
     using Exiled.API.Features;
     using Exiled.Events.EventArgs.Interfaces;
     using UnityEngine;
@@ -14,6 +16,7 @@ namespace Exiled.Events.EventArgs.Scp559
     /// <summary>
     /// Contains all information before SCP-559 spawns.
     /// </summary>
+    [Obsolete("Only availaible for Christmas and AprilFools.")]
     public class SpawningEventArgs : IDeniableEvent, IScp559Event
     {
         /// <summary>

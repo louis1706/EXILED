@@ -7,6 +7,8 @@
 
 namespace Exiled.Events.EventArgs.Scp1507
 {
+    using System;
+
     using Exiled.API.Features;
     using Exiled.API.Features.Doors;
     using Exiled.API.Features.Roles;
@@ -16,6 +18,7 @@ namespace Exiled.Events.EventArgs.Scp1507
     /// <summary>
     /// Contains all information before SCP-1507 attacks door.
     /// </summary>
+    [Obsolete("Only availaible for Christmas and AprilFools.")]
     public class AttackingDoorEventArgs : IScp1507Event, IDeniableEvent, IDoorEvent
     {
         /// <summary>

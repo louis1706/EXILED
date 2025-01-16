@@ -7,13 +7,17 @@
 
 namespace Exiled.Events.Handlers
 {
+    using System;
+
     using Exiled.Events.EventArgs.Scp559;
     using Exiled.Events.Features;
+
 #pragma warning disable SA1623
 
     /// <summary>
     /// All SCP-559 related events.
     /// </summary>
+    [Obsolete("Only availaible for Christmas and AprilFools.")]
     public static class Scp559
     {
         /// <summary>

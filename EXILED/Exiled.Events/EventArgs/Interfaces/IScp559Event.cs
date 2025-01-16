@@ -7,9 +7,12 @@
 
 namespace Exiled.Events.EventArgs.Interfaces
 {
+    using System;
+
     /// <summary>
     /// Defines the base contract for all <see cref="Scp559Cake"/> related events.
     /// </summary>
+    [Obsolete("Only availaible for Christmas and AprilFools.")]
     public interface IScp559Event : IExiledEvent
     {
         /// <summary>

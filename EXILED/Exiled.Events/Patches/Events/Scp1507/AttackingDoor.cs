@@ -7,16 +7,15 @@
 
 namespace Exiled.Events.Patches.Events.Scp1507
 {
+#pragma warning disable CS0618
     using System.Collections.Generic;
     using System.Reflection.Emit;
 
     using Exiled.API.Features;
-    using Exiled.API.Features.Doors;
     using Exiled.API.Features.Pools;
     using Exiled.Events.Attributes;
     using Exiled.Events.EventArgs.Scp1507;
     using HarmonyLib;
-    using Interactables.Interobjects.DoorUtils;
     using PlayerRoles.PlayableScps.Scp1507;
 
     using static HarmonyLib.AccessTools;

@@ -7,15 +7,17 @@
 
 namespace Exiled.Events.EventArgs.Scp1507
 {
+    using System;
+
     using Exiled.API.Features;
     using Exiled.API.Features.Items;
-    using Exiled.API.Features.Roles;
     using Exiled.Events.EventArgs.Interfaces;
     using InventorySystem.Items;
 
     /// <summary>
     /// Contains all information before SCP-1507 screams.
     /// </summary>
+    [Obsolete("Only availaible for Christmas and AprilFools.")]
     public class UsingTapeEventArgs : IPlayerEvent, IItemEvent, IDeniableEvent
     {
         /// <summary>
