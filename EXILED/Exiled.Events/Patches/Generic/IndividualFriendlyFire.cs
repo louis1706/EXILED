@@ -130,25 +130,27 @@ namespace Exiled.Events.Patches.Generic
                 // Check victim's UniqueRole for custom FF multiplier
                 if (!string.IsNullOrEmpty(victim.UniqueRole) &&
                     victim.CustomRoleFriendlyFireMultiplier.TryGetValue(victim.UniqueRole, out Dictionary<RoleTypeId, float> victimPairedData) &&
-                    victimPairedData.TryGetValue(attacker.Role, out ffMultiplier))
+                    victimPairedData.TryGetValue(attacker.Role, out float victimMultiplier))
                 {
-                    return true;
+                    ffMultiplier *= victimMultiplier;
                 }
 
                 // Check attacker's UniqueRole for custom FF multiplier
                 if (!string.IsNullOrEmpty(attacker.UniqueRole) &&
                     attacker.CustomRoleFriendlyFireMultiplier.TryGetValue(attacker.UniqueRole, out Dictionary<RoleTypeId, float> attackerPairedData) &&
-                    attackerPairedData.TryGetValue(victim.Role, out ffMultiplier))
+                    attackerPairedData.TryGetValue(victim.Role, out float attackerMultiplier))
                 {
-                    return true;
+                    ffMultiplier *= attackerMultiplier;
                 }
 
                 // Default FF logic for SCP or other roles without unique roles
                 if (!attacker.FriendlyFireMultiplier.IsEmpty() &&
-                    attacker.FriendlyFireMultiplier.TryGetValue(victim.Role, out ffMultiplier))
+                    attacker.FriendlyFireMultiplier.TryGetValue(victim.Role, out float defaultMultiplier))
                 {
-                    return true;
+                    ffMultiplier *= defaultMultiplier;
                 }
+
+                return ffMultiplier is not 1f;
             }
             catch (Exception ex)
             {
