@@ -328,5 +328,10 @@ namespace Exiled.API.Enums
         /// Entrance Zone's straight hall with Dr.L's and conference room 9b locked room.
         /// </summary>
         EzSmallrooms,
+
+        /// <summary>
+        /// Heavy Containment Zone's SCP-127 room.
+        /// </summary>
+        Hcz127,
     }
 }

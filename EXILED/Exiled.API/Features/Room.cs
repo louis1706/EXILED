@@ -484,6 +484,7 @@ namespace Exiled.API.Features
                 "HCZ_096" => RoomType.Hcz096,
                 "HCZ_106_Rework" => RoomType.Hcz106,
                 "HCZ_939" => RoomType.Hcz939,
+                "HCZ_127" => RoomType.Hcz127, // TODO: verify the RoomName
                 "HCZ_Tesla_Rework" => RoomType.HczTesla,
                 "HCZ_Curve" => RoomType.HczCurve,
                 "HCZ_Crossing" => RoomType.HczCrossing,

@@ -167,11 +167,20 @@ namespace Exiled.API.Enums
         /// <summary>
         /// Represents the HID_UPPER door.
         /// </summary>
+        [Obsolete("This door has been renamed to HIDLab")]
         HIDUpper,
+
+        /// <summary>
+        /// Represents the HID_UPPER door.
+        /// </summary>
+#pragma warning disable CS0618
+        HIDLab = HIDUpper,
+#pragma warning restore CS0618
 
         /// <summary>
         /// Represents the HID_LOWER door.
         /// </summary>
+        [Obsolete("This door has been removed")]
         HIDLower,
 
         /// <summary>
@@ -319,5 +328,10 @@ namespace Exiled.API.Enums
         /// Represents the ESCAPE_FINAL door.
         /// </summary>
         EscapeFinal,
+
+        /// <summary>
+        /// Represents the HCZ_127_LAB door.
+        /// </summary>
+        Hcz127Lab,
     }
 }
