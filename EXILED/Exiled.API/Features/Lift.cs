@@ -264,15 +264,8 @@ namespace Exiled.API.Features
         /// <param name="player">The <see cref="Player"/> to melt.</param>
         /// <returns><see langword="true"/> if the player was melted successfully; otherwise, <see langword="false"/>.</returns>
         /// <seealso cref="Player.EnableEffect(EffectType, float, bool)"/>
-        public static bool TryMeltPlayer(Player player)
-        {
-            if (player.Position.y is >= 200 or <= -200)
-                return false;
-
-            player.EnableEffect(EffectType.Decontaminating);
-
-            return true;
-        }
+        [Obsolete("This method is deprecated and will be removed in a future version. Use Player.EnableEffect(EffectType, float, bool) instead.")]
+        public static bool TryMeltPlayer(Player player) => false;
 
         /// <summary>
         /// Tries to start the lift.
