@@ -2193,7 +2193,7 @@ namespace Exiled.API.Features
         /// </summary>
         /// <param name="usableItem">The ItemType to be used.</param>
         /// <returns><see langword="true"/> if item was used successfully. Otherwise, <see langword="false"/>.</returns>
-        public bool UseItem(ItemType usableItem) => UseItem(Item.Create(usableItem));
+        public bool UseItem(ItemType usableItem) => UseItem(Item.Create(usableItem, this));
 
         /// <summary>
         /// Forces the player to use an item.
@@ -2634,7 +2634,7 @@ namespace Exiled.API.Features
                 return AddItem(itemType.GetFirearmType(), null);
             }
 
-            Item item = Item.Create(itemType);
+            Item item = Item.Create(itemType, this);
 
             AddItem(item);
 
@@ -2649,7 +2649,7 @@ namespace Exiled.API.Features
         /// <returns>The <see cref="Item"/> given to the player.</returns>
         public Item AddItem(FirearmType firearmType, IEnumerable<AttachmentIdentifier> identifiers)
         {
-            Item item = Item.Create(firearmType.GetItemType());
+            Item item = Item.Create(firearmType.GetItemType(), this);
 
             if (item is Firearm firearm)
             {

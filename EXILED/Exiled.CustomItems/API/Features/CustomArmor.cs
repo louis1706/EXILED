@@ -71,7 +71,7 @@ namespace Exiled.CustomItems.API.Features
         /// <inheritdoc />
         public override void Give(Player player, bool displayMessage = true)
         {
-            Armor armor = (Armor)Item.Create(Type);
+            Armor armor = (Armor)Item.Create(Type, player);
 
             armor.Weight = Weight;
             armor.StaminaUseMultiplier = StaminaUseMultiplier;
