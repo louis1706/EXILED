@@ -40,8 +40,9 @@ namespace Exiled.API.Features.Items
         /// Initializes a new instance of the <see cref="Scp244"/> class, as well as a new SCP-244 item.
         /// </summary>
         /// <param name="scp244Type">The type of SCP-244, either <see cref="ItemType.SCP244a"/> or <see cref="ItemType.SCP244b"/>.</param>
-        internal Scp244(ItemType scp244Type)
-            : this((Scp244Item)Server.Host.Inventory.CreateItemInstance(new(scp244Type, 0), false))
+        /// <param name="player">The owner of the SCP-244 item. Leave <see langword="null"/> for no owner.</param>
+        internal Scp244(ItemType scp244Type, Player player = null)
+            : this((Scp244Item)(player ?? Server.Host).Inventory.CreateItemInstance(new(scp244Type, 0), false))
         {
         }
 

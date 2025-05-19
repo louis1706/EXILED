@@ -31,8 +31,9 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Initializes a new instance of the <see cref="Scp1344"/> class.
         /// </summary>
-        internal Scp1344()
-            : this((Scp1344Item)Server.Host.Inventory.CreateItemInstance(new(ItemType.SCP1344, 0), false))
+        /// <param name="player">The owner of the SCP-1344 item. Leave <see langword="null"/> for no owner.</param>
+        internal Scp1344(Player player = null)
+            : this((Scp1344Item)(player ?? Server.Host).Inventory.CreateItemInstance(new(ItemType.SCP1344, 0), false))
         {
         }
 

@@ -37,8 +37,9 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Initializes a new instance of the <see cref="Jailbird"/> class, as well as a new Jailbird item.
         /// </summary>
-        internal Jailbird()
-            : this((JailbirdItem)Server.Host.Inventory.CreateItemInstance(new(ItemType.Jailbird, 0), false))
+        /// <param name="player">The owner of the Jailbird item. Leave <see langword="null"/> for no owner.</param>
+        internal Jailbird(Player player = null)
+            : this((JailbirdItem)(player ?? Server.Host).Inventory.CreateItemInstance(new(ItemType.Jailbird, 0), false))
         {
         }
 

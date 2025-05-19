@@ -37,8 +37,9 @@ namespace Exiled.API.Features.Items
         /// Initializes a new instance of the <see cref="Usable"/> class.
         /// </summary>
         /// <param name="type">The <see cref="ItemType"/> of the usable item.</param>
-        internal Usable(ItemType type)
-            : this((UsableItem)Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
+        /// <param name="player">The owner of the Usable item. Leave <see langword="null"/> for no owner.</param>
+        internal Usable(ItemType type, Player player = null)
+            : this((UsableItem)(player ?? Server.Host).Inventory.CreateItemInstance(new(type, 0), false))
         {
         }
 

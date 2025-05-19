@@ -85,8 +85,9 @@ namespace Exiled.API.Features.Items
         /// Initializes a new instance of the <see cref="Firearm"/> class.
         /// </summary>
         /// <param name="type">The <see cref="ItemType"/> of the firearm.</param>
-        internal Firearm(ItemType type)
-            : this((BaseFirearm)Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
+        /// <param name="player">The owner of the Firearm item. Leave <see langword="null"/> for no owner.</param>
+        internal Firearm(ItemType type, Player player = null)
+            : this((BaseFirearm)(player ?? Server.Host).Inventory.CreateItemInstance(new(type, 0), false))
         {
             FlashlightAttachment flashlight = Attachments.OfType<FlashlightAttachment>().FirstOrDefault();
 
@@ -142,7 +143,7 @@ namespace Exiled.API.Features.Items
         public BarrelMagazine BarrelMagazine { get; }
 
         /// <summary>
-        /// Gets a primaty magazine for current firearm.
+        /// Gets a hitreg module for current firearm.
         /// </summary>
         public HitscanHitregModuleBase HitscanHitregModule { get; }
 

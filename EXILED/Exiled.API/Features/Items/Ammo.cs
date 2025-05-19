@@ -39,8 +39,9 @@ namespace Exiled.API.Features.Items
         /// Initializes a new instance of the <see cref="Ammo"/> class.
         /// </summary>
         /// <param name="type">The <see cref="ItemType"/> of the ammo.</param>
-        internal Ammo(ItemType type)
-            : this((AmmoItem)Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
+        /// <param name="player">The owner of the Ammo item. Leave <see langword="null"/> for no owner.</param>
+        internal Ammo(ItemType type, Player player = null)
+            : this((AmmoItem)(player ?? Server.Host).Inventory.CreateItemInstance(new(type, 0), false))
         {
         }
 

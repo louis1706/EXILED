@@ -38,8 +38,9 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Initializes a new instance of the <see cref="MicroHid"/> class, as well as a new Micro HID item.
         /// </summary>
-        internal MicroHid()
-            : this((MicroHIDItem)Server.Host.Inventory.CreateItemInstance(new(ItemType.MicroHID, 0), false))
+        /// <param name="player">The owner of the MicroHid item. Leave <see langword="null"/> for no owner.</param>
+        internal MicroHid(Player player = null)
+            : this((MicroHIDItem)(player ?? Server.Host).Inventory.CreateItemInstance(new(ItemType.MicroHID, 0), false))
         {
         }
 

@@ -77,8 +77,9 @@ namespace Exiled.API.Features.Items
         /// Initializes a new instance of the <see cref="Item"/> class.
         /// </summary>
         /// <param name="type">The <see cref="ItemType"/> of the item to create.</param>
-        internal Item(ItemType type)
-            : this(Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
+        /// <param name="player">The owner of the item. Leave <see langword="null"/> for no owner.</param>
+        internal Item(ItemType type, Player player = null)
+            : this((player ?? Server.Host).Inventory.CreateItemInstance(new(type, 0), false))
         {
         }
 
@@ -302,23 +303,23 @@ namespace Exiled.API.Features.Items
         /// <returns>The <see cref="Item"/> created. This can be cast as a subclass.</returns>
         public static Item Create(ItemType type, Player owner = null) => type.GetTemplate() switch
         {
-            InventorySystem.Items.Firearms.Firearm => new Firearm(type),
-            KeycardItem => new Keycard(type),
+            InventorySystem.Items.Firearms.Firearm => new Firearm(type, owner),
+            KeycardItem => new Keycard(type, owner),
             UsableItem usable => usable switch
             {
-                Scp330Bag => new Scp330(),
-                Scp244Item => new Scp244(type),
-                Scp1576Item => new Scp1576(),
-                Scp1344Item => new Scp1344(),
-                BaseConsumable => new Consumable(type),
-                _ => new Usable(type),
+                Scp330Bag => new Scp330(owner),
+                Scp244Item => new Scp244(type, owner),
+                Scp1576Item => new Scp1576(owner),
+                Scp1344Item => new Scp1344(owner),
+                BaseConsumable => new Consumable(type, owner),
+                _ => new Usable(type, owner),
             },
-            RadioItem => new Radio(),
-            MicroHIDItem => new MicroHid(),
-            BodyArmor => new Armor(type),
-            AmmoItem => new Ammo(type),
-            ToggleableLightItemBase => new Flashlight(type),
-            JailbirdItem => new Jailbird(),
+            RadioItem => new Radio(owner),
+            MicroHIDItem => new MicroHid(owner),
+            BodyArmor => new Armor(type, owner),
+            AmmoItem => new Ammo(type, owner),
+            ToggleableLightItemBase => new Flashlight(type, owner),
+            JailbirdItem => new Jailbird(owner),
             ThrowableItem throwable => throwable.Projectile switch
             {
                 FlashbangGrenade => new FlashGrenade(owner),
@@ -403,7 +404,7 @@ namespace Exiled.API.Features.Items
         /// Clones the current item with a different serial.
         /// </summary>
         /// <returns> Cloned item object. </returns>
-        public virtual Item Clone() => Create(Type);
+        public virtual Item Clone() => Create(Type, Owner);
 
         /// <summary>
         /// Returns the Item in a human readable format.

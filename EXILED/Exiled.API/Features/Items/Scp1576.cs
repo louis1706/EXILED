@@ -30,8 +30,9 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Initializes a new instance of the <see cref="Scp1576"/> class.
         /// </summary>
-        internal Scp1576()
-            : this((Scp1576Item)Server.Host.Inventory.CreateItemInstance(new(ItemType.SCP1576, 0), false))
+        /// <param name="player">The owner of the SCP-1576 item. Leave <see langword="null"/> for no owner.</param>
+        internal Scp1576(Player player = null)
+            : this((Scp1576Item)(player ?? Server.Host).Inventory.CreateItemInstance(new(ItemType.SCP1576, 0), false))
         {
         }
 

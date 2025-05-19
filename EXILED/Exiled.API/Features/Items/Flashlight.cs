@@ -34,8 +34,9 @@ namespace Exiled.API.Features.Items
         /// Initializes a new instance of the <see cref="Flashlight"/> class, as well as a new Flashlight item.
         /// </summary>
         /// <param name="type"><see cref="ItemType.Flashlight"/> or <see cref="ItemType.Lantern"/>.</param>
-        internal Flashlight(ItemType type)
-            : this((ToggleableLightItemBase)Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
+        /// <param name="player">The owner of the Flashlight item. Leave <see langword="null"/> for no owner.</param>
+        internal Flashlight(ItemType type, Player player = null)
+            : this((ToggleableLightItemBase)(player ?? Server.Host).Inventory.CreateItemInstance(new(type, 0), false))
         {
         }
 

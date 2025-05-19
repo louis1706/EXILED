@@ -37,8 +37,8 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Initializes a new instance of the <see cref="FlashGrenade"/> class, as well as a new flash grenade item.
         /// </summary>
-        /// <param name="player">The owner of the grenade. Leave <see langword="null"/> for no owner.</param>
         /// <remarks>The player parameter will always need to be defined if this grenade is custom using Exiled.CustomItems.</remarks>
+        /// <param name="player">The owner of the Flash Grenade item. Leave <see langword="null"/> for no owner.</param>
         internal FlashGrenade(Player player = null)
             : this((ThrowableItem)(player ?? Server.Host).Inventory.CreateItemInstance(new(ItemType.GrenadeFlash, 0), true))
         {

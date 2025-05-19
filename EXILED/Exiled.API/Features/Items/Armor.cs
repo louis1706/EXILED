@@ -39,8 +39,9 @@ namespace Exiled.API.Features.Items
         /// Initializes a new instance of the <see cref="Armor"/> class.
         /// </summary>
         /// <param name="type">The <see cref="ItemType"/> of the armor.</param>
-        internal Armor(ItemType type)
-            : this((BodyArmor)Server.Host.Inventory.CreateItemInstance(new(type, 0), false))
+        /// <param name="player">The owner of the Armor item. Leave <see langword="null"/> for no owner.</param>
+        internal Armor(ItemType type, Player player = null)
+            : this((BodyArmor)(player ?? Server.Host).Inventory.CreateItemInstance(new(type, 0), false))
         {
         }
 

@@ -41,8 +41,8 @@ namespace Exiled.API.Features.Items
         /// Initializes a new instance of the <see cref="Scp018"/> class.
         /// </summary>
         /// <param name="type">The <see cref="ItemType"/> of the grenade.</param>
-        /// <param name="player">The owner of the grenade. Leave <see langword="null"/> for no owner.</param>
         /// <remarks>The player parameter will always need to be defined if this grenade is custom using Exiled.CustomItems.</remarks>
+        /// <param name="player">The owner of the SCP-018 item. Leave <see langword="null"/> for no owner.</param>
         internal Scp018(ItemType type, Player player = null)
             : this((ThrowableItem)(player ?? Server.Host).Inventory.CreateItemInstance(new(type, 0), true))
         {

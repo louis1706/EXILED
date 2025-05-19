@@ -32,8 +32,9 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Initializes a new instance of the <see cref="Radio"/> class, as well as a new Radio item.
         /// </summary>
-        internal Radio()
-            : this((RadioItem)Server.Host.Inventory.CreateItemInstance(new(ItemType.Radio, 0), false))
+        /// <param name="player">The owner of the Radio item. Leave <see langword="null"/> for no owner.</param>
+        internal Radio(Player player = null)
+            : this((RadioItem)(player ?? Server.Host).Inventory.CreateItemInstance(new(ItemType.Radio, 0), false))
         {
         }
 

@@ -61,8 +61,9 @@ namespace Exiled.API.Features.Items
         /// <summary>
         /// Initializes a new instance of the <see cref="Scp330"/> class, as well as a new SCP-330 bag item.
         /// </summary>
-        internal Scp330()
-            : this((Scp330Bag)Server.Host.Inventory.CreateItemInstance(new(ItemType.SCP330, 0), false))
+        /// <param name="player">The owner of the SCP-330 item. Leave <see langword="null"/> for no owner.</param>
+        internal Scp330(Player player = null)
+            : this((Scp330Bag)(player ?? Server.Host).Inventory.CreateItemInstance(new(ItemType.SCP330, 0), false))
         {
             Base.Candies.Add(Scp330Candies.GetRandom());
         }
