@@ -193,14 +193,24 @@ namespace Exiled.API.Features
         public float MoveTime => AnimationTime + RotationTime + DoorOpenTime + DoorCloseTime;
 
         /// <summary>
-        /// Gets the <see cref="CurrentLevel"/>.
+        /// Gets the <see cref="DestinationLevel"/>.
         /// </summary>
-        public int CurrentLevel => Base.DestinationLevel;
+        public int DestinationLevel => Base.DestinationLevel;
 
         /// <summary>
-        /// Gets the <see cref="CurrentDestination"/>.
+        /// Gets the <see cref="CurrentLevel"/>.
+        /// </summary>
+        public int CurrentLevel => (Base.DestinationLevel - Status is not ElevatorSequence.Ready ? 0 : -1) % internalDoorsList.Count;
+
+        /// <summary>
+        /// Gets the Door where Elevator is going or arrived.
         /// </summary>
         public Doors.ElevatorDoor CurrentDestination => Door.Get<Doors.ElevatorDoor>(Base.DestinationDoor);
+
+        /// <summary>
+        /// Gets the Door where elevator is.
+        /// </summary>
+        public Doors.ElevatorDoor CurrentDoor => Door.Get<Doors.ElevatorDoor>(internalDoorsList[CurrentLevel]);
 
         /// <summary>
         /// Gets a <see cref="IEnumerable{T}"/> of <see cref="Lift"/> which contains all the <see cref="Lift"/> instances from the specified <see cref="Status"/>.
