@@ -2560,6 +2560,14 @@ namespace Exiled.API.Features
             Inventory.ServerDropAmmo(ammoType.GetItemType(), amount, checkMinimals).Any();
 
         /// <summary>
+        /// Drops all Ammo out of the player's inventory.
+        /// </summary>
+        /// <param name="checkMinimals">Whether ammo limits will be taken into consideration.</param>
+        /// <returns><see langword="true"/> if ammo was dropped; otherwise, <see langword="false"/>.</returns>
+        public bool DropAllAmmo(bool checkMinimals = false) =>
+            Inventory.UserInventory.ReserveAmmo.Select(x => Inventory.ServerDropAmmo(x.Key, ushort.MaxValue, checkMinimals).Any()).Any();
+
+        /// <summary>
         /// Gets the maximum amount of ammo the player can hold, given the ammo <see cref="AmmoType"/>.
         /// </summary>
         /// <param name="type">The <see cref="AmmoType"/> of the ammo to check.</param>

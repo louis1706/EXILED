@@ -42,7 +42,12 @@ namespace Exiled.Events.Handlers.Internal
     internal static class Round
     {
         /// <inheritdoc cref="Handlers.Player.OnUsedItem" />
-        public static void OnServerOnUsingCompleted(ReferenceHub hub, UsableItem usable) => Handlers.Player.OnUsedItem(new (hub, usable));
+        public static void OnServerOnUsingCompleted(ReferenceHub hub, UsableItem usable)
+        {
+            Handlers.Player.OnUsedItem(new(hub, usable));
+            if (usable is Scp021J)
+                hub.inventory.ServerAddItem(ItemType.MarshmallowItem, InventorySystem.Items.ItemAddReason.StatusEffect);
+        }
 
         /// <inheritdoc cref="Handlers.Server.OnWaitingForPlayers" />
         public static void OnWaitingForPlayers()
