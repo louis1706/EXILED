@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="MapLayoutGetter.cs" company="ExMod Team">
 // Copyright (c) ExMod Team. All rights reserved.
 // Licensed under the CC BY-SA 3.0 license.
@@ -54,35 +54,25 @@ namespace Exiled.Events.Patches.Generic
 
         private static void SetLayout(Texture2D tex, int index)
         {
-            // Log.Error calls here will inform us if we need to update layout mapping
             switch (tex.name.Substring(0, 3))
             {
                 case "LC_":
                     if (index > 5)
-                    {
-                        Log.Error($"Unknown layout: {tex}");
-                        return;
-                    }
+                        Log.Warn($"Unknown layout: {tex}");
 
-                    Map.LczLayout = (LczFacilityLayout)index;
+                    Map.LczLayout = (LczFacilityLayout)(++index);
                     return;
                 case "HC_":
                     if (index > 10)
-                    {
-                        Log.Error($"Unknown layout: {tex}");
-                        return;
-                    }
+                        Log.Warn($"Unknown layout: {tex}");
 
-                    Map.HczLayout = (HczFacilityLayout)index;
+                    Map.HczLayout = (HczFacilityLayout)(++index);
                     return;
                 case "EZ_":
                     if (index > 5)
-                    {
-                        Log.Error($"Unknown layout: {tex}");
-                        return;
-                    }
+                        Log.Warn($"Unknown layout: {tex}");
 
-                    Map.EzLayout = (EzFacilityLayout)index;
+                    Map.EzLayout = (EzFacilityLayout)(++index);
                     return;
                 default:
                     Log.Error($"Failed to parse layout name: {tex.name}!");

@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="HczFacilityLayout.cs" company="ExMod Team">
 // Copyright (c) ExMod Team. All rights reserved.
 // Licensed under the CC BY-SA 3.0 license.
@@ -20,7 +20,7 @@ namespace Exiled.API.Enums
         /// <summary>
         /// Represents an unknown layout. This value is only used if you try to access <see cref="Map.HczLayout"/> prematurely or if an error occured.
         /// </summary>
-        Unknown = -1,
+        Unknown,
 
         /// <summary>
         /// See <see cref="HczFacilityLayout"/> for details.
