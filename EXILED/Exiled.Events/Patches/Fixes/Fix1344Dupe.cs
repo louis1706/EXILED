@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="Fix1344Dupe.cs" company="ExMod Team">
 // Copyright (c) ExMod Team. All rights reserved.
 // Licensed under the CC BY-SA 3.0 license.
@@ -32,8 +32,6 @@ namespace Exiled.Events.Patches.Fixes
 
             Label returnLabel = generator.DefineLabel();
 
-            newInstructions[newInstructions.Count - 1].labels.Add(returnLabel);
-
             int offset = 1;
             int index = newInstructions.FindIndex(x => x.opcode == OpCodes.Ret) + offset;
 
@@ -53,6 +51,19 @@ namespace Exiled.Events.Patches.Fixes
                 new(OpCodes.Callvirt, Method(typeof(Dictionary<ushort, ItemBase>), nameof(Dictionary<ushort, ItemBase>.ContainsKey))),
                 new(OpCodes.Brfalse_S, returnLabel),
             });
+
+            offset = -1;
+            index = newInstructions.FindIndex(x => x.OperandIs(Method(typeof(Scp1344Item), nameof(Scp1344Item.ActivateFinalEffects)))) + offset;
+
+            newInstructions.InsertRange(index, new[]
+            {
+                // if (status != Scp1344Status.Activating) return;
+                new CodeInstruction(OpCodes.Ldloc_0),
+                new(OpCodes.Ldc_I4_2),
+                new(OpCodes.Beq_S, returnLabel),
+            });
+
+            newInstructions[newInstructions.Count - 1].labels.Add(returnLabel);
 
             for (int z = 0; z < newInstructions.Count; z++)
                 yield return newInstructions[z];
