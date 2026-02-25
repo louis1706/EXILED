@@ -22,6 +22,8 @@ namespace Exiled.Events.Patches.Fixes
     /// Patches the <see cref="Scp1344Item.OnPlayerInventoryDropped"/> method.
     /// Fixes the dupe where 2 copies of SCP-1344 can be created when a player dies.
     /// Bug not reported to NW yet (rare in vanilla servers).
+    /// Fixes than ActivateFinalEffects was trigger when <see cref="Scp1344Status.Activating"/>.
+    /// Bug reported to NW (https://git.scpslgame.com/northwood-qa/scpsl-bug-reporting/-/issues/2813).
     /// </summary>
     [HarmonyPatch(typeof(Scp1344Item), nameof(Scp1344Item.OnPlayerInventoryDropped))]
     public class Fix1344Dupe
