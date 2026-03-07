@@ -25,7 +25,7 @@ namespace Exiled.Events.EventArgs.Map
         public ChangedIntoGrenadeEventArgs(TimedGrenadePickup pickup, ThrownProjectile projectile)
         {
             Pickup = API.Features.Pickups.Pickup.Get<GrenadePickup>(pickup);
-            Projectile = API.Features.Pickups.Pickup.Get<Projectile>(projectile);
+            Projectile = (Projectile)API.Features.Pickups.Pickup.Get(projectile);
         }
 
         /// <summary>
@@ -36,6 +36,7 @@ namespace Exiled.Events.EventArgs.Map
         /// <summary>
         /// Gets a value indicating the projectile that spawned.
         /// </summary>
+        // TODO: Make that TimedGrenadeProjectile
         public Projectile Projectile { get; }
 
         /// <inheritdoc/>

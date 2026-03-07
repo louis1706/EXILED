@@ -14,35 +14,29 @@ namespace Exiled.Permissions
 
     using Exiled.API.Features;
 
+    using YamlDotNet.Serialization;
+
     /// <inheritdoc cref="IConfig"/>
     public sealed class Config : IConfig
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Config"/> class.
+        /// Gets a value indicating whether the debug should be shown or not.
         /// </summary>
-        public Config()
-        {
-            Folder = Paths.Configs;
-            FullPath = Path.Combine(Folder, "permissions.yml");
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether the debug should be shown.
-        /// </summary>
-        [Description("Indicates whether the debug should be shown")]
+        [Description("Indicates whether the debug should be shown or not")]
         public bool ShouldDebugBeShown { get; private set; }
 
         /// <summary>
-        /// Gets the permissions folder path.
+        /// Gets the full permissions path.
         /// </summary>
-        [Description("The permissions folder path")]
-        public string Folder { get; private set; }
+        [Description("The full permissions path")]
+        [YamlIgnore]
+        public string FullPath => Path.Combine(Paths.Configs, FileName);
 
         /// <summary>
-        /// Gets the permissions full path.
+        /// Gets the permissions name.
         /// </summary>
-        [Description("The permissions full path")]
-        public string FullPath { get; private set; }
+        [Description("The permissions file name")]
+        public string FileName { get; private set; } = "permissions.yml";
 
         /// <inheritdoc/>
         public bool IsEnabled { get; set; } = true;

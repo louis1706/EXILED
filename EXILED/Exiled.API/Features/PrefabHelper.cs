@@ -95,12 +95,12 @@ namespace Exiled.API.Features
         /// <param name="position">The <see cref="Vector3"/> position where the <see cref="GameObject"/> will spawn.</param>
         /// <param name="rotation">The <see cref="Quaternion"/> rotation of the <see cref="GameObject"/>.</param>
         /// <returns>Returns the <see cref="GameObject"/> instantied.</returns>
-        public static GameObject Spawn(PrefabType prefabType, Vector3 position = default, Quaternion? rotation = null)
+        public static GameObject Spawn(PrefabType prefabType, Vector3 position = default, Quaternion rotation = default)
         {
             if (!TryGetPrefab(prefabType, out GameObject gameObject))
                 return null;
 
-            GameObject newGameObject = UnityEngine.Object.Instantiate(gameObject, position, rotation ?? Quaternion.identity);
+            GameObject newGameObject = UnityEngine.Object.Instantiate(gameObject, position, rotation);
             NetworkServer.Spawn(newGameObject);
             return newGameObject;
         }
@@ -113,7 +113,7 @@ namespace Exiled.API.Features
         /// <param name="rotation">The <see cref="Quaternion"/> rotation of the <see cref="GameObject"/>.</param>
         /// <typeparam name="T">The <see cref="Component"/> type.</typeparam>
         /// <returns>Returns the <see cref="Component"/> of the <see cref="GameObject"/>.</returns>
-        public static T Spawn<T>(PrefabType prefabType, Vector3 position = default, Quaternion? rotation = null)
+        public static T Spawn<T>(PrefabType prefabType, Vector3 position = default, Quaternion rotation = default)
             where T : Component
         {
             GameObject gameObject = Spawn(prefabType, position, rotation);

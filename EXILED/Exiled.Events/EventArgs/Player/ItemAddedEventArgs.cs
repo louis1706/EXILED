@@ -7,6 +7,9 @@
 
 namespace Exiled.Events.EventArgs.Player
 {
+    using System.Diagnostics;
+
+    using API.Features;
     using Exiled.API.Features.Items;
     using Exiled.API.Features.Pickups;
     using Exiled.Events.EventArgs.Interfaces;
@@ -27,15 +30,17 @@ namespace Exiled.Events.EventArgs.Player
         /// <param name="pickupBase">The <see cref="ItemPickupBase"/> the <see cref="ItemBase"/> originated from, or <see langword="null"/> if the item was not picked up.</param>
         public ItemAddedEventArgs(ReferenceHub referenceHub, ItemBase itemBase, ItemPickupBase pickupBase)
         {
-            Player = API.Features.Player.Get(referenceHub);
+            Player = Player.Get(referenceHub);
             Item = Item.Get(itemBase);
             Pickup = Pickup.Get(pickupBase);
+            Log.Assert(Item != null, $"ItemAddedEventArgs ctor: Item is null! Base: '{itemBase}'");
+            Log.Assert(Player != null, $"ItemAddedEventArgs ctor: Player is null! Base: '{referenceHub} {new StackTrace()}'");
         }
 
         /// <summary>
         /// Gets the player that had the item added.
         /// </summary>
-        public API.Features.Player Player { get; }
+        public Player Player { get; }
 
         /// <summary>
         /// Gets the item that was added.

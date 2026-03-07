@@ -17,6 +17,7 @@ namespace Exiled.Events.Patches.Fixes
     using Exiled.API.Features.Pickups;
 
     using HarmonyLib;
+
     using InventorySystem;
     using InventorySystem.Items;
     using InventorySystem.Items.Firearms.Ammo;

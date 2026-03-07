@@ -27,22 +27,6 @@ namespace Exiled.API.Features.Core.UserSettings
         /// <param name="characterLimit"><inheritdoc cref="CharacterLimit"/></param>
         /// <param name="contentType"><inheritdoc cref="ContentType"/></param>
         /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
-        [Obsolete("Will be removed in Exiled 10 in favour of ctor with more params.")]
-        public UserTextInputSetting(int id, string label, string placeHolder, int characterLimit, TMP_InputField.ContentType contentType, string hintDescription)
-            : this(new SSPlaintextSetting(id, label, placeHolder, characterLimit, contentType, hintDescription))
-        {
-            Base = (SSPlaintextSetting)base.Base;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserTextInputSetting"/> class.
-        /// </summary>
-        /// <param name="id"><inheritdoc cref="SettingBase.Id"/></param>
-        /// <param name="label"><inheritdoc cref="SettingBase.Label"/></param>
-        /// <param name="placeHolder"><inheritdoc cref="PlaceHolder"/></param>
-        /// <param name="characterLimit"><inheritdoc cref="CharacterLimit"/></param>
-        /// <param name="contentType"><inheritdoc cref="ContentType"/></param>
-        /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
         /// <param name="collectionId"><inheritdoc cref="SettingBase.CollectionId"/></param>
         /// <param name="isServerOnly"><inheritdoc cref="SettingBase.IsServerOnly"/></param>
         /// <param name="header"><inheritdoc cref="SettingBase.Header"/></param>
@@ -67,7 +51,7 @@ namespace Exiled.API.Features.Core.UserSettings
         public new SSPlaintextSetting Base { get; }
 
         /// <summary>
-        /// Gets the value of the text entered by a  client.
+        /// Gets the value of the text entered by a client.
         /// </summary>
         public string Text => Base.SyncInputText;
 
@@ -141,6 +125,95 @@ namespace Exiled.API.Features.Core.UserSettings
         public override string ToString()
         {
             return base.ToString() + $" /{Text}/ *{ContentType}* +{CharacterLimit}+";
+        }
+
+        /// <summary>
+        /// Represents a config for UserTextInputSetting.
+        /// </summary>
+        public class TextInputConfig : SettingConfig<UserTextInputSetting>
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="TextInputConfig"/> class.
+            /// </summary>
+            /// <param name="label"/><inheritdoc cref="Label"/>
+            /// <param name="headerName"><inheritdoc cref="HeaderName"/></param>
+            /// <param name="isServerOnly"><inheritdoc cref="IsServerOnly"/></param>
+            /// <param name="hintDescription"><inheritdoc cref="HintDescription"/></param>
+            /// <param name="headerDescription"><inheritdoc cref="HeaderDescription"/></param>
+            /// <param name="headerPaddling"><inheritdoc cref="HeaderPaddling"/></param>
+            /// <param name="placeHolder"></param><inheritdoc cref="PlaceHolder"/>
+            /// <param name="characterLimit"></param><inheritdoc cref="CharacterLimit"/>
+            /// <param name="contentType"></param><inheritdoc cref="ContentType"/>
+            public TextInputConfig(string label, bool isServerOnly, string placeHolder = "", int characterLimit = 64, TMP_InputField.ContentType contentType = TMP_InputField.ContentType.Standard, string hintDescription = null, string headerName = null, string headerDescription = null, bool headerPaddling = false)
+            {
+                Label = label;
+                PlaceHolder = placeHolder;
+                CharacterLimit = characterLimit;
+                IsServerOnly = isServerOnly;
+                ContentType = contentType;
+                HintDescription = hintDescription;
+                HeaderName = headerName;
+                HeaderDescription = headerDescription;
+                HeaderPaddling = headerPaddling;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="TextInputConfig"/> class.
+            /// </summary>
+            public TextInputConfig()
+            {
+            }
+
+            /// <summary>
+            /// Gets or sets label of a TextInputConfig.
+            /// </summary>
+            public string Label { get; set; }
+
+            /// <summary>
+            /// Gets or sets FoldoutMode of a TextInputConfig.
+            /// </summary>
+            public string PlaceHolder { get; set; }
+
+            /// <summary>
+            /// Gets or sets TextAlignmentOptions for TextInputConfig.
+            /// </summary>
+            public int CharacterLimit { get; set; }
+
+            /// <summary>
+            /// Gets or sets TextAlignmentOptions for TextInputConfig.
+            /// </summary>
+            public TMP_InputField.ContentType ContentType { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether updates come from client.
+            /// </summary>
+            public bool IsServerOnly { get; set; }
+
+            /// <summary>
+            /// Gets or sets HintDescription of a TextInputConfig.
+            /// </summary>
+            public string HintDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderName of a TextInputConfig.
+            /// </summary>
+            public string HeaderName { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderDescription of a TextInputConfig.
+            /// </summary>
+            public string HeaderDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether HeaderPaddling is needed.
+            /// </summary>
+            public bool HeaderPaddling { get; set; }
+
+            /// <summary>
+            /// Creates a TextInputSetting instanse.
+            /// </summary>
+            /// <returns>TextInputSetting.</returns>
+            public override UserTextInputSetting Create() => new(++IdIncrementor, Label, PlaceHolder, CharacterLimit, ContentType, HintDescription, 255, IsServerOnly, HeaderName == null ? null : new HeaderSetting(HeaderName, HeaderDescription, HeaderPaddling));
         }
     }
 }

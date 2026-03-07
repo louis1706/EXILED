@@ -115,6 +115,19 @@ namespace Exiled.API.Features
         public static List<Team> ProtectedTeams => SpawnProtected.ProtectedTeams;
 
         /// <summary>
+        /// Gets the time untill next wave spawn.
+        /// </summary>
+        /// <remarks>Returns <c>TimeSpan.MaxValue</c> when there are no avaible waves.</remarks>
+        public static TimeSpan TimeUntillNextWave
+        {
+            get
+            {
+                Waves.WaveTimer timer = Waves.WaveTimer.GetWaveTimers().Where(wave => !wave.IsPaused).OrderBy(wave => wave.TimeLeft.TotalSeconds).FirstOrDefault();
+                return timer == null ? TimeSpan.MaxValue : timer.TimeLeft;
+            }
+        }
+
+        /// <summary>
         /// Tries to get a <see cref="SpawnableWaveBase"/>.
         /// </summary>
         /// <param name="spawnableWaveBase">The found <see cref="SpawnableWaveBase"/>.</param>
@@ -209,24 +222,26 @@ namespace Exiled.API.Features
         }
 
         /// <summary>
-        /// Summons the NTF chopper.
+        /// Play the spawn effect of a target <see cref="SpawnableFaction"/>.
         /// </summary>
-        public static void SummonNtfChopper()
+        /// <param name="spawnableFaction">The <see cref="SpawnableFaction"/> whose effect should be played.</param>
+        public static void PlayEffect(SpawnableFaction spawnableFaction)
         {
-            if (TryGetWaveBase(SpawnableFaction.NtfWave, out SpawnableWaveBase wave))
+            if (TryGetWaveBase(spawnableFaction, out SpawnableWaveBase wave))
                 PlayEffect(wave);
         }
+
+        /// <summary>
+        /// Summons the NTF chopper.
+        /// </summary>
+        public static void SummonNtfChopper() => PlayEffect(SpawnableFaction.NtfWave);
 
         /// <summary>
         /// Summons the Chaos Insurgency van.
         /// </summary>
         /// <remarks>This will also trigger Music effect.</remarks>
         /// <!--not sure if it actually plays the music, needs to be tested-->
-        public static void SummonChaosInsurgencyVan()
-        {
-            if (TryGetWaveBase(SpawnableFaction.ChaosWave, out SpawnableWaveBase wave))
-                PlayEffect(wave);
-        }
+        public static void SummonChaosInsurgencyVan() => PlayEffect(SpawnableFaction.ChaosWave);
 
         /// <summary>
         /// Grants tokens to a given <see cref="Faction"/>'s <see cref="ILimitedWave"/>s.
@@ -289,6 +304,21 @@ namespace Exiled.API.Features
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Gets the tokens of a given <see cref="SpawnableFaction"/>'s <see cref="ILimitedWave"/>.
+        /// </summary>
+        /// <param name="spawnableFaction">The <see cref="SpawnableFaction"/> from whose <see cref="ILimitedWave"/> to get the tokens.</param>
+        /// <returns>Target tokens of a given <see cref="SpawnableFaction"/>'s <see cref="ILimitedWave"/>.</returns>
+        public static int GetTokens(SpawnableFaction spawnableFaction)
+        {
+            if (TryGetWaveBase(spawnableFaction, out SpawnableWaveBase waveBase) && waveBase is ILimitedWave limitedWave)
+            {
+                return limitedWave.RespawnTokens;
+            }
+
+            return 0;
         }
 
         /// <summary>

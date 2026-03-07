@@ -25,41 +25,6 @@ namespace Exiled.API.Features.Core.UserSettings
         /// <param name="label"><inheritdoc cref="SettingBase.Label"/></param>
         /// <param name="suggested"><inheritdoc cref="KeyCode"/></param>
         /// <param name="preventInteractionOnGUI"><inheritdoc cref="PreventInteractionOnGUI"/></param>
-        /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
-        /// <param name="header"><inheritdoc cref="SettingBase.Header"/></param>
-        /// <param name="onChanged"><inheritdoc cref="SettingBase.OnChanged"/></param>
-        [Obsolete("This method will be removed next major version because of a new feature. Use the constructor with \"CollectionId\" instead.")]
-        public KeybindSetting(int id, string label, KeyCode suggested, bool preventInteractionOnGUI, string hintDescription, HeaderSetting header, Action<Player, SettingBase> onChanged)
-            : base(new SSKeybindSetting(id, label, suggested, preventInteractionOnGUI, false, hintDescription), header, onChanged)
-        {
-            Base = (SSKeybindSetting)base.Base;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="KeybindSetting"/> class.
-        /// </summary>
-        /// <param name="id"><inheritdoc cref="SettingBase.Id"/></param>
-        /// <param name="label"><inheritdoc cref="SettingBase.Label"/></param>
-        /// <param name="suggested"><inheritdoc cref="KeyCode"/></param>
-        /// <param name="preventInteractionOnGUI"><inheritdoc cref="PreventInteractionOnGUI"/></param>
-        /// <param name="allowSpectatorTrigger"><inheritdoc cref="AllowSpectatorTrigger"/></param>
-        /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
-        /// <param name="header"><inheritdoc cref="SettingBase.Header"/></param>
-        /// <param name="onChanged"><inheritdoc cref="SettingBase.OnChanged"/></param>
-        [Obsolete("Will be removed in Exiled 10 in favour of ctor with more params.")]
-        public KeybindSetting(int id, string label, KeyCode suggested, bool preventInteractionOnGUI, bool allowSpectatorTrigger, string hintDescription, HeaderSetting header, Action<Player, SettingBase> onChanged)
-            : base(new SSKeybindSetting(id, label, suggested, preventInteractionOnGUI, allowSpectatorTrigger, hintDescription), header, onChanged)
-        {
-            Base = (SSKeybindSetting)base.Base;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="KeybindSetting"/> class.
-        /// </summary>
-        /// <param name="id"><inheritdoc cref="SettingBase.Id"/></param>
-        /// <param name="label"><inheritdoc cref="SettingBase.Label"/></param>
-        /// <param name="suggested"><inheritdoc cref="KeyCode"/></param>
-        /// <param name="preventInteractionOnGUI"><inheritdoc cref="PreventInteractionOnGUI"/></param>
         /// <param name="allowSpectatorTrigger"><inheritdoc cref="AllowSpectatorTrigger"/></param>
         /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
         /// <param name="collectionId"><inheritdoc cref="SettingBase.CollectionId"/></param>
@@ -123,6 +88,88 @@ namespace Exiled.API.Features.Core.UserSettings
         public override string ToString()
         {
             return base.ToString() + $" /{IsPressed}/ *{KeyCode}* +{PreventInteractionOnGUI}+";
+        }
+
+        /// <summary>
+        /// Represents a config for KeybindSetting.
+        /// </summary>
+        public class KeybindConfig : SettingConfig<KeybindSetting>
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="KeybindConfig"/> class.
+            /// </summary>
+            /// <param name="label"/><inheritdoc cref="Label"/>
+            /// <param name="keyCode"><inheritdoc cref="KeyCode"/></param>
+            /// <param name="headerName"><inheritdoc cref="HeaderName"/></param>
+            /// <param name="preventInteractionOnGui"><inheritdoc cref="PreventInteractionOnGUI"/></param>
+            /// <param name="allowSpectatorTrigger"><inheritdoc cref="AllowSpectatorTrigger"/></param>
+            /// <param name="hintDescription"><inheritdoc cref="HintDescription"/></param>
+            /// <param name="headerDescription"><inheritdoc cref="HeaderDescription"/></param>
+            /// <param name="headerPaddling"><inheritdoc cref="HeaderPaddling"/></param>
+            public KeybindConfig(string label, KeyCode keyCode, string hintDescription = null, bool preventInteractionOnGui = false, bool allowSpectatorTrigger = true, string headerName = null, string headerDescription = null, bool headerPaddling = false)
+            {
+                Label = label;
+                KeyCode = keyCode;
+                HintDescription = hintDescription;
+                PreventInteractionOnGUI = preventInteractionOnGui;
+                AllowSpectatorTrigger = allowSpectatorTrigger;
+                HeaderName = headerName;
+                HeaderDescription = headerDescription;
+                HeaderPaddling = headerPaddling;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="KeybindConfig"/> class.
+            /// </summary>
+            public KeybindConfig()
+            {
+            }
+
+            /// <summary>
+            /// Gets or sets label of a KeybindConfig.
+            /// </summary>
+            public string Label { get; set; }
+
+            /// <summary>
+            /// Gets or sets ButtonText of a KeybindConfig.
+            /// </summary>
+            public KeyCode KeyCode { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether interaction on GUI would be prevented.
+            /// </summary>
+            public bool PreventInteractionOnGUI { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether interaction on GUI would be prevented.
+            /// </summary>
+            public bool AllowSpectatorTrigger { get; set; }
+
+            /// <summary>
+            /// Gets or sets HintDescription of a KeybindConfig.
+            /// </summary>
+            public string HintDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderName of a KeybindConfig.
+            /// </summary>
+            public string HeaderName { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderDescription of a KeybindConfig.
+            /// </summary>
+            public string HeaderDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether HeaderPaddling is needed.
+            /// </summary>
+            public bool HeaderPaddling { get; set; }
+
+            /// <summary>
+            /// Creates a KeybindSetting instanse.
+            /// </summary>
+            /// <returns>KeybindSetting.</returns>
+            public override KeybindSetting Create() => new(++IdIncrementor, Label, KeyCode, PreventInteractionOnGUI, AllowSpectatorTrigger, HintDescription, 255, HeaderName == null ? null : new HeaderSetting(HeaderName, HeaderDescription, HeaderPaddling));
         }
     }
 }

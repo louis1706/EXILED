@@ -10,10 +10,18 @@ namespace Exiled.API.Features.Roles
     using System;
     using System.Collections.Generic;
 
+    using Exiled.API.Enums;
+    using Exiled.API.Features.Pools;
+    using Mirror;
     using PlayerRoles;
     using PlayerRoles.PlayableScps;
     using PlayerRoles.PlayableScps.HumeShield;
+    using PlayerRoles.PlayableScps.Scp939;
+    using PlayerRoles.PlayableScps.Scp939.Mimicry;
+    using PlayerRoles.PlayableScps.Scp939.Ripples;
     using PlayerRoles.Subroutines;
+    using RelativePositioning;
+    using UnityEngine;
 
     using Scp1507GameRole = PlayerRoles.PlayableScps.Scp1507.Scp1507Role;
 
@@ -65,5 +73,21 @@ namespace Exiled.API.Features.Roles
         /// <param name="alreadySpawned">The List of Roles already spawned.</param>
         /// <returns>The Spawn Chance.</returns>
         public float GetSpawnChance(List<RoleTypeId> alreadySpawned) => Base is ISpawnableScp spawnableScp ? spawnableScp.GetSpawnChance(alreadySpawned) : 0;
+
+        /// <inheritdoc/>
+        internal override void SendAppearanceSpawnMessage(NetworkWriter writer, PlayerRoleBase basicRole)
+        {
+            base.SendAppearanceSpawnMessage(writer, basicRole);
+
+            if (basicRole is Scp1507GameRole baseRole)
+            {
+                writer.WriteByte((byte)baseRole.ServerSpawnReason);
+            }
+            else
+            {
+                // Doesn't really affect anything
+                writer.WriteByte((byte)RoleChangeReason.ItemUsage);
+            }
+        }
     }
 }

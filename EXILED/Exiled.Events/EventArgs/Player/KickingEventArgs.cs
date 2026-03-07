@@ -14,35 +14,34 @@ namespace Exiled.Events.EventArgs.Player
     using Interfaces;
 
     /// <summary>
-    /// Contains all information before kicking a player from the server.
+    ///     Contains all information before kicking a player from the server.
     /// </summary>
     public class KickingEventArgs : IPlayerEvent, IDeniableEvent
     {
-        private readonly string startkickmessage;
         private bool isAllowed;
-        private Player issuer;
         private Player target;
+        private ICommandSender sender;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="KickingEventArgs" /> class.
+        ///     Initializes a new instance of the <see cref="KickingEventArgs" /> class.
         /// </summary>
         /// <param name="target">
-        /// <inheritdoc cref="Target" />
+        ///     <inheritdoc cref="Target" />
         /// </param>
         /// <param name="issuer">
-        /// <inheritdoc cref="Player" />
+        ///     <inheritdoc cref="Player" />
         /// </param>
         /// <param name="commandSender">
         /// <inheritdoc cref="ICommandSender" />
         /// </param>
         /// <param name="reason">
-        /// <inheritdoc cref="Reason" />
+        ///     <inheritdoc cref="Reason" />
         /// </param>
         /// <param name="fullMessage">
-        /// <inheritdoc cref="FullMessage" />
+        ///     <inheritdoc cref="FullMessage" />
         /// </param>
         /// <param name="isAllowed">
-        /// <inheritdoc cref="IsAllowed" />
+        ///     <inheritdoc cref="IsAllowed" />
         /// </param>
         public KickingEventArgs(Player target, Player issuer, ICommandSender commandSender, string reason, string fullMessage, bool isAllowed = true)
         {
@@ -50,12 +49,12 @@ namespace Exiled.Events.EventArgs.Player
             Player = issuer ?? Server.Host;
             CommandSender = commandSender;
             Reason = reason;
-            startkickmessage = fullMessage;
+            FullMessage = fullMessage;
             IsAllowed = isAllowed;
         }
 
         /// <summary>
-        /// Gets or sets the ban target.
+        ///     Gets or sets the ban target.
         /// </summary>
         public Player Target
         {
@@ -73,14 +72,14 @@ namespace Exiled.Events.EventArgs.Player
         }
 
         /// <summary>
-        /// Gets or sets the kick reason.
+        ///     Gets or sets the kick reason.
         /// </summary>
         public string Reason { get; set; }
 
         /// <summary>
-        /// Gets the full kick message.
+        ///     Gets or sets the full kick message.
         /// </summary>
-        public string FullMessage => startkickmessage + Reason;
+        public string FullMessage { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether action is taken against the target.
@@ -101,20 +100,25 @@ namespace Exiled.Events.EventArgs.Player
         }
 
         /// <summary>
-        /// Gets or sets the ban issuer.
+        ///     Gets the ban issuer.
         /// </summary>
-        public Player Player
+        public Player Player { get; }
+
+        /// <summary>
+        ///     Gets or sets the ban issuer.
+        /// </summary>
+        public ICommandSender Sender
         {
-            get => issuer;
+            get => sender;
             set
             {
-                if (value is null || issuer == value)
+                if (value is null || sender == value)
                     return;
 
-                if (Events.Instance.Config.ShouldLogBans && issuer is not null)
-                    LogBanChange(Assembly.GetCallingAssembly().GetName().Name, $" changed the ban issuer from user {issuer.Nickname} ({issuer.UserId}) to {value.Nickname} ({value.UserId})");
+                if (Events.Instance.Config.ShouldLogBans && sender is not null)
+                    LogBanChange(Assembly.GetCallingAssembly().GetName().Name, $" changed the ban sender from user {sender.LogName} to {value.LogName}");
 
-                issuer = value;
+                sender = value;
             }
         }
 

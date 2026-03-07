@@ -58,73 +58,18 @@ namespace Exiled.CustomItems.API.Features
         [Description("The value must be above 0 and below 100")]
         public virtual int VestEfficacy { get; set; } = 80;
 
-        /// <summary>
-        /// Gets or sets the Ammunition limit the player have.
-        /// </summary>
-        public virtual List<ArmorAmmoLimit> AmmoLimits { get; set; } = new();
-
-        /// <summary>
-        /// Gets or sets the Item Category limit the player have.
-        /// </summary>
-        public virtual List<BodyArmor.ArmorCategoryLimitModifier> CategoryLimits { get; set; } = new();
-
-        /// <inheritdoc />
-        public override void Give(Player player, bool displayMessage = true)
+        /// <inheritdoc/>
+        public override Item CreateItem()
         {
-            Armor armor = (Armor)Item.Create(Type);
+            Armor armor = (Armor)base.CreateItem();
 
-            armor.Weight = Weight;
+            armor.Weight = Weight < 0 ? armor.Weight : Weight;
             armor.StaminaUseMultiplier = StaminaUseMultiplier;
 
             armor.VestEfficacy = VestEfficacy;
             armor.HelmetEfficacy = HelmetEfficacy;
 
-            if (AmmoLimits.Count != 0)
-                armor.AmmoLimits = AmmoLimits;
-
-            if (AmmoLimits.Count != 0)
-                armor.CategoryLimits = CategoryLimits;
-
-            player.AddItem(armor);
-
-            TrackedSerials.Add(armor.Serial);
-
-            Timing.CallDelayed(0.05f, () => OnAcquired(player, armor, displayMessage));
-
-            if (displayMessage)
-                ShowPickedUpMessage(player);
-        }
-
-        /// <inheritdoc/>
-        protected override void SubscribeEvents()
-        {
-            Exiled.Events.Handlers.Player.PickingUpItem += OnInternalPickingUpItem;
-            base.SubscribeEvents();
-        }
-
-        /// <inheritdoc/>
-        protected override void UnsubscribeEvents()
-        {
-            Exiled.Events.Handlers.Player.PickingUpItem -= OnInternalPickingUpItem;
-            base.UnsubscribeEvents();
-        }
-
-        private void OnInternalPickingUpItem(PickingUpItemEventArgs ev)
-        {
-            if (!Check(ev.Pickup) || ev.Player.Items.Count >= 8 || ev.Pickup is Exiled.API.Features.Pickups.BodyArmorPickup)
-                return;
-
-            OnPickingUp(ev);
-
-            if (!ev.IsAllowed)
-                return;
-
-            ev.IsAllowed = false;
-
-            TrackedSerials.Remove(ev.Pickup.Serial);
-            ev.Pickup.Destroy();
-
-            Give(ev.Player);
+            return armor;
         }
     }
 }

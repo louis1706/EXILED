@@ -22,29 +22,11 @@ namespace Exiled.API.Features.Core.UserSettings
         /// </summary>
         /// <param name="name"><inheritdoc cref="SettingBase.Label"/></param>
         /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
-        /// <param name="paddling"><inheritdoc cref="ReducedPaddling"/></param>
-        [Obsolete("Use constructor with Id, old headers will use random number based on headers name")]
-        public HeaderSetting(string name, string hintDescription, bool paddling)
-            : this(new SSGroupHeader(name, paddling, hintDescription))
-        {
-            Base = (SSGroupHeader)base.Base;
-
-            Base.SetId(null, name);
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HeaderSetting"/> class.
-        /// </summary>
-        /// <param name="id"><inheritdoc cref="SettingBase.Id"/></param>
-        /// <param name="name"><inheritdoc cref="SettingBase.Label"/></param>
-        /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
         /// <param name="padding"><inheritdoc cref="ReducedPaddling"/></param>
-        public HeaderSetting(int id, string name, string hintDescription = "", bool padding = false)
-            : this(new SSGroupHeader(id, name, padding, hintDescription))
+        public HeaderSetting(string name, string hintDescription = "", bool padding = false)
+            : this(new SSGroupHeader(0, name, padding, hintDescription))
         {
             Base = (SSGroupHeader)base.Base;
-
-            Base.SetId(id, name);
         }
 
         /// <summary>
@@ -55,7 +37,7 @@ namespace Exiled.API.Features.Core.UserSettings
             : base(settingBase)
         {
             Base = settingBase;
-            Base.SetId(null, settingBase.Label);
+            Base.SetId(0, settingBase.Label);
         }
 
         /// <inheritdoc/>
@@ -78,6 +60,53 @@ namespace Exiled.API.Features.Core.UserSettings
         public override string ToString()
         {
             return base.ToString() + $" /{ReducedPaddling}/";
+        }
+
+        /// <summary>
+        /// Represents a config for KeybindSetting.
+        /// </summary>
+        public class HeaderConfig : SettingConfig<HeaderSetting>
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="HeaderConfig"/> class.
+            /// </summary>
+            /// <param name="name"/><inheritdoc cref="Name"/>
+            /// <param name="description"><inheritdoc cref="Description"/></param>
+            /// <param name="paddling"><inheritdoc cref="Paddling"/></param>
+            public HeaderConfig(string name = null, string description = null, bool paddling = false)
+            {
+                Name = name;
+                Description = description;
+                Paddling = paddling;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="HeaderConfig"/> class.
+            /// </summary>
+            public HeaderConfig()
+            {
+            }
+
+            /// <summary>
+            /// Gets or sets HeaderName of a HeaderConfig.
+            /// </summary>
+            public string Name { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderDescription of a HeaderConfig.
+            /// </summary>
+            public string Description { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether HeaderPaddling is needed.
+            /// </summary>
+            public bool Paddling { get; set; }
+
+            /// <summary>
+            /// Creates a HeaderSetting instanse.
+            /// </summary>
+            /// <returns>HeaderSetting.</returns>
+            public override HeaderSetting Create() => new(Name, Description, Paddling);
         }
     }
 }

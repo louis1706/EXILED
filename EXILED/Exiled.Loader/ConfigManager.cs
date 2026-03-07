@@ -12,7 +12,6 @@ namespace Exiled.Loader
     using System.IO;
     using System.Linq;
 
-    using API.Enums;
     using API.Extensions;
     using API.Interfaces;
 
@@ -35,7 +34,7 @@ namespace Exiled.Loader
         {
             try
             {
-                Log.Info($"Loading plugin configs... ({LoaderPlugin.Config.ConfigType})");
+                Log.Info($"Loading plugin configs... ");
 
                 Dictionary<string, object> rawDeserializedConfigs = Loader.Deserializer.Deserialize<Dictionary<string, object>>(rawConfigs) ?? DictionaryPool<string, object>.Pool.Get();
                 SortedDictionary<string, IConfig> deserializedConfigs = new(StringComparer.Ordinal);
@@ -71,11 +70,8 @@ namespace Exiled.Loader
         /// <param name="plugin">The plugin which config will be loaded.</param>
         /// <param name="rawConfigs">The raw configs to detect if the plugin already has generated configs.</param>
         /// <returns>The <see cref="IConfig"/> of the plugin.</returns>
-        public static IConfig LoadConfig(this IPlugin<IConfig> plugin, Dictionary<string, object> rawConfigs = null) => LoaderPlugin.Config.ConfigType switch
-        {
-            ConfigType.Separated => LoadSeparatedConfig(plugin),
-            _ => LoadDefaultConfig(plugin, rawConfigs),
-        };
+        public static IConfig LoadConfig(this IPlugin<IConfig> plugin, Dictionary<string, object> rawConfigs = null) =>
+            LoadDefaultConfig(plugin, rawConfigs);
 
         /// <summary>
         /// Loads the config of a plugin using the default distribution.
@@ -204,12 +200,7 @@ namespace Exiled.Loader
                 if (configs is null || configs.Count == 0)
                     return false;
 
-                if (LoaderPlugin.Config.ConfigType == ConfigType.Default)
-                {
-                    return SaveDefaultConfig(Loader.Serializer.Serialize(configs));
-                }
-
-                return configs.All(config => SaveSeparatedConfig(config.Key, Loader.Serializer.Serialize(config.Value)));
+                return SaveDefaultConfig(Loader.Serializer.Serialize(configs));
             }
             catch (YamlException yamlException)
             {
@@ -225,9 +216,6 @@ namespace Exiled.Loader
         /// <returns>Returns the read configs.</returns>
         public static string Read()
         {
-            if (LoaderPlugin.Config.ConfigType != ConfigType.Default)
-                return string.Empty;
-
             try
             {
                 if (File.Exists(Paths.Config))
@@ -249,13 +237,7 @@ namespace Exiled.Loader
         {
             try
             {
-                if (LoaderPlugin.Config.ConfigType == ConfigType.Default)
-                {
-                    SaveDefaultConfig(string.Empty);
-                    return true;
-                }
-
-                return Loader.Plugins.All(plugin => SaveSeparatedConfig(plugin.Prefix, string.Empty));
+                return SaveDefaultConfig(string.Empty);
             }
             catch (Exception e)
             {

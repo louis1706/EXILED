@@ -7,6 +7,7 @@
 
 namespace Exiled.Loader
 {
+#nullable enable
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -17,17 +18,13 @@ namespace Exiled.Loader
     using System.Security.Principal;
     using System.Threading;
 
-    using API.Enums;
     using API.Interfaces;
-
     using CommandSystem.Commands.Shared;
-
     using Exiled.API.Features;
     using Features;
     using Features.Configs;
     using Features.Configs.CustomConverters;
     using YamlDotNet.Serialization;
-    using YamlDotNet.Serialization.NodeDeserializers;
 
     /// <summary>
     /// Used to handle plugins.
@@ -57,9 +54,6 @@ namespace Exiled.Loader
             }
 
             CustomNetworkManager.Modded = true;
-
-            if (LoaderPlugin.Config.ConfigType == ConfigType.Separated)
-                Directory.CreateDirectory(Paths.IndividualConfigs);
         }
 
         /// <summary>
@@ -90,30 +84,12 @@ namespace Exiled.Loader
         /// <summary>
         /// Gets or sets the serializer for configs and translations.
         /// </summary>
-        public static ISerializer Serializer { get; set; } = new SerializerBuilder()
-            .WithTypeConverter(new VectorsConverter())
-            .WithTypeConverter(new ColorConverter())
-            .WithTypeConverter(new AttachmentIdentifiersConverter())
-            .WithEventEmitter(eventEmitter => new TypeAssigningEventEmitter(eventEmitter))
-            .WithTypeInspector(inner => new CommentGatheringTypeInspector(inner))
-            .WithEmissionPhaseObjectGraphVisitor(args => new CommentsObjectGraphVisitor(args.InnerVisitor))
-            .WithNamingConvention(UnderscoredNamingConvention.Instance)
-            .IgnoreFields()
-            .DisableAliases()
-            .Build();
+        public static ISerializer Serializer { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the deserializer for configs and translations.
         /// </summary>
-        public static IDeserializer Deserializer { get; set; } = new DeserializerBuilder()
-            .WithTypeConverter(new VectorsConverter())
-            .WithTypeConverter(new ColorConverter())
-            .WithTypeConverter(new AttachmentIdentifiersConverter())
-            .WithNamingConvention(UnderscoredNamingConvention.Instance)
-            .WithNodeDeserializer(inner => new ValidatingNodeDeserializer(inner), deserializer => deserializer.InsteadOf<ObjectNodeDeserializer>())
-            .IgnoreFields()
-            .IgnoreUnmatchedProperties()
-            .Build();
+        public static IDeserializer Deserializer { get; set; } = null!;
 
         /// <summary>
         /// Loads all plugins, both globals and locals.
@@ -121,10 +97,34 @@ namespace Exiled.Loader
         public static void LoadPlugins()
         {
             File.Delete(Path.Combine(Paths.Plugins, "Exiled.Updater.dll"));
-            File.Delete(Path.Combine(Paths.Dependencies, "Exiled.API.dll"));
 
-            LoadPluginsFromDirectory();
-            LoadPluginsFromDirectory(Server.Port.ToString());
+            foreach (string assemblyPath in Directory.GetFiles(Paths.Plugins, "*.dll"))
+            {
+                Assembly? assembly = LoadAssembly(assemblyPath);
+
+                if (assembly is null)
+                    continue;
+
+                Locations[assembly] = assemblyPath;
+            }
+
+            foreach (Assembly assembly in Locations.Keys)
+            {
+                if (Locations[assembly].Contains("dependencies"))
+                    continue;
+
+                IPlugin<IConfig>? plugin = CreatePlugin(assembly);
+
+                if (plugin is null)
+                    continue;
+
+                AssemblyInformationalVersionAttribute attribute = plugin.Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
+
+                Log.Info($"Loaded plugin {plugin.Name}@{(plugin.Version is not null ? $"{plugin.Version.Major}.{plugin.Version.Minor}.{plugin.Version.Build}" : attribute is not null ? attribute.InformationalVersion : string.Empty)}");
+
+                Server.PluginAssemblies.Add(assembly, plugin);
+                Plugins.Add(plugin);
+            }
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Exiled.Loader
         /// </summary>
         /// <param name="path">The path to load the assembly from.</param>
         /// <returns>Returns the loaded assembly or <see langword="null"/>.</returns>
-        public static Assembly LoadAssembly(string path)
+        public static Assembly? LoadAssembly(string path)
         {
             try
             {
@@ -155,7 +155,7 @@ namespace Exiled.Loader
         /// </summary>
         /// <param name="assembly">The plugin assembly.</param>
         /// <returns>Returns the created plugin instance or <see langword="null"/>.</returns>
-        public static IPlugin<IConfig> CreatePlugin(Assembly assembly)
+        public static IPlugin<IConfig>? CreatePlugin(Assembly assembly)
         {
             try
             {
@@ -175,7 +175,7 @@ namespace Exiled.Loader
 
                     Log.Debug($"Loading type {type.FullName}");
 
-                    IPlugin<IConfig> plugin = null;
+                    IPlugin<IConfig>? plugin = null;
 
                     ConstructorInfo constructor = type.GetConstructor(Type.EmptyTypes);
                     if (constructor is not null)
@@ -188,7 +188,7 @@ namespace Exiled.Loader
                     {
                         Log.Debug($"Constructor wasn't found, searching for a property with the {type.FullName} type...");
 
-                        object value = Array.Find(type.GetProperties(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public), property => property.PropertyType == type)?.GetValue(null);
+                        object? value = Array.Find(type.GetProperties(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public), property => property.PropertyType == type)?.GetValue(null);
 
                         if (value is not null)
                             plugin = value as IPlugin<IConfig>;
@@ -203,7 +203,7 @@ namespace Exiled.Loader
 
                     Log.Debug($"Instantiated type {type.FullName}");
 
-                    if (CheckPluginRequiredExiledVersion(plugin))
+                    if (CheckPluginRequiredExiledVersion(plugin, assembly.GetReferencedAssemblies()?.FirstOrDefault(x => x?.Name is "Exiled.Loader")?.Version ?? new()))
                         continue;
 
                     return plugin;
@@ -335,65 +335,92 @@ namespace Exiled.Loader
         /// Runs the plugin manager, by loading all dependencies, plugins, configs and then enables all plugins.
         /// </summary>
         /// <param name="dependencies">The dependencies that could have been loaded by Exiled.Bootstrap.</param>
-        /// <returns>A MEC <see cref="IEnumerator{T}"/>.</returns>
-        public IEnumerator<float> Run(Assembly[] dependencies = null)
+        public void Run(Assembly[] dependencies)
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? CheckUAC() : geteuid() == 0)
+            try
             {
-                ServerConsole.AddLog("YOU ARE RUNNING THE SERVER AS ROOT / ADMINISTRATOR. THIS IS HIGHLY UNRECOMMENDED. PLEASE INSTALL YOUR SERVER AS A NON-ROOT/ADMIN USER.", ConsoleColor.DarkRed);
-                Thread.Sleep(5000);
-            }
+                Log.Info($"Run Exiled Loader!");
 
-            if (LoaderPlugin.Config.EnableAutoUpdates)
-            {
-                Thread thread = new(() =>
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? CheckUAC() : geteuid() == 0)
                 {
-                    Updater updater = Updater.Initialize(LoaderPlugin.Config);
-                    updater.CheckUpdate();
-                })
-                {
-                    Name = "Exiled Updater",
-                    Priority = ThreadPriority.AboveNormal,
-                };
+                    ServerConsole.AddLog("YOU ARE RUNNING THE SERVER AS ROOT / ADMINISTRATOR. THIS IS HIGHLY UNRECOMMENDED. PLEASE INSTALL YOUR SERVER AS A NON-ROOT/ADMIN USER.", ConsoleColor.DarkRed);
+                    Thread.Sleep(5000);
+                }
 
-                thread.Start();
+                if (dependencies?.Length > 0)
+                    Dependencies.AddRange(dependencies);
+
+                Log.Info($"Loading dep&plug");
+
+                LoadDependencies();
+                LoadPlugins();
+
+                Log.Info($"Loaded dep&plug");
             }
-
-            if (!LoaderPlugin.Config.ShouldLoadOutdatedExiled &&
-                !GameCore.Version.CompatibilityCheck(
-                (byte)AutoUpdateFiles.RequiredSCPSLVersion.Major,
-                (byte)AutoUpdateFiles.RequiredSCPSLVersion.Minor,
-                (byte)AutoUpdateFiles.RequiredSCPSLVersion.Revision,
-                GameCore.Version.Major,
-                GameCore.Version.Minor,
-                GameCore.Version.Revision,
-                GameCore.Version.BackwardCompatibility,
-                GameCore.Version.BackwardRevision))
+            catch (Exception e)
             {
-                string messageText = new Version(
-                    GameCore.Version.Major,
-                    GameCore.Version.Minor,
-                    GameCore.Version.Revision) < new Version(
-                    AutoUpdateFiles.RequiredSCPSLVersion.Major,
-                    AutoUpdateFiles.RequiredSCPSLVersion.Minor,
-                    AutoUpdateFiles.RequiredSCPSLVersion.Revision)
-                            ? "SCP: SL is outdated. Update SCP: SL Dedicated Server to required version or downgrade Exiled."
-                            : "Exiled is outdated, a new version will be installed automatically as soon as it's available.";
-
-                ServerConsole.AddLog($"{messageText}\nSCP:SL version: {GameCore.Version.VersionString} Exiled Supported Version: {AutoUpdateFiles.RequiredSCPSLVersion}", ConsoleColor.DarkRed);
-                yield break;
+                Log.Error($"First try catch - {e}");
             }
 
-            if (dependencies?.Length > 0)
-                Dependencies.AddRange(dependencies);
+            SerializerBuilder serializerBuilder = new SerializerBuilder()
+                .WithTypeConverter(new VectorsConverter())
+                .WithTypeConverter(new ColorConverter())
+                .WithTypeConverter(new AttachmentIdentifiersConverter())
+                .WithTypeInspector(inner => new CommentGatheringTypeInspector(inner))
+                .WithEmissionPhaseObjectGraphVisitor(args => new CommentsObjectGraphVisitor(args.InnerVisitor))
+                .WithNamingConvention(UnderscoredNamingConvention.Instance)
+                .IgnoreFields();
 
-            LoadDependencies();
-            LoadPlugins();
+            DeserializerBuilder deserializerBuilder = new DeserializerBuilder()
+                .WithTypeConverter(new VectorsConverter())
+                .WithTypeConverter(new ColorConverter())
+                .WithTypeConverter(new AttachmentIdentifiersConverter())
+                .WithNamingConvention(UnderscoredNamingConvention.Instance)
+                .IgnoreFields()
+                .IgnoreUnmatchedProperties();
+
+            HashSet<Type> abstractTypeDerives = new HashSet<Type>();
+
+            Log.Info($"Loaded serial");
+
+            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                try
+                {
+                    foreach (Type type in
+                             assembly.GetTypes()
+                                 .Where(myType => myType.BaseType != null
+                                                  && myType is { IsClass: true, IsAbstract: false }
+                                                  && typeof(IAbstractResolvable).IsAssignableFrom(myType)))
+                    {
+                        Log.Debug($"Found subclass for tagging: {type.Name}");
+                        abstractTypeDerives.Add(type);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Log.Error($"Second try catch - {e}");
+                }
+            }
+
+            foreach (Type type in abstractTypeDerives)
+                serializerBuilder.WithTagMapping($"!{type.FullName}", type);
+
+            foreach (Type type in abstractTypeDerives)
+                deserializerBuilder.WithTagMapping($"!{type.FullName}", type);
+
+            Log.Info("Loading Serializers");
+
+            Serializer = serializerBuilder.Build();
+            Deserializer = deserializerBuilder.Build();
+
+            Log.Info("Loaded Serializers");
 
             ConfigManager.Reload();
             TranslationManager.Reload();
 
             EnablePlugins();
+            CommandTranslationManager.Reload();
 
             BuildInfoCommand.ModDescription = string.Join(
                 "\n",
@@ -427,12 +454,12 @@ namespace Exiled.Loader
             return false;
         }
 
-        private static bool CheckPluginRequiredExiledVersion(IPlugin<IConfig> plugin)
+        private static bool CheckPluginRequiredExiledVersion(IPlugin<IConfig> plugin, Version pluginVersion)
         {
             if (plugin.IgnoreRequiredVersionCheck)
                 return false;
 
-            Version requiredVersion = plugin.RequiredExiledVersion;
+            Version requiredVersion = plugin.RequiredExiledVersion == default ? pluginVersion : pluginVersion;
             Version actualVersion = Version;
 
             // Check Major version
@@ -445,15 +472,7 @@ namespace Exiled.Loader
                 {
                     Log.Error(
                         $"You're running an older version of Exiled ({Version.ToString(3)})! {plugin.Name} won't be loaded! " +
-                        $"Required version to load it: {plugin.RequiredExiledVersion.ToString(3)}");
-
-                    return true;
-                }
-                else if ((requiredVersion.Major < actualVersion.Major) && !LoaderPlugin.Config.ShouldLoadOutdatedPlugins)
-                {
-                    Log.Error(
-                        $"You're running an older version of {plugin.Name} ({plugin.Version.ToString(3)})! " +
-                        $"Its Required Major version is {requiredVersion.Major}, but the actual version is: {actualVersion.Major}. This plugin will not be loaded!");
+                        $"Required version to load it: {plugin.RequiredExiledVersion?.ToString(3)}");
 
                     return true;
                 }
@@ -466,7 +485,7 @@ namespace Exiled.Loader
         /// Load every plugin inside the given directory, if null it's default EXILED one (global).
         /// </summary>
         /// <param name="dir">The sub-directory of the plugin - if null the default EXILED one will be used.</param>
-        private static void LoadPluginsFromDirectory(string dir = null)
+        private static void LoadPluginsFromDirectory(string? dir = null)
         {
             string path = Paths.Plugins;
             if (dir != null)
@@ -477,7 +496,7 @@ namespace Exiled.Loader
 
             foreach (string assemblyPath in Directory.GetFiles(path, "*.dll"))
             {
-                Assembly assembly = LoadAssembly(assemblyPath);
+                Assembly? assembly = LoadAssembly(assemblyPath);
 
                 if (assembly == null)
                     continue;
@@ -490,7 +509,7 @@ namespace Exiled.Loader
                 if (Locations[assembly].Contains("dependencies"))
                     continue;
 
-                IPlugin<IConfig> plugin = CreatePlugin(assembly);
+                IPlugin<IConfig>? plugin = CreatePlugin(assembly);
 
                 if (plugin == null)
                     continue;
@@ -662,7 +681,7 @@ namespace Exiled.Loader
 
                 foreach (string dependency in Directory.GetFiles(Paths.Dependencies, "*.dll"))
                 {
-                    Assembly assembly = LoadAssembly(dependency);
+                    Assembly? assembly = LoadAssembly(dependency);
 
                     if (assembly is null)
                         continue;

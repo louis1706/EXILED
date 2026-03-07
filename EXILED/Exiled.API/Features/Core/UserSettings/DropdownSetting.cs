@@ -28,32 +28,6 @@ namespace Exiled.API.Features.Core.UserSettings
         /// <param name="defaultOptionIndex"><inheritdoc cref="DefaultOptionIndex"/></param>
         /// <param name="dropdownEntryType"><inheritdoc cref="DropdownType"/></param>
         /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
-        /// <param name="header"><inheritdoc cref="SettingBase.Header"/></param>
-        /// <param name="onChanged"><inheritdoc cref="SettingBase.OnChanged"/></param>
-        [Obsolete("Will be removed in Exiled 10 in favour of ctor with more params")]
-        public DropdownSetting(
-            int id,
-            string label,
-            IEnumerable<string> options,
-            int defaultOptionIndex,
-            SSDropdownSetting.DropdownEntryType dropdownEntryType,
-            string hintDescription,
-            HeaderSetting header,
-            Action<Player, SettingBase> onChanged)
-            : base(new SSDropdownSetting(id, label, options.ToArray(), defaultOptionIndex, dropdownEntryType, hintDescription), header, onChanged)
-        {
-            Base = (SSDropdownSetting)base.Base;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DropdownSetting"/> class.
-        /// </summary>
-        /// <param name="id"><inheritdoc cref="SettingBase.Id"/></param>
-        /// <param name="label"><inheritdoc cref="SettingBase.Label"/></param>
-        /// <param name="options"><inheritdoc cref="Options"/></param>
-        /// <param name="defaultOptionIndex"><inheritdoc cref="DefaultOptionIndex"/></param>
-        /// <param name="dropdownEntryType"><inheritdoc cref="DropdownType"/></param>
-        /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
         /// <param name="collectionId"><inheritdoc cref="SettingBase.CollectionId"/></param>
         /// <param name="isServerOnly"><inheritdoc cref="SettingBase.IsServerOnly"/></param>
         /// <param name="header"><inheritdoc cref="SettingBase.Header"/></param>
@@ -177,6 +151,96 @@ namespace Exiled.API.Features.Core.UserSettings
         public override string ToString()
         {
             return base.ToString() + $" ={DefaultOptionIndex}= -{SelectedIndex}- /{string.Join(";", Options)}/";
+        }
+
+        /// <summary>
+        /// Represents a config for DropdownSetting.
+        /// </summary>
+        public class DropdownConfig : SettingConfig<DropdownSetting>
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="DropdownConfig"/> class.
+            /// </summary>
+            /// <param name="label"/>
+            /// <param name="options"><inheritdoc cref="Options"/></param>
+            /// <param name="defaultOptionIndex"><inheritdoc cref="DefaultOptionIndex"/></param>
+            /// <param name="hintDescription"><inheritdoc cref="HintDescription"/></param>
+            /// <param name="headerName"><inheritdoc cref="HeaderName"/></param>
+            /// <param name="headerDescription"><inheritdoc cref="HeaderDescription"/></param>
+            /// <param name="headerPaddling"><inheritdoc cref="HeaderPaddling"/></param>
+            /// <param name="isServerOnly"><inheritdoc cref="IsServerOnly"/></param>
+            /// <param name="dropdownEntryType"></param>
+            /// <inheritdoc cref="Label"/>
+            public DropdownConfig(string label, IEnumerable<string> options, int defaultOptionIndex, bool isServerOnly, SSDropdownSetting.DropdownEntryType dropdownEntryType = SSDropdownSetting.DropdownEntryType.Regular, string hintDescription = null, string headerName = null, string headerDescription = null, bool headerPaddling = false)
+            {
+                Label = label;
+                Options = options;
+                DefaultOptionIndex = defaultOptionIndex;
+                DropdownEntryType = dropdownEntryType;
+                HintDescription = hintDescription;
+                IsServerOnly = isServerOnly;
+                HeaderName = headerName;
+                HeaderDescription = headerDescription;
+                HeaderPaddling = headerPaddling;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="DropdownConfig"/> class.
+            /// </summary>
+            public DropdownConfig()
+            {
+            }
+
+            /// <summary>
+            /// Gets or sets label of a DropdownConfig.
+            /// </summary>
+            public string Label { get; set; }
+
+            /// <summary>
+            /// Gets or sets Options of a DropdownConfig.
+            /// </summary>
+            public IEnumerable<string> Options { get; set; }
+
+            /// <summary>
+            /// Gets or sets DefaultOptionIndex of a DropdownConfig.
+            /// </summary>
+            public int DefaultOptionIndex { get; set; }
+
+            /// <summary>
+            /// Gets or sets DropdownEntryType of a DropdownConfig.
+            /// </summary>
+            public SSDropdownSetting.DropdownEntryType DropdownEntryType { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether updates come from client.
+            /// </summary>
+            public bool IsServerOnly { get; set; }
+
+            /// <summary>
+            /// Gets or sets HintDescription of a DropdownConfig.
+            /// </summary>
+            public string HintDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderName of a DropdownConfig.
+            /// </summary>
+            public string HeaderName { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderDescription of a DropdownConfig.
+            /// </summary>
+            public string HeaderDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether HeaderPaddling is needed.
+            /// </summary>
+            public bool HeaderPaddling { get; set; }
+
+            /// <summary>
+            /// Creates a DropdownSetting instanse.
+            /// </summary>
+            /// <returns>DropdownSetting.</returns>
+            public override DropdownSetting Create() => new(++IdIncrementor, Label, Options, DefaultOptionIndex, DropdownEntryType, HintDescription, 255, IsServerOnly, HeaderName == null ? null : new HeaderSetting(HeaderName, HeaderDescription, HeaderPaddling));
         }
     }
 }

@@ -10,9 +10,12 @@ namespace Exiled.Events.Features
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
 
     using Exiled.API.Features;
     using Exiled.Events.EventArgs.Interfaces;
+    using Exiled.Events.EventArgs.Player;
+
     using MEC;
 
     /// <summary>
@@ -274,7 +277,7 @@ namespace Exiled.Events.Features
                 }
                 catch (Exception ex)
                 {
-                    Log.Error($"Method \"{registration.handler.Method.Name}\" of the class \"{registration.handler.Method.ReflectedType.FullName}\" caused an exception when handling the event \"{GetType().FullName}\"\n{ex}");
+                    Log.Error($"Method \"{registration.handler.Method.Name}\" of the class \"{registration.handler.Method.ReflectedType.FullName}\" caused an exception when handling the event \"{typeof(T).FullName}\"\n{ex}");
                 }
             }
         }

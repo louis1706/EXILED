@@ -23,7 +23,7 @@ namespace Exiled.API.Features.Lockers
     /// <summary>
     /// A wrapper for <see cref="LockerChamber"/>.
     /// </summary>
-    public class Chamber : IWrapper<LockerChamber>, IWorldSpace
+    public class Chamber : IWrapper<LockerChamber>, IWorldSpace, IPermission
     {
         /// <summary>
         /// <see cref="Dictionary{TKey,TValue}"/> with <see cref="LockerChamber"/> and <see cref="Chamber"/>.
@@ -112,6 +112,16 @@ namespace Exiled.API.Features.Lockers
         /// <summary>
         /// Gets or sets required permissions to open this chamber.
         /// </summary>
+        public KeycardPermissions Permissions
+        {
+            get => (KeycardPermissions)Base.RequiredPermissions;
+            set => Base.RequiredPermissions = (Interactables.Interobjects.DoorUtils.DoorPermissionFlags)value;
+        }
+
+        /// <summary>
+        /// Gets or sets required permissions to open this chamber.
+        /// </summary>
+        [Obsolete]
         public KeycardPermissions RequiredPermissions
         {
             get => (KeycardPermissions)Base.RequiredPermissions;

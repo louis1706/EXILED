@@ -377,11 +377,6 @@ namespace Exiled.API.Features
             get => ReferenceHub.nicknameSync.Network_customPlayerInfoString;
             set
             {
-                if (!NicknameSync.ValidateCustomInfo(value, out string rejectionText))
-                {
-                    Log.Warn($"Could not set CustomInfo for {Nickname}. Reason: {rejectionText}");
-                }
-
                 InfoArea = string.IsNullOrEmpty(value) ? InfoArea & ~PlayerInfoArea.CustomInfo : InfoArea |= PlayerInfoArea.CustomInfo;
                 ReferenceHub.nicknameSync.Network_customPlayerInfoString = value;
             }
@@ -564,11 +559,7 @@ namespace Exiled.API.Features
         public PlayerPermissions RemoteAdminPermissions
         {
             get => (PlayerPermissions)ReferenceHub.serverRoles.Permissions;
-            set
-            {
-                ReferenceHub.serverRoles.Permissions = (ulong)value;
-                ReferenceHub.serverRoles.FinalizeSetGroup();
-            }
+            set => ReferenceHub.serverRoles.Permissions = (ulong)value;
         }
 
         /// <summary>
@@ -636,7 +627,7 @@ namespace Exiled.API.Features
         /// <summary>
         /// Gets a value indicating whether the player is reloading a weapon.
         /// </summary>
-        public bool IsReloading => CurrentItem is Firearm firearm && !firearm.IsReloading;
+        public bool IsReloading => CurrentItem is Firearm firearm && firearm.IsReloading;
 
         /// <summary>
         /// Gets a value indicating whether the player is aiming with a weapon.
@@ -1349,6 +1340,9 @@ namespace Exiled.API.Features
             if (Dictionary.TryGetValue(gameObject, out Player player))
                 return player;
 
+            if (Npc.Dictionary.TryGetValue(gameObject, out Npc npc))
+                return npc;
+
             if (UnverifiedPlayers.TryGetValue(gameObject, out player))
                 return player;
 
@@ -1919,7 +1913,7 @@ namespace Exiled.API.Features
         }
 
         /// <summary>
-        /// Receives an existing rank(group) or, if it doesn't exist, creates a new one and assigns it to this player.
+        /// Sets the player's rank.
         /// </summary>
         /// <param name="name">The rank name to be set.</param>
         /// <param name="group">The group to be set.</param>
@@ -1927,11 +1921,17 @@ namespace Exiled.API.Features
         {
             if (ServerStatic.PermissionsHandler.Groups.TryGetValue(name, out UserGroup userGroup))
             {
+                userGroup.BadgeColor = group.BadgeColor;
+                userGroup.BadgeText = name;
+                userGroup.HiddenByDefault = !group.Cover;
+                userGroup.Cover = group.Cover;
+
                 ReferenceHub.serverRoles.SetGroup(userGroup, false, false);
             }
             else
             {
                 ServerStatic.PermissionsHandler.Groups.Add(name, group);
+
                 ReferenceHub.serverRoles.SetGroup(group, false, false);
             }
 
@@ -2593,6 +2593,7 @@ namespace Exiled.API.Features
         {
             if (!HasCustomAmmoLimit(ammoType))
             {
+                Log.Error($"{nameof(Player)}.{nameof(ResetAmmoLimit)}(AmmoType): AmmoType.{ammoType} does not have a custom limit.");
                 return;
             }
 
@@ -2685,6 +2686,7 @@ namespace Exiled.API.Features
 
             if (!HasCustomCategoryLimit(category))
             {
+                Log.Error($"{nameof(Player)}.{nameof(ResetCategoryLimit)}(ItemCategory): ItemCategory.{category} does not have a custom limit.");
                 return;
             }
 
@@ -3543,6 +3545,19 @@ namespace Exiled.API.Features
         /// </summary>
         /// <param name="type">The <see cref="EffectType"/> to change.</param>
         /// <param name="intensity">The new intensity to use.</param>
+        public void ChangeEffectIntensity(EffectType type, byte intensity)
+        {
+            if (TryGetEffect(type, out StatusEffectBase statusEffect))
+            {
+                statusEffect.Intensity = intensity;
+            }
+        }
+
+        /// <summary>
+        /// Changes the intensity of a <see cref="StatusEffectBase"/>.
+        /// </summary>
+        /// <param name="type">The <see cref="EffectType"/> to change.</param>
+        /// <param name="intensity">The new intensity to use.</param>
         /// <param name="duration">The new duration to add to the effect.</param>
         public void ChangeEffectIntensity(EffectType type, byte intensity, float duration = 0)
         {
@@ -3645,11 +3660,6 @@ namespace Exiled.API.Features
 
             Connection.Send(new RoundRestartMessage(roundRestartType, delay, newPort, reconnect, false));
         }
-
-        /// <inheritdoc cref="MirrorExtensions.PlayGunSound(Player, Vector3, ItemType, byte, byte)"/>
-        [Obsolete("Use PlayGunSound(Player, Vector3, FirearmType, byte, byte) instead.")]
-        public void PlayGunSound(ItemType type, byte volume, byte audioClipId = 0)
-            => PlayGunSound(type.GetFirearmType(), volume, audioClipId);
 
         /// <inheritdoc cref="MirrorExtensions.PlayGunSound(Player, Vector3, FirearmType, float, int)"/>
         public void PlayGunSound(FirearmType itemType, float pitch = 1, int clipIndex = 0) =>

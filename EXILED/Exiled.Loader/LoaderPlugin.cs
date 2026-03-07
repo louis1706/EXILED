@@ -96,7 +96,14 @@ namespace Exiled.Loader
             Directory.CreateDirectory(Paths.Plugins);
             Directory.CreateDirectory(Paths.Dependencies);
 
-            Timing.RunCoroutine(new Loader().Run());
+            string exiledApiPath = Path.Combine(Paths.Dependencies, "Exiled.API.dll");
+
+            if (!File.Exists(exiledApiPath))
+            {
+                Log.Info($"Exiled.API.dll was not found at {exiledApiPath}");
+            }
+
+            new Loader().Run(new Assembly[] { });
         }
 
         /// <summary>

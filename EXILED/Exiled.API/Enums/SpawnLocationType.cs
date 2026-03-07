@@ -79,10 +79,14 @@ namespace Exiled.API.Enums
         InsideLczCafe,
 
         /// <summary>
-        /// Inside the Nuke armory.
+        /// Inside the Hid Lab.
         /// </summary>
-        [Obsolete("This Location has been removed from the game.")]
-        InsideNukeArmory,
+        InsideHidLab,
+
+        /// <summary>
+        /// Inside the SCP-127 Lab.
+        /// </summary>
+        Inside127Lab,
 
         /// <summary>
         /// Inside the surface nuke room.
@@ -130,18 +134,6 @@ namespace Exiled.API.Enums
         InsideHidChamber,
 
         /// <summary>
-        /// Inside the lower door that leads to the stairs in Micro-HID room.
-        /// </summary>
-        [Obsolete("This location has been removed from the game.")]
-        InsideHidLower,
-
-        /// <summary>
-        /// Inside the upper door that leads into the Micro-HID room just after the stairs.
-        /// </summary>
-        [Obsolete("This location has been removed from the game. Use InsideHidLab instead.")]
-        InsideHidUpper,
-
-        /// <summary>
         /// Just inside the LCZ WC door.
         /// </summary>
         InsideLczWc,
@@ -170,15 +162,5 @@ namespace Exiled.API.Enums
         /// Inside SCP-079's Armory
         /// </summary>
         Inside079Armory,
-
-        /// <summary>
-        /// Inside SCP-127's Lab
-        /// </summary>
-        Inside127Lab,
-
-        /// <summary>
-        /// Inside the upper door that leads into the Micro-HID Lab room.
-        /// </summary>
-        InsideHidLab,
     }
 }

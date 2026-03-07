@@ -110,5 +110,17 @@ namespace Exiled.Events
         /// </summary>
         [Description("Whether to log RA commands.")]
         public bool LogRaCommands { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a default value for reseting <see cref="PlayerInfoArea"/>.
+        /// </summary>
+        [Description("Default PlayerInfoArea for player, resets on spawn.")]
+        public PlayerInfoArea DefaultPlayerInfoArea { get; set; } = PlayerInfoArea.Nickname | PlayerInfoArea.Badge | PlayerInfoArea.CustomInfo | PlayerInfoArea.Role | PlayerInfoArea.UnitName | PlayerInfoArea.PowerStatus;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether custom info will reload on spawning.
+        /// </summary>
+        [Description("Whether or not custom info will resets on spawn.")]
+        public bool ResetCustomInfo { get; set; } = true;
     }
 }

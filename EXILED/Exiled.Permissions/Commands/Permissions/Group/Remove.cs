@@ -25,7 +25,7 @@ namespace Exiled.Permissions.Commands.Permissions.Group
         public string[] Aliases { get; } = new[] { "rmv" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Removes a group from permission.";
+        public string Description { get; set; } = "Removes a group from permission.";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

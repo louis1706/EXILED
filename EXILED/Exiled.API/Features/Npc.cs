@@ -12,12 +12,14 @@ namespace Exiled.API.Features
     using System.Collections.Generic;
     using System.Linq;
 
+    using CentralAuth;
     using CommandSystem;
     using CommandSystem.Commands.RemoteAdmin.Dummies;
     using Exiled.API.Enums;
     using Exiled.API.Features.CustomStats;
     using Exiled.API.Features.Roles;
     using Footprinting;
+    using GameCore;
     using MEC;
     using Mirror;
     using NetworkManagerUtils.Dummies;
@@ -48,9 +50,14 @@ namespace Exiled.API.Features
         }
 
         /// <summary>
-        /// Gets a list of Npcs.
+        /// Gets a <see cref="Dictionary{TKey, TValue}"/> containing all <see cref="Npc"/>'s on the server.
         /// </summary>
-        public static new IReadOnlyCollection<Npc> List => Dictionary.Values.OfType<Npc>().ToList();
+        public static new Dictionary<GameObject, Npc> Dictionary { get; } = new(Server.MaxPlayerCount, new ReferenceHub.GameObjectComparer());
+
+        /// <summary>
+        /// Gets a list of all <see cref="Npc"/>'s on the server.
+        /// </summary>
+        public static new IReadOnlyCollection<Npc> List => Dictionary.Values;
 
         /// <summary>
         /// Gets or sets the player's position.
@@ -102,7 +109,7 @@ namespace Exiled.API.Features
 
             set
             {
-                if(!value.HasValue)
+                if (!value.HasValue)
                     return;
 
                 if (!GameObject.TryGetComponent(out PlayerFollower follower))
@@ -131,7 +138,7 @@ namespace Exiled.API.Features
 
             set
             {
-                if(!value.HasValue)
+                if (!value.HasValue)
                     return;
 
                 if (!GameObject.TryGetComponent(out PlayerFollower follower))
@@ -160,7 +167,7 @@ namespace Exiled.API.Features
 
             set
             {
-                if(!value.HasValue)
+                if (!value.HasValue)
                     return;
 
                 if (!GameObject.TryGetComponent(out PlayerFollower follower))
@@ -342,18 +349,6 @@ namespace Exiled.API.Features
             {
                 Log.Error($"Error while destroying a NPC: {e.Message}");
             }
-        }
-
-        /// <summary>
-        /// Schedules the destruction of the NPC after a delay.
-        /// </summary>
-        /// <param name="time">The delay in seconds before the NPC is destroyed.</param>
-        public void LateDestroy(float time)
-        {
-            Timing.CallDelayed(time, () =>
-            {
-                this?.Destroy();
-            });
         }
     }
 }

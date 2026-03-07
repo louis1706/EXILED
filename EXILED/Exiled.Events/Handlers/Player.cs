@@ -201,6 +201,11 @@ namespace Exiled.Events.Handlers
         public static Event<ChangingRoleEventArgs> ChangingRole { get; set; } = new();
 
         /// <summary>
+        /// Invoked before throwing an <see cref="API.Features.Items.Throwable"/>.
+        /// </summary>
+        public static Event<ThrowingProjectileEventArgs> ThrowingProjectile { get; set; } = new();
+
+        /// <summary>
         /// Invoked afer throwing an <see cref="API.Features.Items.Throwable"/>.
         /// </summary>
         public static Event<ThrownProjectileEventArgs> ThrownProjectile { get; set; } = new();
@@ -583,17 +588,27 @@ namespace Exiled.Events.Handlers
         /// <summary>
         /// Invoked before a player's emotion changed.
         /// </summary>
+        public static Event<ChangedNicknameEventArgs> ChangedNickname { get; set; } = new();
+
+        /// <summary>
+        /// Invoked before a <see cref="API.Features.Player"/>'s role is sent to a client.
+        /// </summary>
+        public static Event<SendingRoleEventArgs> SendingRole { get; set; } = new();
+
+        /// <summary>
+        /// Invoked before a <see cref="API.Features.Player"/>'s rotates the revolver.
+        /// </summary>
+        public static Event<RotatingRevolverEventArgs> RotatingRevolver { get; set; } = new();
+
+        /// <summary>
+        /// Invoked before a player's emotion changed.
+        /// </summary>
         public static Event<ChangingEmotionEventArgs> ChangingEmotion { get; set; } = new();
 
         /// <summary>
         /// Invoked after a player's emotion changed.
         /// </summary>
         public static Event<ChangedEmotionEventArgs> ChangedEmotion { get; set; } = new();
-
-        /// <summary>
-        /// Invoked before a <see cref="API.Features.Player"/>'s rotates the revolver.
-        /// </summary>
-        public static Event<RotatingRevolverEventArgs> RotatingRevolver { get; set; } = new();
 
         /// <summary>
         /// Invoked before disruptor's mode is changed.
@@ -718,6 +733,12 @@ namespace Exiled.Events.Handlers
         public static void OnInteracted(InteractedEventArgs ev) => Interacted.InvokeSafely(ev);
 
         /// <summary>
+        /// Called before sending role to a <see cref="API.Features.Player"/>.
+        /// </summary>
+        /// <param name="ev">The <see cref="SendingRoleEventArgs"/> instance.</param>
+        public static void OnSendingRole(SendingRoleEventArgs ev) => SendingRole.InvokeSafely(ev);
+
+        /// <summary>
         /// Called before spawning a <see cref="API.Features.Player"/> ragdoll.
         /// </summary>
         /// <param name="ev">The <see cref="SpawningRagdollEventArgs"/> instance.</param>
@@ -768,6 +789,12 @@ namespace Exiled.Events.Handlers
 
         /// <summary>
         /// Called before throwing a grenade.
+        /// </summary>
+        /// <param name="ev">The <see cref="ThrowingProjectileEventArgs"/> instance.</param>
+        public static void OnThrowingProjectile(ThrowingProjectileEventArgs ev) => ThrowingProjectile.InvokeSafely(ev);
+
+        /// <summary>
+        /// Called after throwing a grenade.
         /// </summary>
         /// <param name="ev">The <see cref="ThrownProjectileEventArgs"/> instance.</param>
         public static void OnThrownProjectile(ThrownProjectileEventArgs ev) => ThrownProjectile.InvokeSafely(ev);

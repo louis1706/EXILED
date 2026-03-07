@@ -25,7 +25,7 @@ namespace Exiled.Permissions.Commands.Permissions.Group
         public string[] Aliases { get; } = new string[] { };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Adds a group to a permission.";
+        public string Description { get; set; } = "Adds a group to a permission.";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

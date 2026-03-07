@@ -54,7 +54,7 @@ namespace Exiled.API.Enums
         TextToy,
 
         /// <summary>
-        /// Waypoint toy.
+        /// Waypoint Toy.
         /// </summary>
         WaypointToy,
     }

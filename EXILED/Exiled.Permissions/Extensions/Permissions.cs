@@ -71,12 +71,6 @@ namespace Exiled.Permissions.Extensions
         /// </summary>
         public static void Create()
         {
-            if (!Directory.Exists(Instance.Config.Folder))
-            {
-                Log.Warn($"Permissions directory at {Instance.Config.Folder} is missing, creating.");
-                Directory.CreateDirectory(Instance.Config.Folder);
-            }
-
             if (!File.Exists(Instance.Config.FullPath))
             {
                 Log.Warn($"Permissions file at {Instance.Config.FullPath} is missing, creating.");
@@ -204,39 +198,49 @@ namespace Exiled.Permissions.Extensions
             if (player is null || player.GameObject == null || Groups is null || Groups.Count == 0)
                 return false;
 
-            Log.Debug($"UserID: {player.UserId} | PlayerId: {player.Id}");
-            Log.Debug($"Permission string: {permission}");
+            Log.Debug($"UserID: {player.UserId} | PlayerId: {player.Id} | Permission string: {permission}");
 
             string plyGroupKey = player.Group is not null ? ServerStatic.PermissionsHandler.Groups.FirstOrDefault(g => g.Value.EqualsTo(player.Group)).Key : null;
             Log.Debug($"GroupKey: {plyGroupKey ?? "(null)"}");
 
-            if (plyGroupKey is null || !Groups.TryGetValue(plyGroupKey, out Group group))
+            if (plyGroupKey == null || !Groups.TryGetValue(plyGroupKey, out Group group))
             {
                 Log.Debug("The source group is null, the default group is used");
                 group = DefaultGroup;
             }
 
+            return CheckPermission(group, permission);
+        }
+
+        /// <summary>
+        /// Checks a group's permission.
+        /// </summary>
+        /// <param name="group">The Group to be checked.</param>
+        /// <param name="permission">The permission to be checked.</param>
+        /// <returns><see langword="true"/> if the group has permissions; otherwise, <see langword="false"/>.</returns>
+        public static bool CheckPermission(this Group group, string permission)
+        {
             if (group is null)
             {
-                Log.Debug("There's no default group, returning false...");
+                Log.Debug("Provided null group, returning false...");
                 return false;
             }
 
             const char permSeparator = '.';
             const string allPerms = ".*";
 
-            if (group.CombinedPermissions.Contains(allPerms))
+            bool Check(string source) => group.CombinedPermissions.Contains(source, StringComparison.OrdinalIgnoreCase);
+
+            if (Check(allPerms))
                 return true;
 
             if (permission.Contains(permSeparator))
             {
                 StringBuilder strBuilder = StringBuilderPool.Pool.Get();
-                string[] seraratedPermissions = permission.Split(permSeparator);
-
-                bool Check(string source) => group.CombinedPermissions.Contains(source, StringComparison.OrdinalIgnoreCase);
+                string[] separatedPermissions = permission.Split(permSeparator);
 
                 bool result = false;
-                for (int z = 0; z < seraratedPermissions.Length; z++)
+                for (int z = 0; z < separatedPermissions.Length; z++)
                 {
                     if (z != 0)
                     {
@@ -248,11 +252,11 @@ namespace Exiled.Permissions.Extensions
                         strBuilder.Append(permSeparator);
                     }
 
-                    strBuilder.Append(seraratedPermissions[z]);
+                    strBuilder.Append(separatedPermissions[z]);
 
                     // If it's the last index,
                     // then we don't need to check for all permissions of the subpermission.
-                    if (z == seraratedPermissions.Length - 1)
+                    if (z == separatedPermissions.Length - 1)
                     {
                         result = Check(strBuilder.ToString());
                         break;
@@ -273,7 +277,7 @@ namespace Exiled.Permissions.Extensions
             }
 
             // It'll work when there is no dot in the permission.
-            bool result2 = group.CombinedPermissions.Contains(permission, StringComparison.OrdinalIgnoreCase);
+            bool result2 = Check(permission);
 
             Log.Debug($"Result outside the block: {result2}");
 

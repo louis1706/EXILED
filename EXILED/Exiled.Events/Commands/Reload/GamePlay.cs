@@ -18,14 +18,8 @@ namespace Exiled.Events.Commands.Reload
     /// <summary>
     /// The reload gameplay command.
     /// </summary>
-    [CommandHandler(typeof(Reload))]
     public class GamePlay : ICommand
     {
-        /// <summary>
-        /// Gets static instance of the <see cref="GamePlay"/> command.
-        /// </summary>
-        public static GamePlay Instance { get; } = new();
-
         /// <inheritdoc/>
         public string Command { get; } = "gameplay";
 
@@ -33,7 +27,7 @@ namespace Exiled.Events.Commands.Reload
         public string[] Aliases { get; } = new[] { "gm" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Reloads gameplay configs.";
+        public string Description { get; set; } = "Reloads gameplay configs.";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

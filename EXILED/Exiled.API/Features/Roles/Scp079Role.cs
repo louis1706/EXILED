@@ -280,7 +280,7 @@ namespace Exiled.API.Features.Roles
         public int Level
         {
             get => TierManager.AccessTierLevel;
-            set => Experience = value <= 1 ? 0 : TierManager.AbsoluteThresholds[Mathf.Clamp(value - 2, 0, TierManager.AbsoluteThresholds.Length - 1)];
+            set => Experience = value <= 1 ? 0 : TierManager.AbsoluteThresholds[Mathf.Clamp(value - 1, 0, TierManager.AbsoluteThresholds.Length - 1)];
         }
 
         /// <summary>

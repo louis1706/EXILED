@@ -24,14 +24,8 @@ namespace Exiled.Events.Commands.PluginManager
     /// <summary>
     /// The command to show all plugins.
     /// </summary>
-    [CommandHandler(typeof(PluginManager))]
     public sealed class Show : ICommand
     {
-        /// <summary>
-        /// Gets static instance of the <see cref="Show"/> command.
-        /// </summary>
-        public static Show Instance { get; } = new();
-
         /// <inheritdoc/>
         public string Command { get; } = "show";
 
@@ -39,7 +33,7 @@ namespace Exiled.Events.Commands.PluginManager
         public string[] Aliases { get; } = { "shw", "sh" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Get all plugins, names, authors and versions";
+        public string Description { get; set; } = "Get all plugins, names, authors and versions";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

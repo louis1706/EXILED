@@ -46,8 +46,9 @@ namespace Exiled.API.Interfaces
 
         /// <summary>
         /// Gets the plugin commands.
+        /// TypeOfCommand, (CommandInstance, ListOfHandlers).
         /// </summary>
-        Dictionary<Type, Dictionary<Type, ICommand>> Commands { get; }
+        Dictionary<Type, (ICommand, HashSet<Type>)> Commands { get; }
 
         /// <summary>
         /// Gets the plugin priority.

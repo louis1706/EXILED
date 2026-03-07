@@ -19,14 +19,8 @@ namespace Exiled.Events.Commands.Reload
     /// <summary>
     /// The reload plugins command.
     /// </summary>
-    [CommandHandler(typeof(Reload))]
     public class Plugins : ICommand
     {
-        /// <summary>
-        /// Gets static instance of the <see cref="Plugins"/> command.
-        /// </summary>
-        public static Plugins Instance { get; } = new();
-
         /// <inheritdoc/>
         public string Command { get; } = "plugins";
 
@@ -34,7 +28,7 @@ namespace Exiled.Events.Commands.Reload
         public string[] Aliases { get; } = new[] { "pl" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Reloads all plugins.";
+        public string Description { get; set; } = "Reloads all plugins.";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

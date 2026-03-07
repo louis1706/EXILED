@@ -26,7 +26,7 @@ namespace Exiled.CreditTags.Commands
         public string[] Aliases { get; } = new[] { "crtag", "et", "ct" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Shows your EXILED Credits tag, if available.";
+        public string Description { get; set; } = "Shows your EXILED Credits tag, if available.";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

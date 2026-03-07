@@ -30,6 +30,7 @@
         <Reference Include="Assembly-CSharp-firstpass" HintPath="$(EXILED_REFERENCES)\Assembly-CSharp-firstpass.dll" Private="false" />
         <Reference Include="CommandSystem.Core" HintPath="$(EXILED_REFERENCES)\CommandSystem.Core.dll" Private="false" />
         <Reference Include="LabApi" HintPath="$(EXILED_REFERENCES)\LabApi.dll" Private="false" />
+        <Reference Include="FLXLib" HintPath="$(EXILED_REFERENCES)\FLXLib.dll" Private="false" />
         <Reference Include="Mirror" HintPath="$(EXILED_REFERENCES)\Mirror.dll" Private="false" />
         <Reference Include="NorthwoodLib" HintPath="$(EXILED_REFERENCES)\NorthwoodLib.dll" Private="false" />
         <Reference Include="UnityEngine" HintPath="$(EXILED_REFERENCES)\UnityEngine.dll" Private="false" />
@@ -41,9 +42,14 @@
         <Reference Include="YamlDotNet" HintPath="$(EXILED_REFERENCES)\YamlDotNet.dll" Private="false" />
     </ItemGroup>
 
-
     <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
-        <PostBuildEvent>if not "$(EXILED_DEV_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).dll" "$(EXILED_DEV_REFERENCES)\Plugins\"</PostBuildEvent>
+        <PostBuildEvent>
+            if not "$(EXILED_DEV_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).dll" "$(EXILED_DEV_REFERENCES)\Plugins\"
+            if not "$(EXILED_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).dll" "$(EXILED_REFERENCES)\"
+            if not "$(EXILED_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).xml" "$(EXILED_REFERENCES)\"
+            if not "$(EXILED_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).dll" "$(EXILED_REFERENCES)\"
+            if not "$(EXILED_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).xml" "$(EXILED_REFERENCES)\"
+        </PostBuildEvent>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(OS)' == 'Unix' ">
         <PostBuildEvent>if [[ ! -z "$EXILED_DEV_REFERENCES" ]]; then cp "$(OutputPath)$(AssemblyName).dll" "$EXILED_DEV_REFERENCES/Plugins/"; fi</PostBuildEvent>

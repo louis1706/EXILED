@@ -20,15 +20,6 @@ namespace Exiled.CustomItems.Commands.List
     /// <inheritdoc/>
     internal sealed class Registered : ICommand
     {
-        private Registered()
-        {
-        }
-
-        /// <summary>
-        /// Gets the command instance.
-        /// </summary>
-        public static Registered Instance { get; } = new();
-
         /// <inheritdoc/>
         public string Command { get; } = "registered";
 
@@ -36,35 +27,49 @@ namespace Exiled.CustomItems.Commands.List
         public string[] Aliases { get; } = { "r", "reg" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Gets a list of registered custom items.";
+        public string Description { get; set; } = "Получает все зарегистрированные кастомные предметы.";
+
+        /// <summary>
+        /// Gets or sets the message displayed when a user does not have the required permission.
+        /// </summary>
+        public string NoPermissionMessage { get; set; } = "Не хватает прав!";
+
+        /// <summary>
+        /// Gets or sets the message displayed when there are no custom items on the server.
+        /// </summary>
+        public string NoCustomItemsMessage { get; set; } = "На сервере нет кастомных предметов.";
+
+        /// <summary>
+        /// Gets or sets the header format for displaying custom items, where {0} is the number of custom items.
+        /// </summary>
+        public string CustomItemsHeader { get; set; } = "[Кастомные предметы ({0})]";
+
+        /// <summary>
+        /// Gets or sets the format for displaying a single custom item, where {0} is the item ID, {1} is the item name, and {2} is the item type.
+        /// </summary>
+        public string CustomItemFormat { get; set; } = "[{0}. {1} ({2})]";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!sender.CheckPermission("customitems.list.registered"))
             {
-                response = "Permission Denied, required: customitems.list.registered";
-                return false;
-            }
-
-            if (arguments.Count != 0)
-            {
-                response = "list registered";
+                response = NoPermissionMessage;
                 return false;
             }
 
             if (CustomItem.Registered.Count == 0)
             {
-                response = "There are no custom items currently on this server.";
+                response = NoCustomItemsMessage;
                 return false;
             }
 
             StringBuilder message = StringBuilderPool.Pool.Get().AppendLine();
 
-            message.Append("[Registered custom items (").Append(CustomItem.Registered.Count).AppendLine(")]");
+            message.Append(string.Format(CustomItemsHeader, CustomItem.Registered.Count));
 
             foreach (CustomItem customItem in CustomItem.Registered.OrderBy(item => item.Id))
-                message.Append('[').Append(customItem.Id).Append(". ").Append(customItem.Name).Append(" (").Append(customItem.Type).Append(')').AppendLine("]");
+                message.Append(string.Format(CustomItemFormat, customItem.Id, customItem.Name, customItem.Type)).AppendLine();
 
             response = StringBuilderPool.Pool.ToStringReturn(message);
             return true;

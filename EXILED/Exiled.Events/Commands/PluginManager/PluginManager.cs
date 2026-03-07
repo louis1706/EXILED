@@ -8,7 +8,9 @@
 namespace Exiled.Events.Commands.PluginManager
 {
     using System;
+    using System.Collections.Generic;
 
+    using API.Features;
     using CommandSystem;
 
     /// <summary>
@@ -22,21 +24,18 @@ namespace Exiled.Events.Commands.PluginManager
         public override string Command { get; } = "pluginmanager";
 
         /// <inheritdoc/>
-        public override string[] Aliases { get; } = new[] { "plymanager", "plmanager", "pmanager", "plym" };
+        public override string[] Aliases { get; set; } = new[] { "plymanager", "plmanager", "pmanager", "plym" };
 
         /// <inheritdoc/>
-        public override string Description { get; } = "Manage plugin. Enable, disable and show plugins.";
+        public override string Description { get; set; } = "Manage plugin. Enable, disable and show plugins.";
 
         /// <inheritdoc/>
-        public override void LoadGeneratedCommands()
+        protected override IEnumerable<Type> CommandsToRegister()
         {
-        }
-
-        /// <inheritdoc/>
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
-        {
-            response = "Please, specify a valid subcommand! Available ones: enable, disable, show, patches";
-            return false;
+            yield return typeof(Show);
+            yield return typeof(Enable);
+            yield return typeof(Disable);
+            yield return typeof(Patches);
         }
     }
 }

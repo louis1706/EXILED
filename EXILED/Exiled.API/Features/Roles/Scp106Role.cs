@@ -10,6 +10,9 @@ namespace Exiled.API.Features.Roles
     using System.Collections.Generic;
 
     using Exiled.API.Enums;
+
+    using MEC;
+
     using PlayerRoles;
     using PlayerRoles.PlayableScps;
     using PlayerRoles.PlayableScps.HumeShield;
@@ -254,6 +257,12 @@ namespace Exiled.API.Features.Roles
 
             HuntersAtlasAbility._estimatedCost = cost;
             HuntersAtlasAbility._syncSubmerged = true;
+
+            Timing.CallDelayed(2f, () =>
+            {
+                if (IsValid)
+                    Owner.Position = position;
+            });
 
             return true;
         }

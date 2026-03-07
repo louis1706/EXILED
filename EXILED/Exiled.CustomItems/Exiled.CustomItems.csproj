@@ -20,8 +20,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopVersion)" IncludeAssets="All" PrivateAssets="All" />
         <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
@@ -31,6 +34,7 @@
         <Reference Include="LabApi" HintPath="$(EXILED_REFERENCES)\LabApi.dll" Private="false" />
         <Reference Include="Mirror" HintPath="$(EXILED_REFERENCES)\Mirror.dll" Private="false" />
         <Reference Include="NorthwoodLib" HintPath="$(EXILED_REFERENCES)\NorthwoodLib.dll" Private="false" />
+        <Reference Include="PluginAPI" HintPath="$(EXILED_REFERENCES)\PluginAPI.dll" Private="false" />        
         <Reference Include="UnityEngine" HintPath="$(EXILED_REFERENCES)\UnityEngine.dll" Private="false" />
         <Reference Include="UnityEngine.AudioModule" HintPath="$(EXILED_REFERENCES)\UnityEngine.AudioModule.dll" Private="false" />
         <Reference Include="UnityEngine.AnimationModule" HintPath="$(EXILED_REFERENCES)\UnityEngine.AnimationModule.dll" Private="false" />
@@ -40,7 +44,13 @@
     </ItemGroup>
 
     <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
-        <PostBuildEvent>if not "$(EXILED_DEV_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).dll" "$(EXILED_DEV_REFERENCES)\Plugins\"</PostBuildEvent>
+        <PostBuildEvent>
+            if not "$(EXILED_DEV_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).dll" "$(EXILED_DEV_REFERENCES)\Plugins\"
+            if not "$(EXILED_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).dll" "$(EXILED_REFERENCES)\"
+            if not "$(EXILED_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).xml" "$(EXILED_REFERENCES)\"
+            if not "$(EXILED_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).dll" "$(EXILED_REFERENCES)\"
+            if not "$(EXILED_REFERENCES)"=="" copy /y "$(OutputPath)$(AssemblyName).xml" "$(EXILED_REFERENCES)\"
+        </PostBuildEvent>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(OS)' == 'Unix' ">
         <PostBuildEvent>if [[ ! -z "$EXILED_DEV_REFERENCES" ]]; then cp "$(OutputPath)$(AssemblyName).dll" "$EXILED_DEV_REFERENCES/Plugins/"; fi</PostBuildEvent>

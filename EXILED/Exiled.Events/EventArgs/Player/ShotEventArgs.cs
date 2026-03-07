@@ -7,6 +7,8 @@
 
 namespace Exiled.Events.EventArgs.Player
 {
+    using API.Enums;
+    using API.Extensions;
     using API.Features;
     using Exiled.API.Features.Items;
     using Interfaces;
@@ -14,7 +16,7 @@ namespace Exiled.Events.EventArgs.Player
     using UnityEngine;
 
     /// <summary>
-    /// Contains all information after a player has fired a weapon.
+    /// Contains all information after a player hits a hitbox with a weapon.
     /// </summary>
     public class ShotEventArgs : IPlayerEvent, IFirearmEvent
     {
@@ -40,6 +42,8 @@ namespace Exiled.Events.EventArgs.Player
             {
                 Hitbox = hitboxIdentity;
                 Target = Player.Get(Hitbox.TargetHub);
+                if (Target != null)
+                    BoneType = Target.GetByMassCenter(Hitbox);
             }
         }
 
@@ -85,6 +89,11 @@ namespace Exiled.Events.EventArgs.Player
         /// Gets the target player. Can be null.
         /// </summary>
         public Player Target { get; }
+
+        /// <summary>
+        /// Gets the damaged part of human body. Can be <see langword="null" /> if <see cref="Target"/> is null.
+        /// </summary>
+        public BoneType? BoneType { get; }
 
         /// <summary>
         /// Gets the <see cref="HitboxIdentity"/> component of the target player that was hit. Can be null.

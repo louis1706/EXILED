@@ -21,7 +21,7 @@ namespace Exiled.API.Features
     /// <summary>
     /// Wrapper class for <see cref="Scp079Generator"/>.
     /// </summary>
-    public class Generator : IWrapper<Scp079Generator>, IWorldSpace
+    public class Generator : IWrapper<Scp079Generator>, IWorldSpace, IPermission
     {
         /// <summary>
         /// A <see cref="List{T}"/> of <see cref="Generator"/> on the map.
@@ -213,6 +213,16 @@ namespace Exiled.API.Features
         /// <summary>
         /// Gets or sets the required permissions to interact with the generator.
         /// </summary>
+        public KeycardPermissions Permissions
+        {
+            get => (KeycardPermissions)Base._requiredPermission;
+            set => Base._requiredPermission = (Interactables.Interobjects.DoorUtils.DoorPermissionFlags)value;
+        }
+
+        /// <summary>
+        /// Gets or sets the required permissions to interact with the generator.
+        /// </summary>
+        [Obsolete]
         public KeycardPermissions KeycardPermissions
         {
             get => (KeycardPermissions)Base._requiredPermission;
@@ -317,6 +327,6 @@ namespace Exiled.API.Features
         /// Returns the Generator in a human-readable format.
         /// </summary>
         /// <returns>A string containing Generator-related data.</returns>
-        public override string ToString() => $"{State} ({KeycardPermissions})";
+        public override string ToString() => $"{State} ({Permissions})";
     }
 }

@@ -10,6 +10,7 @@ namespace Exiled.API.Extensions
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Diagnostics;
     using System.Linq;
     using System.Reflection;
     using System.Reflection.Emit;
@@ -186,24 +187,25 @@ namespace Exiled.API.Extensions
         /// <param name="itemType">Weapon' sound to play.</param>
         /// <param name="volume">Sound's volume to set.</param>
         /// <param name="audioClipId">GunAudioMessage's audioClipId to set (default = 0).</param>
-        [Obsolete("This method is not working. Use PlayGunSound(Player, Vector3, FirearmType, float, int, bool) overload instead.")]
+        [Obsolete("This method is not working. Use PlayGunSound(Player, Vector3, ItemType, float, int, bool) overload instead.")]
         public static void PlayGunSound(this Player player, Vector3 position, ItemType itemType, byte volume, byte audioClipId = 0)
-            => PlayGunSound(player, position, itemType.GetFirearmType(), volume, audioClipId);
+        {
+        }
 
         /// <summary>
         /// Plays a gun sound that only the <paramref name="player"/> can hear.
         /// </summary>
         /// <param name="player">Target to play.</param>
         /// <param name="position">Position to play on.</param>
-        /// <param name="firearmType">Weapon's sound to play.</param>
+        /// <param name="itemType">Weapon's sound to play.</param>
         /// <param name="pitch">Speed of sound.</param>
         /// <param name="clipIndex">Index of clip.</param>
-        public static void PlayGunSound(this Player player, Vector3 position, FirearmType firearmType, float pitch = 1, int clipIndex = 0)
+        public static void PlayGunSound(this Player player, Vector3 position, FirearmType itemType, float pitch = 1, int clipIndex = 0)
         {
-            if (firearmType is FirearmType.ParticleDisruptor or FirearmType.None)
+            if (itemType is FirearmType.ParticleDisruptor or FirearmType.None)
                 return;
 
-            Features.Items.Firearm firearm = Features.Items.Firearm.ItemTypeToFirearmInstance[firearmType];
+            Features.Items.Firearm firearm = Features.Items.Firearm.ItemTypeToFirearmInstance[itemType];
 
             if (firearm == null)
                 return;
@@ -350,62 +352,23 @@ namespace Exiled.API.Extensions
         /// <param name="unitId">The UnitNameId to use for the player's new role, if the player's new role uses unit names. (is NTF).</param>
         public static void ChangeAppearance(this Player player, RoleTypeId type, IEnumerable<Player> playersToAffect, bool skipJump = false, byte unitId = 0)
         {
-            if (!player.IsConnected || !RoleExtensions.TryGetRoleBase(type, out PlayerRoleBase roleBase))
+            if (!player.IsConnected)
                 return;
 
-            bool isRisky = type.GetTeam() is Team.Dead || player.IsDead;
+            Log.Error($"{nameof(ChangeAppearance)} Вызывал {new StackTrace()} [IRacle] проверь можно ли переписать на свои штуки");
 
-            NetworkWriterPooled writer = NetworkWriterPool.Get();
-            writer.WriteUShort(38952);
-            writer.WriteUInt(player.NetId);
-            writer.WriteRoleType(type);
-
-            if (roleBase is HumanRole humanRole && humanRole.UsesUnitNames)
+            if (!player.Role.CheckAppearanceCompatibility(type))
             {
-                if (player.Role.Base is not HumanRole)
-                    isRisky = true;
-                writer.WriteByte(unitId);
-            }
-
-            if (roleBase is ZombieRole)
-            {
-                if (player.Role.Base is not ZombieRole)
-                    isRisky = true;
-
-                writer.WriteUShort((ushort)Mathf.Clamp(Mathf.CeilToInt(player.MaxHealth), ushort.MinValue, ushort.MaxValue));
-                writer.WriteBool(true);
-            }
-
-            if (roleBase is Scp1507Role)
-            {
-                if (player.Role.Base is not Scp1507Role)
-                    isRisky = true;
-
-                writer.WriteByte((byte)player.Role.SpawnReason);
-            }
-
-            if (roleBase is FpcStandardRoleBase fpc)
-            {
-                if (player.Role.Base is not FpcStandardRoleBase playerfpc)
-                    isRisky = true;
-                else
-                    fpc = playerfpc;
-
-                ushort value = 0;
-                fpc?.FpcModule.MouseLook.GetSyncValues(0, out value, out ushort _);
-                writer.WriteRelativePosition(player.RelativePosition);
-                writer.WriteUShort(value);
+                Log.Error($"[IRacle] Кринжанули братки {player.Role.Type} {type}");
+                return;
             }
 
             foreach (Player target in playersToAffect)
             {
-                if (target != player || !isRisky)
-                    target.Connection.Send(writer.ToArraySegment());
-                else
-                    Log.Error($"Prevent Seld-Desync of {player.Nickname} with {type}");
+                player.Role.TrySetIndividualAppearance(target, type, false);
             }
 
-            NetworkWriterPool.Return(writer);
+            player.Role.UpdateAppearance();
 
             // To counter a bug that makes the player invisible until they move after changing their appearance, we will teleport them upwards slightly to force a new position update for all clients.
             if (!skipJump)
@@ -516,7 +479,7 @@ namespace Exiled.API.Extensions
             {
                 if (controller != null)
                 {
-                    SendFakeTargetRpc(player, controller.netIdentity, typeof(RespawnEffectsController), nameof(RespawnEffectsController.RpcCassieAnnouncement), words, makeHold, makeNoise, isSubtitles);
+                    SendFakeTargetRpc(player, controller.netIdentity, typeof(RespawnEffectsController), nameof(RespawnEffectsController.RpcCassieAnnouncement), words.ReplaceVars(), makeHold, makeNoise, isSubtitles);
                 }
             }
         }
@@ -527,16 +490,15 @@ namespace Exiled.API.Extensions
         /// <param name="player">Target to send.</param>
         /// <param name="words">The message to be reproduced.</param>
         /// <param name="translation">The translation should be show in the subtitles.</param>
-        /// <param name="customSubtitles">The custom subtitles to show.</param>
         /// <param name="makeHold">Same on <see cref="Cassie.MessageTranslated(string, string, bool, bool, bool)"/>'s isHeld.</param>
         /// <param name="makeNoise">Same on <see cref="Cassie.MessageTranslated(string, string, bool, bool, bool)"/>'s isNoisy.</param>
         /// <param name="isSubtitles">Same on <see cref="Cassie.MessageTranslated(string, string, bool, bool, bool)"/>'s isSubtitles.</param>
-        public static void MessageTranslated(this Player player, string words, string translation, string customSubtitles, bool makeHold = false, bool makeNoise = true, bool isSubtitles = true)
+        public static void MessageTranslated(this Player player, string words, string translation, bool makeHold = false, bool makeNoise = true, bool isSubtitles = true)
         {
             StringBuilder announcement = StringBuilderPool.Pool.Get();
 
-            string[] cassies = words.Split('\n');
-            string[] translations = translation.Split('\n');
+            string[] cassies = words.ReplaceVars().Split('\n');
+            string[] translations = translation.ReplaceVars().Split('\n');
 
             for (int i = 0; i < cassies.Length; i++)
                 announcement.Append($"{translations[i].Replace(' ', ' ')}<size=0> {cassies[i]} </size><split>");
@@ -545,10 +507,10 @@ namespace Exiled.API.Extensions
 
             foreach (RespawnEffectsController controller in RespawnEffectsController.AllControllers)
             {
-                if (controller != null)
-                {
-                    SendFakeTargetRpc(player, controller.netIdentity, typeof(RespawnEffectsController), nameof(RespawnEffectsController.RpcCassieAnnouncement), message, makeHold, makeNoise, isSubtitles, customSubtitles);
-                }
+                if (!controller)
+                    continue;
+
+                SendFakeTargetRpc(player, controller.netIdentity, typeof(RespawnEffectsController), nameof(RespawnEffectsController.RpcCassieAnnouncement), message, makeHold, makeNoise, isSubtitles);
             }
         }
 
@@ -560,9 +522,6 @@ namespace Exiled.API.Extensions
         /// <param name="pos">The position to change.</param>
         public static void MoveNetworkIdentityObject(this Player player, NetworkIdentity identity, Vector3 pos)
         {
-            if (identity == null)
-                return;
-
             identity.gameObject.transform.position = pos;
             ObjectDestroyMessage objectDestroyMessage = new()
             {
@@ -610,9 +569,6 @@ namespace Exiled.API.Extensions
         /// <param name="scale">The scale the object needs to be set to.</param>
         public static void ScaleNetworkIdentityObject(this Player player, NetworkIdentity identity, Vector3 scale)
         {
-            if (identity == null)
-                return;
-
             identity.gameObject.transform.localScale = scale;
             ObjectDestroyMessage objectDestroyMessage = new()
             {
@@ -630,9 +586,6 @@ namespace Exiled.API.Extensions
         /// <param name="pos">The position to change.</param>
         public static void MoveNetworkIdentityObject(this NetworkIdentity identity, Vector3 pos)
         {
-            if (identity == null)
-                return;
-
             identity.gameObject.transform.position = pos;
             ObjectDestroyMessage objectDestroyMessage = new()
             {
@@ -653,9 +606,6 @@ namespace Exiled.API.Extensions
         /// <param name="scale">The scale the object needs to be set to.</param>
         public static void ScaleNetworkIdentityObject(this NetworkIdentity identity, Vector3 scale)
         {
-            if (identity == null)
-                return;
-
             identity.gameObject.transform.localScale = scale;
             ObjectDestroyMessage objectDestroyMessage = new()
             {
@@ -680,7 +630,7 @@ namespace Exiled.API.Extensions
         /// <param name="value">Value of send to target.</param>
         public static void SendFakeSyncVar<T>(this Player target, NetworkIdentity behaviorOwner, Type targetType, string propertyName, T value)
         {
-            if (!target.IsConnected || behaviorOwner == null)
+            if (!target.IsConnected)
                 return;
 
             NetworkWriterPooled writer = NetworkWriterPool.Get();
@@ -724,12 +674,7 @@ namespace Exiled.API.Extensions
         /// <param name="behaviorOwner"><see cref="NetworkIdentity"/> of object that owns <see cref="NetworkBehaviour"/>.</param>
         /// <param name="targetType"><see cref="NetworkBehaviour"/>'s type.</param>
         /// <param name="propertyName">Property name starting with Network.</param>
-        public static void ResyncSyncVar(NetworkIdentity behaviorOwner, Type targetType, string propertyName)
-        {
-            if (behaviorOwner == null)
-                return;
-            SetDirtyBitsMethodInfo.Invoke(behaviorOwner.gameObject.GetComponent(targetType), new object[] { SyncVarDirtyBits[$"{targetType.Name}.{propertyName}"] });
-        }
+        public static void ResyncSyncVar(NetworkIdentity behaviorOwner, Type targetType, string propertyName) => SetDirtyBitsMethodInfo.Invoke(behaviorOwner.gameObject.GetComponent(targetType), new object[] { SyncVarDirtyBits[$"{targetType.Name}.{propertyName}"] });
 
         /// <summary>
         /// Send fake values to client's <see cref="ClientRpcAttribute"/>.
@@ -741,7 +686,7 @@ namespace Exiled.API.Extensions
         /// <param name="values">Values of send to target.</param>
         public static void SendFakeTargetRpc(Player target, NetworkIdentity behaviorOwner, Type targetType, string rpcName, params object[] values)
         {
-            if (!target.IsConnected || behaviorOwner == null)
+            if (!target.IsConnected)
                 return;
 
             NetworkWriterPooled writer = NetworkWriterPool.Get();

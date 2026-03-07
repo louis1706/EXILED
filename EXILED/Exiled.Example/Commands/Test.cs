@@ -26,7 +26,7 @@ namespace Exiled.Example.Commands
         public string[] Aliases { get; } = new[] { "t" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "A simple test command.";
+        public string Description { get; set; } = "A simple test command.";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

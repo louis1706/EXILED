@@ -10,7 +10,6 @@ namespace Exiled.API.Features.Items
     using System.Collections.Generic;
     using System.Linq;
 
-    using Exiled.API.Extensions;
     using Exiled.API.Features.Core;
     using Exiled.API.Features.Items.Keycards;
     using Exiled.API.Features.Pickups;
@@ -412,11 +411,11 @@ namespace Exiled.API.Features.Items
         /// <param name="rotation">The rotation of the item.</param>
         /// <param name="spawn">Whether the <see cref="Pickup"/> should be initially spawned.</param>
         /// <returns>The created <see cref="Pickup"/>.</returns>
-        public virtual Pickup CreatePickup(Vector3 position, Quaternion? rotation = null, bool spawn = true)
+        public virtual Pickup CreatePickup(Vector3 position, Quaternion rotation = default, bool spawn = true)
         {
             PickupSyncInfo info = new(Type, Weight, Serial);
 
-            ItemPickupBase ipb = InventoryExtensions.ServerCreatePickup(Base, info, position, rotation ?? Quaternion.identity);
+            ItemPickupBase ipb = InventoryExtensions.ServerCreatePickup(Base, info, position, rotation);
 
             Base.OnRemoved(ipb);
 
@@ -467,8 +466,6 @@ namespace Exiled.API.Features.Items
             Base.OnAdded(null);
         }
 
-        // TODO: remove use of GetWorldScale after NW fix WaypointToy.
-
         /// <summary>
         /// Helper method for saving data between items and pickups.
         /// </summary>
@@ -482,7 +479,7 @@ namespace Exiled.API.Features.Items
         {
             if (pickup is not null)
             {
-                Scale = pickup.GameObject.GetWorldScale();
+                Scale = pickup.Scale;
             }
         }
 

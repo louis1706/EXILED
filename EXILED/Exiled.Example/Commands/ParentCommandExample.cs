@@ -74,7 +74,7 @@ namespace Exiled.Example.Commands
         public string[] Aliases { get; } = { "sbc" };
 
         /// <inheritdoc />
-        public string Description { get; } = "YOUR DESC";
+        public string Description { get; set; } = "YOUR DESC";
 
         /// <inheritdoc />
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

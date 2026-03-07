@@ -33,14 +33,17 @@ namespace Exiled.Events.EventArgs.Player
         {
             DamageHandler = new CustomDamageHandler(target, damageHandler);
 
+            Attacker = DamageHandler.BaseIs(out CustomAttackerHandler attackerDamageHandler) ? attackerDamageHandler.Attacker : null;
             Player = target;
 
-            if (DamageHandler.BaseIs(out CustomAttackerHandler attackerDamageHandler))
+            if (DamageHandler.BaseIs(out attackerDamageHandler))
                 Attacker = attackerDamageHandler.Attacker;
             else if (damageHandler is GenericDamageHandler genericDamageHandler)
                 Attacker = Player.Get(genericDamageHandler.Attacker);
             else
                 Attacker = null;
+
+            Log.Assert(target != null, "HurtingEventArgs - target is null!");
         }
 
         /// <inheritdoc/>

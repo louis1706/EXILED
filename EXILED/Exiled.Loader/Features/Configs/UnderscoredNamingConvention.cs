@@ -26,7 +26,7 @@ namespace Exiled.Loader.Features.Configs
         /// <inheritdoc/>
         public string Apply(string value)
         {
-            string newValue = value.ToSnakeCase();
+            string newValue = value.ToSnakeCase(false);
             Properties.Add(newValue);
             return newValue;
         }

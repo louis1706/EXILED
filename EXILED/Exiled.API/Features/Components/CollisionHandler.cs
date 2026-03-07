@@ -10,9 +10,8 @@ namespace Exiled.API.Features.Components
     using System;
 
     using Features;
-
     using InventorySystem.Items.ThrowableProjectiles;
-
+    using Mirror;
     using UnityEngine;
 
     /// <summary>
@@ -21,6 +20,8 @@ namespace Exiled.API.Features.Components
     public class CollisionHandler : MonoBehaviour
     {
         private bool initialized;
+        private float activableTime;
+        private Action onCollisionAction;
 
         /// <summary>
         /// Gets the thrower of the grenade.
@@ -28,20 +29,17 @@ namespace Exiled.API.Features.Components
         public GameObject Owner { get; private set; }
 
         /// <summary>
-        /// Gets the grenade itself.
-        /// </summary>
-        public EffectGrenade Grenade { get; private set; }
-
-        /// <summary>
         /// Inits the <see cref="CollisionHandler"/> object.
         /// </summary>
         /// <param name="owner">The grenade owner.</param>
-        /// <param name="grenade">The grenade component.</param>
-        public void Init(GameObject owner, ThrownProjectile grenade)
+        /// <param name="onCollisionAction">Action on collision.</param>
+        /// <param name="fuseDelay">Delay before onCollisionAction may be executed by collision.</param>
+        public void Init(GameObject owner, Action onCollisionAction, float fuseDelay = 0.15f)
         {
             Owner = owner;
-            Grenade = (EffectGrenade)grenade;
             initialized = true;
+            this.onCollisionAction = onCollisionAction;
+            activableTime = (float)NetworkTime.time + fuseDelay;
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -50,14 +48,17 @@ namespace Exiled.API.Features.Components
             {
                 if (!initialized)
                     return;
-                if (Owner == null || Grenade == null)
-                    return;
-                if (collision?.collider?.gameObject == Owner)
-                    return;
-                if (collision.collider.gameObject.TryGetComponent<EffectGrenade>(out _))
+                if (activableTime > NetworkTime.time)
                     return;
 
-                Grenade.TargetTime = 0.1f;
+                if (Owner == null)
+                    Log.Error($"Owner is null!");
+                if (collision.gameObject == null)
+                    Log.Error("pepehm");
+                if (collision.collider.gameObject == Owner || collision.collider.gameObject.TryGetComponent<EffectGrenade>(out _))
+                    return;
+
+                onCollisionAction.Invoke();
             }
             catch (Exception exception)
             {

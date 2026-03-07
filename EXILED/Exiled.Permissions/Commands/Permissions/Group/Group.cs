@@ -8,8 +8,10 @@
 namespace Exiled.Permissions.Commands.Permissions.Group
 {
     using System;
+    using System.Collections.Generic;
     using System.Text;
 
+    using API.Features;
     using CommandSystem;
 
     using Exiled.API.Features.Pools;
@@ -21,28 +23,20 @@ namespace Exiled.Permissions.Commands.Permissions.Group
     /// </summary>
     public class Group : ParentCommand
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Group"/> class.
-        /// </summary>
-        public Group()
-        {
-            LoadGeneratedCommands();
-        }
-
         /// <inheritdoc/>
         public override string Command { get; } = "groups";
 
         /// <inheritdoc/>
-        public override string[] Aliases { get; } = new[] { "grps" };
+        public override string[] Aliases { get; set; } = new[] { "grps" };
 
         /// <inheritdoc/>
-        public override string Description { get; } = "Handles commands about permissions groups.";
+        public override string Description { get; set; } = "Handles commands about permissions groups.";
 
         /// <inheritdoc/>
-        public override void LoadGeneratedCommands()
+        protected override IEnumerable<Type> CommandsToRegister()
         {
-            RegisterCommand(new Add());
-            RegisterCommand(new Remove());
+            yield return typeof(Add);
+            yield return typeof(Remove);
         }
 
         /// <inheritdoc/>

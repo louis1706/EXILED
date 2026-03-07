@@ -27,6 +27,7 @@ namespace Exiled.API.Extensions
             SpawnLocationType.Inside079First,
             SpawnLocationType.InsideHidLab,
             SpawnLocationType.Inside173Gate,
+            SpawnLocationType.Inside173Armory,
             SpawnLocationType.InsideGateA,
             SpawnLocationType.InsideGateB,
             SpawnLocationType.InsideLczWc,

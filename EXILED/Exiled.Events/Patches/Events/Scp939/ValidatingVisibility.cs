@@ -88,7 +88,6 @@ namespace Exiled.Events.Patches.Events.Scp939
             ListPool<CodeInstruction>.Pool.Return(newInstructions);
         }
 
-        // helper method for injecting instructions
         private static IEnumerable<CodeInstruction> StaticCallEvent(ILGenerator generator, LocalBuilder ev, Label ret, CodeInstruction insertInstuction, Scp939VisibilityState state, bool setLabel = true)
         {
             CodeInstruction first = new CodeInstruction(OpCodes.Ldc_I4, (int)state);

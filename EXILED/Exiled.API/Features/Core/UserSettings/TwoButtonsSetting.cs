@@ -26,24 +26,6 @@ namespace Exiled.API.Features.Core.UserSettings
         /// <param name="secondOption"><inheritdoc cref="SecondOption"/></param>
         /// <param name="defaultIsSecond"><inheritdoc cref="IsSecondDefault"/></param>
         /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
-        /// <param name="header"><inheritdoc cref="SettingBase.Header"/></param>
-        /// <param name="onChanged"><inheritdoc cref="SettingBase.OnChanged"/></param>
-        [Obsolete("Will be removed in Exiled 10 in favour of ctor with more params.")]
-        public TwoButtonsSetting(int id, string label, string firstOption, string secondOption, bool defaultIsSecond, string hintDescription, HeaderSetting header, Action<Player, SettingBase> onChanged)
-            : base(new SSTwoButtonsSetting(id, label, firstOption, secondOption, defaultIsSecond, hintDescription), header, onChanged)
-        {
-            Base = (SSTwoButtonsSetting)base.Base;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwoButtonsSetting"/> class.
-        /// </summary>
-        /// <param name="id"><inheritdoc cref="SettingBase.Id"/></param>
-        /// <param name="label"><inheritdoc cref="SettingBase.Label"/></param>
-        /// <param name="firstOption"><inheritdoc cref="FirstOption"/></param>
-        /// <param name="secondOption"><inheritdoc cref="SecondOption"/></param>
-        /// <param name="defaultIsSecond"><inheritdoc cref="IsSecondDefault"/></param>
-        /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
         /// <param name="collectionId"><inheritdoc cref="SettingBase.CollectionId"/></param>
         /// <param name="isServerOnly"><inheritdoc cref="SettingBase.IsServerOnly"/></param>
         /// <param name="header"><inheritdoc cref="SettingBase.Header"/></param>
@@ -150,6 +132,95 @@ namespace Exiled.API.Features.Core.UserSettings
         public override string ToString()
         {
             return base.ToString() + $" /{FirstOption}/ *{SecondOption}* +{IsSecondDefault}+ '{IsFirst}'";
+        }
+
+        /// <summary>
+        /// Represents a config for TextInputSetting.
+        /// </summary>
+        public class TwoButtonsConfig : SettingConfig<TwoButtonsSetting>
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="TwoButtonsConfig"/> class.
+            /// </summary>
+            /// <param name="label"></param>
+            /// <param name="firstOption"/><inheritdoc cref="FirstOption"/>
+            /// <param name="headerName"><inheritdoc cref="HeaderName"/></param>
+            /// <param name="isServerOnly"><inheritdoc cref="IsServerOnly"/></param>
+            /// <param name="defaultIsSecond"></param>
+            /// <param name="hintDescription"><inheritdoc cref="HintDescription"/></param>
+            /// <param name="headerDescription"><inheritdoc cref="HeaderDescription"/></param>
+            /// <param name="headerPaddling"><inheritdoc cref="HeaderPaddling"/></param>
+            /// <param name="secondOption"></param>
+            public TwoButtonsConfig(string label, string firstOption, string secondOption, bool isServerOnly, bool defaultIsSecond = false, string hintDescription = null, string headerName = null, string headerDescription = null, bool headerPaddling = false)
+            {
+                Label = label;
+                FirstOption = firstOption;
+                IsServerOnly = isServerOnly;
+                SecondOption = secondOption;
+                DefaultIsSecond = defaultIsSecond;
+                HintDescription = hintDescription;
+                HeaderName = headerName;
+                HeaderPaddling = headerPaddling;
+                HeaderDescription = headerDescription;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="TwoButtonsConfig"/> class.
+            /// </summary>
+            public TwoButtonsConfig()
+            {
+            }
+
+            /// <summary>
+            /// Gets or sets label of a TwoButtonsConfig.
+            /// </summary>
+            public string Label { get; set; }
+
+            /// <summary>
+            /// Gets or sets label of a TwoButtonsConfig.
+            /// </summary>
+            public string FirstOption { get; set; }
+
+            /// <summary>
+            /// Gets or sets label of a TwoButtonsConfig.
+            /// </summary>
+            public string SecondOption { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether default is second.
+            /// </summary>
+            public bool DefaultIsSecond { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether updates come from client.
+            /// </summary>
+            public bool IsServerOnly { get; set; }
+
+            /// <summary>
+            /// Gets or sets HintDescription of a TwoButtonsConfig.
+            /// </summary>
+            public string HintDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderName of a TwoButtonsConfig.
+            /// </summary>
+            public string HeaderName { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderDescription of a TwoButtonsConfig.
+            /// </summary>
+            public string HeaderDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether HeaderPaddling is needed.
+            /// </summary>
+            public bool HeaderPaddling { get; set; }
+
+            /// <summary>
+            /// Creates a TwoButtonsSetting instanse.
+            /// </summary>
+            /// <returns>TwoButtonsSetting.</returns>
+            public override TwoButtonsSetting Create() => new(++IdIncrementor, Label, FirstOption, SecondOption, DefaultIsSecond, HintDescription, 255, IsServerOnly, HeaderName == null ? null : new HeaderSetting(HeaderName, HeaderDescription, HeaderPaddling));
         }
     }
 }

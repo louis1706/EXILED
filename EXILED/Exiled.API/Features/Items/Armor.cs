@@ -159,6 +159,14 @@ namespace Exiled.API.Features.Items
         };
 
         /// <inheritdoc/>
+        internal override void ChangeOwner(Player oldOwner, Player newOwner)
+        {
+            Base.Owner = newOwner.ReferenceHub;
+
+            Base.OnAdded(null);
+        }
+
+        /// <inheritdoc/>
         internal override void ReadPickupInfoBefore(Pickup pickup)
         {
             base.ReadPickupInfoBefore(pickup);

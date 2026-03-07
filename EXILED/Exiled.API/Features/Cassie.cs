@@ -11,14 +11,11 @@ namespace Exiled.API.Features
     using System.Linq;
     using System.Text;
 
+    using Exiled.API.Enums;
     using Exiled.API.Features.Pools;
-
     using MEC;
-
     using PlayerRoles;
-
     using PlayerStatsSystem;
-
     using Respawning;
 
     using CustomFirearmHandler = DamageHandlers.FirearmDamageHandler;
@@ -144,24 +141,69 @@ namespace Exiled.API.Features
         /// </summary>
         /// <param name="scpName">SCP Name. Note that for larger numbers, C.A.S.S.I.E will pronounce the place (eg. "457" -> "four hundred fifty seven"). Spaces can be used to prevent this behavior.</param>
         /// <param name="info">Hit Information.</param>
-        public static void CustomScpTermination(string scpName, CustomHandlerBase info)
+        /// <param name="isTranslated">Should apply translations or not.</param>
+        public static void CustomScpTermination(string scpName, CustomHandlerBase info, bool isTranslated = false)
         {
-            string result = scpName;
-            if (info.Is(out MicroHidDamageHandler _))
-                result += " SUCCESSFULLY TERMINATED BY AUTOMATIC SECURITY SYSTEM";
-            else if (info.Is(out WarheadDamageHandler _))
-                result += " SUCCESSFULLY TERMINATED BY ALPHA WARHEAD";
-            else if (info.Is(out UniversalDamageHandler _))
-                result += " LOST IN DECONTAMINATION SEQUENCE";
-            else if (info.BaseIs(out CustomFirearmHandler firearmDamageHandler) && firearmDamageHandler.Attacker is Player attacker)
-                result += " CONTAINEDSUCCESSFULLY " + ConvertTeam(attacker.Role.Team, attacker.UnitName);
-
-            // result += "To be changed";
+            string message = $"SCP {scpName} ";
+            string translation = $"SCP-{scpName.Replace(" ", string.Empty)} ";
+            if (info.Type == DamageType.Tesla)
+            {
+                message += "SUCCESSFULLY TERMINATED BY AUTOMATIC SECURITY SYSTEM";
+                translation += "успешно уничтожен Автоматической Системой Охраны.";
+            }
+            else if (info.Type == DamageType.Warhead)
+            {
+                message += "SUCCESSFULLY TERMINATED BY ALPHA WARHEAD";
+                translation += "успешно уничтожен боеголовкой Альфа.";
+            }
+            else if (info.Type == DamageType.Decontamination)
+            {
+                message += "LOST IN DECONTAMINATION SEQUENCE";
+                translation += " утерян в процессе обеззараживания.";
+            }
+            else if (info.BaseIs(out DamageHandlers.AttackerDamageHandler attackerDamageHandler) && attackerDamageHandler.Attacker is Player attacker)
+            {
+                message += "CONTAINEDSUCCESSFULLY " + ConvertTeam(attacker.Role.Team, attacker.UnitName);
+                switch (attacker.Role.Team)
+                {
+                    case Team.Scientists:
+                        translation += "успешно сдержан научным персоналом.";
+                        break;
+                    case Team.ChaosInsurgency:
+                        translation += "успешно сдержан Повстанцами Хаоса.";
+                        break;
+                    case Team.FoundationForces:
+                        translation += "успешно сдержан отрядом " + attacker.UnitName + ".";
+                        break;
+                    case Team.ClassD:
+                        translation += "успешно сдержан персоналом класса-Д.";
+                        break;
+                    case Team.OtherAlive:
+                        translation += "успешно сдержан неизвестным человеком.";
+                        break;
+                    case Team.Dead:
+                        translation += "успешно сдержан.";
+                        break;
+                    case Team.SCPs:
+                        translation += "успешно сдержан " + attacker.Role.Name + ".";
+                        break;
+                }
+            }
             else
-                result += " SUCCESSFULLY TERMINATED . TERMINATION CAUSE UNSPECIFIED";
+            {
+                message += "SUCCESSFULLY TERMINATED . TERMINATION CAUSE UNSPECIFIED";
+                translation += "успешно уничтожен. Причина не указана.";
+            }
 
-            float num = AlphaWarheadController.TimeUntilDetonation <= 0f ? 3.5f : 1f;
-            GlitchyMessage(result, UnityEngine.Random.Range(0.1f, 0.14f) * num, UnityEngine.Random.Range(0.07f, 0.08f) * num);
+            if (isTranslated)
+            {
+                MessageTranslated(message, translation);
+            }
+            else
+            {
+                float num = AlphaWarheadController.TimeUntilDetonation <= 0f ? 3.5f : 1f;
+                GlitchyMessage(message, UnityEngine.Random.Range(0.1f, 0.14f) * num, UnityEngine.Random.Range(0.07f, 0.08f) * num);
+            }
         }
 
         /// <summary>

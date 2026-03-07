@@ -20,14 +20,8 @@ namespace Exiled.Events.Commands.Reload
     /// <summary>
     /// The reload configs command.
     /// </summary>
-    [CommandHandler(typeof(Reload))]
     public class Configs : ICommand
     {
-        /// <summary>
-        /// Gets static instance of the <see cref="Configs"/> command.
-        /// </summary>
-        public static Configs Instance { get; } = new();
-
         /// <inheritdoc/>
         public string Command { get; } = "configs";
 
@@ -35,7 +29,7 @@ namespace Exiled.Events.Commands.Reload
         public string[] Aliases { get; } = new[] { "cfgs" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Reload plugin configs.";
+        public string Description { get; set; } = "Reload plugin configs.";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
@@ -53,8 +47,6 @@ namespace Exiled.Events.Commands.Reload
 
             foreach (IPlugin<IConfig> plugin in Loader.Plugins)
             {
-                plugin.OnUnregisteringCommands();
-                plugin.OnRegisteringCommands();
                 if (plugin.Config.Debug)
                     API.Features.Log.DebugEnabled.Add(plugin.Assembly);
             }

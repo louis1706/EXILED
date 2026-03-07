@@ -8,8 +8,10 @@
 namespace Exiled.CustomItems.Commands
 {
     using System;
+    using System.Collections.Generic;
 
     using CommandSystem;
+    using Exiled.API.Features;
 
     /// <summary>
     /// The main command.
@@ -18,37 +20,22 @@ namespace Exiled.CustomItems.Commands
     [CommandHandler(typeof(GameConsoleCommandHandler))]
     internal sealed class Main : ParentCommand
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Main"/> class.
-        /// </summary>
-        public Main()
-        {
-            LoadGeneratedCommands();
-        }
-
         /// <inheritdoc/>
         public override string Command { get; } = "customitems";
 
         /// <inheritdoc/>
-        public override string[] Aliases { get; } = { "ci", "cis" };
+        public override string[] Aliases { get; set; } = { "ci", "cis" };
 
         /// <inheritdoc/>
-        public override string Description { get; } = string.Empty;
+        public override string Description { get; set; } = string.Empty;
 
         /// <inheritdoc/>
-        public override void LoadGeneratedCommands()
+        protected override IEnumerable<Type> CommandsToRegister()
         {
-            RegisterCommand(Give.Instance);
-            RegisterCommand(Spawn.Instance);
-            RegisterCommand(Info.Instance);
-            RegisterCommand(List.List.Instance);
-        }
-
-        /// <inheritdoc/>
-        protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
-        {
-            response = "Invalid subcommand! Available: give, spawn, info, list";
-            return false;
+            yield return typeof(Give);
+            yield return typeof(Spawn);
+            yield return typeof(Info);
+            yield return typeof(List.List);
         }
     }
 }

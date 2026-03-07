@@ -78,7 +78,7 @@ namespace Exiled.API.Features.Doors
         /// </summary>
         /// <returns><see langword="true"/> if the door was able to be pried open.</returns>
         /// <param name="player"><see cref="Player"/> to perform pry gate.</param>
-        public bool TryPry(Player player = null) => Base.TryPryGate(player?.ReferenceHub);
+        public bool TryPry(Player player = null) => Base.TryPryGate((player ?? Server.Host).ReferenceHub);
 
         /// <summary>
         /// Returns the Door in a human-readable format.

@@ -87,12 +87,7 @@ namespace Exiled.Loader.Features
             if (!Environment.GetCommandLineArgs().Contains("--noeasteregg") && (Loader.Version.ToString().Contains("6.9") || Loader.Random.NextDouble() <= 0.069))
                 return EasterEgg;
 
-            return DateTime.Today.Month switch
-            {
-                12 => Christmas,
-                10 => Halloween,
-                _ => Default,
-            };
+            return Default;
         }
     }
 }

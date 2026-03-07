@@ -7,78 +7,60 @@
 
 namespace Exiled.CustomRoles
 {
-    using System.Collections.Generic;
-
+    using Events;
     using Exiled.API.Features;
-    using Exiled.CustomRoles.API.Features;
-    using Exiled.CustomRoles.API.Features.Parsers;
-    using Exiled.CustomRoles.Events;
-    using Exiled.Loader;
-    using Exiled.Loader.Features.Configs.CustomConverters;
 
-    using YamlDotNet.Serialization;
-    using YamlDotNet.Serialization.NamingConventions;
-    using YamlDotNet.Serialization.NodeDeserializers;
+    using Player = Exiled.Events.Handlers.Player;
+    using Server = Exiled.Events.Handlers.Server;
 
     /// <summary>
-    /// Handles all custom role API functions.
+    ///     Handles all custom role API functions.
     /// </summary>
     public class CustomRoles : Plugin<Config>
     {
-        private PlayerHandlers? playerHandlers;
-        private KeypressActivator? keypressActivator;
+        private PlayerHandler playerHandler = null!;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomRoles"/> class.
+        ///     Initializes a new instance of the <see cref="CustomRoles" /> class.
         /// </summary>
         public CustomRoles()
         {
-            Loader.Deserializer = new DeserializerBuilder()
-                .WithTypeConverter(new VectorsConverter())
-                .WithTypeConverter(new ColorConverter())
-                .WithTypeConverter(new AttachmentIdentifiersConverter())
-                .WithNamingConvention(UnderscoredNamingConvention.Instance)
-                .WithNodeDeserializer(inner => new AbstractClassNodeTypeResolver(inner, new AggregateExpectationTypeResolver<CustomAbility>(UnderscoredNamingConvention.Instance)), s => s.InsteadOf<ObjectNodeDeserializer>())
-                .IgnoreFields()
-                .IgnoreUnmatchedProperties()
-                .Build();
         }
 
         /// <summary>
-        /// Gets a static reference to the plugin's instance.
+        ///     Gets a static reference to the plugin's instance.
         /// </summary>
-        public static CustomRoles Instance { get; private set; } = null!;
+        public static CustomRoles? Instance { get; private set; }
 
-        /// <summary>
-        /// Gets a list of players to stop spawning ragdolls for.
-        /// </summary>
-        internal List<Player> StopRagdollPlayers { get; } = new();
-
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override void OnEnabled()
         {
             Instance = this;
-            playerHandlers = new PlayerHandlers(this);
+            playerHandler = new PlayerHandler();
 
-            if (Config.UseKeypressActivation)
-                keypressActivator = new();
+            Server.WaitingForPlayers += playerHandler.OnWaitingForPlayers;
 
-            Exiled.Events.Handlers.Player.Spawned += playerHandlers.OnSpawned;
-            Exiled.Events.Handlers.Player.SpawningRagdoll += playerHandlers.OnSpawningRagdoll;
+            Player.Spawned += playerHandler.OnSpawned;
 
-            Exiled.Events.Handlers.Server.WaitingForPlayers += playerHandlers.OnWaitingForPlayers;
+            Player.ChangingRole += playerHandler.OnChangingRole;
+            Player.SendingRole += playerHandler.OnSendingRole;
+            Player.ChangedNickname += playerHandler.OnChangedNickname;
+
             base.OnEnabled();
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public override void OnDisabled()
         {
-            Exiled.Events.Handlers.Player.Spawned -= playerHandlers!.OnSpawned;
-            Exiled.Events.Handlers.Player.SpawningRagdoll -= playerHandlers!.OnSpawningRagdoll;
+            Server.WaitingForPlayers -= playerHandler.OnWaitingForPlayers;
 
-            Exiled.Events.Handlers.Server.WaitingForPlayers -= playerHandlers!.OnWaitingForPlayers;
+            Player.Spawned -= playerHandler.OnSpawned;
 
-            keypressActivator = null;
+            Player.ChangingRole -= playerHandler.OnChangingRole;
+            Player.SendingRole -= playerHandler.OnSendingRole;
+            Player.ChangedNickname -= playerHandler.OnChangedNickname;
+
+            Instance = null;
             base.OnDisabled();
         }
     }

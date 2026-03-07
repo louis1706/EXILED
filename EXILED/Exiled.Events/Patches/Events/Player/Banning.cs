@@ -52,7 +52,6 @@ namespace Exiled.Events.Patches.Events.Player
 
                     // issuer
                     new(OpCodes.Ldarg_1),
-                    new(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ICommandSender) })),
 
                     // commandSender
                     new(OpCodes.Ldarg_1),
@@ -103,8 +102,7 @@ namespace Exiled.Events.Patches.Events.Player
                     new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Duration))),
                     new(OpCodes.Starg_S, 3),
 
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Player))),
-                    new(OpCodes.Callvirt, PropertyGetter(typeof(Player), nameof(Player.Sender))),
+                    new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Sender))),
                     new(OpCodes.Starg_S, 1),
 
                     new(OpCodes.Callvirt, PropertyGetter(typeof(BanningEventArgs), nameof(BanningEventArgs.Target))),

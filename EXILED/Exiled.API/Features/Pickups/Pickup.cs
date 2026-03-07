@@ -13,16 +13,15 @@ namespace Exiled.API.Features.Pickups
 
     using Exiled.API.Extensions;
     using Exiled.API.Features.Core;
+    using Exiled.API.Features.Items;
     using Exiled.API.Features.Pickups.Keycards;
     using Exiled.API.Features.Pickups.Projectiles;
     using Exiled.API.Interfaces;
-
     using InventorySystem;
     using InventorySystem.Items;
     using InventorySystem.Items.Pickups;
     using InventorySystem.Items.ThrowableProjectiles;
     using InventorySystem.Items.Usables.Scp244;
-
     using Mirror;
     using RelativePositioning;
     using UnityEngine;
@@ -39,7 +38,6 @@ namespace Exiled.API.Features.Pickups
     using BaseScp1576Pickup = InventorySystem.Items.Usables.Scp1576.Scp1576Pickup;
     using BaseScp2176Projectile = InventorySystem.Items.ThrowableProjectiles.Scp2176Projectile;
     using BaseScp330Pickup = InventorySystem.Items.Usables.Scp330.Scp330Pickup;
-
     using Object = UnityEngine.Object;
 
     /// <summary>
@@ -148,6 +146,19 @@ namespace Exiled.API.Features.Pickups
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether Pickup is kinematic.
+        /// </summary>
+        public bool IsKinematic
+        {
+            get => Rigidbody.isKinematic;
+            set
+            {
+                Rigidbody.isKinematic = value;
+                PhysicsModule.ServerSendRpc(PhysicsModule.ServerWriteRigidbody);
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the pickup's scale value.
         /// </summary>
         public Vector3 Scale
@@ -239,7 +250,7 @@ namespace Exiled.API.Features.Pickups
         /// <summary>
         /// Gets or sets the previous owner of this item.
         /// </summary>
-        /// <seealso cref="CreateAndSpawn(ItemType, Vector3, Quaternion?, Player)"/>
+        /// <seealso cref="CreateAndSpawn(ItemType, Vector3, Quaternion, Player)"/>
         public Player PreviousOwner
         {
             get => Player.Get(Base.PreviousOwner.Hub);
@@ -262,7 +273,7 @@ namespace Exiled.API.Features.Pickups
         /// <summary>
         /// Gets or sets the pickup position.
         /// </summary>
-        /// <seealso cref="CreateAndSpawn(ItemType, Vector3, Quaternion?, Player)"/>
+        /// <seealso cref="CreateAndSpawn(ItemType, Vector3, Quaternion, Player)"/>
         public Vector3 Position
         {
             get => Base.Position;
@@ -281,7 +292,7 @@ namespace Exiled.API.Features.Pickups
         /// <summary>
         /// Gets or sets the pickup rotation.
         /// </summary>
-        /// <seealso cref="CreateAndSpawn(ItemType, Vector3, Quaternion?, Player)"/>
+        /// <seealso cref="CreateAndSpawn(ItemType, Vector3, Quaternion, Player)"/>
         public Quaternion Rotation
         {
             get => Base.Rotation;
@@ -565,8 +576,8 @@ namespace Exiled.API.Features.Pickups
         /// <param name="rotation">The rotation to spawn the <see cref="Pickup"/>.</param>
         /// <param name="previousOwner">An optional previous owner of the item.</param>
         /// <returns>The <see cref="Pickup"/>. See documentation of <see cref="Create(ItemType)"/> for more information on casting.</returns>
-        /// <seealso cref="Projectile.CreateAndSpawn(Enums.ProjectileType, Vector3, Quaternion?, bool, Player)"/>
-        public static Pickup CreateAndSpawn(ItemType type, Vector3 position, Quaternion? rotation = null, Player previousOwner = null) => Create(type).Spawn(position, rotation, previousOwner);
+        /// <seealso cref="Projectile.CreateAndSpawn(Enums.ProjectileType, Vector3, Quaternion, bool, Player)"/>
+        public static Pickup CreateAndSpawn(ItemType type, Vector3 position, Quaternion rotation, Player previousOwner = null) => Create(type).Spawn(position, rotation, previousOwner);
 
         /// <summary>
         /// Creates and spawns a <see cref="Pickup"/>.
@@ -577,8 +588,8 @@ namespace Exiled.API.Features.Pickups
         /// <param name="previousOwner">An optional previous owner of the item.</param>
         /// <typeparam name="T">The specified <see cref="Pickup"/> type.</typeparam>
         /// <returns>The <see cref="Pickup"/>. See documentation of <see cref="Create(ItemType)"/> for more information on casting.</returns>
-        /// <seealso cref="Projectile.CreateAndSpawn(Enums.ProjectileType, Vector3, Quaternion?, bool, Player)"/>
-        public static T CreateAndSpawn<T>(ItemType type, Vector3 position, Quaternion? rotation = null, Player previousOwner = null)
+        /// <seealso cref="Projectile.CreateAndSpawn(Enums.ProjectileType, Vector3, Quaternion, bool, Player)"/>
+        public static Pickup CreateAndSpawn<T>(ItemType type, Vector3 position, Quaternion rotation, Player previousOwner = null)
             where T : Pickup => CreateAndSpawn(type, position, rotation, previousOwner) as T;
 
         /// <summary>
@@ -621,11 +632,11 @@ namespace Exiled.API.Features.Pickups
         /// <param name="rotation">The rotation to spawn the <see cref="Pickup"/>.</param>
         /// <param name="previousOwner">An optional previous owner of the item.</param>
         /// <returns>The spawned <see cref="Pickup"/>.</returns>
-        /// <seealso cref="Projectile.Spawn(Vector3, Quaternion?, bool, Player)"/>
-        public Pickup Spawn(Vector3 position, Quaternion? rotation = null, Player previousOwner = null)
+        /// <seealso cref="Projectile.Spawn(Vector3, Quaternion, bool, Player)"/>
+        public Pickup Spawn(Vector3 position, Quaternion rotation, Player previousOwner = null)
         {
             Position = position;
-            Rotation = rotation ?? Quaternion.identity;
+            Rotation = rotation;
             PreviousOwner = previousOwner;
             Spawn();
 
@@ -667,6 +678,21 @@ namespace Exiled.API.Features.Pickups
         /// </summary>
         /// <returns>A string containing Pickup-related data.</returns>
         public override string ToString() => $"{Type} ({Serial}) [{Weight}] *{Scale}* |{Position}| -{IsLocked}- ={InUse}=";
+
+        /// <summary>
+        /// Creates the <see cref="Item"/> that based on this <see cref="Pickup"/>.
+        /// </summary>
+        /// <returns>The created <see cref="Pickup"/>.</returns>
+        public virtual Item CreateItem()
+        {
+            Item item = Item.Create(Type);
+            item.Serial = Serial;
+            item.ReadPickupInfoBefore(this);
+            item.Base.OnAdded(Base);
+            item.ReadPickupInfoAfter(this);
+
+            return item;
+        }
 
         /// <summary>
         /// Helper method for saving data between items and pickups.

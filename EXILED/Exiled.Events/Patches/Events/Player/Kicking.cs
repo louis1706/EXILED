@@ -45,9 +45,8 @@ namespace Exiled.Events.Patches.Events.Player
                 new(OpCodes.Ldarg_0),
                 new(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ReferenceHub) })),
 
-                // Player.Get(ICommandSender);
+                // sender
                 new(OpCodes.Ldarg_1),
-                new(OpCodes.Call, Method(typeof(Player), nameof(Player.Get), new[] { typeof(ICommandSender) })),
 
                 // commandSender
                 new(OpCodes.Ldarg_1),

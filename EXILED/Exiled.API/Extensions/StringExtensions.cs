@@ -178,5 +178,92 @@ namespace Exiled.API.Extensions
             byte[] hash = Sha256.ComputeHash(textData);
             return BitConverter.ToString(hash).Replace("-", string.Empty);
         }
+
+        /// <summary>
+        /// Checks if custom info string valid for NW Client.
+        /// </summary>
+        /// <param name="customInfo">Custominfo string to check.</param>
+        /// <param name="denialReason">Info about denial reason.</param>
+        /// <returns>Is Custominfo valid.</returns>
+        public static bool IsCustomInfoValid(this string customInfo, out string denialReason)
+        {
+            denialReason = string.Empty;
+            if (string.IsNullOrEmpty(customInfo))
+                return true;
+
+            bool flag1 = customInfo.Contains("<");
+            bool flag2 = customInfo.Contains("\\u003c");
+            if (!flag1 && !flag2)
+                return true;
+
+            List<string> stringList = new();
+            if (flag1)
+                stringList.AddRange(customInfo.Split(new[] { '<' }, StringSplitOptions.None));
+
+            if (flag2)
+                stringList.AddRange(customInfo.Split(new[] { "\\u003c" }, StringSplitOptions.None));
+
+            bool flag3 = true;
+            foreach (string str in stringList)
+            {
+                if (!str.StartsWith("/", StringComparison.Ordinal) && !str.StartsWith("b>", StringComparison.Ordinal) && !str.StartsWith("i>", StringComparison.Ordinal) && !str.StartsWith("size=", StringComparison.Ordinal) && str.Length != 0)
+                {
+                    if (str.StartsWith("color=", StringComparison.Ordinal))
+                    {
+                        if (str.Length < 14)
+                        {
+                            denialReason = "Указанный тег цвета не соответствует требованиям - Некорректный цвет";
+                            flag3 = false;
+                            break;
+                        }
+
+                        if (str[13] != '>')
+                        {
+                            denialReason = "Указанный тег цвета не соответствует требованиям - незакрытый тег цвета (отсутствует '>')";
+                            flag3 = false;
+                            break;
+                        }
+
+                        if (!Misc.AcceptedColours.Contains(str.Substring(7, 6)))
+                        {
+                            denialReason = "Указанный тег цвета не соответствует требованиям - Данный цвет не входит в список разрешенных";
+                            flag3 = false;
+                            break;
+                        }
+                    }
+                    else if (str.StartsWith("#", StringComparison.Ordinal))
+                    {
+                        if (str.Length < 8)
+                        {
+                            denialReason = "Указанный тег цвета не соответствует требованиям - Некорректный цвет";
+                            flag3 = false;
+                            break;
+                        }
+
+                        if (str[7] != '>')
+                        {
+                            denialReason = "Указанный тег цвета не соответствует требованиям - незакрытый тег цвета (отсутствует '>')";
+                            flag3 = false;
+                            break;
+                        }
+
+                        if (!Misc.AcceptedColours.Contains(str.Substring(1, 6)))
+                        {
+                            denialReason = "Указанный тег цвета не соответствует требованиям - Данный цвет не входит в список разрешенных";
+                            flag3 = false;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        denialReason = "Указанный текст содержит тег форматирования, который не разрешен";
+                        flag3 = false;
+                        break;
+                    }
+                }
+            }
+
+            return flag3;
+        }
     }
 }

@@ -15,10 +15,9 @@ namespace Exiled.API.Enums
     public enum LockerType
     {
         /// <summary>
-        /// The pedestal used by SCP items.
+        /// Unknown type of locker.
         /// </summary>
-        [Obsolete("This value is not used.")]
-        Pedestal,
+        Unknown,
 
         /// <summary>
         /// Large weapon locker.
@@ -44,17 +43,6 @@ namespace Exiled.API.Enums
         /// Locker that contains adrenaline.
         /// </summary>
         Adrenaline,
-
-        /// <summary>
-        /// Unknown type of locker.
-        /// </summary>
-        Unknown,
-
-        /// <summary>
-        /// Unknown type of locker.
-        /// </summary>
-        [Obsolete("Use LockerType.Unknown", true)]
-        Unknow = Unknown,
 
         /// <summary>
         /// MircoHid pedestal.
@@ -120,5 +108,10 @@ namespace Exiled.API.Enums
         /// SCP-127 pedestal.
         /// </summary>
         Scp127Pedestal,
+
+        /// <summary>
+        /// SCP pedestal.
+        /// </summary>
+        ScpPedestal,
     }
 }

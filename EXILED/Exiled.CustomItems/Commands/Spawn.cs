@@ -10,13 +10,9 @@ namespace Exiled.CustomItems.Commands
     using System;
 
     using CommandSystem;
-
-    using Exiled.API.Enums;
-    using Exiled.API.Extensions;
     using Exiled.API.Features;
     using Exiled.CustomItems.API.Features;
     using Exiled.Permissions.Extensions;
-
     using UnityEngine;
 
     /// <summary>
@@ -24,79 +20,102 @@ namespace Exiled.CustomItems.Commands
     /// </summary>
     internal sealed class Spawn : ICommand
     {
-        private Spawn()
-        {
-        }
+        /// <summary>
+        /// Gets or sets message displayed when the user has insufficient permissions to execute the command.
+        /// </summary>
+        public string InsufficientPermissionsMessage { get; set; } = "Не хватает прав!";
 
         /// <summary>
-        /// Gets the <see cref="Info"/> instance.
+        /// Gets or sets message displayed when the user provides invalid arguments for the command.
         /// </summary>
-        public static Spawn Instance { get; } = new();
+        public string InvalidArgumentsMessage { get; set; } = "spawn [Название/ID кастомного предмета] [Никнейм/SteamID игока]\nspawn [Название/ID кастомного предмета] [X] [Y] [Z]";
+
+        /// <summary>
+        /// Gets or sets message displayed when the user tries to spawn an invalid custom item.
+        /// </summary>
+        public string InvalidCustomItemMessage { get; set; } = " {0} is not a valid custom item.";
+
+        /// <summary>
+        /// Gets or sets message displayed when the target player is dead.
+        /// </summary>
+        public string PlayerIsDeadMessage { get; set; } = "Игрок мертв!";
+
+        /// <summary>
+        /// Gets or sets message displayed when the user provides invalid coordinates for the spawn location.
+        /// </summary>
+        public string InvalidCoordinatesMessage { get; set; } = "Невозможно получить координату (попробуй писать через , а не .)";
+
+        /// <summary>
+        /// Gets or sets message displayed when the system is unable to find a valid spawn location.
+        /// </summary>
+        public string UnableToFindLocationMessage { get; set; } = "Невозможно найти локацию для спавна.";
+
+        /// <summary>
+        /// Gets or sets message displayed when the spawn is successful.
+        /// </summary>
+        public string SpawnSuccessMessage { get; set; } = "{0} ({1}) заспавнился на позиции {2}.";
 
         /// <inheritdoc/>
-        public string Command { get; } = "spawn";
+        public string Command { get; set; } = "spawn";
 
         /// <inheritdoc/>
-        public string[] Aliases { get; } = { "sp" };
+        public string[] Aliases { get; set; } = { "sp" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Spawn an item at the specified Spawn Location, coordinates, or at the designated player's feet.";
+        public string Description { get; set; } = "Спавнит кастомный предмет.";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (!sender.CheckPermission("customitems.spawn"))
             {
-                response = "Permission Denied, required: customitems.spawn";
+                response = InsufficientPermissionsMessage;
                 return false;
             }
 
             if (arguments.Count < 2)
             {
-                response = "spawn [Custom item name] [Location name]\nspawn [Custom item name] [Nickname/PlayerID/UserID]\nspawn [Custom item name] [X] [Y] [Z]";
+                response = InvalidArgumentsMessage;
                 return false;
             }
 
             if (!CustomItem.TryGet(arguments.At(0), out CustomItem? item))
             {
-                response = $" {arguments.At(0)} is not a valid custom item.";
+                response = string.Format(InvalidCustomItemMessage, arguments.At(0));
                 return false;
             }
 
             Vector3 position;
-            if (arguments.Count > 3)
-            {
-                if (!float.TryParse(arguments.At(1), out float x) || !float.TryParse(arguments.At(2), out float y) || !float.TryParse(arguments.At(3), out float z))
-                {
-                    response = "Invalid coordinates selected.";
-                    return false;
-                }
 
-                position = new Vector3(x, y, z);
-            }
-            else if (Player.Get(arguments.At(1)) is Player player)
+            if (Player.Get(arguments.At(1)) is Player player)
             {
                 if (player.IsDead)
                 {
-                    response = $"Cannot spawn custom items under dead players!";
+                    response = PlayerIsDeadMessage;
                     return false;
                 }
 
                 position = player.Position;
             }
-            else if (Enum.TryParse(arguments.At(1), out SpawnLocationType location))
+            else if (arguments.Count > 3)
             {
-                position = location.GetPosition();
+                if (!float.TryParse(arguments.At(1), out float x) || !float.TryParse(arguments.At(2), out float y) || !float.TryParse(arguments.At(3), out float z))
+                {
+                    response = InvalidCoordinatesMessage;
+                    return false;
+                }
+
+                position = new Vector3(x, y, z);
             }
             else
             {
-                response = $"Unable to find spawn location: {arguments.At(1)}.";
+                response = UnableToFindLocationMessage;
                 return false;
             }
 
             item?.Spawn(position);
 
-            response = $"{item?.Name} ({item?.Type}) has been spawned at {position}.";
+            response = string.Format(SpawnSuccessMessage, item?.Name, item?.Type, position);
             return true;
         }
     }

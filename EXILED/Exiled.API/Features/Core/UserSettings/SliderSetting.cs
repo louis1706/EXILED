@@ -29,25 +29,6 @@ namespace Exiled.API.Features.Core.UserSettings
         /// <param name="stringFormat"><inheritdoc cref="StringFormat"/></param>
         /// <param name="displayFormat"><inheritdoc cref="DisplayFormat"/></param>
         /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
-        [Obsolete("Will be removed in Exiled 10 in favour of ctor with more params.")]
-        public SliderSetting(int id, string label, float minValue, float maxValue, float defaultValue, bool isInteger, string stringFormat, string displayFormat, string hintDescription)
-            : this(new SSSliderSetting(id, label, minValue, maxValue, defaultValue, isInteger, stringFormat, displayFormat, hintDescription))
-        {
-            Base = (SSSliderSetting)base.Base;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SliderSetting"/> class.
-        /// </summary>
-        /// <param name="id"><inheritdoc cref="SettingBase.Id"/></param>
-        /// <param name="label"><inheritdoc cref="SettingBase.Label"/></param>
-        /// <param name="minValue"><inheritdoc cref="MinimumValue"/></param>
-        /// <param name="maxValue"><inheritdoc cref="MaximumValue"/></param>
-        /// <param name="defaultValue"><inheritdoc cref="DefaultValue"/></param>
-        /// <param name="isInteger"><inheritdoc cref="IsInteger"/></param>
-        /// <param name="stringFormat"><inheritdoc cref="StringFormat"/></param>
-        /// <param name="displayFormat"><inheritdoc cref="DisplayFormat"/></param>
-        /// <param name="hintDescription"><inheritdoc cref="SettingBase.HintDescription"/></param>
         /// <param name="collectionId"><inheritdoc cref="SettingBase.CollectionId"/></param>
         /// <param name="isServerOnly"><inheritdoc cref="SettingBase.IsServerOnly"/></param>
         /// <param name="header"><inheritdoc cref="SettingBase.Header"/></param>
@@ -170,6 +151,115 @@ namespace Exiled.API.Features.Core.UserSettings
         public override string ToString()
         {
             return base.ToString() + $" /{MinimumValue}/ *{MaximumValue}* +{DefaultValue}+ '{SliderValue}'";
+        }
+
+        /// <summary>
+        /// Represents a config for SliderSetting.
+        /// </summary>
+        public class SliderConfig : SettingConfig<SliderSetting>
+        {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="SliderConfig"/> class.
+            /// </summary>
+            /// <param name="label"/><inheritdoc cref="Label"/>
+            /// <param name="minValue"><inheritdoc cref="MinimumValue"/></param>
+            /// <param name="maxValue"><inheritdoc cref="MaximumValue"/></param>
+            /// <param name="defaultValue"><inheritdoc cref="DefaultValue"/></param>
+            /// <param name="isInteger"><inheritdoc cref="IsInteger"/></param>
+            /// <param name="stringFormat"><inheritdoc cref="StringFormat"/></param>
+            /// <param name="displayFormat"><inheritdoc cref="DisplayFormat"/></param>
+            /// <param name="isServerOnly"><inheritdoc cref="IsServerOnly"/></param>
+            /// <param name="hintDescription"><inheritdoc cref="HintDescription"/></param>
+            /// <param name="headerDescription"><inheritdoc cref="HeaderDescription"/></param>
+            /// <param name="headerPaddling"><inheritdoc cref="HeaderPaddling"/></param>
+            public SliderConfig(string label, float minValue, float maxValue, float defaultValue, bool isInteger = false, string stringFormat = "0.##", string displayFormat = "{0}",  bool isServerOnly = false, string hintDescription = null, string headerDescription = null, bool headerPaddling = false)
+            {
+                Label = label;
+                MinimumValue = minValue;
+                MaximumValue = maxValue;
+                DefaultValue = defaultValue;
+                IsInteger = isInteger;
+                DisplayFormat = displayFormat;
+                StringFormat = stringFormat;
+                IsServerOnly = isServerOnly;
+                HintDescription = hintDescription;
+                HeaderDescription = headerDescription;
+                HeaderPaddling = headerPaddling;
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="SliderConfig"/> class.
+            /// </summary>
+            public SliderConfig()
+            {
+            }
+
+            /// <summary>
+            /// Gets or sets label of a ButtonConfig.
+            /// </summary>
+            public string Label { get; set; }
+
+            /// <summary>
+            /// Gets or sets MinimumValue of a ButtonConfig.
+            /// </summary>
+            public float MinimumValue { get; set; }
+
+            /// <summary>
+            /// Gets or sets MaximumValue of a ButtonConfig.
+            /// </summary>
+            public float MaximumValue { get; set; }
+
+            /// <summary>
+            /// Gets or sets DefaultValue of a ButtonConfig.
+            /// </summary>
+            public float DefaultValue { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether value is integer.
+            /// </summary>
+            public bool IsInteger { get; set; }
+
+            /// <summary>
+            /// Gets or sets string format of Slider Setting.
+            /// </summary>
+            public string StringFormat { get; set; }
+
+            /// <summary>
+            /// Gets or sets display format of Slider Setting.
+            /// </summary>
+            public string DisplayFormat { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether updates come from client.
+            /// </summary>
+            public bool IsServerOnly { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderName of a ButtonConfig.
+            /// </summary>
+            public string HeaderName { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderDescription of a ButtonConfig.
+            /// </summary>
+            public string HintDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets HeaderDescription of a ButtonConfig.
+            /// </summary>
+            public string HeaderDescription { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether HeaderPaddling is needed.
+            /// </summary>
+            public bool HeaderPaddling { get; set; }
+
+            /// <summary>
+            /// Creates a ButtonSetting instanse.
+            /// </summary>
+            /// <returns>ButtonSetting.</returns>
+            public override SliderSetting Create() => new(++IdIncrementor, Label, MinimumValue, MaximumValue, DefaultValue, IsInteger, StringFormat, DisplayFormat,
+                HintDescription, 255, IsServerOnly, HeaderName == null ? null : new HeaderSetting(HeaderName, HeaderDescription, HeaderPaddling));
         }
     }
 }

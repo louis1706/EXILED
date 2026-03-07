@@ -32,11 +32,6 @@ namespace Exiled.API.Enums
         Checkpoints = 1,
 
         /// <summary>
-        /// Opens <see cref="DoorType.GateA">Gate A</see> and <see cref="DoorType.GateB">Gate B</see>.
-        /// </summary>
-        ExitGates = 2,
-
-        /// <summary>
         /// Opens <see cref="DoorType.Intercom">the Intercom door</see>.
         /// </summary>
         Intercom = 4,
@@ -80,5 +75,10 @@ namespace Exiled.API.Enums
         /// <see cref="Checkpoints"/>.
         /// </summary>
         ScpOverride = 1024, // 0x0400
+
+        /// <summary>
+        /// Opens <see cref="DoorType.GateA">Gate A</see> and <see cref="DoorType.GateB">Gate B</see>.
+        /// </summary>
+        ExitGates = 2050, // 0x0800
     }
 }

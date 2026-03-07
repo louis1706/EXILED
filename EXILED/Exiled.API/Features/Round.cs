@@ -59,7 +59,7 @@ namespace Exiled.API.Features
         /// <summary>
         /// Gets a value indicating whether the round is lobby.
         /// </summary>
-        public static bool IsLobby => !(IsEnded || IsStarted);
+        public static bool IsLobby => ReferenceHub.TryGetLocalHub(out ReferenceHub localHub) && !(IsEnded || IsStarted);
 
         /// <summary>
         /// Gets a value indicating the last ClassList.

@@ -23,14 +23,8 @@ namespace Exiled.Events.Commands.PluginManager
     /// <summary>
     /// The command to show all the patches done by plugins.
     /// </summary>
-    [CommandHandler(typeof(PluginManager))]
     public sealed class Patches : ICommand
     {
-        /// <summary>
-        /// Gets static instance of the <see cref="Patches"/> command.
-        /// </summary>
-        public static Patches Instance { get; } = new();
-
         /// <inheritdoc/>
         public string Command { get; } = "patches";
 
@@ -38,7 +32,7 @@ namespace Exiled.Events.Commands.PluginManager
         public string[] Aliases { get; } = { "patched" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Returns information about all patches (whether they are patched)";
+        public string Description { get; set; } = "Returns information about all patches (whether they are patched or not)";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

@@ -38,6 +38,11 @@ namespace Exiled.Events.Handlers
         public static Event<RevealedEventArgs> Revealed { get; set; } = new();
 
         /// <summary>
+        /// Invoked before SCP-3114 slaps a player.
+        /// </summary>
+        public static Event<SlappingEventArgs> Slapping { get; set; } = new();
+
+        /// <summary>
         /// Invoked after SCP-3114 slaps a player.
         /// </summary>
         public static Event<SlappedEventArgs> Slapped { get; set; } = new();
@@ -85,6 +90,12 @@ namespace Exiled.Events.Handlers
         /// </summary>
         /// <param name="ev">The <see cref="RevealedEventArgs" /> instance.</param>
         public static void OnRevealed(RevealedEventArgs ev) => Revealed.InvokeSafely(ev);
+
+        /// <summary>
+        /// Called before SCP-3114 slaps.
+        /// </summary>
+        /// <param name="ev">The <see cref="SlappingEventArgs" /> instance.</param>
+        public static void OnSlapping(SlappingEventArgs ev) => Slapping.InvokeSafely(ev);
 
         /// <summary>
         /// Called after SCP-3114 slaps a player.

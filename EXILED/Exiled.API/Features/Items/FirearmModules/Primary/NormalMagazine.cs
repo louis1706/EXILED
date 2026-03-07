@@ -12,6 +12,7 @@ namespace Exiled.API.Features.Items.FirearmModules.Primary
     using Exiled.API.Enums;
     using Exiled.API.Extensions;
 
+    using InventorySystem.Items.Firearms.Attachments;
     using InventorySystem.Items.Firearms.Modules;
 
     /// <summary>
@@ -40,7 +41,7 @@ namespace Exiled.API.Features.Items.FirearmModules.Primary
         /// <inheritdoc/>
         public override int MaxAmmo
         {
-            set => MagazineModule._defaultCapacity = value;
+            set => MagazineModule._defaultCapacity = value - (int)MagazineModule.Firearm.AttachmentsValue(AttachmentParam.MagazineCapacityModifier);
         }
 
         /// <inheritdoc/>
@@ -54,7 +55,11 @@ namespace Exiled.API.Features.Items.FirearmModules.Primary
         }
 
         /// <inheritdoc/>
-        public override int ConstantMaxAmmo => MagazineModule._defaultCapacity;
+        public override int ConstantMaxAmmo
+        {
+            get => MagazineModule._defaultCapacity;
+            set => MagazineModule._defaultCapacity = value;
+        }
 
         /// <inheritdoc/>
         public override AmmoType AmmoType

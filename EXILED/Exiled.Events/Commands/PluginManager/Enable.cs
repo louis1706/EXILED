@@ -21,14 +21,8 @@ namespace Exiled.Events.Commands.PluginManager
     /// <summary>
     /// The command to enable a plugin.
     /// </summary>
-    [CommandHandler(typeof(PluginManager))]
     public sealed class Enable : ICommand
     {
-        /// <summary>
-        /// Gets static instance of the <see cref="Enable"/> command.
-        /// </summary>
-        public static Enable Instance { get; } = new();
-
         /// <inheritdoc/>
         public string Command { get; } = "enable";
 
@@ -36,7 +30,7 @@ namespace Exiled.Events.Commands.PluginManager
         public string[] Aliases { get; } = { "e", "en" };
 
         /// <inheritdoc/>
-        public string Description { get; } = "Enable a plugin";
+        public string Description { get; set; } = "Enable a plugin";
 
         /// <inheritdoc/>
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)

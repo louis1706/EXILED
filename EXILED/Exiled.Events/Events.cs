@@ -68,7 +68,7 @@ namespace Exiled.Events
             Handlers.Server.RestartingRound += Handlers.Internal.Round.OnRestartingRound;
             Handlers.Server.RoundStarted += Handlers.Internal.Round.OnRoundStarted;
             Handlers.Player.ChangingRole += Handlers.Internal.Round.OnChangingRole;
-            Handlers.Player.SpawningRagdoll += Handlers.Internal.Round.OnSpawningRagdoll;
+            Handlers.Player.Spawned += Handlers.Internal.Round.OnSpawned;
             Handlers.Scp049.ActivatingSense += Handlers.Internal.Round.OnActivatingSense;
             Handlers.Player.Verified += Handlers.Internal.Round.OnVerified;
             Handlers.Map.ChangedIntoGrenade += Handlers.Internal.ExplodingGrenade.OnChangedIntoGrenade;
@@ -86,8 +86,6 @@ namespace Exiled.Events
 
             AdminToys.AdminToyBase.OnAdded += Handlers.Internal.AdminToyList.OnAddedAdminToys;
             AdminToys.AdminToyBase.OnRemoved += Handlers.Internal.AdminToyList.OnRemovedAdminToys;
-
-            ServerSpecificSettingsSync.ServerOnSettingValueReceived += SettingBase.OnSettingUpdated;
 
             LabApi.Events.Handlers.PlayerEvents.ReloadingWeapon += Handlers.Player.OnReloadingWeapon;
             LabApi.Events.Handlers.PlayerEvents.UnloadingWeapon += Handlers.Player.OnUnloadingWeapon;
@@ -110,7 +108,7 @@ namespace Exiled.Events
             Handlers.Server.RestartingRound -= Handlers.Internal.Round.OnRestartingRound;
             Handlers.Server.RoundStarted -= Handlers.Internal.Round.OnRoundStarted;
             Handlers.Player.ChangingRole -= Handlers.Internal.Round.OnChangingRole;
-            Handlers.Player.SpawningRagdoll -= Handlers.Internal.Round.OnSpawningRagdoll;
+            Handlers.Player.Spawned -= Handlers.Internal.Round.OnSpawned;
             Handlers.Scp049.ActivatingSense -= Handlers.Internal.Round.OnActivatingSense;
             Handlers.Player.Verified -= Handlers.Internal.Round.OnVerified;
             Handlers.Map.ChangedIntoGrenade -= Handlers.Internal.ExplodingGrenade.OnChangedIntoGrenade;

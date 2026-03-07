@@ -29,10 +29,8 @@ namespace Exiled.Events.Handlers.Internal
     using InventorySystem.Items.Usables;
     using InventorySystem.Items.Usables.Scp244.Hypothermia;
     using PlayerRoles;
-    using PlayerRoles.FirstPersonControl;
     using PlayerRoles.RoleAssign;
-    using UnityEngine;
-    using Utils.Networking;
+    using UserSettings.ServerSpecific;
     using Utils.NonAllocLINQ;
 
     /// <summary>
@@ -55,6 +53,7 @@ namespace Exiled.Events.Handlers.Internal
             if (Events.Instance.Config.ShouldReloadTranslationsAtRoundRestart)
                 TranslationManager.Reload();
 
+            ServerSpecificSettingsSync.ServerOnSettingValueReceived += SettingBase.OnSettingUpdated;
             RoundSummary.RoundLock = false;
         }
 
@@ -81,15 +80,31 @@ namespace Exiled.Events.Handlers.Internal
         /// <inheritdoc cref="Handlers.Player.OnChangingRole(ChangingRoleEventArgs)" />
         public static void OnChangingRole(ChangingRoleEventArgs ev)
         {
+            if (Events.Instance.Config.ResetCustomInfo)
+                ev.Player.CustomInfo = null;
+
+            ev.Player.InfoArea = Events.Instance.Config.DefaultPlayerInfoArea;
+
             if (!ev.Player.IsHost && ev.NewRole == RoleTypeId.Spectator && ev.Reason != API.Enums.SpawnReason.Destroyed && Events.Instance.Config.ShouldDropInventory)
                 ev.Player.Inventory.ServerDropEverything();
         }
 
-        /// <inheritdoc cref="Handlers.Player.OnSpawningRagdoll(SpawningRagdollEventArgs)" />
-        public static void OnSpawningRagdoll(SpawningRagdollEventArgs ev)
+        /// <inheritdoc cref="Handlers.Player.OnSpawned(SpawnedEventArgs)" />
+        public static void OnSpawned(SpawnedEventArgs ev)
         {
-            if (ev.Role.IsDead() || !ev.Role.IsFpcRole())
-                ev.IsAllowed = false;
+            if (ev.Reason is SpawnReason.Destroyed or SpawnReason.None)
+                return;
+
+            foreach (Player player in Player.List)
+            {
+                if (player == ev.Player)
+                    continue;
+
+                if (player.Role.TeamAppearances.ContainsKey(ev.Player.Role.Team) || player.Role.TeamAppearances.ContainsKey(ev.OldRole.Team))
+                {
+                    player.Role.UpdateAppearanceFor(ev.Player);
+                }
+            }
         }
 
         /// <inheritdoc cref="Scp049.OnActivatingSense(ActivatingSenseEventArgs)" />
@@ -107,8 +122,7 @@ namespace Exiled.Events.Handlers.Internal
         {
             RoleAssigner.CheckLateJoin(ev.Player.ReferenceHub, ClientInstanceMode.ReadyClient);
 
-            if (SettingBase.SyncOnJoin != null && SettingBase.SyncOnJoin(ev.Player))
-                SettingBase.SendToPlayer(ev.Player);
+            SettingBase.SendToPlayer(ev.Player);
 
             // TODO: Remove if this has been fixed for https://git.scpslgame.com/northwood-qa/scpsl-bug-reporting/-/issues/52
             foreach (Room room in Room.List.Where(current => current.AreLightsOff))
@@ -117,10 +131,10 @@ namespace Exiled.Events.Handlers.Internal
                 ev.Player.SendFakeSyncVar(room.RoomLightControllerNetIdentity, typeof(RoomLightController), nameof(RoomLightController.NetworkLightsEnabled), false);
             }
 
-            // Fix bug that player that Join do not receive information about other players Scale
-            foreach (Player player in ReferenceHub.AllHubs.Select(Player.Get))
+            // TODO: Remove if this has been fixed for https://git.scpslgame.com/northwood-qa/scpsl-bug-reporting/-/issues/947
+            if (ev.Player.TryGetEffect(out Hypothermia hypothermia))
             {
-                player.SetFakeScale(player.Scale, new List<Player>() { ev.Player });
+                hypothermia.SubEffects = hypothermia.SubEffects.Where(x => x.GetType() != typeof(PostProcessSubEffect)).ToArray();
             }
         }
 

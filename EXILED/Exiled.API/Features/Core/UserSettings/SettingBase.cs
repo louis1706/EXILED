@@ -31,6 +31,8 @@ namespace Exiled.API.Features.Core.UserSettings
         /// </summary>
         internal static readonly List<SettingBase> Settings = new();
 
+        private static readonly Dictionary<Player, bool> WasPressed = new();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingBase"/> class.
         /// </summary>
@@ -72,11 +74,6 @@ namespace Exiled.API.Features.Core.UserSettings
         /// Gets the list of settings that were used as a prefabs.
         /// </summary>
         public static IReadOnlyCollection<SettingBase> List => Settings;
-
-        /// <summary>
-        /// Gets or sets the predicate for syncing this setting when a player joins.
-        /// </summary>
-        public static Predicate<Player> SyncOnJoin { get; set; }
 
         /// <inheritdoc/>
         public ServerSpecificSettingBase Base { get; }
@@ -156,6 +153,11 @@ namespace Exiled.API.Features.Core.UserSettings
         /// Gets or sets the action to be executed when this setting is changed.
         /// </summary>
         public Action<Player, SettingBase> OnChanged { get; set; }
+
+        /// <summary>
+        /// Gets or sets incrementor to avoid useless id setting.
+        /// </summary>
+        protected static int IdIncrementor { get; set; } = 0;
 
         /// <summary>
         /// Tries to get the setting with the specified id.
@@ -262,21 +264,48 @@ namespace Exiled.API.Features.Core.UserSettings
         /// <remarks>This method is used to sync new settings with players.</remarks>
         public static IEnumerable<SettingBase> Register(IEnumerable<SettingBase> settings, Func<Player, bool> predicate = null)
         {
-            IEnumerable<IGrouping<HeaderSetting, SettingBase>> grouped = settings.Where(s => s != null).GroupBy(s => s.Header);
+            SettingBase[] settingBases = settings as SettingBase[] ?? settings.ToArray();
 
-            List<SettingBase> result = new();
+            List<SettingBase> fullList = (ServerSpecificSettingsSync.DefinedSettings ?? Array.Empty<ServerSpecificSettingBase>())
+                .Select(Create)
+                .Concat(settingBases)
+                .ToList();
 
-            // Group settings by headers
-            foreach (IGrouping<HeaderSetting, SettingBase> grouping in grouped)
+            Dictionary<string, HeaderSetting> headersDict = new();
+            Dictionary<string, List<SettingBase>> settingsByLabel = new();
+            List<SettingBase> settingsWithoutHeaders = new();
+
+            foreach (SettingBase setting in fullList)
             {
-                if (grouping.Key != null)
-                    result.Add(grouping.Key);
+                if (setting is HeaderSetting)
+                    continue;
 
-                result.AddRange(grouping);
+                if (setting.Header == null)
+                {
+                    settingsWithoutHeaders.Add(setting);
+                    continue;
+                }
+
+                if (!headersDict.ContainsKey(setting.Header.Label))
+                    headersDict[setting.Header.Label] = setting.Header;
+
+                if (!settingsByLabel.ContainsKey(setting.Header.Label))
+                    settingsByLabel[setting.Header.Label] = new List<SettingBase>();
+
+                settingsByLabel[setting.Header.Label].Add(setting);
             }
 
-            ServerSpecificSettingsSync.DefinedSettings = (ServerSpecificSettingsSync.DefinedSettings ?? Array.Empty<ServerSpecificSettingBase>()).Concat(result.Select(s => s.Base)).ToArray();
-            Settings.AddRange(result);
+            List<SettingBase> result = new();
+            foreach (HeaderSetting header in headersDict.Values.OrderBy(h => h.Label))
+            {
+                result.Add(header);
+                result.AddRange(settingsByLabel[header.Label]);
+            }
+
+            result.AddRange(settingsWithoutHeaders);
+
+            ServerSpecificSettingsSync.DefinedSettings = result.Select(x => x.Base).ToArray();
+            Settings.AddRange(settingBases);
 
             if (predicate == null)
                 SendToAll();
@@ -295,22 +324,48 @@ namespace Exiled.API.Features.Core.UserSettings
         /// <remarks>This method is used to sync new settings with players.</remarks>
         public static IEnumerable<SettingBase> Register(Player player, IEnumerable<SettingBase> settings)
         {
-            IEnumerable<IGrouping<HeaderSetting, SettingBase>> grouped = settings.Where(s => s != null).GroupBy(s => s.Header);
+            SettingBase[] settingBases = settings as SettingBase[] ?? settings.ToArray();
 
-            List<SettingBase> result = new();
+            List<SettingBase> fullList = (ServerSpecificSettingsSync.DefinedSettings ?? Array.Empty<ServerSpecificSettingBase>())
+                .Select(Create)
+                .Concat(settingBases)
+                .ToList();
 
-            // Group settings by headers
-            foreach (IGrouping<HeaderSetting, SettingBase> grouping in grouped)
+            Dictionary<string, HeaderSetting> headersDict = new();
+            Dictionary<string, List<SettingBase>> settingsByLabel = new();
+            List<SettingBase> settingsWithoutHeaders = new();
+
+            foreach (SettingBase setting in fullList)
             {
-                if (grouping.Key != null)
-                    result.Add(grouping.Key);
+                if (setting is HeaderSetting)
+                    continue;
 
-                result.AddRange(grouping);
+                if (setting.Header == null)
+                {
+                    settingsWithoutHeaders.Add(setting);
+                    continue;
+                }
+
+                if (!headersDict.ContainsKey(setting.Header.Label))
+                    headersDict[setting.Header.Label] = setting.Header;
+
+                if (!settingsByLabel.ContainsKey(setting.Header.Label))
+                    settingsByLabel[setting.Header.Label] = new List<SettingBase>();
+
+                settingsByLabel[setting.Header.Label].Add(setting);
             }
 
-            ServerSpecificSettingsSync.DefinedSettings = (ServerSpecificSettingsSync.DefinedSettings ?? Array.Empty<ServerSpecificSettingBase>()).Concat(result.Select(s => s.Base)).ToArray();
-            Settings.AddRange(result);
+            List<SettingBase> result = new();
+            foreach (HeaderSetting header in headersDict.Values.OrderBy(h => h.Label))
+            {
+                result.Add(header);
+                result.AddRange(settingsByLabel[header.Label]);
+            }
 
+            result.AddRange(settingsWithoutHeaders);
+
+            ServerSpecificSettingsSync.DefinedSettings = result.Select(x => x.Base).ToArray();
+            Settings.AddRange(settingBases);
             SendToPlayer(player);
 
             return result;
@@ -426,7 +481,32 @@ namespace Exiled.API.Features.Core.UserSettings
                 Settings.Add(Create(settingBase.OriginalDefinition));
             }
 
+            if (setting is KeybindSetting keybindSetting)
+            {
+                if (!WasPressed.TryGetValue(player, out bool wasPressedPreviously))
+                    wasPressedPreviously = false;
+
+                if (wasPressedPreviously == keybindSetting.IsPressed)
+                    return;
+
+                WasPressed[player] = keybindSetting.IsPressed;
+            }
+
             setting.OriginalDefinition?.OnChanged?.Invoke(player, setting);
+        }
+
+        /// <summary>
+        /// A base class for all Server Specific Settings configs.
+        /// </summary>
+        /// <typeparam name="TSetting">Type of Server Specific Setting.</typeparam>
+        public abstract class SettingConfig<TSetting>
+            where TSetting : SettingBase
+        {
+            /// <summary>
+            /// Creates a SettingBase instanse.
+            /// </summary>
+            /// <returns>TextInputSetting.</returns>
+            public abstract TSetting Create();
         }
     }
 }

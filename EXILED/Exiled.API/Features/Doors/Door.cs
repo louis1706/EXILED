@@ -168,7 +168,19 @@ namespace Exiled.API.Features.Doors
         /// <remarks>
         /// This value is <see langword="false"/> if <see cref="KeycardPermissions"/> is equal to <see cref="KeycardPermissions.None"/>.
         /// </remarks>
-        public bool IsKeycardDoor => KeycardPermissions is not KeycardPermissions.None;
+        public bool IsKeycardDoor => Permissions is not Enums.KeycardPermissions.None;
+
+        /// <summary>
+        /// Gets or sets the required permissions to interact with the generator.
+        /// </summary>
+        /// <remarks>
+        /// Setting this value to <see cref="KeycardPermissions.None"/> will allow this door to be opened without a keycard.
+        /// </remarks>
+        public KeycardPermissions Permissions
+        {
+            get => (KeycardPermissions)RequiredPermissions;
+            set => RequiredPermissions = (DoorPermissionFlags)value;
+        }
 
         /// <summary>
         /// Gets or sets the keycard permissions required to open the door.

@@ -38,9 +38,9 @@ namespace Exiled.API.Features.Items.FirearmModules.Primary
         public override int MaxAmmo => Magazine.AmmoMax;
 
         /// <summary>
-        /// Gets a max avaible ammo count in magazine without attachments.
+        /// Gets or sets a max avaible ammo count in magazine without attachments.
         /// </summary>
-        public abstract int ConstantMaxAmmo { get; }
+        public abstract int ConstantMaxAmmo { get; set; }
 
         /// <inheritdoc/>
         public override int Ammo
@@ -51,7 +51,6 @@ namespace Exiled.API.Features.Items.FirearmModules.Primary
             {
                 int modifyCount = Math.Max(0, value) - Ammo;
                 Magazine.ServerModifyAmmo(modifyCount);
-                Resync();
             }
         }
 

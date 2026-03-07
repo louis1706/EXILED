@@ -7,16 +7,13 @@
 
 namespace Exiled.Events.EventArgs.Server
 {
-    using System;
     using System.Collections.Generic;
 
     using Exiled.API.Features;
     using Exiled.API.Features.Waves;
     using Exiled.Events.EventArgs.Interfaces;
     using PlayerRoles;
-    using PlayerRoles.Spectating;
     using Respawning;
-    using Respawning.Objectives;
     using Respawning.Waves;
 
     /// <summary>
@@ -41,22 +38,10 @@ namespace Exiled.Events.EventArgs.Server
         public RespawningTeamEventArgs(List<Player> players, int maxRespawn, SpawnableWaveBase wave)
         {
             Players = players;
-            if (Players.Remove(null))
-            {
-                string debug = string.Empty;
-                foreach (ReferenceHub hub in ReferenceHub.AllHubs)
-                {
-                    if (WaveSpawner.CanBeSpawned(hub) && hub.roleManager.CurrentRole is SpectatorRole spectatorRole)
-                        debug += $"({Player.Get(hub)}) {hub.GetNickname()} (ActiveTime: {spectatorRole.ActiveTime}) [{hub.authManager.InstanceMode}]\n";
-                }
-
-                Log.Error("(RespawningTeamEventArgs) preventing a null player to spawn:\n" + debug);
-            }
-
             MaximumRespawnAmount = maxRespawn;
-            SpawnQueue = new();
+            SpawnQueue = WaveSpawner.SpawnQueue;
             Wave = new TimedWave((TimeBasedWave)wave);
-            Wave.PopulateQueue(SpawnQueue, MaximumRespawnAmount);
+            IsAllowed = true;
         }
 
         /// <summary>
@@ -95,7 +80,7 @@ namespace Exiled.Events.EventArgs.Server
         /// <summary>
         /// Gets or sets a value indicating whether the spawn can occur.
         /// </summary>
-        public bool IsAllowed { get; set; } = true;
+        public bool IsAllowed { get; set; }
 
         /// <summary>
         /// Gets or sets the RoleTypeId spawn queue.
