@@ -7,12 +7,6 @@
 
 namespace Exiled.Events.EventArgs.Server
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     using Exiled.Events.EventArgs.Interfaces;
 
     /// <summary>
@@ -30,10 +24,9 @@ namespace Exiled.Events.EventArgs.Server
         public RoundStartingEventArgs(short timeLeft, short originalTimeLeft, int topPlayer, int playerCount)
         {
             TimeLeft = timeLeft;
-            OriginalTimeLeft = originalTimeLeft;
+            OriginalTimeLeft = originalTimeLeft == -1 ? 1 : originalTimeLeft;
             TopPlayer = topPlayer;
             PlayerCount = playerCount;
-            IsAllowed = TimeLeft == -1;
         }
 
         /// <summary>
@@ -56,7 +49,17 @@ namespace Exiled.Events.EventArgs.Server
         /// </summary>
         public int PlayerCount { get; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the Countdown will be run.
+        /// </summary>
+        public bool PreventCountdown { get; set; }
+
         /// <inheritdoc/>
-        public bool IsAllowed { get; set; }
+        public bool IsAllowed { get; set; } = true;
+
+        /// <summary>
+        /// Reset the CountDown from Event Value.
+        /// </summary>
+        public void ResetCountDown() => TimeLeft = OriginalTimeLeft;
     }
 }

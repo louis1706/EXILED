@@ -16,6 +16,7 @@ namespace Exiled.Events.Patches.Events.Server
     using Exiled.API.Features;
     using Exiled.API.Features.Pools;
     using Exiled.Events.EventArgs.Server;
+    using GameCore;
     using HarmonyLib;
 
     using static HarmonyLib.AccessTools;
@@ -52,12 +53,17 @@ namespace Exiled.Events.Patches.Events.Server
             const string TopPlayer = "<topPlayers>5__4";
 
             LocalBuilder ev = generator.DeclareLocal(typeof(RoundStartingEventArgs));
+            Label skipForIsAllowed = generator.DefineLabel();
+            Label skipForPreventingCountDown = generator.DefineLabel();
+            Label skipidk = generator.DefineLabel();
+
             int offset = -4;
             int index = newInstructions.FindLastIndex(x => x.Calls(Method(typeof(CharacterClassManager), nameof(CharacterClassManager.ForceRoundStart)))) + offset;
 
             List<Label> labels = newInstructions[index].ExtractLabels();
-            Label skip = (Label)newInstructions[index + 3].operand;
             newInstructions.RemoveRange(index, 4);
+
+            newInstructions[index].labels.Add(skipidk);
 
             newInstructions.InsertRange(index, new[]
             {
@@ -105,9 +111,29 @@ namespace Exiled.Events.Patches.Events.Server
                 // if (!ev.IsAllowed)
                 //   skip;
                 new(OpCodes.Ldloc_S, ev.LocalIndex),
+                new(OpCodes.Callvirt, PropertyGetter(typeof(RoundStartingEventArgs), nameof(RoundStartingEventArgs.PreventCountdown))),
+                new(OpCodes.Brtrue_S, skipForPreventingCountDown),
+
+                // if (!ev.IsAllowed)
+                //   skip;
+                new(OpCodes.Ldloc_S, ev.LocalIndex),
                 new(OpCodes.Callvirt, PropertyGetter(typeof(RoundStartingEventArgs), nameof(RoundStartingEventArgs.IsAllowed))),
-                new(OpCodes.Brfalse_S, skip),
+                new(OpCodes.Brtrue_S, skipidk),
+
+                // if (this.TimeLeft <= 0) goto skipForPreventingCountDown;
+                // else goto skipForIsAllowed;
+                new(OpCodes.Ldarg_0),
+                new(OpCodes.Ldfld, Field(PrivateType, TimeLeft)),
+                new(OpCodes.Ldc_I4_0),
+                new(OpCodes.Ble_Un_S, skipForPreventingCountDown),
+                new(OpCodes.Br, skipidk),
             });
+
+            newInstructions.FindLast(x => x.Calls(PropertySetter(typeof(RoundStart), nameof(RoundStart.NetworkTimer)))).labels.Add(skipForPreventingCountDown);
+
+            offset = 2;
+            index = newInstructions.FindLastIndex(x => x.LoadsConstant(-2)) + offset;
+            newInstructions[index].labels.Add(skipForIsAllowed);
 
             for (int z = 0; z < newInstructions.Count; z++)
                 yield return newInstructions[z];
