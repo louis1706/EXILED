@@ -887,8 +887,6 @@ namespace Exiled.API.Features
             {
                 if (value is WearableElementType.None)
                 {
-                    Log.Info("None");
-
                     WearableSyncMessage wearableSyncMessage = new(ReferenceHub);
                     WearableSync.UpdateDatabaseEntry(wearableSyncMessage);
                     NetworkServer.SendToAll(wearableSyncMessage, 0, false);
@@ -896,7 +894,6 @@ namespace Exiled.API.Features
                 }
 
                 WearableSync.PayloadWriter.Reset();
-                Log.Info("newWearables" + value);
 
                 if (value.HasFlag(WearableElementType.ArmorDefault))
                 {
@@ -911,7 +908,6 @@ namespace Exiled.API.Features
                         value &= ~WearableElementType.ArmorDefault;
 
                     value &= ~WearableElementType.ArmorLight | WearableElementType.ArmorCombat | WearableElementType.ArmorHeavy;
-                    Log.Info("DiplayedArmor" + displayedArmor);
                 }
 
                 WearableSyncMessage wearableSyncMessage2 = new(ReferenceHub, (WearableElements)value, WearableSync.PayloadWriter);
