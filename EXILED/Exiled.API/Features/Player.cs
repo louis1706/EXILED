@@ -2342,6 +2342,7 @@ namespace Exiled.API.Features
 
             return true;
         }
+
         /// <summary>
         /// Removes an <see cref="Item"/> from the player's inventory.
         /// </summary>
