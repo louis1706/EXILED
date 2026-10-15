@@ -1937,7 +1937,21 @@ namespace Exiled.API.Features
         /// This method can be further optimized by only using static RoleData instances in your Funcs.
         /// </para>
         /// </remarks>
-        public void SetAppearance(Func<Player, RoleData> generator) => FakeRoleGenerator.Add(generator);
+        public void SetAppearance(Func<Player, RoleData> generator)
+        {
+            FakeRoleGenerator.Add(generator);
+
+            foreach (Player viewer in Enumerable)
+            {
+                RoleData data = generator(viewer);
+
+                if (data.Role == RoleTypeId.None)
+                    continue;
+
+                if (viewer != this || data.DataAuthority.HasFlag(RoleData.Authority.AffectSelf))
+                    FakeRoles[viewer] = data;
+            }
+        }
 
         /// <summary>
         /// Fakes this players role to other viewers.
@@ -1946,7 +1960,7 @@ namespace Exiled.API.Features
         /// <param name="fakeRole">The fake role.</param>
         /// <param name="authority">How to handle edge cases.</param>
         /// <param name="unitId">The Unit ID of the player, if <paramref name="fakeRole"/> is an NTF role.</param>
-        public void SetAppearance(IEnumerable<Player> viewers, RoleTypeId fakeRole, RoleData.Authority authority = RoleData.Authority.None, byte unitId = 0)
+        public void SetAppearance(IEnumerable<Player> viewers, RoleTypeId fakeRole, RoleData.Authority authority = RoleData.Authority.None, byte? unitId = null)
         {
             foreach (Player player in viewers)
             {
@@ -1961,7 +1975,7 @@ namespace Exiled.API.Features
         /// <param name="fakeRole">The fake role.</param>
         /// <param name="authority">How to handle edge cases.</param>
         /// <param name="unitId">The Unit ID of the player, if <paramref name="fakeRole"/> is an NTF role.</param>
-        public void SetAppearance(Player player, RoleTypeId fakeRole, RoleData.Authority authority = RoleData.Authority.None, byte unitId = 0)
+        public void SetAppearance(Player player, RoleTypeId fakeRole, RoleData.Authority authority = RoleData.Authority.None, byte? unitId = null)
             => FakeRoles[player] = new RoleData(fakeRole, authority, unitId);
 
         /// <summary>
