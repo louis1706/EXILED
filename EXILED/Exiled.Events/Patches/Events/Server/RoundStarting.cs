@@ -22,6 +22,7 @@ namespace Exiled.Events.Patches.Events.Server
     /// <summary>
     /// Patches <see cref="CharacterClassManager.Init()" />.
     /// Adds the <see cref="Handlers.Server.RoundStarting" /> event.
+    /// Fixes the event for LabAPI too.
     /// </summary>
     [HarmonyPatch]
     internal class RoundStarting
