@@ -887,8 +887,6 @@ namespace Exiled.API.Features
             {
                 if (value is WearableElementType.None)
                 {
-                    Log.Info("None");
-
                     WearableSyncMessage wearableSyncMessage = new(ReferenceHub);
                     WearableSync.UpdateDatabaseEntry(wearableSyncMessage);
                     NetworkServer.SendToAll(wearableSyncMessage, 0, false);
@@ -896,7 +894,6 @@ namespace Exiled.API.Features
                 }
 
                 WearableSync.PayloadWriter.Reset();
-                Log.Info("newWearables" + value);
 
                 if (value.HasFlag(WearableElementType.ArmorDefault))
                 {
@@ -911,7 +908,6 @@ namespace Exiled.API.Features
                         value &= ~WearableElementType.ArmorDefault;
 
                     value &= ~WearableElementType.ArmorLight | WearableElementType.ArmorCombat | WearableElementType.ArmorHeavy;
-                    Log.Info("DiplayedArmor" + displayedArmor);
                 }
 
                 WearableSyncMessage wearableSyncMessage2 = new(ReferenceHub, (WearableElements)value, WearableSync.PayloadWriter);
@@ -1941,7 +1937,21 @@ namespace Exiled.API.Features
         /// This method can be further optimized by only using static RoleData instances in your Funcs.
         /// </para>
         /// </remarks>
-        public void SetAppearance(Func<Player, RoleData> generator) => FakeRoleGenerator.Add(generator);
+        public void SetAppearance(Func<Player, RoleData> generator)
+        {
+            FakeRoleGenerator.Add(generator);
+
+            foreach (Player viewer in Enumerable)
+            {
+                RoleData data = generator(viewer);
+
+                if (data.Role == RoleTypeId.None)
+                    continue;
+
+                if (viewer != this || data.DataAuthority.HasFlag(RoleData.Authority.AffectSelf))
+                    FakeRoles[viewer] = data;
+            }
+        }
 
         /// <summary>
         /// Fakes this players role to other viewers.
@@ -1950,7 +1960,7 @@ namespace Exiled.API.Features
         /// <param name="fakeRole">The fake role.</param>
         /// <param name="authority">How to handle edge cases.</param>
         /// <param name="unitId">The Unit ID of the player, if <paramref name="fakeRole"/> is an NTF role.</param>
-        public void SetAppearance(IEnumerable<Player> viewers, RoleTypeId fakeRole, RoleData.Authority authority = RoleData.Authority.None, byte unitId = 0)
+        public void SetAppearance(IEnumerable<Player> viewers, RoleTypeId fakeRole, RoleData.Authority authority = RoleData.Authority.None, byte? unitId = null)
         {
             foreach (Player player in viewers)
             {
@@ -1965,7 +1975,7 @@ namespace Exiled.API.Features
         /// <param name="fakeRole">The fake role.</param>
         /// <param name="authority">How to handle edge cases.</param>
         /// <param name="unitId">The Unit ID of the player, if <paramref name="fakeRole"/> is an NTF role.</param>
-        public void SetAppearance(Player player, RoleTypeId fakeRole, RoleData.Authority authority = RoleData.Authority.None, byte unitId = 0)
+        public void SetAppearance(Player player, RoleTypeId fakeRole, RoleData.Authority authority = RoleData.Authority.None, byte? unitId = null)
             => FakeRoles[player] = new RoleData(fakeRole, authority, unitId);
 
         /// <summary>
@@ -2160,6 +2170,50 @@ namespace Exiled.API.Features
         public Pickup DropItem(Item item) => item is not null ? Pickup.Get(Inventory.ServerDropItem(item.Serial)) : null;
 
         /// <summary>
+        /// Drops an <see cref="Item"/> from the player's inventory by its <see cref="ItemType"/>.
+        /// </summary>
+        /// <param name="item">The specified <see cref="ItemType"/> to be dropped.</param>
+        /// <param name="isThrown">Whether the item should be thrown.</param>
+        /// <param name="amount">The number of matching items to remove.</param>
+        /// <returns>A value indicating whether the <see cref="Item"/> was dropped.</returns>
+        public bool DropItem(ItemType item, bool isThrown = false, int amount = 1)
+        {
+            if (amount <= 0)
+                return false;
+
+            List<Item> itemsToDrop = Items.Where(i => i?.Type == item).Take(amount).ToList();
+
+            if (itemsToDrop.Count == 0)
+                return false;
+
+            foreach (Item i in itemsToDrop)
+                DropItem(i, isThrown);
+
+            return itemsToDrop.Count > 0;
+        }
+
+        /// <summary>
+        /// Drops an item from the player's inventory.
+        /// </summary>
+        /// <param name="item">The specified <see cref="ItemType"/> to be dropped.</param>
+        /// <param name="amount">The number of matching items to remove.</param>
+        /// <returns>A list of dropped <see cref="Pickup"/>s.</returns>
+        public List<Pickup> DropItem(ItemType item, int amount = 1)
+        {
+            List<Pickup> pickups = new();
+
+            if (amount <= 0)
+                return pickups;
+
+            List<Item> itemsToDrop = Items.Where(i => i?.Type == item).Take(amount).ToList();
+
+            foreach (Item i in itemsToDrop)
+                pickups.Add(DropItem(i));
+
+            return pickups;
+        }
+
+        /// <summary>
         /// Drops the held item. Will not do anything if the player is not holding an item.
         /// </summary>
         /// <param name="isThrown">Is the item Thrown?.</param>
@@ -2262,6 +2316,29 @@ namespace Exiled.API.Features
 
                 Inventory.SendItemsNextFrame = true;
             }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Removes an <see cref="Item"/> from the player's inventory by its <see cref="ItemType"/>.
+        /// </summary>
+        /// <param name="item">The specified <see cref="ItemType"/> to be removed.</param>
+        /// <param name="destroy">Whether to destroy the item.</param>
+        /// <param name="amount">The number of matching items to remove.</param>
+        /// <returns>A value indicating whether the <see cref="Item"/> was removed.</returns>
+        public bool RemoveItem(ItemType item, bool destroy = true, int amount = 1)
+        {
+            if (amount <= 0)
+                return false;
+
+            List<Item> itemsToRemove = Items.Where(i => i?.Type == item).Take(amount).ToList();
+
+            if (itemsToRemove.Count == 0)
+                return false;
+
+            foreach (Item i in itemsToRemove)
+                RemoveItem(i, destroy);
 
             return true;
         }
